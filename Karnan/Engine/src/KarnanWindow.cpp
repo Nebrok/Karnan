@@ -31,3 +31,11 @@ KarnanWindow::~KarnanWindow()
 	glfwDestroyWindow(_window);
 	glfwTerminate();
 }
+
+void KarnanWindow::CreateWindowSurface(VkInstance instance, VkSurfaceKHR* surface)
+{
+	if (glfwCreateWindowSurface(instance, _window, nullptr, surface) != VK_SUCCESS)
+	{
+		throw std::runtime_error("Failed to create Surface");
+	}
+}

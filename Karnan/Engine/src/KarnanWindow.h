@@ -1,5 +1,8 @@
 #pragma once
+#define GLFW_INCLUDE_VULKAN
 #include "GLFW/glfw3.h"
+#include "vulkan/vulkan.h"
+
 
 
 class KarnanWindow
@@ -16,6 +19,7 @@ public:
 
 	GLFWwindow* GetWindowReference() { return _window; };
 
+	void CreateWindowSurface(VkInstance instance, VkSurfaceKHR* surface);
 
 private:
 
