@@ -2,6 +2,7 @@
 
 //std libs
 #include <iostream>
+#include <array>
 
 KarnanSwapChain::KarnanSwapChain(KarnanDevice& deviceRef, VkExtent2D windowExtent)
     : _karnanDevice(deviceRef), _windowExtent(windowExtent)
@@ -20,11 +21,101 @@ KarnanSwapChain::KarnanSwapChain(KarnanDevice& deviceRef, VkExtent2D windowExten
 
 KarnanSwapChain::~KarnanSwapChain()
 {
+    for (auto imageView : _swapChainImageViews) {
+        vkDestroyImageView(_karnanDevice.Device(), imageView, nullptr);
+    }
+    _swapChainImageViews.clear();
+
+    if (_swapChain != nullptr) {
+        vkDestroySwapchainKHR(_karnanDevice.Device(), _swapChain, nullptr);
+        _swapChain = nullptr;
+    }
+
+    for (auto framebuffer : _swapChainFramebuffers) {
+        vkDestroyFramebuffer(_karnanDevice.Device(), framebuffer, nullptr);
+    }
+
+    vkDestroyRenderPass(_karnanDevice.Device(), _renderPass, nullptr);
+
+    // cleanup synchronization objects
+    for (size_t i = 0; i < MAX_FRAMES_IN_FLIGHT; i++) {
+        vkDestroySemaphore(_karnanDevice.Device(), _renderFinishedSemaphores[i], nullptr);
+        vkDestroySemaphore(_karnanDevice.Device(), _imageAvailableSemaphores[i], nullptr);
+        vkDestroyFence(_karnanDevice.Device(), _inFlightFences[i], nullptr);
+    }
+}
+
+VkResult KarnanSwapChain::AcquireNextImage(uint32_t* imageIndex)
+{
+    vkWaitForFences(_karnanDevice.Device(), 1, &_inFlightFences[currentFrame], VK_TRUE, std::numeric_limits<uint64_t>::max());
+
+    VkResult result = vkAcquireNextImageKHR(
+        _karnanDevice.Device(), 
+        _swapChain, 
+        std::numeric_limits<uint64_t>::max(), 
+        _imageAvailableSemaphores[currentFrame], // must be a not signaled semaphore
+        VK_NULL_HANDLE,
+        imageIndex);
+
+    return result;
+}
+
+VkResult KarnanSwapChain::SubmitCommandBuffers(const VkCommandBuffer* buffers, uint32_t* imageIndex)
+{
+    if (_imagesInFlight[*imageIndex] != VK_NULL_HANDLE) 
+    {
+        vkWaitForFences(_karnanDevice.Device(), 1, &_imagesInFlight[*imageIndex], VK_TRUE, UINT64_MAX);
+    }
+    _imagesInFlight[*imageIndex] = _inFlightFences[currentFrame];
+
+    VkSubmitInfo submitInfo = {};
+    submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
+
+    VkSemaphore waitSemaphores[] = { _imageAvailableSemaphores[currentFrame] };
+    VkPipelineStageFlags waitStages[] = { VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT };
+    submitInfo.waitSemaphoreCount = 1;
+    submitInfo.pWaitSemaphores = waitSemaphores;
+    submitInfo.pWaitDstStageMask = waitStages;
+
+    submitInfo.commandBufferCount = 1;
+    submitInfo.pCommandBuffers = buffers;
+
+    VkSemaphore signalSemaphores[] = { _renderFinishedSemaphores[currentFrame] };
+    submitInfo.signalSemaphoreCount = 1;
+    submitInfo.pSignalSemaphores = signalSemaphores;
+
+    vkResetFences(_karnanDevice.Device(), 1, &_inFlightFences[currentFrame]);
+    if (vkQueueSubmit(_karnanDevice.GraphicsQueue(), 1, &submitInfo, _inFlightFences[currentFrame]) != VK_SUCCESS)
+    {
+        throw std::runtime_error("failed to submit draw command buffer!");
+    }
+
+    VkPresentInfoKHR presentInfo = {};
+    presentInfo.sType = VK_STRUCTURE_TYPE_PRESENT_INFO_KHR;
+
+    presentInfo.waitSemaphoreCount = 1;
+    presentInfo.pWaitSemaphores = signalSemaphores;
+
+    VkSwapchainKHR swapChains[] = { _swapChain };
+    presentInfo.swapchainCount = 1;
+    presentInfo.pSwapchains = swapChains;
+
+    presentInfo.pImageIndices = imageIndex;
+
+    auto result = vkQueuePresentKHR(_karnanDevice.PresentQueue(), &presentInfo);
+
+    currentFrame = (currentFrame + 1) % MAX_FRAMES_IN_FLIGHT;
+
+    return result;
 }
 
 void KarnanSwapChain::Init()
 {
     CreateSwapChain();
+    CreateImageViews();
+    CreateRenderPass();
+    CreateFrameBuffers();
+    CreateSyncObjects();
 }
 
 void KarnanSwapChain::CreateSwapChain()
@@ -111,6 +202,99 @@ void KarnanSwapChain::CreateImageViews()
 
     }
 
+}
+
+void KarnanSwapChain::CreateRenderPass()
+{
+    VkAttachmentDescription colorAttachment = {};
+    colorAttachment.format = GetSwapChainImageFormat();
+    colorAttachment.samples = VK_SAMPLE_COUNT_1_BIT;
+    colorAttachment.loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR;
+    colorAttachment.storeOp = VK_ATTACHMENT_STORE_OP_STORE;
+    colorAttachment.stencilStoreOp = VK_ATTACHMENT_STORE_OP_DONT_CARE;
+    colorAttachment.stencilLoadOp = VK_ATTACHMENT_LOAD_OP_DONT_CARE;
+    colorAttachment.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
+    colorAttachment.finalLayout = VK_IMAGE_LAYOUT_PRESENT_SRC_KHR;
+
+    VkAttachmentReference colorAttachmentRef = {};
+    colorAttachmentRef.attachment = 0;
+    colorAttachmentRef.layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
+
+    VkSubpassDescription subpass = {};
+    subpass.pipelineBindPoint = VK_PIPELINE_BIND_POINT_GRAPHICS;
+    subpass.colorAttachmentCount = 1;
+    subpass.pColorAttachments = &colorAttachmentRef;
+
+    VkSubpassDependency dependency = {};
+    dependency.srcSubpass = VK_SUBPASS_EXTERNAL;
+    dependency.srcAccessMask = 0;
+    dependency.srcStageMask =
+        VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT | VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT;
+    dependency.dstSubpass = 0;
+    dependency.dstStageMask =
+        VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT | VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT;
+    dependency.dstAccessMask =
+        VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT;
+
+    std::array<VkAttachmentDescription, 1> attachments = { colorAttachment };
+    VkRenderPassCreateInfo renderPassInfo = {};
+    renderPassInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO;
+    renderPassInfo.attachmentCount = static_cast<uint32_t>(attachments.size());
+    renderPassInfo.pAttachments = attachments.data();
+    renderPassInfo.subpassCount = 1;
+    renderPassInfo.pSubpasses = &subpass;
+    renderPassInfo.dependencyCount = 1;
+    renderPassInfo.pDependencies = &dependency;
+
+    if (vkCreateRenderPass(_karnanDevice.Device(), &renderPassInfo, nullptr, &_renderPass) != VK_SUCCESS) {
+        throw std::runtime_error("failed to create render pass!");
+    }
+}
+
+void KarnanSwapChain::CreateFrameBuffers()
+{
+    _swapChainFramebuffers.resize(ImageCount());
+    for (size_t i = 0; i < ImageCount(); i++) {
+        std::array<VkImageView, 1> attachments = { _swapChainImageViews[i] };
+
+        VkExtent2D swapChainExtent = GetSwapChainExtent();
+        VkFramebufferCreateInfo framebufferInfo = {};
+        framebufferInfo.sType = VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO;
+        framebufferInfo.renderPass = _renderPass;
+        framebufferInfo.attachmentCount = static_cast<uint32_t>(attachments.size());
+        framebufferInfo.pAttachments = attachments.data();
+        framebufferInfo.width = swapChainExtent.width;
+        framebufferInfo.height = swapChainExtent.height;
+        framebufferInfo.layers = 1;
+
+        if (vkCreateFramebuffer(_karnanDevice.Device(), &framebufferInfo, nullptr, &_swapChainFramebuffers[i]) != VK_SUCCESS) {
+            throw std::runtime_error("failed to create framebuffer!");
+        }
+    }
+}
+
+void KarnanSwapChain::CreateSyncObjects()
+{
+    _renderFinishedSemaphores.resize(MAX_FRAMES_IN_FLIGHT);
+    _imageAvailableSemaphores.resize(MAX_FRAMES_IN_FLIGHT);
+    _inFlightFences.resize(MAX_FRAMES_IN_FLIGHT);
+    _imagesInFlight.resize(ImageCount(), VK_NULL_HANDLE);
+
+    VkSemaphoreCreateInfo semaphoreInfo = {};
+    semaphoreInfo.sType = VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO;
+
+    VkFenceCreateInfo fenceInfo = {};
+    fenceInfo.sType = VK_STRUCTURE_TYPE_FENCE_CREATE_INFO;
+    fenceInfo.flags = VK_FENCE_CREATE_SIGNALED_BIT;
+
+    for (size_t i = 0; i < MAX_FRAMES_IN_FLIGHT; i++) {
+        if (vkCreateSemaphore(_karnanDevice.Device(), &semaphoreInfo, nullptr, &_imageAvailableSemaphores[i]) != VK_SUCCESS ||
+            vkCreateSemaphore(_karnanDevice.Device(), &semaphoreInfo, nullptr, &_renderFinishedSemaphores[i]) != VK_SUCCESS ||
+            vkCreateFence(_karnanDevice.Device(), &fenceInfo, nullptr, &_inFlightFences[i]) != VK_SUCCESS) 
+        {
+            throw std::runtime_error("failed to create synchronization objects for a frame!");
+        }
+    }
 }
 
 VkSurfaceFormatKHR KarnanSwapChain::ChooseSwapSurfaceFormat(const std::vector<VkSurfaceFormatKHR>& availableFormats)

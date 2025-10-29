@@ -49,6 +49,8 @@ private:
 
 	VkSurfaceKHR _surface;
 
+	VkCommandPool _commandPool;
+
 
 	const std::vector<char const*> _validationLayers = { "VK_LAYER_KHRONOS_validation" };
 	const std::vector<const char*> _deviceExtensions = { VK_KHR_SWAPCHAIN_EXTENSION_NAME };
@@ -57,13 +59,29 @@ public:
 	KarnanDevice(KarnanWindow& window);
 	~KarnanDevice();
 
+
+	// Not copyable or movable
+	KarnanDevice(const KarnanDevice&) = delete;
+	void operator=(const KarnanDevice&) = delete;
+	KarnanDevice(KarnanDevice&&) = delete;
+	KarnanDevice& operator=(KarnanDevice&&) = delete;
+
+	VkCommandPool GetCommandPool() { return _commandPool; }
 	VkDevice Device() { return _device; }
 	VkSurfaceKHR Surface() { return _surface; }
 	QueueFamilyIndices FindPhysicalQueueFamilies() { return FindQueueFamilies(_physicalDevice); }
+	VkQueue GraphicsQueue() { return _graphicsQueue; }
+	VkQueue PresentQueue() { return _presentQueue; }
 
 
 	SwapChainSupportDetails GetSwapChainSupport() { return QuerySwapChainSupport(_physicalDevice); }
 
+	uint32_t FindMemoryType(uint32_t typeFilter, VkMemoryPropertyFlags properties);
+	VkCommandBuffer BeginSingleTimeCommands();
+	void EndSingleTimeCommands(VkCommandBuffer commandBuffer);
+
+	void CreateBuffer(VkDeviceSize size, VkBufferUsageFlags usage,VkMemoryPropertyFlags properties,	VkBuffer& buffer,VkDeviceMemory& bufferMemory);
+	void CopyBuffer(VkBuffer srcBuffer, VkBuffer dstBuffer, VkDeviceSize size);
 
 private:
 	void CreateInstance();
@@ -85,6 +103,8 @@ private:
 	SwapChainSupportDetails QuerySwapChainSupport(VkPhysicalDevice device);
 
 	void CreateSurface();
+
+	void CreateCommandPool();
 
 
 };

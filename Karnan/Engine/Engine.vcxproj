@@ -143,13 +143,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\BasicMesh.cpp" />
     <ClCompile Include="src\KarnanDevice.cpp" />
+    <ClCompile Include="src\KarnanPipeline.cpp" />
+    <ClCompile Include="src\KarnanRenderer.cpp" />
+    <ClCompile Include="src\KarnanSwapChain.cpp" />
     <ClCompile Include="src\KarnanWindow.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\SimpleRenderSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\BasicMesh.h" />
     <ClInclude Include="src\KarnanDevice.h" />
+    <ClInclude Include="src\KarnanPipeline.h" />
+    <ClInclude Include="src\KarnanRenderer.h" />
+    <ClInclude Include="src\KarnanSwapChain.h" />
     <ClInclude Include="src\KarnanWindow.h" />
+    <ClInclude Include="src\SimpleRenderSystem.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\compile.bat" />
+    <None Include="shaders\simpleShader.frag" />
+    <None Include="shaders\simpleShader.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
