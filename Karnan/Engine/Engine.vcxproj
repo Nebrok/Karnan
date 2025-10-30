@@ -151,6 +151,7 @@
     <ClCompile Include="src\KarnanWindow.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\SimpleRenderSystem.cpp" />
+    <ClCompile Include="src\VertexBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BasicMesh.h" />
@@ -160,6 +161,7 @@
     <ClInclude Include="src\KarnanSwapChain.h" />
     <ClInclude Include="src\KarnanWindow.h" />
     <ClInclude Include="src\SimpleRenderSystem.h" />
+    <ClInclude Include="src\VertexBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\compile.bat" />

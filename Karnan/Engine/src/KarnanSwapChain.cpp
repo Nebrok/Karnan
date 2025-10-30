@@ -31,6 +31,12 @@ KarnanSwapChain::~KarnanSwapChain()
         _swapChain = nullptr;
     }
 
+    for (int i = 0; i < _depthImages.size(); i++) {
+        vkDestroyImageView(_karnanDevice.Device(), _depthImageViews[i], nullptr);
+        vkDestroyImage(_karnanDevice.Device(), _depthImages[i], nullptr);
+        vkFreeMemory(_karnanDevice.Device(), _depthImageMemorys[i], nullptr);
+    }
+
     for (auto framebuffer : _swapChainFramebuffers) {
         vkDestroyFramebuffer(_karnanDevice.Device(), framebuffer, nullptr);
     }
@@ -43,6 +49,14 @@ KarnanSwapChain::~KarnanSwapChain()
         vkDestroySemaphore(_karnanDevice.Device(), _imageAvailableSemaphores[i], nullptr);
         vkDestroyFence(_karnanDevice.Device(), _inFlightFences[i], nullptr);
     }
+}
+
+VkFormat KarnanSwapChain::FindDepthFormat()
+{
+    return _karnanDevice.FindSupportedFormat(
+        { VK_FORMAT_D32_SFLOAT, VK_FORMAT_D32_SFLOAT_S8_UINT, VK_FORMAT_D24_UNORM_S8_UINT },
+        VK_IMAGE_TILING_OPTIMAL,
+        VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT);
 }
 
 VkResult KarnanSwapChain::AcquireNextImage(uint32_t* imageIndex)
@@ -114,6 +128,7 @@ void KarnanSwapChain::Init()
     CreateSwapChain();
     CreateImageViews();
     CreateRenderPass();
+    CreateDepthResources();
     CreateFrameBuffers();
     CreateSyncObjects();
 }
@@ -204,8 +219,68 @@ void KarnanSwapChain::CreateImageViews()
 
 }
 
+void KarnanSwapChain::CreateDepthResources()
+{
+    VkFormat depthFormat = FindDepthFormat();
+    _swapChainDepthFormat = depthFormat;
+    VkExtent2D swapChainExtent = GetSwapChainExtent();
+
+    _depthImages.resize(ImageCount());
+    _depthImageMemorys.resize(ImageCount());
+    _depthImageViews.resize(ImageCount());
+
+    for (int i = 0; i < _depthImages.size(); i++) {
+        VkImageCreateInfo imageInfo{};
+        imageInfo.sType = VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO;
+        imageInfo.imageType = VK_IMAGE_TYPE_2D;
+        imageInfo.extent.width = swapChainExtent.width;
+        imageInfo.extent.height = swapChainExtent.height;
+        imageInfo.extent.depth = 1;
+        imageInfo.mipLevels = 1;
+        imageInfo.arrayLayers = 1;
+        imageInfo.format = depthFormat;
+        imageInfo.tiling = VK_IMAGE_TILING_OPTIMAL;
+        imageInfo.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
+        imageInfo.usage = VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT;
+        imageInfo.samples = VK_SAMPLE_COUNT_1_BIT;
+        imageInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
+        imageInfo.flags = 0;
+
+        _karnanDevice.CreateImageWithInfo(imageInfo, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT,_depthImages[i],_depthImageMemorys[i]);
+
+        VkImageViewCreateInfo viewInfo{};
+        viewInfo.sType = VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO;
+        viewInfo.image = _depthImages[i];
+        viewInfo.viewType = VK_IMAGE_VIEW_TYPE_2D;
+        viewInfo.format = depthFormat;
+        viewInfo.subresourceRange.aspectMask = VK_IMAGE_ASPECT_DEPTH_BIT;
+        viewInfo.subresourceRange.baseMipLevel = 0;
+        viewInfo.subresourceRange.levelCount = 1;
+        viewInfo.subresourceRange.baseArrayLayer = 0;
+        viewInfo.subresourceRange.layerCount = 1;
+
+        if (vkCreateImageView(_karnanDevice.Device(), &viewInfo, nullptr, &_depthImageViews[i]) != VK_SUCCESS) {
+            throw std::runtime_error("failed to create texture image view!");
+        }
+    }
+}
+
 void KarnanSwapChain::CreateRenderPass()
 {
+    VkAttachmentDescription depthAttachment{};
+    depthAttachment.format = FindDepthFormat();
+    depthAttachment.samples = VK_SAMPLE_COUNT_1_BIT;
+    depthAttachment.loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR;
+    depthAttachment.storeOp = VK_ATTACHMENT_STORE_OP_DONT_CARE;
+    depthAttachment.stencilLoadOp = VK_ATTACHMENT_LOAD_OP_DONT_CARE;
+    depthAttachment.stencilStoreOp = VK_ATTACHMENT_STORE_OP_DONT_CARE;
+    depthAttachment.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
+    depthAttachment.finalLayout = VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL;
+
+    VkAttachmentReference depthAttachmentRef{};
+    depthAttachmentRef.attachment = 1;
+    depthAttachmentRef.layout = VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL;
+
     VkAttachmentDescription colorAttachment = {};
     colorAttachment.format = GetSwapChainImageFormat();
     colorAttachment.samples = VK_SAMPLE_COUNT_1_BIT;
@@ -224,6 +299,7 @@ void KarnanSwapChain::CreateRenderPass()
     subpass.pipelineBindPoint = VK_PIPELINE_BIND_POINT_GRAPHICS;
     subpass.colorAttachmentCount = 1;
     subpass.pColorAttachments = &colorAttachmentRef;
+    subpass.pDepthStencilAttachment = &depthAttachmentRef;
 
     VkSubpassDependency dependency = {};
     dependency.srcSubpass = VK_SUBPASS_EXTERNAL;
@@ -236,7 +312,7 @@ void KarnanSwapChain::CreateRenderPass()
     dependency.dstAccessMask =
         VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT;
 
-    std::array<VkAttachmentDescription, 1> attachments = { colorAttachment };
+    std::array<VkAttachmentDescription, 2> attachments = { colorAttachment, depthAttachment };
     VkRenderPassCreateInfo renderPassInfo = {};
     renderPassInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO;
     renderPassInfo.attachmentCount = static_cast<uint32_t>(attachments.size());
@@ -255,7 +331,7 @@ void KarnanSwapChain::CreateFrameBuffers()
 {
     _swapChainFramebuffers.resize(ImageCount());
     for (size_t i = 0; i < ImageCount(); i++) {
-        std::array<VkImageView, 1> attachments = { _swapChainImageViews[i] };
+        std::array<VkImageView, 2> attachments = { _swapChainImageViews[i], _depthImageViews[i]};
 
         VkExtent2D swapChainExtent = GetSwapChainExtent();
         VkFramebufferCreateInfo framebufferInfo = {};

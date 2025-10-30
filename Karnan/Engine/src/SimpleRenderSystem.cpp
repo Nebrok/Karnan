@@ -36,7 +36,7 @@ void SimpleRenderSystem::RenderObjects(VkCommandBuffer commandBuffer, BasicMesh&
 	SimplePushConstantData push{};
 	
 
-	vkCmdPushConstants(commandBuffer,_pipelineLayout,VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT,	0,sizeof(SimplePushConstantData),&push);
+	//vkCmdPushConstants(commandBuffer,_pipelineLayout,VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT,	0,sizeof(SimplePushConstantData),&push);
 
 	mesh.Bind(commandBuffer);
 	mesh.Draw(commandBuffer);
@@ -53,8 +53,8 @@ void SimpleRenderSystem::CreatePipelineLayout()
 	pipelineLayoutInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;
 	pipelineLayoutInfo.setLayoutCount = 0;
 	pipelineLayoutInfo.pSetLayouts = nullptr;
-	pipelineLayoutInfo.pushConstantRangeCount = 1;
-	pipelineLayoutInfo.pPushConstantRanges = &pushConstantRange;
+	pipelineLayoutInfo.pushConstantRangeCount = 0;
+	pipelineLayoutInfo.pPushConstantRanges = nullptr;
 	if (vkCreatePipelineLayout(_karnanDevice.Device(), &pipelineLayoutInfo, nullptr, &_pipelineLayout) != VK_SUCCESS)
 	{
 		throw std::runtime_error("Failed to create pipeline layout!");

@@ -17,9 +17,14 @@ private:
 	std::shared_ptr<KarnanSwapChain> _oldKarnanSwapChain;
 
 	VkFormat _swapChainImageFormat;
+	VkFormat _swapChainDepthFormat;
 	VkExtent2D _swapChainExtent;
 
 	VkSwapchainKHR _swapChain;
+	
+	std::vector<VkImage> _depthImages;
+	std::vector<VkDeviceMemory> _depthImageMemorys;
+	std::vector<VkImageView> _depthImageViews;
 	std::vector<VkImage> _swapChainImages;
 	std::vector<VkImageView> _swapChainImageViews;
 
@@ -47,13 +52,16 @@ public:
 	VkFramebuffer GetFrameBuffer(int index) { return _swapChainFramebuffers[index]; }
 	VkRenderPass GetRenderPass() { return _renderPass; }
 
+	VkFormat FindDepthFormat();
+
+
 	float ExtentAspectRatio() {
 		return static_cast<float>(_swapChainExtent.width) / static_cast<float>(_swapChainExtent.height);
 	}
 
 	bool CompareSwapFormats(const KarnanSwapChain& swapChain) const
 	{
-		return swapChain._swapChainImageFormat == _swapChainImageFormat;
+		return swapChain._swapChainDepthFormat == _swapChainDepthFormat && swapChain._swapChainImageFormat == _swapChainImageFormat;
 	}
 
 	VkResult AcquireNextImage(uint32_t* imageIndex);
@@ -64,6 +72,7 @@ private:
 
 	void CreateSwapChain();
 	void CreateImageViews();
+	void CreateDepthResources();
 	void CreateRenderPass();
 	void CreateFrameBuffers();
 	void CreateSyncObjects();

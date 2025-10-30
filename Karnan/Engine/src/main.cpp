@@ -32,7 +32,9 @@ int main(int argc, char** argv)
 		{
 			simpleRenderSystem.BindPipeline(commandBuffer);
 			karnanRenderer.BeginSwapChainRenderPass(commandBuffer);
+
 			simpleRenderSystem.RenderObjects(commandBuffer, triangle);
+
 			karnanRenderer.EndSwapChainRenderPass(commandBuffer);
 			karnanRenderer.EndFrame();
 		}
@@ -41,5 +43,6 @@ int main(int argc, char** argv)
 		glfwPollEvents();
 	}
 
+	vkDeviceWaitIdle(karnanDevice.Device());
 	return 0;
 }

@@ -6,33 +6,17 @@
 #include <glm/glm.hpp>
 
 #include "KarnanDevice.h"
+#include "VertexBuffer.h"
 
 
 class BasicMesh
 {
 public:
-	struct Vertex 
-	{
-		glm::vec2 position{};
-		glm::vec3 normal{};
-
-		static std::vector<VkVertexInputBindingDescription> GetBindingDescriptions();
-		static std::vector<VkVertexInputAttributeDescription> GetAttributeDescriptions();
-
-		bool operator==(const Vertex& other) const
-		{
-			return position == other.position && normal == other.normal;
-		}
-	};
-
 
 private:
 	KarnanDevice& _karnanDevice;
 
-	VkBuffer _vertexBuffer;
-	VkDeviceMemory _vertexBufferMemory;
-	uint32_t _vertexCount;
-
+	VertexBuffer _vertexBuffer;
 
 	bool _hasIndexBuffer = false;
 	VkBuffer _indexBuffer;
@@ -48,7 +32,6 @@ public:
 	void Draw(VkCommandBuffer commandBuffer);
 
 private:
-	void CreateVertexBuffers(const std::vector<Vertex>& vertices);
 	void CreateIndexBuffers(const std::vector<uint32_t>& indices);
 
 

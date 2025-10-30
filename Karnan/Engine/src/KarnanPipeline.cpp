@@ -157,8 +157,8 @@ void KarnanPipeline::CreateGraphicsPipeline(const PipelineConfigInfo& configInfo
 	shaderStages[1].pNext = nullptr;
 	shaderStages[1].pSpecializationInfo = nullptr;
 
-	auto bindingDescriptions = BasicMesh::Vertex::GetBindingDescriptions();
-	auto attributeDescriptions = BasicMesh::Vertex::GetAttributeDescriptions();
+	auto bindingDescriptions = VertexBuffer::Vertex::GetBindingDescriptions();
+	auto attributeDescriptions = VertexBuffer::Vertex::GetAttributeDescriptions();
 
 	VkPipelineVertexInputStateCreateInfo vertexInputInfo{};
 	vertexInputInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO;

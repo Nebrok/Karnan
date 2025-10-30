@@ -72,6 +72,7 @@ public:
 	QueueFamilyIndices FindPhysicalQueueFamilies() { return FindQueueFamilies(_physicalDevice); }
 	VkQueue GraphicsQueue() { return _graphicsQueue; }
 	VkQueue PresentQueue() { return _presentQueue; }
+	VkFormat FindSupportedFormat(const std::vector<VkFormat>& candidates, VkImageTiling tiling, VkFormatFeatureFlags features);
 
 
 	SwapChainSupportDetails GetSwapChainSupport() { return QuerySwapChainSupport(_physicalDevice); }
@@ -82,6 +83,8 @@ public:
 
 	void CreateBuffer(VkDeviceSize size, VkBufferUsageFlags usage,VkMemoryPropertyFlags properties,	VkBuffer& buffer,VkDeviceMemory& bufferMemory);
 	void CopyBuffer(VkBuffer srcBuffer, VkBuffer dstBuffer, VkDeviceSize size);
+
+	void CreateImageWithInfo(const VkImageCreateInfo& imageInfo, VkMemoryPropertyFlags properties,VkImage& image,VkDeviceMemory& imageMemory);
 
 private:
 	void CreateInstance();
