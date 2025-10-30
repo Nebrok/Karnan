@@ -9,8 +9,8 @@
 #include "SimpleRenderSystem.h"
 #include "BasicMesh.h"
 
-const int WIDTH = 640;
-const int HEIGHT = 480;
+const int WIDTH = 1280;
+const int HEIGHT = 960;
 
 
 int main(int argc, char** argv)

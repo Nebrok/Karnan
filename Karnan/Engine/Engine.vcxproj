@@ -144,9 +144,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\BasicMesh.cpp" />
+    <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\KarnanDevice.cpp" />
     <ClCompile Include="src\KarnanPipeline.cpp" />
     <ClCompile Include="src\KarnanRenderer.cpp" />
+    <ClCompile Include="src\KarnanScene.cpp" />
     <ClCompile Include="src\KarnanSwapChain.cpp" />
     <ClCompile Include="src\KarnanWindow.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -155,9 +157,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BasicMesh.h" />
+    <ClInclude Include="src\GameObject.h" />
     <ClInclude Include="src\KarnanDevice.h" />
     <ClInclude Include="src\KarnanPipeline.h" />
     <ClInclude Include="src\KarnanRenderer.h" />
+    <ClInclude Include="src\KarnanScene.h" />
     <ClInclude Include="src\KarnanSwapChain.h" />
     <ClInclude Include="src\KarnanWindow.h" />
     <ClInclude Include="src\SimpleRenderSystem.h" />
