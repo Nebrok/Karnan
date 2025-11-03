@@ -1,10 +1,12 @@
 #include "EngineCore.h"
 
+EngineCore* EngineCore::Instance = nullptr;
+
 EngineCore::EngineCore()
 {
 	_windowRef = _karnanWindow.GetWindowReference();
 
-	std::unique_ptr<SimpleRenderSystem> tempRenderer(new SimpleRenderSystem(_karnanDevice, _karnanRenderer.GetSwapChainRenderPass()));
+	std::unique_ptr<SimpleRenderSystem> tempRenderer(DBG_NEW SimpleRenderSystem(_karnanDevice, _karnanRenderer.GetSwapChainRenderPass()));
 	_renderSystem = move(tempRenderer);
 
 
@@ -12,12 +14,25 @@ EngineCore::EngineCore()
 
 EngineCore::~EngineCore()
 {
+}
 
+EngineCore* EngineCore::StartupEngine()
+{
+	if (EngineCore::Instance == nullptr)
+	{
+		Instance = DBG_NEW EngineCore();
+	}
+	return Instance;
+}
+
+void EngineCore::DestroyEngine()
+{
+	delete(EngineCore::Instance);
 }
 
 void EngineCore::Init()
 {
-	std::unique_ptr<KarnanScene> newScene(new KarnanScene(*_renderSystem));
+	std::unique_ptr<KarnanScene> newScene(DBG_NEW KarnanScene(*_renderSystem));
 	_scene = move(newScene);
 
 	_scene->LoadScene();
@@ -29,12 +44,14 @@ void EngineCore::Run()
 	while (!glfwWindowShouldClose(_windowRef))
 	{
 
+			
+		_scene->UpdateScene(0.016f);
+
 		if (auto commandBuffer = _karnanRenderer.BeginFrame())
 		{
 			_renderSystem->BindPipeline(commandBuffer);
 			_karnanRenderer.BeginSwapChainRenderPass(commandBuffer);
 
-			_scene->UpdateScene(0.016f);
 			_scene->RenderScene(commandBuffer);
 
 			_karnanRenderer.EndSwapChainRenderPass(commandBuffer);

@@ -15,6 +15,8 @@ class EngineCore
 {
 
 public:
+	static EngineCore* Instance;
+
 
 private:
 	KarnanWindow _karnanWindow{WIDTH, HEIGHT};
@@ -28,16 +30,18 @@ private:
 
 
 public:
-	EngineCore();
-	~EngineCore();
+	static EngineCore* StartupEngine();
+	static void DestroyEngine();
+
 
 	void Init();
-
 	void Run();
 
 
 
 private:
+	EngineCore();
+	~EngineCore();
 
 
 };

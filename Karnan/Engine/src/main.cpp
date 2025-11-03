@@ -1,19 +1,26 @@
 #include <iostream>
 
+
+
 #include "EngineCore.h"
 
 
 
+#define _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
+
 
 int main(int argc, char** argv)
 {
-	EngineCore engine;
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+	EngineCore* engine = EngineCore::StartupEngine();
 
-	engine.Init();
+	engine->Init();
 
     try
     {
-        engine.Run();
+        engine->Run();
     }
     catch (const std::exception& e)
     {
@@ -21,5 +28,6 @@ int main(int argc, char** argv)
         return EXIT_FAILURE;
     }
 
+    engine->DestroyEngine();
     return EXIT_SUCCESS;
 }
