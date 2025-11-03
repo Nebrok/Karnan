@@ -1,48 +1,25 @@
 #include <iostream>
 
+#include "EngineCore.h"
 
-// Core Engine
-#include "KarnanWindow.h"
-#include "KarnanDevice.h"
-#include "KarnanRenderer.h"
 
-#include "SimpleRenderSystem.h"
-#include "BasicMesh.h"
-
-const int WIDTH = 1280;
-const int HEIGHT = 960;
 
 
 int main(int argc, char** argv)
 {
-	KarnanWindow karnanWindow{ WIDTH, HEIGHT };
-	KarnanDevice karnanDevice{ karnanWindow };
-	GLFWwindow* windowRef = karnanWindow.GetWindowReference();
-	KarnanRenderer karnanRenderer{ karnanWindow, karnanDevice };
+	EngineCore engine;
 
-	BasicMesh triangle{ karnanDevice };
+	engine.Init();
 
-	SimpleRenderSystem simpleRenderSystem{ karnanDevice, karnanRenderer.GetSwapChainRenderPass() };
+    try
+    {
+        engine.Run();
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+        return EXIT_FAILURE;
+    }
 
-	/* Loop until the user closes the window */
-	while (!glfwWindowShouldClose(windowRef))
-	{
-		
-		if (auto commandBuffer = karnanRenderer.BeginFrame())
-		{
-			simpleRenderSystem.BindPipeline(commandBuffer);
-			karnanRenderer.BeginSwapChainRenderPass(commandBuffer);
-
-			simpleRenderSystem.RenderObjects(commandBuffer, triangle);
-
-			karnanRenderer.EndSwapChainRenderPass(commandBuffer);
-			karnanRenderer.EndFrame();
-		}
-
-		/* Poll for and process events */
-		glfwPollEvents();
-	}
-
-	vkDeviceWaitIdle(karnanDevice.Device());
-	return 0;
+    return EXIT_SUCCESS;
 }

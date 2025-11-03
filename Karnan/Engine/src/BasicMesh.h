@@ -7,6 +7,10 @@
 
 #include "KarnanDevice.h"
 #include "VertexBuffer.h"
+#include "IndexBuffer.h"
+
+//std libs
+#include <memory>
 
 
 class BasicMesh
@@ -16,23 +20,23 @@ public:
 private:
 	KarnanDevice& _karnanDevice;
 
-	VertexBuffer _vertexBuffer;
+	std::unique_ptr<VertexBuffer> _vertexBuffer;
+	std::unique_ptr<IndexBuffer> _indexBuffer;
 
 	bool _hasIndexBuffer = false;
-	VkBuffer _indexBuffer;
-	VkDeviceMemory _indexBufferMemory;
-	uint32_t _indexCount;
+
 
 
 public:
-	BasicMesh(KarnanDevice& device);
+	BasicMesh(KarnanDevice& device, std::vector<VertexBuffer::Vertex> vertices, std::vector<uint32_t> indices);
 	~BasicMesh();
+
+	void CreateMesh(std::vector<VertexBuffer::Vertex> vertices, std::vector<uint32_t> indices);
 
 	void Bind(VkCommandBuffer commandBuffer);
 	void Draw(VkCommandBuffer commandBuffer);
 
 private:
-	void CreateIndexBuffers(const std::vector<uint32_t>& indices);
 
 
 };

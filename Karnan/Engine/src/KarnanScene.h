@@ -1,4 +1,9 @@
 #pragma once
+#include "SimpleRenderSystem.h"
+
+#include "Cube.h"
+#include "KarnanCamera.h"
+
 
 class KarnanScene
 {
@@ -6,13 +11,21 @@ class KarnanScene
 public:
 
 private:
+	SimpleRenderSystem& _renderSystem;
+
+	
+	// Temp
+	Cube* Triangle;
+	GameObject* Viewer;
+	KarnanCamera* Camera;
 
 public:
-	KarnanScene();
+	KarnanScene(SimpleRenderSystem& renderSystem);
 	~KarnanScene();
 
+	void LoadScene();
 	void UpdateScene(float deltaTime);
-	void RenderScene();
+	void RenderScene(VkCommandBuffer commandBuffer);
 
 
 

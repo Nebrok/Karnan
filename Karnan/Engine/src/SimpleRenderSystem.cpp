@@ -8,12 +8,6 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/constants.hpp>
 
-
-struct SimplePushConstantData
-{
-	glm::vec2 offset{ 0.f };
-};
-
 SimpleRenderSystem::SimpleRenderSystem(KarnanDevice& device, VkRenderPass renderPass)
 	: _karnanDevice(device)
 {
@@ -31,15 +25,25 @@ void SimpleRenderSystem::BindPipeline(VkCommandBuffer commandBuffer)
 	_karnanPipeline->Bind(commandBuffer);
 }
 
-void SimpleRenderSystem::RenderObjects(VkCommandBuffer commandBuffer, BasicMesh& mesh)
+void SimpleRenderSystem::RenderObjects(VkCommandBuffer commandBuffer, KarnanCamera& camera, GameObject& go)
 {
-	SimplePushConstantData push{};
 	
+	auto projectionView = camera.GetProjection() * camera.GetView();
 
-	//vkCmdPushConstants(commandBuffer,_pipelineLayout,VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT,	0,sizeof(SimplePushConstantData),&push);
+	SimplePushConstantData push{};
+	auto modelMatrix = go.Transform.Mat4();
+	push.transform = projectionView * modelMatrix;
+	push.modelMatrix = modelMatrix;
 
-	mesh.Bind(commandBuffer);
-	mesh.Draw(commandBuffer);
+	vkCmdPushConstants(
+		commandBuffer,
+		_pipelineLayout,
+		VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT,	
+		0,
+		sizeof(SimplePushConstantData),
+		&push);
+
+	go.Render(commandBuffer);
 }
 
 void SimpleRenderSystem::CreatePipelineLayout()
@@ -53,8 +57,8 @@ void SimpleRenderSystem::CreatePipelineLayout()
 	pipelineLayoutInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;
 	pipelineLayoutInfo.setLayoutCount = 0;
 	pipelineLayoutInfo.pSetLayouts = nullptr;
-	pipelineLayoutInfo.pushConstantRangeCount = 0;
-	pipelineLayoutInfo.pPushConstantRanges = nullptr;
+	pipelineLayoutInfo.pushConstantRangeCount = 1;
+	pipelineLayoutInfo.pPushConstantRanges = &pushConstantRange;
 	if (vkCreatePipelineLayout(_karnanDevice.Device(), &pipelineLayoutInfo, nullptr, &_pipelineLayout) != VK_SUCCESS)
 	{
 		throw std::runtime_error("Failed to create pipeline layout!");

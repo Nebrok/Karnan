@@ -12,14 +12,15 @@ class VertexBuffer
 public:
 	struct Vertex
 	{
-		glm::vec2 position{};
+		glm::vec3 position{};
+		glm::vec3 colour{};
 
 		static std::vector<VkVertexInputBindingDescription> GetBindingDescriptions();
 		static std::vector<VkVertexInputAttributeDescription> GetAttributeDescriptions();
 
 		bool operator==(const Vertex& other) const
 		{
-			return position == other.position;
+			return position == other.position && colour == other.colour;
 		}
 	};
 
