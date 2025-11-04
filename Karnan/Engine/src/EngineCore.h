@@ -37,7 +37,7 @@ public:
 	void Init();
 	void Run();
 
-
+	KarnanDevice& GetDevice() { return _karnanDevice; };
 
 private:
 	EngineCore();

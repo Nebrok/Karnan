@@ -22,7 +22,7 @@ KarnanScene::~KarnanScene()
 
 void KarnanScene::LoadScene()
 {
-	//triangle->Init();
+
 }
 
 void KarnanScene::UpdateScene(float deltaTime)

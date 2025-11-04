@@ -1,5 +1,7 @@
 #include "EngineCore.h"
 
+#include <chrono>
+
 EngineCore* EngineCore::Instance = nullptr;
 
 EngineCore::EngineCore()
@@ -40,12 +42,16 @@ void EngineCore::Init()
 
 void EngineCore::Run()
 {
+	auto currentTime = std::chrono::high_resolution_clock::now();
+
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(_windowRef))
 	{
-
+		auto newTime = std::chrono::high_resolution_clock::now();
+		float frameTime = std::chrono::duration<float, std::chrono::seconds::period>(newTime - currentTime).count();
+		currentTime = newTime;
 			
-		_scene->UpdateScene(0.016f);
+		_scene->UpdateScene(frameTime);
 
 		if (auto commandBuffer = _karnanRenderer.BeginFrame())
 		{
