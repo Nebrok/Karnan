@@ -1,5 +1,8 @@
 #include "EngineCore.h"
 
+#include "KarnanGlobalUBO.h"
+#include "KarnanFrameInfo.h"
+
 #include <chrono>
 
 EngineCore* EngineCore::Instance = nullptr;
@@ -7,11 +10,6 @@ EngineCore* EngineCore::Instance = nullptr;
 EngineCore::EngineCore()
 {
 	_windowRef = _karnanWindow.GetWindowReference();
-
-	std::unique_ptr<SimpleRenderSystem> tempRenderer(DBG_NEW SimpleRenderSystem(_karnanDevice, _karnanRenderer.GetSwapChainRenderPass()));
-	_renderSystem = move(tempRenderer);
-
-
 }
 
 EngineCore::~EngineCore()
@@ -34,16 +32,16 @@ void EngineCore::DestroyEngine()
 
 void EngineCore::Init()
 {
-	std::unique_ptr<KarnanScene> newScene(DBG_NEW KarnanScene(*_renderSystem));
-	_scene = move(newScene);
 
-	_scene->LoadScene();
 }
 
 void EngineCore::Run()
 {
-	auto currentTime = std::chrono::high_resolution_clock::now();
+	std::unique_ptr<SimpleRenderSystem> tempRenderer(DBG_NEW SimpleRenderSystem(_karnanDevice, _karnanRenderer.GetSwapChainRenderPass(), KarnanSwapChain::MAX_FRAMES_IN_FLIGHT));
+	_renderSystem = move(tempRenderer);
 
+	LoadScene();
+	auto currentTime = std::chrono::high_resolution_clock::now();
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(_windowRef))
 	{
@@ -55,10 +53,15 @@ void EngineCore::Run()
 
 		if (auto commandBuffer = _karnanRenderer.BeginFrame())
 		{
+			int frameIndex = _karnanRenderer.GetFrameIndex();
+			Karnan::FrameInfo frameInfo{ frameIndex, frameTime, commandBuffer };
+
+
 			_renderSystem->BindPipeline(commandBuffer);
+
 			_karnanRenderer.BeginSwapChainRenderPass(commandBuffer);
 
-			_scene->RenderScene(commandBuffer);
+			_scene->RenderScene(frameInfo);
 
 			_karnanRenderer.EndSwapChainRenderPass(commandBuffer);
 			_karnanRenderer.EndFrame();
@@ -69,4 +72,12 @@ void EngineCore::Run()
 	}
 
 	vkDeviceWaitIdle(_karnanDevice.Device());
+}
+
+void EngineCore::LoadScene()
+{
+	std::unique_ptr<KarnanScene> newScene(DBG_NEW KarnanScene(*_renderSystem));
+	_scene = move(newScene);
+
+	_scene->LoadScene();
 }

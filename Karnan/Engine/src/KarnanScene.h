@@ -3,6 +3,7 @@
 
 #include "Cube.h"
 #include "KarnanCamera.h"
+#include "KarnanFrameInfo.h"
 
 
 class KarnanScene
@@ -25,7 +26,7 @@ public:
 
 	void LoadScene();
 	void UpdateScene(float deltaTime);
-	void RenderScene(VkCommandBuffer commandBuffer);
+	void RenderScene(Karnan::FrameInfo frameInfo);
 
 
 

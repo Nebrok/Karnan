@@ -4,13 +4,16 @@
 
 #include "KarnanCamera.h"
 #include "GameObject.h"
+#include "KarnanGlobalUBO.h"
+#include "KarnanFrameInfo.h"
+#include "VulkanDescriptors.h"
+
 
 #include <memory>
 
 
 struct SimplePushConstantData
 {
-	glm::mat4 transform{ 1.f };
 	glm::mat4 modelMatrix{ 1.f };
 };
 
@@ -25,8 +28,16 @@ private:
 	std::unique_ptr<KarnanPipeline> _karnanPipeline;
 	VkPipelineLayout _pipelineLayout;
 
+	std::unique_ptr<KarnanDescriptorPool> _globalPool{};
+	std::vector<std::unique_ptr<KarnanGlobalUBO>> _globalUBOBuffers;
+	std::vector<VkDescriptorSet> _globalDescriptorSets;
+
+	std::unique_ptr<KarnanDescriptorSetLayout> _globalSetLayout;
+
+	int _maxFramesInFlight;
+
 public:
-	SimpleRenderSystem(KarnanDevice& device, VkRenderPass renderPass);
+	SimpleRenderSystem(KarnanDevice& device, VkRenderPass renderPass, int maxFramesInFlight);
 	~SimpleRenderSystem();
 
 	KarnanDevice& GetDevice() { return _karnanDevice; }
@@ -37,10 +48,12 @@ public:
 
 	void BindPipeline(VkCommandBuffer commandBuffer);
 
-	void RenderObjects(VkCommandBuffer commandBuffer, KarnanCamera& camera, GameObject& mesh);
+	void RenderObjects(Karnan::FrameInfo frameInfo, KarnanCamera& camera, GameObject& mesh);
 
 
 private:
+	void CreateUniformBuffers();
+	void CreateDesciptorSets();
 	void CreatePipelineLayout();
 	void CreatePipeline(VkRenderPass renderPass);
 };

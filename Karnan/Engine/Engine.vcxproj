@@ -148,8 +148,10 @@
     <ClCompile Include="src\EngineCore.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\IndexBuffer.cpp" />
+    <ClCompile Include="src\KarnanBuffer.cpp" />
     <ClCompile Include="src\KarnanCamera.cpp" />
     <ClCompile Include="src\KarnanDevice.cpp" />
+    <ClCompile Include="src\KarnanGlobalUBO.cpp" />
     <ClCompile Include="src\KarnanPipeline.cpp" />
     <ClCompile Include="src\KarnanRenderer.cpp" />
     <ClCompile Include="src\KarnanScene.cpp" />
@@ -158,6 +160,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\SimpleRenderSystem.cpp" />
     <ClCompile Include="src\VertexBuffer.cpp" />
+    <ClCompile Include="src\VulkanDescriptors.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BasicMesh.h" />
@@ -165,8 +168,11 @@
     <ClInclude Include="src\EngineCore.h" />
     <ClInclude Include="src\GameObject.h" />
     <ClInclude Include="src\IndexBuffer.h" />
+    <ClInclude Include="src\KarnanBuffer.h" />
     <ClInclude Include="src\KarnanCamera.h" />
     <ClInclude Include="src\KarnanDevice.h" />
+    <ClInclude Include="src\KarnanFrameInfo.h" />
+    <ClInclude Include="src\KarnanGlobalUBO.h" />
     <ClInclude Include="src\KarnanPipeline.h" />
     <ClInclude Include="src\KarnanRenderer.h" />
     <ClInclude Include="src\KarnanScene.h" />
@@ -174,6 +180,7 @@
     <ClInclude Include="src\KarnanWindow.h" />
     <ClInclude Include="src\SimpleRenderSystem.h" />
     <ClInclude Include="src\VertexBuffer.h" />
+    <ClInclude Include="src\VulkanDescriptors.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\compile.bat" />

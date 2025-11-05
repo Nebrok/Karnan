@@ -8,9 +8,12 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/constants.hpp>
 
-SimpleRenderSystem::SimpleRenderSystem(KarnanDevice& device, VkRenderPass renderPass)
-	: _karnanDevice(device)
+
+SimpleRenderSystem::SimpleRenderSystem(KarnanDevice& device, VkRenderPass renderPass, int maxFramesInFlight)
+	: _karnanDevice(device), _maxFramesInFlight(maxFramesInFlight)
 {
+	CreateUniformBuffers();
+	CreateDesciptorSets();
 	CreatePipelineLayout();
 	CreatePipeline(renderPass);
 }
@@ -25,25 +28,65 @@ void SimpleRenderSystem::BindPipeline(VkCommandBuffer commandBuffer)
 	_karnanPipeline->Bind(commandBuffer);
 }
 
-void SimpleRenderSystem::RenderObjects(VkCommandBuffer commandBuffer, KarnanCamera& camera, GameObject& go)
+void SimpleRenderSystem::RenderObjects(Karnan::FrameInfo frameInfo, KarnanCamera& camera, GameObject& go)
 {
-	
-	auto projectionView = camera.GetProjection() * camera.GetView();
+	Karnan::GlobalUBO ubo{};
+	ubo.projectionView = camera.GetProjection() * camera.GetView();
+	_globalUBOBuffers[frameInfo.FrameIndex]->UpdateUBO(&ubo);
+
+	vkCmdBindDescriptorSets(
+		frameInfo.commandBuffer,
+		VK_PIPELINE_BIND_POINT_GRAPHICS,
+		_pipelineLayout,
+		0, 1,
+		&_globalDescriptorSets[frameInfo.FrameIndex],
+		0, nullptr);
 
 	SimplePushConstantData push{};
-	auto modelMatrix = go.Transform.Mat4();
-	push.transform = projectionView * modelMatrix;
-	push.modelMatrix = modelMatrix;
+	push.modelMatrix = go.Transform.Mat4();;
 
 	vkCmdPushConstants(
-		commandBuffer,
+		frameInfo.commandBuffer,
 		_pipelineLayout,
 		VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT,	
 		0,
 		sizeof(SimplePushConstantData),
 		&push);
 
-	go.Render(commandBuffer);
+	go.Render(frameInfo.commandBuffer);
+}
+
+
+void SimpleRenderSystem::CreateUniformBuffers()
+{
+	_globalUBOBuffers.resize(_maxFramesInFlight);
+	for (int i = 0; i < _globalUBOBuffers.size(); i++)
+	{
+		_globalUBOBuffers[i] = std::make_unique<KarnanGlobalUBO>(_karnanDevice);
+	}
+}
+
+void SimpleRenderSystem::CreateDesciptorSets()
+{
+	_globalPool = KarnanDescriptorPool::Builder(_karnanDevice)
+		.setMaxSets(_maxFramesInFlight)
+		.addPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, _maxFramesInFlight)
+		.build();
+	
+	auto globalSetLayout = KarnanDescriptorSetLayout::Builder(_karnanDevice)
+		.addBinding(0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, VK_SHADER_STAGE_VERTEX_BIT)
+		.build();
+
+	_globalSetLayout = move(globalSetLayout);
+
+	_globalDescriptorSets.resize(_maxFramesInFlight);
+	for (int i = 0; i < _globalDescriptorSets.size(); i++)
+	{
+		auto bufferInfo = _globalUBOBuffers[i]->GetDescriptorInfo();
+		KarnanDescriptorWriter(*_globalSetLayout, *_globalPool)
+			.writeBuffer(0, &bufferInfo)
+			.build(_globalDescriptorSets[i]);
+	}
 }
 
 void SimpleRenderSystem::CreatePipelineLayout()
@@ -53,10 +96,12 @@ void SimpleRenderSystem::CreatePipelineLayout()
 	pushConstantRange.offset = 0;
 	pushConstantRange.size = sizeof(SimplePushConstantData);
 
+	std::vector<VkDescriptorSetLayout> descriptorSetLayouts{ _globalSetLayout->getDescriptorSetLayout()};
+
 	VkPipelineLayoutCreateInfo pipelineLayoutInfo{};
 	pipelineLayoutInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;
-	pipelineLayoutInfo.setLayoutCount = 0;
-	pipelineLayoutInfo.pSetLayouts = nullptr;
+	pipelineLayoutInfo.setLayoutCount = static_cast<uint32_t>(descriptorSetLayouts.size());
+	pipelineLayoutInfo.pSetLayouts = descriptorSetLayouts.data();
 	pipelineLayoutInfo.pushConstantRangeCount = 1;
 	pipelineLayoutInfo.pPushConstantRanges = &pushConstantRange;
 	if (vkCreatePipelineLayout(_karnanDevice.Device(), &pipelineLayoutInfo, nullptr, &_pipelineLayout) != VK_SUCCESS)

@@ -1,5 +1,6 @@
 #include "KarnanScene.h"
 
+
 KarnanScene::KarnanScene(SimpleRenderSystem& renderSystem)
 	: _renderSystem(renderSystem)
 {
@@ -30,7 +31,7 @@ void KarnanScene::UpdateScene(float deltaTime)
 	Triangle->Update(deltaTime);
 }
 
-void KarnanScene::RenderScene(VkCommandBuffer commandBuffer)
+void KarnanScene::RenderScene(Karnan::FrameInfo frameInfo)
 {
-	_renderSystem.RenderObjects(commandBuffer, *Camera, *Triangle);
+	_renderSystem.RenderObjects(frameInfo, *Camera, *Triangle);
 }
