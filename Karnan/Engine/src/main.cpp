@@ -1,4 +1,7 @@
+#define STB_IMAGE_IMPLEMENTATION
 #include <iostream>
+
+
 #include "EngineCore.h"
 
 #define _CRTDBG_MAP_ALLOC

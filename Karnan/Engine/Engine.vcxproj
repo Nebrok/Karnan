@@ -156,6 +156,7 @@
     <ClCompile Include="src\KarnanRenderer.cpp" />
     <ClCompile Include="src\KarnanScene.cpp" />
     <ClCompile Include="src\KarnanSwapChain.cpp" />
+    <ClCompile Include="src\KarnanTextures.cpp" />
     <ClCompile Include="src\KarnanWindow.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\SimpleRenderSystem.cpp" />
@@ -163,6 +164,7 @@
     <ClCompile Include="src\VulkanDescriptors.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\Downloads\stb_image.h" />
     <ClInclude Include="src\BasicMesh.h" />
     <ClInclude Include="src\Cube.h" />
     <ClInclude Include="src\EngineCore.h" />
@@ -177,6 +179,7 @@
     <ClInclude Include="src\KarnanRenderer.h" />
     <ClInclude Include="src\KarnanScene.h" />
     <ClInclude Include="src\KarnanSwapChain.h" />
+    <ClInclude Include="src\KarnanTextures.h" />
     <ClInclude Include="src\KarnanWindow.h" />
     <ClInclude Include="src\SimpleRenderSystem.h" />
     <ClInclude Include="src\VertexBuffer.h" />

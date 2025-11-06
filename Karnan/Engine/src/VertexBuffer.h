@@ -13,14 +13,15 @@ public:
 	struct Vertex
 	{
 		glm::vec3 position{};
-		glm::vec3 colour{};
+		glm::vec2 uv{};
+		//glm::vec3 colour{};
 
 		static std::vector<VkVertexInputBindingDescription> GetBindingDescriptions();
 		static std::vector<VkVertexInputAttributeDescription> GetAttributeDescriptions();
 
 		bool operator==(const Vertex& other) const
 		{
-			return position == other.position && colour == other.colour;
+			return position == other.position && uv == other.uv;//&& colour == other.colour;
 		}
 	};
 

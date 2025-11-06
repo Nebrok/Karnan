@@ -42,6 +42,16 @@ void SimpleRenderSystem::RenderObjects(Karnan::FrameInfo frameInfo, KarnanCamera
 		&_globalDescriptorSets[frameInfo.FrameIndex],
 		0, nullptr);
 
+	
+	vkCmdBindDescriptorSets(
+		frameInfo.commandBuffer,
+		VK_PIPELINE_BIND_POINT_GRAPHICS,
+		_pipelineLayout,
+		1, 1,
+		&_set1DescriptorSet[frameInfo.FrameIndex],
+		0, nullptr);
+	
+
 	SimplePushConstantData push{};
 	push.modelMatrix = go.Transform.Mat4();;
 
@@ -69,14 +79,14 @@ void SimpleRenderSystem::CreateUniformBuffers()
 void SimpleRenderSystem::CreateDesciptorSets()
 {
 	_globalPool = KarnanDescriptorPool::Builder(_karnanDevice)
-		.setMaxSets(_maxFramesInFlight)
+		.setMaxSets(_maxFramesInFlight * 2)
 		.addPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, _maxFramesInFlight)
+		.addPoolSize(VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, _maxFramesInFlight)
 		.build();
 	
 	auto globalSetLayout = KarnanDescriptorSetLayout::Builder(_karnanDevice)
 		.addBinding(0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, VK_SHADER_STAGE_VERTEX_BIT)
 		.build();
-
 	_globalSetLayout = move(globalSetLayout);
 
 	_globalDescriptorSets.resize(_maxFramesInFlight);
@@ -87,6 +97,41 @@ void SimpleRenderSystem::CreateDesciptorSets()
 			.writeBuffer(0, &bufferInfo)
 			.build(_globalDescriptorSets[i]);
 	}
+
+	//-------------------------------------------------------------------------------------------------------------------
+
+	_defaultTexture = std::make_unique<KarnanTexture>(_karnanDevice);
+
+	VkSamplerCreateInfo samplerInfo = {};
+	samplerInfo.sType = VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO;
+	samplerInfo.pNext = nullptr;
+	samplerInfo.magFilter = VK_FILTER_LINEAR;
+	samplerInfo.minFilter = VK_FILTER_LINEAR;
+	samplerInfo.addressModeU = VK_SAMPLER_ADDRESS_MODE_REPEAT;
+	samplerInfo.addressModeV = VK_SAMPLER_ADDRESS_MODE_REPEAT;
+	samplerInfo.addressModeW = VK_SAMPLER_ADDRESS_MODE_REPEAT;
+
+	VkSampler tempSampler;
+	vkCreateSampler(_karnanDevice.Device(), &samplerInfo, nullptr, &tempSampler);
+
+	auto set1Layout = KarnanDescriptorSetLayout::Builder(_karnanDevice)
+		.addBinding(0, VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, VK_SHADER_STAGE_FRAGMENT_BIT)
+		.build();
+	_set1Layout = move(set1Layout);
+
+	_set1DescriptorSet.resize(_maxFramesInFlight);
+	for (int i = 0; i < _set1DescriptorSet.size(); i++)
+	{
+		VkDescriptorImageInfo imageBufferInfo;
+		imageBufferInfo.sampler = tempSampler;
+		imageBufferInfo.imageView = _defaultTexture->GetImageView();
+		imageBufferInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+
+		KarnanDescriptorWriter(*_set1Layout, *_globalPool)
+			.writeImage(0, &imageBufferInfo)
+			.build(_set1DescriptorSet[i]);
+	}
+
 }
 
 void SimpleRenderSystem::CreatePipelineLayout()
@@ -96,7 +141,10 @@ void SimpleRenderSystem::CreatePipelineLayout()
 	pushConstantRange.offset = 0;
 	pushConstantRange.size = sizeof(SimplePushConstantData);
 
-	std::vector<VkDescriptorSetLayout> descriptorSetLayouts{ _globalSetLayout->getDescriptorSetLayout()};
+	std::vector<VkDescriptorSetLayout> descriptorSetLayouts
+	{ _globalSetLayout->getDescriptorSetLayout(), 
+		_set1Layout->getDescriptorSetLayout()
+	};
 
 	VkPipelineLayoutCreateInfo pipelineLayoutInfo{};
 	pipelineLayoutInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;

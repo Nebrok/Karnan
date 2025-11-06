@@ -7,6 +7,7 @@
 #include "KarnanGlobalUBO.h"
 #include "KarnanFrameInfo.h"
 #include "VulkanDescriptors.h"
+#include "KarnanTextures.h"
 
 
 #include <memory>
@@ -30,11 +31,18 @@ private:
 
 	std::unique_ptr<KarnanDescriptorPool> _globalPool{};
 	std::vector<std::unique_ptr<KarnanGlobalUBO>> _globalUBOBuffers;
+	
 	std::vector<VkDescriptorSet> _globalDescriptorSets;
+	std::vector<VkDescriptorSet> _set1DescriptorSet;
 
 	std::unique_ptr<KarnanDescriptorSetLayout> _globalSetLayout;
+	std::unique_ptr<KarnanDescriptorSetLayout> _set1Layout;
 
 	int _maxFramesInFlight;
+
+	//temp texture
+	std::unique_ptr<KarnanTexture> _defaultTexture;
+
 
 public:
 	SimpleRenderSystem(KarnanDevice& device, VkRenderPass renderPass, int maxFramesInFlight);

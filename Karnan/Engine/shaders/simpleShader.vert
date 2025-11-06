@@ -1,9 +1,10 @@
 #version 450
 
 layout (location = 0) in vec3 position;
-layout (location = 1) in vec3 colour;
+layout (location = 1) in vec2 uv;
 
 layout (location = 0) out vec3 fragColour;
+layout (location = 1) out vec2 texCoord;
 
 layout (set = 0, binding = 0) uniform GlobalUbo
 {
@@ -18,5 +19,6 @@ layout (push_constant) uniform Push
 void main()
 {
 	gl_Position = ubo.projectionViewMatrix * push.modelMatrix * vec4(position, 1.0);
-	fragColour = colour;
+	texCoord = uv;
+	fragColour = vec3(1.0, 1.0, 1.0);
 }
