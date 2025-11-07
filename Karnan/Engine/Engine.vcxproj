@@ -112,7 +112,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Engine\dep\glfw\include;$(SolutionDir)Engine\dep\glm\;C:\VulkanSDK\1.4.309.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine\dep\glfw\include;$(SolutionDir)Engine\dep\glm\;C:\VulkanSDK\1.4.309.0\Include;$(SolutionDir)Engine\dep\imgui;$(SolutionDir)Engine\dep\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -130,7 +130,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Engine\dep\glfw\include;$(SolutionDir)Engine\dep\glm\;C:\VulkanSDK\1.4.309.0\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine\dep\glfw\include;$(SolutionDir)Engine\dep\glm\;C:\VulkanSDK\1.4.309.0\Include;$(SolutionDir)Engine\dep\imgui;$(SolutionDir)Engine\dep\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -143,6 +143,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="dep\imgui\backends\imgui_impl_glfw.cpp" />
+    <ClCompile Include="dep\imgui\backends\imgui_impl_vulkan.cpp" />
+    <ClCompile Include="dep\imgui\imgui.cpp" />
+    <ClCompile Include="dep\imgui\imgui_demo.cpp" />
+    <ClCompile Include="dep\imgui\imgui_draw.cpp" />
+    <ClCompile Include="dep\imgui\imgui_tables.cpp" />
+    <ClCompile Include="dep\imgui\imgui_widgets.cpp" />
     <ClCompile Include="src\BasicMesh.cpp" />
     <ClCompile Include="src\Cube.cpp" />
     <ClCompile Include="src\EngineCore.cpp" />
@@ -165,6 +172,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\Downloads\stb_image.h" />
+    <ClInclude Include="dep\imgui\backends\imgui_impl_glfw.h" />
+    <ClInclude Include="dep\imgui\backends\imgui_impl_vulkan.h" />
+    <ClInclude Include="dep\imgui\imconfig.h" />
+    <ClInclude Include="dep\imgui\imgui.h" />
+    <ClInclude Include="dep\imgui\imgui_internal.h" />
+    <ClInclude Include="dep\imgui\imstb_rectpack.h" />
+    <ClInclude Include="dep\imgui\imstb_textedit.h" />
+    <ClInclude Include="dep\imgui\imstb_truetype.h" />
     <ClInclude Include="src\BasicMesh.h" />
     <ClInclude Include="src\Cube.h" />
     <ClInclude Include="src\EngineCore.h" />

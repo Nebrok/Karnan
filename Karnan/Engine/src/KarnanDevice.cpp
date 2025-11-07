@@ -376,7 +376,9 @@ void KarnanDevice::CreateLogicalDevice()
     }
 
     vkGetDeviceQueue(_device, indices.graphicsFamily, 0, &_graphicsQueue);
+    _graphicsQueueFamily = indices.graphicsFamily;
     vkGetDeviceQueue(_device, indices.presentFamily, 0, &_presentQueue);
+    _presentQueueFamily = indices.presentFamily;
 }
 
 bool KarnanDevice::IsDeviceSuitable(VkPhysicalDevice device)

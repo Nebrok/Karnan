@@ -1,5 +1,7 @@
 #pragma once
-
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_vulkan.h"
 
 #include "KarnanWindow.h"
 #include "KarnanDevice.h"
@@ -30,7 +32,8 @@ private:
 
 	GLFWwindow* _windowRef;
 
-
+	//ImGUI descriptor Pool
+	VkDescriptorPool _guiDescriptorPool;
 
 	std::unique_ptr<SimpleRenderSystem> _renderSystem;
 	std::unique_ptr<KarnanScene> _scene;

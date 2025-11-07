@@ -51,7 +51,9 @@ private:
 	VkPhysicalDeviceFeatures _supportedFeatures;
 
 	VkDevice _device;
+	uint32_t _graphicsQueueFamily;
 	VkQueue _graphicsQueue;
+	uint32_t _presentQueueFamily;
 	VkQueue _presentQueue;
 
 	VkSurfaceKHR _surface;
@@ -73,12 +75,18 @@ public:
 	KarnanDevice(KarnanDevice&&) = delete;
 	KarnanDevice& operator=(KarnanDevice&&) = delete;
 
+
+	VkInstance& GetVkInstance() { return _instance; };
+	VkPhysicalDevice& GetVkPhysicalInstance() { return _physicalDevice; };
+
 	VkCommandPool GetCommandPool() { return _commandPool; }
 	VkDevice Device() { return _device; }
 	VkSurfaceKHR Surface() { return _surface; }
 	QueueFamilyIndices FindPhysicalQueueFamilies() { return FindQueueFamilies(_physicalDevice); }
 	VkQueue GraphicsQueue() { return _graphicsQueue; }
+	uint32_t GraphicsQueueFamily() { return _graphicsQueueFamily; };
 	VkQueue PresentQueue() { return _presentQueue; }
+	uint32_t PresentQueueFamily() { return _presentQueueFamily; };
 	VkFormat FindSupportedFormat(const std::vector<VkFormat>& candidates, VkImageTiling tiling, VkFormatFeatureFlags features);
 
 
