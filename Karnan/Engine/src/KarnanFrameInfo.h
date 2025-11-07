@@ -11,5 +11,6 @@ namespace Karnan
 		int FrameIndex;
 		float FrameTime;
 		VkCommandBuffer commandBuffer;
+		float Aspect;
 	};
 }

@@ -28,12 +28,14 @@ void KarnanScene::LoadScene()
 
 }
 
-void KarnanScene::UpdateScene(float deltaTime)
+void KarnanScene::UpdateScene(float deltaTime, float rotationSpeed)
 {
-	Triangle->Update(deltaTime);
+	Triangle->Update(deltaTime, rotationSpeed);
+	Camera->SetPerspectiveProjection(glm::radians(50.f), 1.f, 0.1f, 25.f);
 }
 
 void KarnanScene::RenderScene(Karnan::FrameInfo frameInfo)
 {
+	Camera->SetPerspectiveProjection(glm::radians(50.f), frameInfo.Aspect, 0.1f, 25.f);
 	_renderSystem.RenderObjects(frameInfo, *Camera, *Triangle);
 }

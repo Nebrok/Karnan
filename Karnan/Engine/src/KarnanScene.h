@@ -10,13 +10,14 @@ class KarnanScene
 {
 
 public:
+	// Temp
+	Cube* Triangle;
 
 private:
 	SimpleRenderSystem& _renderSystem;
 
 	
 	// Temp
-	Cube* Triangle;
 	GameObject* Viewer;
 	KarnanCamera* Camera;
 
@@ -25,7 +26,7 @@ public:
 	~KarnanScene();
 
 	void LoadScene();
-	void UpdateScene(float deltaTime);
+	void UpdateScene(float deltaTime, float rotationSpeed);
 	void RenderScene(Karnan::FrameInfo frameInfo);
 
 

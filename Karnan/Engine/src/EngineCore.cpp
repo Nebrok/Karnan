@@ -3,6 +3,8 @@
 #include "KarnanGlobalUBO.h"
 #include "KarnanFrameInfo.h"
 
+#include "glm/gtc/type_ptr.hpp"
+
 #include <chrono>
 
 static void check_vk_result(VkResult err)
@@ -49,6 +51,13 @@ void EngineCore::Init()
 
 void EngineCore::Run()
 {
+	std::unique_ptr<SimpleRenderSystem> tempRenderer(DBG_NEW SimpleRenderSystem(_karnanDevice, _karnanRenderer.GetSwapChainRenderPass(), KarnanSwapChain::MAX_FRAMES_IN_FLIGHT));
+	_renderSystem = move(tempRenderer);
+
+	LoadScene();
+
+	glm::vec3& scale = _scene->Triangle->Transform.Scale;
+	float roationSpeed = 1.0f;
 
 
 	/* ImGUI */
@@ -129,10 +138,7 @@ void EngineCore::Run()
 	/*ImGUI end*/
 
 
-	std::unique_ptr<SimpleRenderSystem> tempRenderer(DBG_NEW SimpleRenderSystem(_karnanDevice, _karnanRenderer.GetSwapChainRenderPass(), KarnanSwapChain::MAX_FRAMES_IN_FLIGHT));
-	_renderSystem = move(tempRenderer);
-
-	LoadScene();
+	
 	auto currentTime = std::chrono::high_resolution_clock::now();
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(_windowRef))
@@ -141,7 +147,7 @@ void EngineCore::Run()
 		float frameTime = std::chrono::duration<float, std::chrono::seconds::period>(newTime - currentTime).count();
 		currentTime = newTime;
 			
-		_scene->UpdateScene(frameTime);
+		_scene->UpdateScene(frameTime, roationSpeed);
 
 		ImGui_ImplVulkan_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
@@ -149,6 +155,30 @@ void EngineCore::Run()
 
 		bool show_demo_window = true;
 		ImGui::ShowDemoWindow(&show_demo_window);
+
+		static float f = 0.0f;
+		static int counter = 0;
+
+		ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
+
+		ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
+		ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our window open/close state
+
+		ImGui::SliderFloat("float", &roationSpeed, 0.0f, 2.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
+		ImGui::SliderFloat3("float", glm::value_ptr(scale), 1.0f, 2.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
+
+		if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
+			counter++;
+		ImGui::SameLine();
+		ImGui::Text("counter = %d", counter);
+
+		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / io.Framerate, io.Framerate);
+		ImGui::End();
+
+
+
+
+
 
 		ImGui::Render();
 		ImDrawData* main_draw_data = ImGui::GetDrawData();
@@ -162,7 +192,7 @@ void EngineCore::Run()
 		if (auto commandBuffer = _karnanRenderer.BeginFrame())
 		{
 			int frameIndex = _karnanRenderer.GetFrameIndex();
-			Karnan::FrameInfo frameInfo{ frameIndex, frameTime, commandBuffer };
+			Karnan::FrameInfo frameInfo{ frameIndex, frameTime, commandBuffer, _karnanRenderer.GetAspectRatio() };
 
 
 			_renderSystem->BindPipeline(commandBuffer);

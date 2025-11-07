@@ -33,6 +33,7 @@ public:
 	void CreateWindowSurface(VkInstance instance, VkSurfaceKHR* surface);
 
 private:
+	static void FrameBufferResizedCallback(GLFWwindow* window, int width, int height);
 
 
 
