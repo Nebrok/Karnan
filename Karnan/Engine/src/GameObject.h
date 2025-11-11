@@ -72,7 +72,7 @@ public:
 	~GameObject();
 
 	void Init();
-	void Update(float deltaTime, float rotationSpeed);
+	void Update(float deltaTime);
 	void Render(VkCommandBuffer commandBuffer);
 
 

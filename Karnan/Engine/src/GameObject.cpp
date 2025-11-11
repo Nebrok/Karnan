@@ -16,9 +16,9 @@ void GameObject::Init()
 
 }
 
-void GameObject::Update(float deltaTime, float rotationSpeed)
+void GameObject::Update(float deltaTime)
 {
-	Transform.Rotation.y += rotationSpeed * deltaTime;
+	Transform.Rotation.y += 1 * deltaTime;
 }
 
 void GameObject::Render(VkCommandBuffer commandBuffer)

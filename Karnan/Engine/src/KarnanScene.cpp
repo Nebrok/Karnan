@@ -28,9 +28,9 @@ void KarnanScene::LoadScene()
 
 }
 
-void KarnanScene::UpdateScene(float deltaTime, float rotationSpeed)
+void KarnanScene::UpdateScene(float deltaTime)
 {
-	Triangle->Update(deltaTime, rotationSpeed);
+	Triangle->Update(deltaTime);
 	Camera->SetPerspectiveProjection(glm::radians(50.f), 1.f, 0.1f, 25.f);
 }
 

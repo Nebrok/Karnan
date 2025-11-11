@@ -26,7 +26,7 @@ public:
 	~KarnanScene();
 
 	void LoadScene();
-	void UpdateScene(float deltaTime, float rotationSpeed);
+	void UpdateScene(float deltaTime);
 	void RenderScene(Karnan::FrameInfo frameInfo);
 
 
