@@ -66,7 +66,6 @@ void SimpleRenderSystem::RenderObjects(Karnan::FrameInfo frameInfo, KarnanCamera
 	go.Render(frameInfo.commandBuffer);
 }
 
-
 void SimpleRenderSystem::CreateUniformBuffers()
 {
 	_globalUBOBuffers.resize(_maxFramesInFlight);

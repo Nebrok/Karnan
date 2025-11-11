@@ -20,6 +20,9 @@ void KarnanEditor::Init()
 void KarnanEditor::Update()
 {
 	_mainGUI->NewFrame();
+	_mainGUI->BuildHierarchyWindow();
+	_mainGUI->BuildDetailsWindow();
+	_mainGUI->EndFrame();
 }
 
 void KarnanEditor::Render(VkCommandBuffer commandBuffer)

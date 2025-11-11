@@ -11,6 +11,7 @@ public:
 	Cube(KarnanDevice& device);
 	~Cube();
 
+	void Update(double deltaTime) override;
 
 private:
 

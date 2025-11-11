@@ -59,7 +59,12 @@ class GameObject
 public:
     Karnan::Transform Transform;
 
+    const char* ObjectName;
+    
+
 protected:
+    uint32_t _objectId;
+
 	KarnanDevice& _karnanDevice;
 
 
@@ -68,12 +73,22 @@ protected:
 
 
 public:
-	GameObject(KarnanDevice& device);
+    static uint32_t GenerateNewId()
+    {
+        static uint32_t currentId = 0;
+        return currentId++;
+    }
+
+	GameObject(const char* objectName);
 	~GameObject();
 
-	void Init();
-	void Update(float deltaTime);
-	void Render(VkCommandBuffer commandBuffer);
+    uint32_t GetId() const { return _objectId; };
+
+    virtual void Init();
+    virtual void Update(double deltaTime);
+    virtual void Render(VkCommandBuffer commandBuffer);
+
+
 
 
 private:

@@ -1,9 +1,12 @@
 #include "GameObject.h"
 
-GameObject::GameObject(KarnanDevice& device)
-	: _karnanDevice(device)
+#include "EngineCore.h"
+
+GameObject::GameObject(const char* objectName)
+	: _karnanDevice(EngineCore::Device()), ObjectName(objectName)
 {
-	
+	_objectId = GenerateNewId();
+	EngineCore::AddGameObjectToActiveScene(this);
 }
 
 GameObject::~GameObject()
@@ -16,9 +19,9 @@ void GameObject::Init()
 
 }
 
-void GameObject::Update(float deltaTime)
+void GameObject::Update(double deltaTime)
 {
-	Transform.Rotation.y += 1 * deltaTime;
+	
 }
 
 void GameObject::Render(VkCommandBuffer commandBuffer)

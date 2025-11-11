@@ -4,6 +4,7 @@
 
 #include <stdexcept>
 
+#include "EngineCore.h"
 #include "KarnanDevice.h"
 #include "KarnanRenderer.h"
 #include "KarnanSwapChain.h"
@@ -135,17 +136,21 @@ void KarnanMainGUI::NewFrame()
 		ImGuiID dockspace_id = ImGui::GetID("MyDockSpace");
 		ImGui::DockSpace(dockspace_id, ImVec2(0.0f, 0.0f), dockspaceFlags);
 	}
+	ImGui::End();
 	
 
-	ImGui::End();
+
+
 
 
 	bool show_demo_window = true;
 	ImGui::ShowDemoWindow(&show_demo_window);
+}
 
-
+void KarnanMainGUI::EndFrame()
+{
 	ImGui::Render();
-	
+
 	// Update and Render additional Platform Windows
 	if (GuiIO->ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
 	{
@@ -159,6 +164,75 @@ void KarnanMainGUI::Render(VkCommandBuffer& commandBuffer)
 	ImDrawData* main_draw_data = ImGui::GetDrawData();
 	ImGui_ImplVulkan_RenderDrawData(main_draw_data, commandBuffer);
 
+}
+
+void KarnanMainGUI::BuildHierarchyWindow()
+{
+	bool hierarchyOpen = true;
+	ImGui::Begin("Hierarchy", &hierarchyOpen);
+	for (GameObject* go : EngineCore::GetAllGameObjectsInActiveScene())
+	{
+		ImGui::PushID(go->GetId());
+		if (ImGui::Button(go->ObjectName))
+		{
+			UpdateDetailsPanel(go);
+		}
+		ImGui::PopID();
+	}
+
+
+	ImGui::End();
+}
+
+void KarnanMainGUI::BuildDetailsWindow()
+{
+	bool detailsOpen = true;
+	ImGui::Begin("Details", &detailsOpen);
+
+	if (_lastHighlightedGo == nullptr)
+	{
+		ImGui::End();
+		return;
+	}
+
+	ImGui::SeparatorText("Game Object Name");
+	ImGui::Text(_lastHighlightedGo->ObjectName);
+	ImGui::SeparatorText("Transform");
+	float translation[3] = {
+		_lastHighlightedGo->Transform.Translation.x,
+		_lastHighlightedGo->Transform.Translation.y,
+		_lastHighlightedGo->Transform.Translation.z };
+	ImGui::InputFloat3("Translation:", translation);
+	_lastHighlightedGo->Transform.Translation.x = translation[0];
+	_lastHighlightedGo->Transform.Translation.y = translation[1];
+	_lastHighlightedGo->Transform.Translation.z = translation[2];
+
+	float rotation[3] = {
+		_lastHighlightedGo->Transform.Rotation.x,
+		_lastHighlightedGo->Transform.Rotation.y,
+		_lastHighlightedGo->Transform.Rotation.z };
+
+	ImGui::InputFloat3("Rotation:", rotation);
+	_lastHighlightedGo->Transform.Rotation.x = rotation[0];
+	_lastHighlightedGo->Transform.Rotation.y = rotation[1];
+	_lastHighlightedGo->Transform.Rotation.z = rotation[2];
+
+	float scale[3] = {
+		_lastHighlightedGo->Transform.Scale.x,
+		_lastHighlightedGo->Transform.Scale.y,
+		_lastHighlightedGo->Transform.Scale.z };
+	ImGui::InputFloat3("Scale:", scale);
+	_lastHighlightedGo->Transform.Scale.x = scale[0];
+	_lastHighlightedGo->Transform.Scale.y = scale[1];
+	_lastHighlightedGo->Transform.Scale.z = scale[2];
+
+
+	ImGui::End();
+}
+
+void KarnanMainGUI::UpdateDetailsPanel(GameObject* go)
+{
+	_lastHighlightedGo = go;
 }
 
 KarnanMainGUI::~KarnanMainGUI()

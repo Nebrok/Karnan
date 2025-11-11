@@ -16,7 +16,8 @@ public:
 private:
 	SimpleRenderSystem& _renderSystem;
 
-	
+	std::vector<GameObject*> _gameObjects;
+
 	// Temp
 	GameObject* Viewer;
 	KarnanCamera* Camera;
@@ -26,9 +27,11 @@ public:
 	~KarnanScene();
 
 	void LoadScene();
-	void UpdateScene(float deltaTime);
+	void UpdateScene(double deltaTime);
 	void RenderScene(Karnan::FrameInfo frameInfo);
 
+	bool RegisterGO(GameObject* gameObject);
+	std::vector<GameObject*> GetAllGameObjects() { return _gameObjects; };
 
 
 private:

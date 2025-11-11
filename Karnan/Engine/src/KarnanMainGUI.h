@@ -10,6 +10,7 @@
 class KarnanDevice;
 class KarnanSwapChain;
 class KarnanRenderer;
+class GameObject;
 
 class KarnanMainGUI
 {
@@ -25,6 +26,7 @@ private:
 	//ImGUI descriptor Pool
 	VkDescriptorPool _guiDescriptorPool;
 
+	GameObject* _lastHighlightedGo;
 
 public:
 	KarnanMainGUI(KarnanDevice& device, KarnanRenderer& renderer, GLFWwindow* glfwWindow);
@@ -32,9 +34,15 @@ public:
 
 	void Init();
 	void NewFrame();
+	void EndFrame();
+
 	void Render(VkCommandBuffer& commandBuffer);
 
 
+	void BuildHierarchyWindow();
+	void BuildDetailsWindow();
+
 private:
+	void UpdateDetailsPanel(GameObject* go);
 
 };

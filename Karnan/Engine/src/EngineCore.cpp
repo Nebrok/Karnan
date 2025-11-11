@@ -6,10 +6,21 @@
 #include "glm/gtc/type_ptr.hpp"
 
 #include <chrono>
+#include <string>
 
 
 
 EngineCore* EngineCore::Instance = nullptr;
+
+bool EngineCore::AddGameObjectToActiveScene(GameObject* gameObject)
+{
+	return Instance->_scene->RegisterGO(gameObject);
+}
+
+std::vector<GameObject*> EngineCore::GetAllGameObjectsInActiveScene()
+{
+	return Instance->_scene->GetAllGameObjects();
+}
 
 EngineCore::EngineCore()
 {
@@ -47,13 +58,30 @@ void EngineCore::Run()
 
 	LoadScene();
 
+	int fpsFrameCount = 0;
+	int fpsFramesRunning = 0;
+	double frameUpdateRunningTime = 0;
+	
 	auto currentTime = std::chrono::high_resolution_clock::now();
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(_windowRef))
 	{
 		auto newTime = std::chrono::high_resolution_clock::now();
-		float frameTime = std::chrono::duration<float, std::chrono::seconds::period>(newTime - currentTime).count();
+		double frameTime = std::chrono::duration<double, std::chrono::seconds::period>(newTime - currentTime).count();
 		currentTime = newTime;
+		int fps = 1 / frameTime;
+
+		frameUpdateRunningTime += frameTime;
+		fpsFrameCount++; 
+		fpsFramesRunning += fps;
+		if (frameUpdateRunningTime >= 0.2)
+		{
+			std::string fpsCount = "Hello Vulkan: " + std::to_string(fpsFramesRunning / fpsFrameCount);
+			glfwSetWindowTitle(_windowRef, fpsCount.c_str());
+			fpsFrameCount = 0;
+			fpsFramesRunning = 0;
+			frameUpdateRunningTime = 0;
+		}
 			
 		_scene->UpdateScene(frameTime);
 

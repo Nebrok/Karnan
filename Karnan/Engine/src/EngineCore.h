@@ -52,6 +52,8 @@ public:
 	static KarnanDevice& Device() { return Instance->_karnanDevice; };
 	static KarnanRenderer& Renderer() { return Instance->_karnanRenderer; };
 	static GLFWwindow* Window() { return Instance->_windowRef; };
+	static bool AddGameObjectToActiveScene(GameObject* gameObject);
+	static std::vector<GameObject*> GetAllGameObjectsInActiveScene();
 
 private:
 	EngineCore();

@@ -2,10 +2,8 @@
 
 #include <iostream>
 
-
-
 Cube::Cube(KarnanDevice& device)
-	: GameObject(device)
+	: GameObject("Cube")
 {
 	std::vector<VertexBuffer::Vertex> vertices
 	{
@@ -71,4 +69,9 @@ Cube::Cube(KarnanDevice& device)
 
 Cube::~Cube()
 {
+}
+
+void Cube::Update(double deltaTime)
+{
+	Transform.Rotation.y += 0.01f;
 }
