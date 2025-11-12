@@ -65,6 +65,13 @@ Cube::Cube(KarnanDevice& device)
 
 	std::unique_ptr<BasicMesh> mesh(new BasicMesh(_karnanDevice, vertices, indices));
 	_mesh = move(mesh);
+
+	_material = std::make_unique<KarnanMaterial>();
+	_material->Init();
+	_material->CreateTextureInSlot(0, {});
+	_material->CreateImageInfos();
+
+	SetRenderable(true);
 }
 
 Cube::~Cube()

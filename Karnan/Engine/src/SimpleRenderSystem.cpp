@@ -28,7 +28,7 @@ void SimpleRenderSystem::BindPipeline(VkCommandBuffer commandBuffer)
 	_karnanPipeline->Bind(commandBuffer);
 }
 
-void SimpleRenderSystem::RenderObjects(Karnan::FrameInfo frameInfo, KarnanCamera& camera, GameObject& go)
+void SimpleRenderSystem::RenderObjects(Karnan::FrameInfo frameInfo, KarnanCamera& camera, std::vector<GameObject*> gameObjects)
 {
 	Karnan::GlobalUBO ubo{};
 	ubo.projectionView = camera.GetProjection() * camera.GetView();
@@ -42,28 +42,55 @@ void SimpleRenderSystem::RenderObjects(Karnan::FrameInfo frameInfo, KarnanCamera
 		&_globalDescriptorSets[frameInfo.FrameIndex],
 		0, nullptr);
 
-	
-	vkCmdBindDescriptorSets(
-		frameInfo.commandBuffer,
-		VK_PIPELINE_BIND_POINT_GRAPHICS,
-		_pipelineLayout,
-		1, 1,
-		&_set1DescriptorSet[frameInfo.FrameIndex],
-		0, nullptr);
-	
+	//-------------------------------
 
-	SimplePushConstantData push{};
-	push.modelMatrix = go.Transform.Mat4();;
+	for (auto go : gameObjects)
+	{
+		/*
+		uint32_t index = 0;
+		for (auto imageInfo : go->GetMaterial()->GetImageInfos())
+		{
+			KarnanDescriptorWriter(*_set1Layout, *_globalPool)
+				.writeImage(index, &imageInfo)
+				.build(_set1DescriptorSet[frameInfo.FrameIndex]);
+		}
+		*/
+		if (_set1DescriptorSet[frameInfo.FrameIndex] == nullptr)
+		{
+			KarnanDescriptorWriter(*_set1Layout, *_globalPool)
+				.writeImage(0, &(go->GetMaterial()->GetImageInfosAtIndex(0)))
+				.build(_set1DescriptorSet[frameInfo.FrameIndex]);
+		}
+		else
+		{
+			KarnanDescriptorWriter(*_set1Layout, *_globalPool)
+				.writeImage(0, &(go->GetMaterial()->GetImageInfosAtIndex(0)))
+				.overwrite(_set1DescriptorSet[frameInfo.FrameIndex]);
+		}
+		
 
-	vkCmdPushConstants(
-		frameInfo.commandBuffer,
-		_pipelineLayout,
-		VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT,	
-		0,
-		sizeof(SimplePushConstantData),
-		&push);
+		vkCmdBindDescriptorSets(
+			frameInfo.commandBuffer,
+			VK_PIPELINE_BIND_POINT_GRAPHICS,
+			_pipelineLayout,
+			1, 1,
+			&_set1DescriptorSet[frameInfo.FrameIndex],
+			0, nullptr);
 
-	go.Render(frameInfo.commandBuffer);
+
+		SimplePushConstantData push{};
+		push.modelMatrix = go->Transform.Mat4();;
+
+		vkCmdPushConstants(
+			frameInfo.commandBuffer,
+			_pipelineLayout,
+			VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT,
+			0,
+			sizeof(SimplePushConstantData),
+			&push);
+
+		go->Render(frameInfo.commandBuffer);
+	}
 }
 
 void SimpleRenderSystem::CreateUniformBuffers()
@@ -99,6 +126,7 @@ void SimpleRenderSystem::CreateDesciptorSets()
 
 	//-------------------------------------------------------------------------------------------------------------------
 
+	/*
 	_defaultTexture = std::make_unique<KarnanTexture>(_karnanDevice);
 
 	VkSamplerCreateInfo samplerInfo = {};
@@ -112,13 +140,15 @@ void SimpleRenderSystem::CreateDesciptorSets()
 
 	VkSampler tempSampler;
 	vkCreateSampler(_karnanDevice.Device(), &samplerInfo, nullptr, &tempSampler);
-
+	*/
 	auto set1Layout = KarnanDescriptorSetLayout::Builder(_karnanDevice)
 		.addBinding(0, VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, VK_SHADER_STAGE_FRAGMENT_BIT)
 		.build();
 	_set1Layout = move(set1Layout);
 
+	
 	_set1DescriptorSet.resize(_maxFramesInFlight);
+	/*
 	for (int i = 0; i < _set1DescriptorSet.size(); i++)
 	{
 		VkDescriptorImageInfo imageBufferInfo;
@@ -126,11 +156,9 @@ void SimpleRenderSystem::CreateDesciptorSets()
 		imageBufferInfo.imageView = _defaultTexture->GetImageView();
 		imageBufferInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
 
-		KarnanDescriptorWriter(*_set1Layout, *_globalPool)
-			.writeImage(0, &imageBufferInfo)
-			.build(_set1DescriptorSet[i]);
+		
 	}
-
+	*/
 }
 
 void SimpleRenderSystem::CreatePipelineLayout()

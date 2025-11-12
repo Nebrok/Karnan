@@ -1,8 +1,16 @@
 #include "KarnanTextures.h"
 
 #include "KarnanBuffer.h"
+#include "EngineCore.h"
 
 #include <stdexcept>
+
+KarnanTexture::KarnanTexture()
+	: _karnanDevice(EngineCore::Device())
+{
+	CreateTextureImage();
+	CreateTextureImageView();
+}
 
 KarnanTexture::KarnanTexture(KarnanDevice& device)
 	: _karnanDevice(device)

@@ -161,6 +161,7 @@
     <ClCompile Include="src\KarnanEditor.cpp" />
     <ClCompile Include="src\KarnanGlobalUBO.cpp" />
     <ClCompile Include="src\KarnanMainGUI.cpp" />
+    <ClCompile Include="src\KarnanMaterial.cpp" />
     <ClCompile Include="src\KarnanPipeline.cpp" />
     <ClCompile Include="src\KarnanRenderer.cpp" />
     <ClCompile Include="src\KarnanScene.cpp" />
@@ -194,6 +195,7 @@
     <ClInclude Include="src\KarnanFrameInfo.h" />
     <ClInclude Include="src\KarnanGlobalUBO.h" />
     <ClInclude Include="src\KarnanMainGUI.h" />
+    <ClInclude Include="src\KarnanMaterial.h" />
     <ClInclude Include="src\KarnanPipeline.h" />
     <ClInclude Include="src\KarnanRenderer.h" />
     <ClInclude Include="src\KarnanScene.h" />

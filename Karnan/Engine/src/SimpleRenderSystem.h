@@ -56,7 +56,7 @@ public:
 
 	void BindPipeline(VkCommandBuffer commandBuffer);
 
-	void RenderObjects(Karnan::FrameInfo frameInfo, KarnanCamera& camera, GameObject& mesh);
+	void RenderObjects(Karnan::FrameInfo frameInfo, KarnanCamera& camera, std::vector<GameObject*> gameObjects);
 
 
 private:

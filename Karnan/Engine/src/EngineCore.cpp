@@ -3,7 +3,6 @@
 #include "KarnanGlobalUBO.h"
 #include "KarnanFrameInfo.h"
 
-#include "glm/gtc/type_ptr.hpp"
 
 #include <chrono>
 #include <string>
@@ -93,7 +92,6 @@ void EngineCore::Run()
 			int frameIndex = _karnanRenderer.GetFrameIndex();
 			Karnan::FrameInfo frameInfo{ frameIndex, frameTime, commandBuffer, _karnanRenderer.GetAspectRatio() };
 
-			_renderSystem->BindPipeline(commandBuffer);
 
 			_karnanRenderer.BeginSwapChainRenderPass(commandBuffer);
 

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "BasicMesh.h"
+#include "KarnanMaterial.h"
 
 #define GLM_FORCE_RADIANS
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
@@ -68,9 +69,9 @@ protected:
 	KarnanDevice& _karnanDevice;
 
 
-	std::unique_ptr<BasicMesh> _mesh = nullptr;
 	bool _renderable = false;
-
+	std::unique_ptr<BasicMesh> _mesh = nullptr;
+    std::shared_ptr<KarnanMaterial> _material = nullptr;
 
 public:
     static uint32_t GenerateNewId()
@@ -82,7 +83,11 @@ public:
 	GameObject(const char* objectName);
 	~GameObject();
 
+    void SetRenderable(bool renderable) { _renderable = renderable; };
+    bool IsRenderable() { return _renderable; };
+
     uint32_t GetId() const { return _objectId; };
+    std::shared_ptr<KarnanMaterial> GetMaterial() { return _material; };
 
     virtual void Init();
     virtual void Update(double deltaTime);

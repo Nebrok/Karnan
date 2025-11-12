@@ -9,6 +9,9 @@
 #include "KarnanRenderer.h"
 #include "KarnanSwapChain.h"
 
+#include "glm/gtc/type_ptr.hpp"
+
+
 static void check_vk_result(VkResult err)
 {
 	if (err == VK_SUCCESS)

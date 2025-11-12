@@ -17,8 +17,13 @@ private:
 	VkImageView _textureImageView;
 
 public:
+	KarnanTexture();
+	//Depreciated but remains for compatability
 	KarnanTexture(KarnanDevice& device);
 	~KarnanTexture();
+
+	KarnanTexture(const KarnanTexture&) = delete;
+	KarnanTexture& operator=(const KarnanTexture&) = delete;
 
 	VkImageView& GetImageView() { return _textureImageView; };
 
