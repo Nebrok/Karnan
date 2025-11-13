@@ -8,7 +8,6 @@ KarnanMaterial::KarnanMaterial()
 	: _karnanDevice(EngineCore::Device())
 {
 	_materialTextures.resize(MAX_TEXTURES);
-	_materialDescriptorImages.resize(MAX_TEXTURES);
 }
 
 KarnanMaterial::~KarnanMaterial()
@@ -56,6 +55,6 @@ void KarnanMaterial::CreateTextureInSlot(uint32_t slot, std::string filePath)
 	if (slot >= MAX_TEXTURES)
 		throw std::runtime_error("Tried to create texture in invalid slot on material");
 
-	std::unique_ptr<KarnanTexture> texture(new KarnanTexture());
+	std::unique_ptr<KarnanTexture> texture(new KarnanTexture(filePath));
 	_materialTextures[slot] = move(texture);
 }

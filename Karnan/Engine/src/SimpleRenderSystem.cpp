@@ -46,28 +46,21 @@ void SimpleRenderSystem::RenderObjects(Karnan::FrameInfo frameInfo, KarnanCamera
 
 	for (auto go : gameObjects)
 	{
-		/*
-		uint32_t index = 0;
-		for (auto imageInfo : go->GetMaterial()->GetImageInfos())
+		KarnanDescriptorWriter writer = { *_set1Layout, *_globalPool };
+		for (int i = 0; i < go->GetMaterial()->GetTotalTextures(); i++)
 		{
-			KarnanDescriptorWriter(*_set1Layout, *_globalPool)
-				.writeImage(index, &imageInfo)
-				.build(_set1DescriptorSet[frameInfo.FrameIndex]);
+			if (go->GetMaterial()->IsTextureBoundAt(i))
+				writer.writeImage(i, &(go->GetMaterial()->GetImageInfosAtIndex(i)));				
 		}
-		*/
+		
 		if (_set1DescriptorSet[frameInfo.FrameIndex] == nullptr)
 		{
-			KarnanDescriptorWriter(*_set1Layout, *_globalPool)
-				.writeImage(0, &(go->GetMaterial()->GetImageInfosAtIndex(0)))
-				.build(_set1DescriptorSet[frameInfo.FrameIndex]);
+			writer.build(_set1DescriptorSet[frameInfo.FrameIndex]);
 		}
 		else
 		{
-			KarnanDescriptorWriter(*_set1Layout, *_globalPool)
-				.writeImage(0, &(go->GetMaterial()->GetImageInfosAtIndex(0)))
-				.overwrite(_set1DescriptorSet[frameInfo.FrameIndex]);
+			writer.overwrite(_set1DescriptorSet[frameInfo.FrameIndex]);
 		}
-		
 
 		vkCmdBindDescriptorSets(
 			frameInfo.commandBuffer,
@@ -126,21 +119,6 @@ void SimpleRenderSystem::CreateDesciptorSets()
 
 	//-------------------------------------------------------------------------------------------------------------------
 
-	/*
-	_defaultTexture = std::make_unique<KarnanTexture>(_karnanDevice);
-
-	VkSamplerCreateInfo samplerInfo = {};
-	samplerInfo.sType = VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO;
-	samplerInfo.pNext = nullptr;
-	samplerInfo.magFilter = VK_FILTER_LINEAR;
-	samplerInfo.minFilter = VK_FILTER_LINEAR;
-	samplerInfo.addressModeU = VK_SAMPLER_ADDRESS_MODE_REPEAT;
-	samplerInfo.addressModeV = VK_SAMPLER_ADDRESS_MODE_REPEAT;
-	samplerInfo.addressModeW = VK_SAMPLER_ADDRESS_MODE_REPEAT;
-
-	VkSampler tempSampler;
-	vkCreateSampler(_karnanDevice.Device(), &samplerInfo, nullptr, &tempSampler);
-	*/
 	auto set1Layout = KarnanDescriptorSetLayout::Builder(_karnanDevice)
 		.addBinding(0, VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, VK_SHADER_STAGE_FRAGMENT_BIT)
 		.build();
@@ -148,17 +126,6 @@ void SimpleRenderSystem::CreateDesciptorSets()
 
 	
 	_set1DescriptorSet.resize(_maxFramesInFlight);
-	/*
-	for (int i = 0; i < _set1DescriptorSet.size(); i++)
-	{
-		VkDescriptorImageInfo imageBufferInfo;
-		imageBufferInfo.sampler = tempSampler;
-		imageBufferInfo.imageView = _defaultTexture->GetImageView();
-		imageBufferInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
-
-		
-	}
-	*/
 }
 
 void SimpleRenderSystem::CreatePipelineLayout()

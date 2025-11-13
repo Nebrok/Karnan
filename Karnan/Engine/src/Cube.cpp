@@ -68,7 +68,7 @@ Cube::Cube(KarnanDevice& device)
 
 	_material = std::make_unique<KarnanMaterial>();
 	_material->Init();
-	_material->CreateTextureInSlot(0, {});
+	_material->CreateTextureInSlot(0, { "textures/texture.jpg" });
 	_material->CreateImageInfos();
 
 	SetRenderable(true);
@@ -80,5 +80,5 @@ Cube::~Cube()
 
 void Cube::Update(double deltaTime)
 {
-	Transform.Rotation.y += 0.01f;
+	Transform.Rotation.y += 1.f * deltaTime;
 }

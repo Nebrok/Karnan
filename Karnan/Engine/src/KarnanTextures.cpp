@@ -5,15 +5,8 @@
 
 #include <stdexcept>
 
-KarnanTexture::KarnanTexture()
-	: _karnanDevice(EngineCore::Device())
-{
-	CreateTextureImage();
-	CreateTextureImageView();
-}
-
-KarnanTexture::KarnanTexture(KarnanDevice& device)
-	: _karnanDevice(device)
+KarnanTexture::KarnanTexture(std::string filepath)
+	: _karnanDevice(EngineCore::Device()), _filepath(filepath)
 {
 	CreateTextureImage();
 	CreateTextureImageView();
@@ -33,7 +26,7 @@ void KarnanTexture::CreateTextureImage()
 	int textureHeight;
 	int textureChannels;
 
-	stbi_uc* pixelData = stbi_load("textures/panda.jpg", &textureWidth, &textureHeight, &textureChannels, STBI_rgb_alpha);
+	stbi_uc* pixelData = stbi_load(_filepath.c_str(), &textureWidth, &textureHeight, &textureChannels, STBI_rgb_alpha);
 
 	if (!pixelData)
 	{

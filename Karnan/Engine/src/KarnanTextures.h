@@ -2,6 +2,7 @@
 
 #include "KarnanDevice.h"
 
+#include <string>
 #include <../stb/stb_image.h>
 
 class KarnanTexture
@@ -16,10 +17,11 @@ private:
 
 	VkImageView _textureImageView;
 
+	std::string _filepath;
+
+
 public:
-	KarnanTexture();
-	//Depreciated but remains for compatability
-	KarnanTexture(KarnanDevice& device);
+	KarnanTexture(std::string filepath);
 	~KarnanTexture();
 
 	KarnanTexture(const KarnanTexture&) = delete;

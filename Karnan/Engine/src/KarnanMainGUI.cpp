@@ -201,11 +201,12 @@ void KarnanMainGUI::BuildDetailsWindow()
 	ImGui::SeparatorText("Game Object Name");
 	ImGui::Text(_lastHighlightedGo->ObjectName);
 	ImGui::SeparatorText("Transform");
+
 	float translation[3] = {
 		_lastHighlightedGo->Transform.Translation.x,
 		_lastHighlightedGo->Transform.Translation.y,
 		_lastHighlightedGo->Transform.Translation.z };
-	ImGui::InputFloat3("Translation:", translation);
+	ImGui::DragFloat3("Translation:", translation, 0.01f);
 	_lastHighlightedGo->Transform.Translation.x = translation[0];
 	_lastHighlightedGo->Transform.Translation.y = translation[1];
 	_lastHighlightedGo->Transform.Translation.z = translation[2];
@@ -215,7 +216,7 @@ void KarnanMainGUI::BuildDetailsWindow()
 		_lastHighlightedGo->Transform.Rotation.y,
 		_lastHighlightedGo->Transform.Rotation.z };
 
-	ImGui::InputFloat3("Rotation:", rotation);
+	ImGui::DragFloat3("Rotation:", rotation, 0.01f);
 	_lastHighlightedGo->Transform.Rotation.x = rotation[0];
 	_lastHighlightedGo->Transform.Rotation.y = rotation[1];
 	_lastHighlightedGo->Transform.Rotation.z = rotation[2];
@@ -224,7 +225,7 @@ void KarnanMainGUI::BuildDetailsWindow()
 		_lastHighlightedGo->Transform.Scale.x,
 		_lastHighlightedGo->Transform.Scale.y,
 		_lastHighlightedGo->Transform.Scale.z };
-	ImGui::InputFloat3("Scale:", scale);
+	ImGui::DragFloat3("Scale:", scale, 0.01f);
 	_lastHighlightedGo->Transform.Scale.x = scale[0];
 	_lastHighlightedGo->Transform.Scale.y = scale[1];
 	_lastHighlightedGo->Transform.Scale.z = scale[2];

@@ -36,7 +36,8 @@ void KarnanScene::UpdateScene(double deltaTime)
 	{
 		gameObject->Update(deltaTime);
 	}
-	//Triangle->Update(deltaTime);
+
+	Camera->SetViewYXZ(Viewer->Transform.Translation, Viewer->Transform.Rotation);
 	Camera->SetPerspectiveProjection(glm::radians(50.f), 1.f, 0.1f, 25.f);
 }
 
