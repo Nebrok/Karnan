@@ -8,7 +8,7 @@ public:
 private:
 
 public:
-	Cube(KarnanDevice& device);
+	Cube(const char* objectName);
 	~Cube();
 
 	void Update(double deltaTime) override;

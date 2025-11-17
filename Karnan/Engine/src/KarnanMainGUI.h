@@ -7,10 +7,26 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_vulkan.h"
 
+//To get new GO Creation working
+#include <string>
+#define GLM_FORCE_RADIANS
+#define GLM_FORCE_DEPTH_ZERO_TO_ONE
+#include <glm/glm.hpp>
+
 class KarnanDevice;
 class KarnanSwapChain;
 class KarnanRenderer;
 class GameObject;
+
+
+struct NewGameObjectData
+{
+	std::string ObjectName;
+	glm::vec3 Translation;
+	glm::vec3 Rotation;
+	glm::vec3 Scale = {1.0f, 1.0f, 1.0f};
+};
+
 
 class KarnanMainGUI
 {
@@ -41,8 +57,11 @@ public:
 
 	void BuildHierarchyWindow();
 	void BuildDetailsWindow();
+	void BuildGameObjectCreator();
 
 private:
+
 	void UpdateDetailsPanel(GameObject* go);
+	void CreateNewGameObject(NewGameObjectData data);
 
 };

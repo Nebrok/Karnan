@@ -22,6 +22,7 @@ void KarnanEditor::Update()
 	_mainGUI->NewFrame();
 	_mainGUI->BuildHierarchyWindow();
 	_mainGUI->BuildDetailsWindow();
+	_mainGUI->BuildGameObjectCreator();
 	_mainGUI->EndFrame();
 }
 

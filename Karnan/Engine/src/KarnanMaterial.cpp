@@ -8,15 +8,18 @@ KarnanMaterial::KarnanMaterial()
 	: _karnanDevice(EngineCore::Device())
 {
 	_materialTextures.resize(MAX_TEXTURES);
+	_materialDescriptorSet = {};
 }
 
 KarnanMaterial::~KarnanMaterial()
 {
+	vkDestroySampler(_karnanDevice.Device(), _tempSampler, nullptr);
 }
 
 void KarnanMaterial::Init()
 {
 	CreateSampler();
+
 }
 
 void KarnanMaterial::CreateSampler()
@@ -41,7 +44,7 @@ void KarnanMaterial::CreateImageInfos()
 		if (_materialTextures[i] == nullptr)
 			continue;
 
-		VkDescriptorImageInfo imageBufferInfo;
+		VkDescriptorImageInfo imageBufferInfo{};
 		imageBufferInfo.sampler = _tempSampler;
 		imageBufferInfo.imageView = (_materialTextures[i])->GetImageView();
 		imageBufferInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
@@ -55,6 +58,12 @@ void KarnanMaterial::CreateTextureInSlot(uint32_t slot, std::string filePath)
 	if (slot >= MAX_TEXTURES)
 		throw std::runtime_error("Tried to create texture in invalid slot on material");
 
-	std::unique_ptr<KarnanTexture> texture(new KarnanTexture(filePath));
+	if (_materialTextures[slot] != nullptr)
+	{
+		throw std::runtime_error("Material already exists in slot texture is being bound to");
+	}
+
+	std::unique_ptr<KarnanTexture> texture(DBG_NEW KarnanTexture(filePath));
 	_materialTextures[slot] = move(texture);
 }
+

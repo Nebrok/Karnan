@@ -33,15 +33,11 @@ private:
 	std::vector<std::unique_ptr<KarnanGlobalUBO>> _globalUBOBuffers;
 	
 	std::vector<VkDescriptorSet> _globalDescriptorSets;
-	std::vector<VkDescriptorSet> _set1DescriptorSet;
 
 	std::unique_ptr<KarnanDescriptorSetLayout> _globalSetLayout;
-	std::unique_ptr<KarnanDescriptorSetLayout> _set1Layout;
+	std::unique_ptr<KarnanDescriptorSetLayout> _materialDescriptorSetLayout;
 
 	int _maxFramesInFlight;
-
-	//temp texture
-	std::unique_ptr<KarnanTexture> _defaultTexture;
 
 
 public:
@@ -58,10 +54,11 @@ public:
 
 	void RenderObjects(Karnan::FrameInfo frameInfo, KarnanCamera& camera, std::vector<GameObject*> gameObjects);
 
-
 private:
 	void CreateUniformBuffers();
 	void CreateDesciptorSets();
 	void CreatePipelineLayout();
 	void CreatePipeline(VkRenderPass renderPass);
+
+	VkDescriptorSet& GetMaterialDescriptorSet(KarnanMaterial& material);
 };

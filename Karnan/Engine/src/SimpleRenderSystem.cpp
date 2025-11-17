@@ -46,28 +46,12 @@ void SimpleRenderSystem::RenderObjects(Karnan::FrameInfo frameInfo, KarnanCamera
 
 	for (auto go : gameObjects)
 	{
-		KarnanDescriptorWriter writer = { *_set1Layout, *_globalPool };
-		for (int i = 0; i < go->GetMaterial()->GetTotalTextures(); i++)
-		{
-			if (go->GetMaterial()->IsTextureBoundAt(i))
-				writer.writeImage(i, &(go->GetMaterial()->GetImageInfosAtIndex(i)));				
-		}
-		
-		if (_set1DescriptorSet[frameInfo.FrameIndex] == nullptr)
-		{
-			writer.build(_set1DescriptorSet[frameInfo.FrameIndex]);
-		}
-		else
-		{
-			writer.overwrite(_set1DescriptorSet[frameInfo.FrameIndex]);
-		}
-
 		vkCmdBindDescriptorSets(
 			frameInfo.commandBuffer,
 			VK_PIPELINE_BIND_POINT_GRAPHICS,
 			_pipelineLayout,
 			1, 1,
-			&_set1DescriptorSet[frameInfo.FrameIndex],
+			&GetMaterialDescriptorSet(*go->GetMaterial()),
 			0, nullptr);
 
 
@@ -95,12 +79,14 @@ void SimpleRenderSystem::CreateUniformBuffers()
 	}
 }
 
+
+//TODO: Fix the descriptor pool to dynamically expand to fit needs.
 void SimpleRenderSystem::CreateDesciptorSets()
 {
 	_globalPool = KarnanDescriptorPool::Builder(_karnanDevice)
-		.setMaxSets(_maxFramesInFlight * 2)
+		.setMaxSets(1000)
 		.addPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, _maxFramesInFlight)
-		.addPoolSize(VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, _maxFramesInFlight)
+		.addPoolSize(VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 500)
 		.build();
 	
 	auto globalSetLayout = KarnanDescriptorSetLayout::Builder(_karnanDevice)
@@ -122,10 +108,7 @@ void SimpleRenderSystem::CreateDesciptorSets()
 	auto set1Layout = KarnanDescriptorSetLayout::Builder(_karnanDevice)
 		.addBinding(0, VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, VK_SHADER_STAGE_FRAGMENT_BIT)
 		.build();
-	_set1Layout = move(set1Layout);
-
-	
-	_set1DescriptorSet.resize(_maxFramesInFlight);
+	_materialDescriptorSetLayout = move(set1Layout);
 }
 
 void SimpleRenderSystem::CreatePipelineLayout()
@@ -137,7 +120,7 @@ void SimpleRenderSystem::CreatePipelineLayout()
 
 	std::vector<VkDescriptorSetLayout> descriptorSetLayouts
 	{ _globalSetLayout->getDescriptorSetLayout(), 
-		_set1Layout->getDescriptorSetLayout()
+		_materialDescriptorSetLayout->getDescriptorSetLayout()
 	};
 
 	VkPipelineLayoutCreateInfo pipelineLayoutInfo{};
@@ -163,4 +146,20 @@ void SimpleRenderSystem::CreatePipeline(VkRenderPass renderPass)
 		pipelineConfig,
 		"shaders/simpleShader.vert.spv",
 		"shaders/simpleShader.frag.spv");
+}
+
+VkDescriptorSet& SimpleRenderSystem::GetMaterialDescriptorSet(KarnanMaterial& material)
+{
+	if (!material.HasDescriptorSet())
+	{
+		KarnanDescriptorWriter writer = { *_materialDescriptorSetLayout, *_globalPool };
+		for (int i = 0; i < material.GetTotalTextures(); i++)
+		{
+			if (material.IsTextureBoundAt(i))
+				writer.writeImage(i, &(material.GetImageInfosAtIndex(i)));
+		}
+		writer.build(material.GetDescriptorSet());
+		material.SetValidDescriptorSet();
+	}
+	return material.GetDescriptorSet();
 }

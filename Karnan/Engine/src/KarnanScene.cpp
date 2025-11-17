@@ -11,17 +11,19 @@ KarnanScene::KarnanScene(SimpleRenderSystem& renderSystem)
 
 KarnanScene::~KarnanScene()
 {
-	delete(Triangle);
-	delete(Viewer);
+	for (auto gameObject : _gameObjects)
+	{
+		delete gameObject;
+	}
 	delete(Camera);
 }
 
 void KarnanScene::LoadScene()
 {
-	Triangle = new Cube(_renderSystem.GetDevice());
-	Viewer = new GameObject("CameraPosition");
+	Triangle = DBG_NEW Cube("Cube");
+	Viewer = DBG_NEW GameObject("CameraPosition");
 	Viewer->SetRenderable(false);
-	Camera = new KarnanCamera();
+	Camera = DBG_NEW KarnanCamera();
 
 	Triangle->Transform.Scale = { 2.0f, 2.0f, 2.0f };
 

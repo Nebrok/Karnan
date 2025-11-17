@@ -2,8 +2,8 @@
 
 #include <iostream>
 
-Cube::Cube(KarnanDevice& device)
-	: GameObject("Cube")
+Cube::Cube(const char* objectName)
+	: GameObject(objectName)
 {
 	std::vector<VertexBuffer::Vertex> vertices
 	{
@@ -63,7 +63,7 @@ Cube::Cube(KarnanDevice& device)
 	std::cout << "VertexCount : " << vertices.size() << "\n";
 	std::cout << "IndexCount : " << indices.size() << "\n";
 
-	std::unique_ptr<BasicMesh> mesh(new BasicMesh(_karnanDevice, vertices, indices));
+	std::unique_ptr<BasicMesh> mesh(DBG_NEW BasicMesh(_karnanDevice, vertices, indices));
 	_mesh = move(mesh);
 
 	_material = std::make_unique<KarnanMaterial>();
@@ -80,5 +80,5 @@ Cube::~Cube()
 
 void Cube::Update(double deltaTime)
 {
-	Transform.Rotation.y += 1.f * deltaTime;
+	Transform.Rotation.y += (float)(1.f * deltaTime);
 }

@@ -21,7 +21,7 @@ namespace Karnan
         // Matrix corrsponds to Translate * Ry * Rx * Rz * Scale
         // Rotations correspond to Tait-bryan angles of Y(1), X(2), Z(3)
         // https://en.wikipedia.org/wiki/Euler_angles#Rotation_matrix
-        glm::mat4 Mat4() {
+        glm::mat4 Mat4() const {
             const float c3 = glm::cos(Rotation.z);
             const float s3 = glm::sin(Rotation.z);
             const float c2 = glm::cos(Rotation.x);
@@ -84,7 +84,7 @@ public:
 	~GameObject();
 
     void SetRenderable(bool renderable) { _renderable = renderable; };
-    bool IsRenderable() { return _renderable; };
+    bool IsRenderable() const { return _renderable; };
 
     uint32_t GetId() const { return _objectId; };
     std::shared_ptr<KarnanMaterial> GetMaterial() { return _material; };

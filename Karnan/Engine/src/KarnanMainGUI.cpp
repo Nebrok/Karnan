@@ -1,7 +1,6 @@
 #include "KarnanMainGUI.h"
 #include "imgui_internal.h"
 
-
 #include <stdexcept>
 
 #include "EngineCore.h"
@@ -9,8 +8,9 @@
 #include "KarnanRenderer.h"
 #include "KarnanSwapChain.h"
 
-#include "glm/gtc/type_ptr.hpp"
+#include "Cube.h"
 
+#include "glm/gtc/type_ptr.hpp"
 
 static void check_vk_result(VkResult err)
 {
@@ -24,9 +24,6 @@ static void check_vk_result(VkResult err)
 KarnanMainGUI::KarnanMainGUI(KarnanDevice& device, KarnanRenderer& renderer, GLFWwindow* glfwWindow)
 	: _karnanDevice(device), _karnanRenderer(renderer), _windowRef(glfwWindow)
 {
-
-
-
 
 }
 
@@ -142,10 +139,6 @@ void KarnanMainGUI::NewFrame()
 	ImGui::End();
 	
 
-
-
-
-
 	bool show_demo_window = true;
 	ImGui::ShowDemoWindow(&show_demo_window);
 }
@@ -234,9 +227,38 @@ void KarnanMainGUI::BuildDetailsWindow()
 	ImGui::End();
 }
 
+void KarnanMainGUI::BuildGameObjectCreator()
+{
+	NewGameObjectData data{};
+
+	bool gameObjectBuilderOpen = true;
+	ImGui::Begin("Create Objects", &gameObjectBuilderOpen);
+
+	ImGui::SeparatorText("Game Object Name");
+	ImGui::Text("Eventually this will be an entry field");
+	data.ObjectName = " New GameObject - Testing";
+	ImGui::SeparatorText("Transform");
+
+	ImGui::DragFloat3("Translation:", glm::value_ptr(data.Translation), 0.01f);
+	ImGui::DragFloat3("Rotation:", glm::value_ptr(data.Rotation), 0.01f);
+	ImGui::DragFloat3("Scale:", glm::value_ptr(data.Scale), 0.01f);
+
+	if (ImGui::Button("Test Button"))
+	{
+		CreateNewGameObject(data);
+	}
+
+	ImGui::End();
+}
+
 void KarnanMainGUI::UpdateDetailsPanel(GameObject* go)
 {
 	_lastHighlightedGo = go;
+}
+
+void KarnanMainGUI::CreateNewGameObject(NewGameObjectData data)
+{
+	Cube* newGo = new Cube("New Gameobject - Testing");
 }
 
 KarnanMainGUI::~KarnanMainGUI()
