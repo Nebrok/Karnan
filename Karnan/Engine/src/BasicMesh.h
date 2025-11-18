@@ -11,7 +11,7 @@
 
 //std libs
 #include <memory>
-
+#include <string>
 
 class BasicMesh
 {
@@ -28,15 +28,20 @@ private:
 
 
 public:
+	BasicMesh(const std::string& filename);
 	BasicMesh(KarnanDevice& device, std::vector<VertexBuffer::Vertex> vertices, std::vector<uint32_t> indices);
 	~BasicMesh();
 
 	void CreateMesh(std::vector<VertexBuffer::Vertex> vertices, std::vector<uint32_t> indices);
 
+	void LoadMesh(const std::string& filename);
+	void LoadObj(const std::string& filename);
+
+
 	void Bind(VkCommandBuffer commandBuffer);
 	void Draw(VkCommandBuffer commandBuffer);
 
 private:
-
-
+	std::vector<std::string> Triangularise(const std::vector<std::string>& quad);
+	std::vector<int> ParseFacePoint(const std::string& point);
 };

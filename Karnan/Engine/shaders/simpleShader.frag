@@ -14,6 +14,8 @@ layout (push_constant) uniform Push
 
 void main()
 {
-	vec3 color = texture(tex, texCoord).xyz;
+	vec2 invertedYCoord = vec2(texCoord.x, 1-texCoord.y);
+
+	vec3 color = texture(tex, invertedYCoord).xyz;
 	outColor = vec4(color, 1.0);
 }

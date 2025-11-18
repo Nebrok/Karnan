@@ -19,6 +19,7 @@ private:
 	std::vector<GameObject*> _gameObjects;
 
 	// Temp
+	GameObject* Plane;
 	GameObject* Viewer;
 	KarnanCamera* Camera;
 
