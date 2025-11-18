@@ -26,6 +26,7 @@ void KarnanTexture::CreateTextureImage()
 	int textureHeight;
 	int textureChannels;
 
+	stbi_set_flip_vertically_on_load(true);
 	stbi_uc* pixelData = stbi_load(_filepath.c_str(), &textureWidth, &textureHeight, &textureChannels, STBI_rgb_alpha);
 
 	if (!pixelData)

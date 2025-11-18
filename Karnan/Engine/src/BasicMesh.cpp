@@ -172,11 +172,11 @@ std::vector<std::string> BasicMesh::Triangularise(const std::vector<std::string>
 	}
 	else
 	{
-		for (int i = 2; i < polygon.size(); i++)
+		for (int i = 1; i < polygon.size() - 1; i++)
 		{
 			expanded.push_back(polygon[0    ]);
 			expanded.push_back(polygon[i]);
-			expanded.push_back(polygon[i - 1]);
+			expanded.push_back(polygon[i + 1]);
 		}
 	}
 	
