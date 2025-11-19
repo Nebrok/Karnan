@@ -66,6 +66,7 @@ void BasicMesh::LoadObj(const std::string& filename)
 	{
 		throw std::runtime_error("Could not open file: " + filename);
 	}
+	int lineCount = 0;
 	while (std::getline(file, line))
 	{
 		std::istringstream iss(line);
@@ -102,12 +103,12 @@ void BasicMesh::LoadObj(const std::string& filename)
 				points.push_back(point);
 			}
 
-			if (points.size() > 4)
+			bool redOut = false;
+			if (points.size() > 4) // Ngons/Polygons
 			{
 				points = Triangularise(points);
-				continue;
 			}
-			else if (points.size() > 3)
+			else if (points.size() == 4) //Quads
 			{
 				points = Triangularise(points);
 			}
@@ -126,11 +127,19 @@ void BasicMesh::LoadObj(const std::string& filename)
 				vertex.position = modelVertices[indices[0] - 1];
 				if (indices[1] > 0)
 					vertex.uv = modelUVs[indices[1] - 1];
+				else
+					vertex.uv = { 0,0 };
+
+				if (redOut)
+					vertex.normal = { 1.0f, 0.0f, 0.0f };
+				else
+					vertex.normal = modelNormals[indices[2] - 1];
 				vertices.push_back(vertex);
 				indices.push_back(indices.size());
 			}
 
 		}
+		lineCount++;
 	}
 	file.close();
 	CreateMesh(vertices, indices);
@@ -165,8 +174,9 @@ std::vector<std::string> BasicMesh::Triangularise(const std::vector<std::string>
 	{
 		expanded.push_back(polygon[0]);
 		expanded.push_back(polygon[1]);
-		expanded.push_back(polygon[2]);
-		expanded.push_back(polygon[0]);
+		expanded.push_back(polygon[3]);
+
+		expanded.push_back(polygon[1]);
 		expanded.push_back(polygon[2]);
 		expanded.push_back(polygon[3]);
 	}
