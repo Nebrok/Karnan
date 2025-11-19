@@ -1,6 +1,5 @@
 #include "EngineCore.h"
 
-#include "KarnanGlobalUBO.h"
 #include "KarnanFrameInfo.h"
 
 

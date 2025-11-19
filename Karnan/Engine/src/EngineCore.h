@@ -12,7 +12,6 @@
 #include "KarnanMainGUI.h"
 
 #include "SimpleRenderSystem.h"
-#include "BasicMesh.h"
 
 
 
