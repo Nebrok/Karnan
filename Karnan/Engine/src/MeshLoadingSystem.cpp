@@ -1,4 +1,6 @@
 #include "MeshLoadingSystem.h"
+#define GLM_ENABLE_EXPERIMENTAL
+#include <glm/gtx/hash.hpp>
 
 #include "EngineCore.h"
 #include "KarnanUtils.h"
@@ -8,8 +10,9 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <chrono>
 
-/*
+
 namespace std
 {
 	template<>
@@ -18,12 +21,12 @@ namespace std
 		size_t operator()(VertexBuffer::Vertex const& vertex) const
 		{
 			size_t seed = 0;
-			Karnan::HashCombine(seed, vertex.position, vertex.normal, vertex.uv);
+			Karnan::HashCombine(seed, vertex.position, vertex.uv, vertex.normal);
 			return seed;
 		}
 	};
 }
-*/
+
 
 MeshLoadingSystem* MeshLoadingSystem::Instance = nullptr;
 
@@ -70,7 +73,9 @@ void MeshLoadingSystem::LoadObj(const std::string& filename)
 	}
 	int lineCount = 0;
 
-	//std::vector<> uniqueVertices{};
+	std::unordered_map<VertexBuffer::Vertex, uint32_t> uniqueVertices{};
+
+	auto currentTime = std::chrono::high_resolution_clock::now();
 
 	while (std::getline(file, line))
 	{
@@ -108,7 +113,6 @@ void MeshLoadingSystem::LoadObj(const std::string& filename)
 				points.push_back(point);
 			}
 
-			bool redOut = false;
 			if (points.size() > 4) // Ngons/Polygons
 			{
 				points = Triangularise(points);
@@ -130,42 +134,40 @@ void MeshLoadingSystem::LoadObj(const std::string& filename)
 
 				VertexBuffer::Vertex vertex;
 				vertex.position = modelVertices[pointIndices[0] - 1];
+
 				if (pointIndices[1] > 0)
 					vertex.uv = modelUVs[pointIndices[1] - 1];
 				else
 					vertex.uv = { 0,0 };
 
-				if (redOut)
-					vertex.normal = { 1.0f, 0.0f, 0.0f };
-				else
-					vertex.normal = modelNormals[pointIndices[2] - 1];
+				vertex.normal = modelNormals[pointIndices[2] - 1];
 
 
-
-				/*
-				int outIndex = Contains(vertices, vertex);
-				if (outIndex == -1)
+				if (uniqueVertices.count(vertex) == 0)
 				{
+					uniqueVertices[vertex] = static_cast<uint32_t>(vertices.size());
 					vertices.push_back(vertex);
 				}
-				indices.push_back(outIndex);
-				*/
-
-				vertices.push_back(vertex);
-				indices.push_back(indices.size());
+				indices.push_back(uniqueVertices[vertex]);
 			}
 
 		}
 		lineCount++;
 	}
 	file.close();
+
+	auto newTime = std::chrono::high_resolution_clock::now();
+	double objLoadTime = std::chrono::duration<double, std::chrono::seconds::period>(newTime - currentTime).count();
+
+
 	std::cout << filename << " loaded succesfully with: " << '\n';
+	std::cout << "Time to load file: " << objLoadTime << " seconds." << '\n';
 	std::cout << "Vertices: " << vertices.size() << '\n';
 	std::cout << "Indices: " << indices.size() << '\n';
 	CreateMesh(filename, vertices, indices);
 }
 
-void MeshLoadingSystem::CreateMesh(const std::string& modelName, std::vector<VertexBuffer::Vertex> vertices, std::vector<uint32_t> indices)
+void MeshLoadingSystem::CreateMesh(const std::string& modelName, std::vector<VertexBuffer::Vertex>& vertices, std::vector<uint32_t>& indices)
 {
 	std::shared_ptr<VertexBuffer> vertexBuffer(DBG_NEW VertexBuffer(_karnanDevice));
 	_vertexBufferMap.insert({ modelName, vertexBuffer });
@@ -248,18 +250,4 @@ std::vector<int> MeshLoadingSystem::ParseFacePoint(const std::string& point)
 		indices.push_back(std::stoi(part));
 
 	return indices;
-}
-
-int MeshLoadingSystem::Contains(std::vector<VertexBuffer::Vertex> vertices, VertexBuffer::Vertex comparison)
-{
-	size_t index = 0;
-	for (auto vertex : vertices)
-	{
-		if (vertex == comparison)
-		{
-			return index;
-		}
-		index++;
-	}
-	return -1;
 }

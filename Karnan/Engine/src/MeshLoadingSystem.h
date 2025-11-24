@@ -30,7 +30,7 @@ public:
 
 	void LoadMesh(const std::string& filename);
 	
-	void CreateMesh(const std::string& modelName, std::vector<VertexBuffer::Vertex> vertices, std::vector<uint32_t> indices);
+	void CreateMesh(const std::string& modelName, std::vector<VertexBuffer::Vertex>& vertices, std::vector<uint32_t>& indices);
 	
 	std::shared_ptr<VertexBuffer> GetVertexBuffer(const std::string& filename);
 	std::shared_ptr<IndexBuffer> GetIndexBuffer(const std::string& filename);
@@ -41,6 +41,4 @@ private:
 	void LoadObj(const std::string& filename);
 	std::vector<std::string> Triangularise(const std::vector<std::string>& polygon);
 	std::vector<int> ParseFacePoint(const std::string& point);
-
-	int Contains(std::vector<VertexBuffer::Vertex> vertices, VertexBuffer::Vertex comparison);
 };

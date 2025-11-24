@@ -20,6 +20,7 @@ BasicMesh::BasicMesh(const std::string& filename)
 	if (indexBuffer != nullptr)
 	{
 		_indexBuffer = indexBuffer;
+		_hasIndexBuffer = true;
 	}
 }
 

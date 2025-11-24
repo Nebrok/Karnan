@@ -30,7 +30,7 @@ void KarnanScene::LoadScene()
 	Plane->Transform.Scale = { 1.0f, 1.0f, 1.0f };
 
 
-	Viewer->Transform.Translation = { 0.f, 1.5f, -6.f };
+	Viewer->Transform.Translation = { 0.f, 1.5f, -1.f };
 	Camera->SetPerspectiveProjection(glm::radians(50.f), 1.f, 0.1f, 25.f);
 }
 
