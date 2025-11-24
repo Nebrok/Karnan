@@ -46,7 +46,7 @@ void EngineCore::DestroyEngine()
 
 void EngineCore::Init()
 {
-	
+	_meshLoadingSystem = std::unique_ptr<MeshLoadingSystem>(MeshLoadingSystem::StartMeshLoadingSystem());
 }
 
 void EngineCore::Run()

@@ -258,7 +258,10 @@ void KarnanMainGUI::UpdateDetailsPanel(GameObject* go)
 
 void KarnanMainGUI::CreateNewGameObject(NewGameObjectData data)
 {
-	Cube* newGo = new Cube("New Gameobject - Testing");
+	GameObject* newGo = new GameObject("GameObject");
+	newGo->CreateMesh("assets/Fishstaff.obj");
+	newGo->CreateMaterial("textures/Staff_low_lambert1_BaseColor.png");
+	newGo->Transform.Scale = { 1.0f, 1.0f, 1.0f };
 }
 
 KarnanMainGUI::~KarnanMainGUI()

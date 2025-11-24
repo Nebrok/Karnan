@@ -63,7 +63,8 @@ Cube::Cube(const char* objectName)
 	std::cout << "VertexCount : " << vertices.size() << "\n";
 	std::cout << "IndexCount : " << indices.size() << "\n";
 
-	std::unique_ptr<BasicMesh> mesh(DBG_NEW BasicMesh(_karnanDevice, vertices, indices));
+	std::string name = std::string(ObjectName);
+	std::unique_ptr<BasicMesh> mesh(DBG_NEW BasicMesh(_karnanDevice, name, vertices, indices));
 	_mesh = move(mesh);
 
 	_material = std::make_unique<KarnanMaterial>();

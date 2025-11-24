@@ -17,7 +17,6 @@ public:
 	void InitialiseMessageSystem();
 	void ShutdownMessageSystem();
 
-
 	void RegisterSystem();
 
 	void PollQueue();

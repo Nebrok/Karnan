@@ -10,8 +10,6 @@ class KarnanScene
 {
 
 public:
-	// Temp
-	Cube* Triangle;
 
 private:
 	SimpleRenderSystem& _renderSystem;

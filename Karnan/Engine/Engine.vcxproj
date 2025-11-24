@@ -169,6 +169,7 @@
     <ClCompile Include="src\KarnanTextures.cpp" />
     <ClCompile Include="src\KarnanWindow.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\MeshLoadingSystem.cpp" />
     <ClCompile Include="src\MessageSystem.cpp" />
     <ClCompile Include="src\SimpleRenderSystem.cpp" />
     <ClCompile Include="src\VertexBuffer.cpp" />
@@ -202,7 +203,9 @@
     <ClInclude Include="src\KarnanScene.h" />
     <ClInclude Include="src\KarnanSwapChain.h" />
     <ClInclude Include="src\KarnanTextures.h" />
+    <ClInclude Include="src\KarnanUtils.h" />
     <ClInclude Include="src\KarnanWindow.h" />
+    <ClInclude Include="src\MeshLoadingSystem.h" />
     <ClInclude Include="src\Message.h" />
     <ClInclude Include="src\MessageSystem.h" />
     <ClInclude Include="src\SimpleRenderSystem.h" />

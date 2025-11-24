@@ -1,7 +1,11 @@
 #include "VertexBuffer.h"
 
+//#include "KarnanUtils.h"
+
 // std libs
 #include <stdexcept>
+
+
 
 std::vector<VkVertexInputBindingDescription> VertexBuffer::Vertex::GetBindingDescriptions()
 {
