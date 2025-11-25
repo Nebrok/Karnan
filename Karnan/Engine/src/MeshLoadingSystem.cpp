@@ -27,7 +27,6 @@ namespace std
 	};
 }
 
-
 MeshLoadingSystem* MeshLoadingSystem::Instance = nullptr;
 
 MeshLoadingSystem* MeshLoadingSystem::StartMeshLoadingSystem()
@@ -46,21 +45,35 @@ void MeshLoadingSystem::DestroyMeshLoadingSystem()
 
 void MeshLoadingSystem::LoadMesh(const std::string& filename)
 {
+	size_t lastSlash = filename.rfind('/');
+	std::string modelName = filename.substr(lastSlash + 1);
 	if (auto search = _vertexBufferMap.find(filename); search != _vertexBufferMap.end())
 	{
 		std::cout << "Model: " << filename << " is already loaded.";
 	}
-	else if (std::string binaryFilepath = CheckForBinary(filename); binaryFilepath != "")
+	else if (std::string binaryFilepath = CheckForBinary(modelName); binaryFilepath != "")
 	{
 		std::vector<VertexBuffer::Vertex> vertices;
 		std::vector<uint32_t> indices;
 
+		auto currentTime = std::chrono::high_resolution_clock::now();
 		LoadModelFromKMSH(binaryFilepath, vertices, indices);
 		CreateMesh(filename, vertices, indices);
+		auto newTime = std::chrono::high_resolution_clock::now();
+		double objLoadTime = std::chrono::duration<double, std::chrono::seconds::period>(newTime - currentTime).count();
+
+		std::cout << filename << " loaded successfully with: " << '\n';
+		std::cout << "Vertices: " << vertices.size() << '\n';
+		std::cout << "Indices: " << indices.size() << '\n';
+		std::cout << "Time to load file: " << objLoadTime << " seconds." << '\n';
 	}
 	else
 	{
+		auto currentTime = std::chrono::high_resolution_clock::now();
 		LoadObj(filename);
+		auto newTime = std::chrono::high_resolution_clock::now();
+		double objLoadTime = std::chrono::duration<double, std::chrono::seconds::period>(newTime - currentTime).count();
+		std::cout << "Time to load file " + filename + ": " << objLoadTime << " seconds." << '\n';
 	}
 }
 
@@ -70,7 +83,8 @@ std::string MeshLoadingSystem::CheckForBinary(const std::string& filename)
 
 	for (const auto& file : std::filesystem::directory_iterator("assets/bin"))
 	{
-		if (file.path().compare(filename + ".kmsh") == 0)
+		std::string pathFileName = file.path().filename().string();
+		if (pathFileName.compare(filename + ".kmsh") == 0)
 			return file.path().string();
 	}
 	return "";
@@ -94,8 +108,6 @@ void MeshLoadingSystem::LoadObj(const std::string& filename)
 	int lineCount = 0;
 
 	std::unordered_map<VertexBuffer::Vertex, uint32_t> uniqueVertices{};
-
-	auto currentTime = std::chrono::high_resolution_clock::now();
 
 	while (std::getline(file, line))
 	{
@@ -176,15 +188,15 @@ void MeshLoadingSystem::LoadObj(const std::string& filename)
 	}
 	file.close();
 
-	auto newTime = std::chrono::high_resolution_clock::now();
-	double objLoadTime = std::chrono::duration<double, std::chrono::seconds::period>(newTime - currentTime).count();
-
-	std::cout << filename << " loaded succesfully with: " << '\n';
-	std::cout << "Time to load file: " << objLoadTime << " seconds." << '\n';
+	std::cout << filename << " loaded successfully with: " << '\n';
 	std::cout << "Vertices: " << vertices.size() << '\n';
 	std::cout << "Indices: " << indices.size() << '\n';
 	
-	SerialiseMesh(filename + ".kmsh", vertices, indices);
+
+	size_t lastSlash = filename.rfind('/');
+	std::string modelName = filename.substr(lastSlash);
+
+	SerialiseMesh("assets/bin/" + modelName + ".kmsh", vertices, indices);
 	CreateMesh(filename, vertices, indices);
 }
 
@@ -279,13 +291,11 @@ void MeshLoadingSystem::LoadModelFromKMSH(const std::string& filepath, std::vect
 
 	if (numberVertices < 1000000)
 	{
-		std::cout << "NumberVerts good: " << numberVertices << '\n';
 		vertices.resize(numberVertices);
 		infile.read((char*)vertices.data(), sizeof(VertexBuffer::Vertex) * numberVertices);
 	}
 	else
 	{
-		std::cout << "NumberVerts: " << numberVertices << '\n';
 		throw std::runtime_error("Error reading kmsh file: too many vertices to be read");
 	}
 

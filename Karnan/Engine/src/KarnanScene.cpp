@@ -20,10 +20,10 @@ KarnanScene::~KarnanScene()
 
 void KarnanScene::LoadScene()
 {
-	GameObject* Cube = DBG_NEW GameObject("assets/cube.obj");
-	Cube->CreateMesh("assets/cube.obj");
-	Cube->CreateMaterial("textures/Staff_low_lambert1_BaseColor.png");
-	Cube->Transform.Translation = { 0.0f, 0.0f, 0.0f };
+	//GameObject* Cube = DBG_NEW GameObject("assets/cube.obj");
+	//Cube->CreateMesh("assets/cube.obj");
+	//Cube->CreateMaterial("textures/Staff_low_lambert1_BaseColor.png");
+	//Cube->Transform.Translation = { 0.0f, 0.0f, 0.0f };
 
 	GameObject* Dragon = DBG_NEW GameObject("assets/Dragon_80K.obj");
 	Dragon->CreateMesh("assets/Dragon_80K.obj");
@@ -34,7 +34,7 @@ void KarnanScene::LoadScene()
 	Viewer->SetRenderable(false);
 	Camera = DBG_NEW KarnanCamera();
 
-	Plane = DBG_NEW GameObject("Viking House");
+	Plane = DBG_NEW GameObject("FishStaff");
 	Plane->CreateMesh("assets/Fishstaff.obj");
 	Plane->CreateMaterial("textures/Staff_low_lambert1_BaseColor.png");
 	Plane->Transform.Scale = { 1.0f, 1.0f, 1.0f };
