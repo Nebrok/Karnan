@@ -7,15 +7,14 @@ public:
 	enum class Type
 	{
 		NONE,
-		TEXT,
+		LOAD_MODEL,
 	};
-
-
 
 private:
 
 
 public:
+	Message(Type messageType);
 
 
 private:

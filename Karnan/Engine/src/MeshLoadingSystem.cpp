@@ -11,7 +11,7 @@
 #include <sstream>
 #include <iostream>
 #include <chrono>
-
+#include <filesystem>
 
 namespace std
 {
@@ -50,10 +50,30 @@ void MeshLoadingSystem::LoadMesh(const std::string& filename)
 	{
 		std::cout << "Model: " << filename << " is already loaded.";
 	}
+	else if (std::string binaryFilepath = CheckForBinary(filename); binaryFilepath != "")
+	{
+		std::vector<VertexBuffer::Vertex> vertices;
+		std::vector<uint32_t> indices;
+
+		LoadModelFromKMSH(binaryFilepath, vertices, indices);
+		CreateMesh(filename, vertices, indices);
+	}
 	else
 	{
 		LoadObj(filename);
 	}
+}
+
+std::string MeshLoadingSystem::CheckForBinary(const std::string& filename)
+{
+	std::string pathToAssetDir = "assets/bin";
+
+	for (const auto& file : std::filesystem::directory_iterator("assets/bin"))
+	{
+		if (file.path().compare(filename + ".kmsh") == 0)
+			return file.path().string();
+	}
+	return "";
 }
 
 void MeshLoadingSystem::LoadObj(const std::string& filename)
@@ -159,11 +179,12 @@ void MeshLoadingSystem::LoadObj(const std::string& filename)
 	auto newTime = std::chrono::high_resolution_clock::now();
 	double objLoadTime = std::chrono::duration<double, std::chrono::seconds::period>(newTime - currentTime).count();
 
-
 	std::cout << filename << " loaded succesfully with: " << '\n';
 	std::cout << "Time to load file: " << objLoadTime << " seconds." << '\n';
 	std::cout << "Vertices: " << vertices.size() << '\n';
 	std::cout << "Indices: " << indices.size() << '\n';
+	
+	SerialiseMesh(filename + ".kmsh", vertices, indices);
 	CreateMesh(filename, vertices, indices);
 }
 
@@ -202,6 +223,84 @@ std::shared_ptr<IndexBuffer> MeshLoadingSystem::GetIndexBuffer(const std::string
 MeshLoadingSystem::MeshLoadingSystem()
 	: _karnanDevice(EngineCore::Instance->Device())
 {
+
+}
+
+void MeshLoadingSystem::SerialiseMesh(const std::string& outputPath, std::vector<VertexBuffer::Vertex>& vertices, std::vector<uint32_t>& indices)
+{
+	/* 
+	* VertexBuffer::Vertex format:
+	*		glm::vec3
+	*		glm::vec3
+	*		glm::vec2          
+	* 
+	* glm::vec3 == 3 * 4bytes or 12 bytes total
+	* glm::vec2 == 2 * 4bytes or 8 bytes total
+	* 
+	* Vertex == 32 bytes
+	* 
+	* custom file format == ".kmsh" 
+	*/
+
+	std::fstream outfile;
+	outfile.open(outputPath.c_str(), std::fstream::out | std::fstream::binary);
+	if (outfile.fail())
+	{
+		std::cout << "Failed to open file: " << outputPath << '\n';
+	}
+	size_t numberVertices = vertices.size();
+	outfile.write((char*)&numberVertices, sizeof(size_t));
+
+	size_t numberIndices = indices.size();
+	outfile.write((char*)&numberIndices, sizeof(size_t));
+
+	outfile.write((char*)vertices.data(), sizeof(VertexBuffer::Vertex) * numberVertices);
+
+	if (numberIndices != 0)
+	{
+		outfile.write((char*)indices.data(), sizeof(uint32_t) * numberIndices);
+	}
+
+	outfile.close();
+}
+
+void MeshLoadingSystem::LoadModelFromKMSH(const std::string& filepath, std::vector<VertexBuffer::Vertex>& vertices, std::vector<uint32_t>& indices)
+{
+	vertices.clear();
+	indices.clear();
+
+	std::fstream infile;
+	infile.open(filepath.c_str(), std::fstream::in | std::fstream::binary);
+	size_t numberVertices;
+	infile.read((char*)&numberVertices, sizeof(size_t));
+
+	size_t numberIndices = indices.size();
+	infile.read((char*)&numberIndices, sizeof(size_t));
+
+	if (numberVertices < 1000000)
+	{
+		std::cout << "NumberVerts good: " << numberVertices << '\n';
+		vertices.resize(numberVertices);
+		infile.read((char*)vertices.data(), sizeof(VertexBuffer::Vertex) * numberVertices);
+	}
+	else
+	{
+		std::cout << "NumberVerts: " << numberVertices << '\n';
+		throw std::runtime_error("Error reading kmsh file: too many vertices to be read");
+	}
+
+	if (numberIndices > 0 && numberIndices < 1000000)
+	{
+		indices.resize(numberIndices);
+		infile.read((char*)indices.data(), sizeof(uint32_t) * numberIndices);
+	}
+	else if (numberIndices < 1000000)
+	{
+		throw std::runtime_error("Error reading kmsh file: too many indices to be read");
+	}
+
+	infile.close();
+
 
 }
 

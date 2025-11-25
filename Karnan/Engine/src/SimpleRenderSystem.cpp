@@ -56,7 +56,8 @@ void SimpleRenderSystem::RenderObjects(Karnan::FrameInfo frameInfo, KarnanCamera
 
 
 		SimplePushConstantData push{};
-		push.modelMatrix = go->Transform.Mat4();;
+		push.modelMatrix = go->Transform.Mat4();
+		push.normalMatrix = go->Transform.NormalMatrix();
 
 		vkCmdPushConstants(
 			frameInfo.commandBuffer,

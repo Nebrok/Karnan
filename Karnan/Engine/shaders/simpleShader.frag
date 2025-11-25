@@ -17,5 +17,5 @@ void main()
 	vec2 invertedYCoord = vec2(texCoord.x, 1-texCoord.y);
 
 	vec3 color = texture(tex, texCoord).xyz;
-	outColor = vec4(color, 1.0);
+	outColor = vec4(color * fragColour, 1.0);
 }

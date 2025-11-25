@@ -20,6 +20,16 @@ KarnanScene::~KarnanScene()
 
 void KarnanScene::LoadScene()
 {
+	GameObject* Cube = DBG_NEW GameObject("assets/cube.obj");
+	Cube->CreateMesh("assets/cube.obj");
+	Cube->CreateMaterial("textures/Staff_low_lambert1_BaseColor.png");
+	Cube->Transform.Translation = { 0.0f, 0.0f, 0.0f };
+
+	GameObject* Dragon = DBG_NEW GameObject("assets/Dragon_80K.obj");
+	Dragon->CreateMesh("assets/Dragon_80K.obj");
+	Dragon->CreateMaterial("textures/Staff_low_lambert1_BaseColor.png");
+	Dragon->Transform.Translation = { 0.0f, 2.0f, 0.0f };
+
 	Viewer = DBG_NEW GameObject("CameraPosition");
 	Viewer->SetRenderable(false);
 	Camera = DBG_NEW KarnanCamera();
@@ -30,7 +40,19 @@ void KarnanScene::LoadScene()
 	Plane->Transform.Scale = { 1.0f, 1.0f, 1.0f };
 
 
-	Viewer->Transform.Translation = { 0.f, 1.5f, -1.f };
+	GameObject* Well = DBG_NEW GameObject("Well");
+	Well->CreateMesh("assets/well.obj");
+	Well->CreateMaterial("textures/Staff_low_lambert1_BaseColor.png");
+	Well->Transform.Translation = { -3.0f, 0.f, 0.f };
+
+	GameObject* FoundationL5 = DBG_NEW GameObject("FoundationsLevel5");
+	FoundationL5->CreateMesh("assets/FortificationsLevel5.obj");
+	FoundationL5->CreateMaterial("assets/fortifications.png");
+	FoundationL5->Transform.Translation = { 3.0f, 0.f, 0.f };
+
+
+
+	Viewer->Transform.Translation = { 0.f, 1.5f, -6.f };
 	Camera->SetPerspectiveProjection(glm::radians(50.f), 1.f, 0.1f, 25.f);
 }
 

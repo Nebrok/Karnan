@@ -151,7 +151,6 @@
     <ClCompile Include="dep\imgui\imgui_tables.cpp" />
     <ClCompile Include="dep\imgui\imgui_widgets.cpp" />
     <ClCompile Include="src\BasicMesh.cpp" />
-    <ClCompile Include="src\Cube.cpp" />
     <ClCompile Include="src\EngineCore.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\IndexBuffer.cpp" />
@@ -170,7 +169,6 @@
     <ClCompile Include="src\KarnanWindow.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MeshLoadingSystem.cpp" />
-    <ClCompile Include="src\MessageSystem.cpp" />
     <ClCompile Include="src\SimpleRenderSystem.cpp" />
     <ClCompile Include="src\VertexBuffer.cpp" />
     <ClCompile Include="src\VulkanDescriptors.cpp" />
@@ -186,7 +184,6 @@
     <ClInclude Include="dep\imgui\imstb_textedit.h" />
     <ClInclude Include="dep\imgui\imstb_truetype.h" />
     <ClInclude Include="src\BasicMesh.h" />
-    <ClInclude Include="src\Cube.h" />
     <ClInclude Include="src\EngineCore.h" />
     <ClInclude Include="src\GameObject.h" />
     <ClInclude Include="src\IndexBuffer.h" />
