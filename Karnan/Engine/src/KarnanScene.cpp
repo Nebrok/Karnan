@@ -15,7 +15,6 @@ KarnanScene::~KarnanScene()
 	{
 		delete gameObject;
 	}
-	delete(Camera);
 }
 
 void KarnanScene::LoadScene()
@@ -30,9 +29,7 @@ void KarnanScene::LoadScene()
 	Dragon->CreateMaterial("textures/Staff_low_lambert1_BaseColor.png");
 	Dragon->Transform.Translation = { 0.0f, 2.0f, 0.0f };
 
-	Viewer = DBG_NEW GameObject("CameraPosition");
-	Viewer->SetRenderable(false);
-	Camera = DBG_NEW KarnanCamera();
+	Camera = DBG_NEW KarnanCamera("MainCamera", { 5.0f, 3.0f, 5.0f });
 
 	Plane = DBG_NEW GameObject("FishStaff");
 	Plane->CreateMesh("assets/Fishstaff.obj");
@@ -49,11 +46,6 @@ void KarnanScene::LoadScene()
 	FoundationL5->CreateMesh("assets/FortificationsLevel5.obj");
 	FoundationL5->CreateMaterial("assets/fortifications.png");
 	FoundationL5->Transform.Translation = { 3.0f, 0.f, 0.f };
-
-
-
-	Viewer->Transform.Translation = { 0.f, 1.5f, -6.f };
-	Camera->SetPerspectiveProjection(glm::radians(50.f), 1.f, 0.1f, 25.f);
 }
 
 void KarnanScene::UpdateScene(double deltaTime)
@@ -62,14 +54,11 @@ void KarnanScene::UpdateScene(double deltaTime)
 	{
 		gameObject->Update(deltaTime);
 	}
-
-	Camera->SetViewYXZ(Viewer->Transform.Translation, Viewer->Transform.Rotation);
-	Camera->SetPerspectiveProjection(glm::radians(50.f), 1.f, 0.1f, 25.f);
 }
 
 void KarnanScene::RenderScene(Karnan::FrameInfo frameInfo)
 {
-	Camera->SetPerspectiveProjection(glm::radians(50.f), frameInfo.Aspect, 0.1f, 25.f);
+	Camera->SetPerspectiveProjection(glm::radians(90.f), frameInfo.Aspect, 0.1f, 200.0f);
 	_renderSystem.BindPipeline(frameInfo.commandBuffer);
 
 	std::vector<GameObject*> renderableObjects;

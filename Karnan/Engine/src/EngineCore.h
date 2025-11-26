@@ -11,6 +11,7 @@
 #include "KarnanScene.h"
 #include "KarnanMainGUI.h"
 
+#include "InputManagementSystem.h"
 #include "SimpleRenderSystem.h"
 #include "MeshLoadingSystem.h"
 
@@ -33,6 +34,7 @@ private:
 	GLFWwindow* _windowRef;
 
 	std::unique_ptr<MeshLoadingSystem> _meshLoadingSystem;
+	std::unique_ptr<InputManagementSystem> _inputManagementSystem;
 	std::unique_ptr<SimpleRenderSystem> _renderSystem;
 	std::unique_ptr<KarnanScene> _scene;
 

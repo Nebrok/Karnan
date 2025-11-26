@@ -5,7 +5,7 @@
 
 #include <chrono>
 #include <string>
-
+#include <iostream>
 
 
 EngineCore* EngineCore::Instance = nullptr;
@@ -47,6 +47,7 @@ void EngineCore::DestroyEngine()
 void EngineCore::Init()
 {
 	_meshLoadingSystem = std::unique_ptr<MeshLoadingSystem>(MeshLoadingSystem::StartMeshLoadingSystem());
+	_inputManagementSystem = std::unique_ptr<InputManagementSystem>(InputManagementSystem::StartupInputManagementSystem());
 }
 
 void EngineCore::Run()
@@ -57,7 +58,6 @@ void EngineCore::Run()
 	LoadScene();
 
 	int fpsFrameCount = 0;
-	int fpsFramesRunning = 0;
 	double frameUpdateRunningTime = 0;
 	
 	auto currentTime = std::chrono::high_resolution_clock::now();
@@ -71,16 +71,15 @@ void EngineCore::Run()
 
 		frameUpdateRunningTime += frameTime;
 		fpsFrameCount++; 
-		fpsFramesRunning += fps;
 		if (frameUpdateRunningTime >= 0.2)
 		{
-			std::string fpsCount = "Hello Vulkan: " + std::to_string(fpsFramesRunning / fpsFrameCount);
+			std::string fpsCount = "Hello Vulkan: " + std::to_string(fpsFrameCount / frameUpdateRunningTime);
 			glfwSetWindowTitle(_windowRef, fpsCount.c_str());
 			fpsFrameCount = 0;
-			fpsFramesRunning = 0;
 			frameUpdateRunningTime = 0;
 		}
 			
+		_inputManagementSystem->UpdateKeyReads(_windowRef);
 		_scene->UpdateScene(frameTime);
 
 		if (_editorMode)

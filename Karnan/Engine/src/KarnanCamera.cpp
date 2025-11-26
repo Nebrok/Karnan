@@ -1,7 +1,66 @@
 #include "KarnanCamera.h"
+#include "InputManagementSystem.h"
 
 #include <cassert>
 #include <limits>
+#include <glm/gtc/constants.hpp>
+
+KarnanCamera::KarnanCamera(const char* objectName, glm::vec3 position)
+    : GameObject(objectName)
+{
+    _renderable = false;
+    Transform.Translation = position;
+}
+
+void KarnanCamera::Update(double deltaTime)
+{
+    glm::vec3 rotationDelta = { 0.0f, 0.0f, 0.0f };
+    if (InputManagementSystem::Instance->GetKeyPressed(InputManagementSystem::SupportedKeys::arrow_left))
+        rotationDelta.y--;
+    if (InputManagementSystem::Instance->GetKeyPressed(InputManagementSystem::SupportedKeys::arrow_right))
+        rotationDelta.y++;
+    if (InputManagementSystem::Instance->GetKeyPressed(InputManagementSystem::SupportedKeys::arrow_up))
+        rotationDelta.x--;
+    if (InputManagementSystem::Instance->GetKeyPressed(InputManagementSystem::SupportedKeys::arrow_down))
+        rotationDelta.x++;
+
+    if (glm::dot(rotationDelta, rotationDelta) > std::numeric_limits<float>::epsilon())
+    {
+        Transform.Rotation += _lookSpeed * (float)deltaTime * glm::normalize(rotationDelta);
+    }
+
+    //limit pitch values between about +/- 85ish degrees
+    //Transform.Rotation.x = glm::clamp(Transform.Rotation.x, -1.5f, 1.f);
+    Transform.Rotation.y = glm::mod(Transform.Rotation.y, glm::two_pi<float>());
+
+    float pitch = Transform.Rotation.z;
+    float yaw = Transform.Rotation.y;
+    const glm::vec3 forwardDir{ sin(yaw), 0.f, cos(yaw)};
+    const glm::vec3 rightDir = glm::normalize(glm::cross(-forwardDir, {0, 1.0f, 0}));
+    const glm::vec3 upDir = { 0.0f, 1.0f, 0.0f };
+
+    glm::vec3 moveDir{ 0.0f, 0.0f, 0.0f };
+
+    if (InputManagementSystem::Instance->GetKeyPressed(InputManagementSystem::SupportedKeys::w))
+        moveDir += forwardDir;
+    if (InputManagementSystem::Instance->GetKeyPressed(InputManagementSystem::SupportedKeys::s))
+        moveDir -= forwardDir;
+    if (InputManagementSystem::Instance->GetKeyPressed(InputManagementSystem::SupportedKeys::a))
+        moveDir -= rightDir;
+    if (InputManagementSystem::Instance->GetKeyPressed(InputManagementSystem::SupportedKeys::d))
+        moveDir += rightDir;
+    if (InputManagementSystem::Instance->GetKeyPressed(InputManagementSystem::SupportedKeys::q))
+        moveDir += upDir;
+    if (InputManagementSystem::Instance->GetKeyPressed(InputManagementSystem::SupportedKeys::e))
+        moveDir -= upDir;
+
+    if (glm::dot(moveDir, moveDir) > std::numeric_limits<float>::epsilon())
+    {
+       Transform.Translation += _moveSpeed * (float)deltaTime * glm::normalize(moveDir);
+    }
+
+    SetViewYXZ(Transform.Translation, Transform.Rotation);
+}
 
 void KarnanCamera::SetOrthographicProjection(
     float left, float right, float top, float bottom, float near, float far) {

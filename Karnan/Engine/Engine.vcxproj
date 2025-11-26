@@ -154,6 +154,7 @@
     <ClCompile Include="src\EngineCore.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\IndexBuffer.cpp" />
+    <ClCompile Include="src\InputManagementSystem.cpp" />
     <ClCompile Include="src\KarnanBuffer.cpp" />
     <ClCompile Include="src\KarnanCamera.cpp" />
     <ClCompile Include="src\KarnanDevice.cpp" />
@@ -187,6 +188,7 @@
     <ClInclude Include="src\EngineCore.h" />
     <ClInclude Include="src\GameObject.h" />
     <ClInclude Include="src\IndexBuffer.h" />
+    <ClInclude Include="src\InputManagementSystem.h" />
     <ClInclude Include="src\KarnanBuffer.h" />
     <ClInclude Include="src\KarnanCamera.h" />
     <ClInclude Include="src\KarnanDevice.h" />

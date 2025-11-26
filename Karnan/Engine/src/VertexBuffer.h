@@ -11,6 +11,8 @@ class VertexBuffer
 public:
 	struct Vertex
 	{
+		//IF THIS IS CHANGED AT ALL THERE IS NOW A CASCADE OF SYSTEM THAT NEED TO CHANGE
+		//PRIMARILY MESH LOADING
 		glm::vec3 position{};
 		glm::vec3 normal{};
 		glm::vec2 uv{};

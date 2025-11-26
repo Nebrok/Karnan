@@ -1,10 +1,14 @@
 #pragma once
 
+#include "GameObject.h"
+
 #define GLM_FORCE_RADIANS
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
 #include <glm/glm.hpp>
 
-class KarnanCamera
+
+
+class KarnanCamera : public GameObject
 {
 public:
 
@@ -12,7 +16,16 @@ private:
 	glm::mat4 _projectionMatrix{ 1.f };
 	glm::mat4 _viewMatrix{ 1.f };
 
+
+	float _lookSpeed = 1.0f;
+	float _moveSpeed = 1.0f;
+
 public:
+	KarnanCamera(const char* objectName, glm::vec3 position);
+
+	void Update(double deltaTime) override;
+
+
 	void SetOrthographicProjection(float left, float right, float top, float bottom, float near, float far);
 
 
