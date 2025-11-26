@@ -19,10 +19,6 @@ public:
 private:
 	KarnanDevice& _karnanDevice;
 
-
-	std::unordered_map<std::string, std::shared_ptr<VertexBuffer>> _vertexBufferMap;
-	std::unordered_map<std::string, std::shared_ptr<IndexBuffer>> _indexBufferMap;
-
 	std::unordered_map<std::string, std::shared_ptr<BasicMesh>> _meshMap;
 
 
@@ -35,6 +31,7 @@ public:
 	
 	void CreateMesh(const std::string& modelName, std::vector<VertexBuffer::Vertex>& vertices, std::vector<uint32_t>& indices);
 	
+	std::shared_ptr<BasicMesh> GetMesh(const std::string& filename);
 	std::shared_ptr<VertexBuffer> GetVertexBuffer(const std::string& filename);
 	std::shared_ptr<IndexBuffer> GetIndexBuffer(const std::string& filename);
 

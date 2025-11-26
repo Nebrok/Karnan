@@ -26,14 +26,14 @@ void GameObject::Update(double deltaTime)
 
 void GameObject::Render(VkCommandBuffer commandBuffer)
 {
-	_mesh->Bind(commandBuffer);
-	_mesh->Draw(commandBuffer);
+	MeshLoadingSystem::Instance->GetMesh(_meshName)->Bind(commandBuffer);
+	MeshLoadingSystem::Instance->GetMesh(_meshName)->Draw(commandBuffer);
 }
 
 void GameObject::CreateMesh(const std::string& filename)
 {
-	std::unique_ptr<BasicMesh> mesh = std::unique_ptr<BasicMesh>(DBG_NEW BasicMesh(filename));
-	_mesh = move(mesh);
+	MeshLoadingSystem::Instance->LoadMesh(filename);
+	_meshName = filename;
 }
 
 void GameObject::CreateMaterial(const std::string& filename)

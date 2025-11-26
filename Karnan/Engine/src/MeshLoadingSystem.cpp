@@ -47,7 +47,7 @@ void MeshLoadingSystem::LoadMesh(const std::string& filename)
 {
 	size_t lastSlash = filename.rfind('/');
 	std::string modelName = filename.substr(lastSlash + 1);
-	if (auto search = _vertexBufferMap.find(filename); search != _vertexBufferMap.end())
+	if (auto search = _meshMap.find(filename); search != _meshMap.end())
 	{
 		std::cout << "Model: " << filename << " is already loaded.";
 	}
@@ -62,7 +62,7 @@ void MeshLoadingSystem::LoadMesh(const std::string& filename)
 		auto newTime = std::chrono::high_resolution_clock::now();
 		double objLoadTime = std::chrono::duration<double, std::chrono::seconds::period>(newTime - currentTime).count();
 
-		std::cout << filename << " loaded successfully with: " << '\n';
+		std::cout << filename << " loaded successfully from kmsh with: " << '\n';
 		std::cout << "Vertices: " << vertices.size() << '\n';
 		std::cout << "Indices: " << indices.size() << '\n';
 		std::cout << "Time to load file: " << objLoadTime << " seconds." << '\n';
@@ -188,7 +188,7 @@ void MeshLoadingSystem::LoadObj(const std::string& filename)
 	}
 	file.close();
 
-	std::cout << filename << " loaded successfully with: " << '\n';
+	std::cout << filename << " loaded successfully from obj with: " << '\n';
 	std::cout << "Vertices: " << vertices.size() << '\n';
 	std::cout << "Indices: " << indices.size() << '\n';
 	
@@ -203,31 +203,46 @@ void MeshLoadingSystem::LoadObj(const std::string& filename)
 void MeshLoadingSystem::CreateMesh(const std::string& modelName, std::vector<VertexBuffer::Vertex>& vertices, std::vector<uint32_t>& indices)
 {
 	std::shared_ptr<VertexBuffer> vertexBuffer(DBG_NEW VertexBuffer(_karnanDevice));
-	_vertexBufferMap.insert({ modelName, vertexBuffer });
 	vertexBuffer->CreateVertexBuffers(vertices);
 
+	std::shared_ptr<BasicMesh> mesh;
 	if (indices.size() > 0)
 	{
 		std::shared_ptr<IndexBuffer> indexBuffer(DBG_NEW IndexBuffer(_karnanDevice));
-		_indexBufferMap.insert({ modelName, indexBuffer });
 		indexBuffer->CreateIndexBuffers(indices);
+		mesh = std::shared_ptr<BasicMesh>(DBG_NEW BasicMesh(modelName, vertexBuffer, indexBuffer));
 	}
+	else
+	{
+		mesh = std::shared_ptr<BasicMesh>(DBG_NEW BasicMesh(modelName, vertexBuffer, nullptr));
+	}
+
+	_meshMap.insert({ modelName, mesh });
+}
+
+std::shared_ptr<BasicMesh> MeshLoadingSystem::GetMesh(const std::string& filename)
+{
+	if (auto search = _meshMap.find(filename); search != _meshMap.end())
+	{
+		return _meshMap.at(filename);
+	}
+	return nullptr;
 }
 
 std::shared_ptr<VertexBuffer> MeshLoadingSystem::GetVertexBuffer(const std::string& filename)
 {
-	if (auto search = _vertexBufferMap.find(filename); search != _vertexBufferMap.end())
+	if (auto search = _meshMap.find(filename); search != _meshMap.end())
 	{
-		return _vertexBufferMap.at(filename);
+		return _meshMap.at(filename)->GetVertexBuffer();
 	}
 	return nullptr;
 }
 
 std::shared_ptr<IndexBuffer> MeshLoadingSystem::GetIndexBuffer(const std::string& filename)
 {
-	if (auto search = _indexBufferMap.find(filename); search != _indexBufferMap.end())
+	if (auto search = _meshMap.find(filename); search != _meshMap.end())
 	{
-		return _indexBufferMap.at(filename);
+		return _meshMap.at(filename)->GetIndexBuffer();
 	}
 	return nullptr;
 }
@@ -289,7 +304,7 @@ void MeshLoadingSystem::LoadModelFromKMSH(const std::string& filepath, std::vect
 	size_t numberIndices = indices.size();
 	infile.read((char*)&numberIndices, sizeof(size_t));
 
-	if (numberVertices < 1000000)
+	if (numberVertices < 100000000)
 	{
 		vertices.resize(numberVertices);
 		infile.read((char*)vertices.data(), sizeof(VertexBuffer::Vertex) * numberVertices);
@@ -299,12 +314,12 @@ void MeshLoadingSystem::LoadModelFromKMSH(const std::string& filepath, std::vect
 		throw std::runtime_error("Error reading kmsh file: too many vertices to be read");
 	}
 
-	if (numberIndices > 0 && numberIndices < 1000000)
+	if (numberIndices > 0 && numberIndices < 100000000)
 	{
 		indices.resize(numberIndices);
 		infile.read((char*)indices.data(), sizeof(uint32_t) * numberIndices);
 	}
-	else if (numberIndices < 1000000)
+	else if (numberIndices < 100000000)
 	{
 		throw std::runtime_error("Error reading kmsh file: too many indices to be read");
 	}

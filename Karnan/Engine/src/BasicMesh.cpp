@@ -11,12 +11,10 @@
 #include <sstream>
 #include <iostream>
 
-BasicMesh::BasicMesh(const std::string& filename)
+BasicMesh::BasicMesh(const std::string& filename, std::shared_ptr<VertexBuffer> vertexBuffer, std::shared_ptr<IndexBuffer> indexBuffer)
 	:_karnanDevice(EngineCore::Instance->Device())
 {
-	MeshLoadingSystem::Instance->LoadMesh(filename);
-	_vertexBuffer = MeshLoadingSystem::Instance->GetVertexBuffer(filename);
-	auto indexBuffer = MeshLoadingSystem::Instance->GetIndexBuffer(filename);
+	_vertexBuffer = vertexBuffer;
 	if (indexBuffer != nullptr)
 	{
 		_indexBuffer = indexBuffer;

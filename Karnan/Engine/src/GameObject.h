@@ -100,7 +100,7 @@ protected:
 
 
 	bool _renderable = false;
-	std::unique_ptr<BasicMesh> _mesh = nullptr;
+    std::string _meshName = "";
     std::shared_ptr<KarnanMaterial> _material = nullptr;
 
 public:
