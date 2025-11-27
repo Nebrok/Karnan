@@ -1,6 +1,7 @@
 #include "GameObject.h"
 
 #include "EngineCore.h"
+#include "MessagingSystem/Messages.h"
 
 GameObject::GameObject(const char* objectName)
 	: _karnanDevice(EngineCore::Device()), ObjectName(objectName)
@@ -32,7 +33,8 @@ void GameObject::Render(VkCommandBuffer commandBuffer)
 
 void GameObject::CreateMesh(const std::string& filename)
 {
-	MeshLoadingSystem::Instance->LoadMesh(filename);
+	std::shared_ptr<MLSLoadModelMessage> message = std::shared_ptr<MLSLoadModelMessage>(DBG_NEW MLSLoadModelMessage(filename));
+	MeshLoadingSystem::Instance->QueueMessage(message);
 	_meshName = filename;
 }
 

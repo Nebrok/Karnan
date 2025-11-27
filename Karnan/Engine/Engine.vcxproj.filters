@@ -197,10 +197,10 @@
     <ClInclude Include="src\KarnanMaterial.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\MessageSystem.h">
+    <ClInclude Include="src\MessagingSystem\MessageSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Message.h">
+    <ClInclude Include="src\MessagingSystem\BaseMessage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\KarnanUtils.h">
@@ -210,6 +210,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\InputManagementSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MessagingSystem\MeshLoadingSystemMessages.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MessagingSystem\Messages.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

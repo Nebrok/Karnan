@@ -33,7 +33,7 @@ private:
 	
 	GLFWwindow* _windowRef;
 
-	std::unique_ptr<MeshLoadingSystem> _meshLoadingSystem;
+	MeshLoadingSystem* _meshLoadingSystem;
 	std::unique_ptr<InputManagementSystem> _inputManagementSystem;
 	std::unique_ptr<SimpleRenderSystem> _renderSystem;
 	std::unique_ptr<KarnanScene> _scene;

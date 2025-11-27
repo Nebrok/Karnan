@@ -1,7 +1,7 @@
 #include "EngineCore.h"
 
 #include "KarnanFrameInfo.h"
-
+#include "MessagingSystem/Messages.h"
 
 #include <chrono>
 #include <string>
@@ -41,12 +41,13 @@ EngineCore* EngineCore::StartupEngine()
 
 void EngineCore::DestroyEngine()
 {
+	MeshLoadingSystem::DestroyMeshLoadingSystem();
 	delete(EngineCore::Instance);
 }
 
 void EngineCore::Init()
 {
-	_meshLoadingSystem = std::unique_ptr<MeshLoadingSystem>(MeshLoadingSystem::StartMeshLoadingSystem());
+	_meshLoadingSystem = MeshLoadingSystem::StartMeshLoadingSystem();
 	_inputManagementSystem = std::unique_ptr<InputManagementSystem>(InputManagementSystem::StartupInputManagementSystem());
 }
 
@@ -55,6 +56,10 @@ void EngineCore::Run()
 	std::unique_ptr<SimpleRenderSystem> tempRenderer(DBG_NEW SimpleRenderSystem(_karnanDevice, _karnanRenderer.GetSwapChainRenderPass(), KarnanSwapChain::MAX_FRAMES_IN_FLIGHT));
 	_renderSystem = move(tempRenderer);
 
+	std::shared_ptr<MLSGenerateBinaries> message = std::shared_ptr<MLSGenerateBinaries>(DBG_NEW MLSGenerateBinaries());
+	_meshLoadingSystem->QueueMessage(message);
+	_meshLoadingSystem->Processor();
+	
 	LoadScene();
 
 	int fpsFrameCount = 0;
@@ -78,9 +83,12 @@ void EngineCore::Run()
 			fpsFrameCount = 0;
 			frameUpdateRunningTime = 0;
 		}
-			
+
+		_meshLoadingSystem->Processor();
+
 		_inputManagementSystem->UpdateKeyReads(_windowRef);
 		_scene->UpdateScene(frameTime);
+
 
 		if (_editorMode)
 			_editor->Update();

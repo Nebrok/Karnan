@@ -1,9 +1,11 @@
 #include "MeshLoadingSystem.h"
+
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/hash.hpp>
 
 #include "EngineCore.h"
 #include "KarnanUtils.h"
+#include "MessagingSystem/Messages.h"
 
 //std libs
 #include <vector>
@@ -43,13 +45,13 @@ void MeshLoadingSystem::DestroyMeshLoadingSystem()
 	delete(MeshLoadingSystem::Instance);
 }
 
-void MeshLoadingSystem::LoadMesh(const std::string& filename)
+void MeshLoadingSystem::LoadMesh(const std::string& filepath)
 {
-	size_t lastSlash = filename.rfind('/');
-	std::string modelName = filename.substr(lastSlash + 1);
-	if (auto search = _meshMap.find(filename); search != _meshMap.end())
+	size_t lastSlash = filepath.rfind('/');
+	std::string modelName = filepath.substr(lastSlash + 1);
+	if (auto search = _meshMap.find(filepath); search != _meshMap.end())
 	{
-		std::cout << "Model: " << filename << " is already loaded.";
+		std::cout << "Model: " << filepath << " is already loaded.";
 	}
 	else if (std::string binaryFilepath = CheckForBinary(modelName); binaryFilepath != "")
 	{
@@ -58,22 +60,14 @@ void MeshLoadingSystem::LoadMesh(const std::string& filename)
 
 		auto currentTime = std::chrono::high_resolution_clock::now();
 		LoadModelFromKMSH(binaryFilepath, vertices, indices);
-		CreateMesh(filename, vertices, indices);
 		auto newTime = std::chrono::high_resolution_clock::now();
 		double objLoadTime = std::chrono::duration<double, std::chrono::seconds::period>(newTime - currentTime).count();
 
-		std::cout << filename << " loaded successfully from kmsh with: " << '\n';
+		CreateMesh(filepath, vertices, indices);
+		std::cout << filepath << " loaded successfully from kmsh with: " << '\n';
 		std::cout << "Vertices: " << vertices.size() << '\n';
 		std::cout << "Indices: " << indices.size() << '\n';
 		std::cout << "Time to load file: " << objLoadTime << " seconds." << '\n';
-	}
-	else
-	{
-		auto currentTime = std::chrono::high_resolution_clock::now();
-		LoadObj(filename);
-		auto newTime = std::chrono::high_resolution_clock::now();
-		double objLoadTime = std::chrono::duration<double, std::chrono::seconds::period>(newTime - currentTime).count();
-		std::cout << "Time to load file " + filename + ": " << objLoadTime << " seconds." << '\n';
 	}
 }
 
@@ -90,11 +84,12 @@ std::string MeshLoadingSystem::CheckForBinary(const std::string& filename)
 	return "";
 }
 
-void MeshLoadingSystem::LoadObj(const std::string& filename)
+void MeshLoadingSystem::LoadObj(const std::string& filename, std::vector<VertexBuffer::Vertex>& vertices, std::vector<uint32_t>& indices)
 {
-	std::vector<VertexBuffer::Vertex> vertices;
-	std::vector<uint32_t> indices;
+	vertices.clear();
+	indices.clear();
 
+	auto currentTime = std::chrono::high_resolution_clock::now();
 	std::vector<glm::vec3> modelVertices;
 	std::vector<glm::vec3> modelNormals;
 	std::vector<glm::vec2> modelUVs;
@@ -187,17 +182,25 @@ void MeshLoadingSystem::LoadObj(const std::string& filename)
 		lineCount++;
 	}
 	file.close();
+	auto newTime = std::chrono::high_resolution_clock::now();
+	double objLoadTime = std::chrono::duration<double, std::chrono::seconds::period>(newTime - currentTime).count();
 
 	std::cout << filename << " loaded successfully from obj with: " << '\n';
 	std::cout << "Vertices: " << vertices.size() << '\n';
 	std::cout << "Indices: " << indices.size() << '\n';
+	std::cout << "Time to load file " + filename + ": " << objLoadTime << " seconds." << '\n';
+}
+
+void MeshLoadingSystem::LoadObjToBinary(const std::string& filename)
+{
+	std::vector<VertexBuffer::Vertex> vertices;
+	std::vector<uint32_t> indices;
 	
+	LoadObj(filename, vertices, indices);
 
 	size_t lastSlash = filename.rfind('/');
 	std::string modelName = filename.substr(lastSlash);
-
 	SerialiseMesh("assets/bin/" + modelName + ".kmsh", vertices, indices);
-	CreateMesh(filename, vertices, indices);
 }
 
 void MeshLoadingSystem::CreateMesh(const std::string& modelName, std::vector<VertexBuffer::Vertex>& vertices, std::vector<uint32_t>& indices)
@@ -245,6 +248,16 @@ std::shared_ptr<IndexBuffer> MeshLoadingSystem::GetIndexBuffer(const std::string
 		return _meshMap.at(filename)->GetIndexBuffer();
 	}
 	return nullptr;
+}
+
+void MeshLoadingSystem::Processor()
+{
+	std::shared_ptr<Message> message = PollQueue();
+	while (message != nullptr)
+	{
+		ProcessMessage(message);
+		message = PollQueue();
+	}
 }
 
 MeshLoadingSystem::MeshLoadingSystem()
@@ -374,4 +387,80 @@ std::vector<int> MeshLoadingSystem::ParseFacePoint(const std::string& point)
 		indices.push_back(std::stoi(part));
 
 	return indices;
+}
+
+
+
+
+void MeshLoadingSystem::QueueMessage(std::shared_ptr<Message> message)
+{
+	_messages.push(message);
+}
+
+std::shared_ptr<Message> MeshLoadingSystem::PollQueue()
+{
+	if (_messages.empty())
+		return nullptr;
+
+	std::shared_ptr<Message> message = _messages.front();
+	_messages.pop();
+	return message;
+}
+
+void MeshLoadingSystem::ProcessMessage(std::shared_ptr<Message> message)
+{
+	if (message->GetMessageType() == Message::Type::COMMAND)
+	{
+		if ((message->MessageInfo()).compare("Generate Binaries") == 0)
+			GenerateBinaries();
+
+		if ((message->MessageInfo()).compare("Load Model") == 0)
+		{
+			std::string filepathToLoad = dynamic_cast<MLSLoadModelMessage*>(message.get())->FilePath;
+			if (filepathToLoad.compare("") != 0)
+				LoadMesh(filepathToLoad);
+		}
+	}
+}
+
+void MeshLoadingSystem::GenerateBinaries()
+{
+	std::string rootFolder{ "./assets" };
+	for (auto filepath : FindAllModelFilepaths(rootFolder))
+	{
+		std::string filename = StripFilenameFromFilepath(filepath);
+		if (CheckForBinary(filename) == "")
+		{
+			LoadObjToBinary(rootFolder + "/" + filepath);
+		}
+	}
+}
+
+std::vector<std::string> MeshLoadingSystem::FindAllModelFilepaths(std::string& rootFolder)
+{
+	std::vector<std::string> objFiles;
+	std::filesystem::path rootPath(rootFolder);
+
+	if (!std::filesystem::exists(rootPath) || !std::filesystem::is_directory(rootPath)) {
+		std::cerr << "Invalid directory: " << rootFolder << std::endl;
+		return objFiles;
+	}
+
+	for (const auto& entry : std::filesystem::recursive_directory_iterator(rootPath)) {
+		if (entry.is_regular_file() && (entry.path().extension() == ".obj" || entry.path().extension() == ".OBJ")) {
+			// Store the path relative to the root folder
+			objFiles.push_back(
+				std::filesystem::relative(entry.path(), rootPath).string()
+			);
+		}
+	}
+
+	return objFiles;
+}
+
+std::string MeshLoadingSystem::StripFilenameFromFilepath(std::string filepath)
+{
+	std::filesystem::path path(filepath);
+	std::string modelName = path.filename().string();
+	return modelName;
 }
