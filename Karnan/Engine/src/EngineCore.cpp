@@ -41,7 +41,6 @@ EngineCore* EngineCore::StartupEngine()
 
 void EngineCore::DestroyEngine()
 {
-	MeshLoadingSystem::DestroyMeshLoadingSystem();
 	delete(EngineCore::Instance);
 }
 
@@ -56,9 +55,13 @@ void EngineCore::Run()
 	std::unique_ptr<SimpleRenderSystem> tempRenderer(DBG_NEW SimpleRenderSystem(_karnanDevice, _karnanRenderer.GetSwapChainRenderPass(), KarnanSwapChain::MAX_FRAMES_IN_FLIGHT));
 	_renderSystem = move(tempRenderer);
 
+
+	_meshLoadingSystem->BeginProcessAsSeperateThread();
+
 	std::shared_ptr<MLSGenerateBinaries> message = std::shared_ptr<MLSGenerateBinaries>(DBG_NEW MLSGenerateBinaries());
+	std::unique_lock<std::mutex> messageQueueLock(_meshLoadingSystem->MessageQueueMutex);
 	_meshLoadingSystem->QueueMessage(message);
-	_meshLoadingSystem->Processor();
+	messageQueueLock.unlock();
 	
 	LoadScene();
 
@@ -83,8 +86,6 @@ void EngineCore::Run()
 			fpsFrameCount = 0;
 			frameUpdateRunningTime = 0;
 		}
-
-		_meshLoadingSystem->Processor();
 
 		_inputManagementSystem->UpdateKeyReads(_windowRef);
 		_scene->UpdateScene(frameTime);
@@ -117,6 +118,8 @@ void EngineCore::Run()
 	vkDeviceWaitIdle(_karnanDevice.Device());
 
 	
+	_meshLoadingSystem->EndProcessThread();
+	MeshLoadingSystem::DestroyMeshLoadingSystem();
 }
 
 void EngineCore::LoadScene()

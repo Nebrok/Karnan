@@ -42,6 +42,8 @@ MeshLoadingSystem* MeshLoadingSystem::StartMeshLoadingSystem()
 
 void MeshLoadingSystem::DestroyMeshLoadingSystem()
 {
+	MeshLoadingSystem::Instance->Thread->join();
+	delete(MeshLoadingSystem::Instance->Thread);
 	delete(MeshLoadingSystem::Instance);
 }
 
@@ -250,14 +252,35 @@ std::shared_ptr<IndexBuffer> MeshLoadingSystem::GetIndexBuffer(const std::string
 	return nullptr;
 }
 
-void MeshLoadingSystem::Processor()
+void MeshLoadingSystem::Process()
 {
-	std::shared_ptr<Message> message = PollQueue();
-	while (message != nullptr)
+	while (!_terminateProcess)
 	{
-		ProcessMessage(message);
-		message = PollQueue();
+		std::unique_lock<std::mutex> messageQueueLock(MessageQueueMutex);
+		std::shared_ptr<Message> message = PollQueue();
+		messageQueueLock.unlock();
+		while (message != nullptr)
+		{
+			ProcessMessage(message);
+			std::unique_lock<std::mutex> messageQueueLock(MessageQueueMutex);
+			message = PollQueue();
+			messageQueueLock.unlock();
+		}
 	}
+}
+
+void MeshLoadingSystem::BeginProcessAsSeperateThread()
+{
+	Thread = DBG_NEW std::thread(&MeshLoadingSystem::Process, this);
+	ThreadName = "MeshLoadingSystemThread";
+}
+
+void MeshLoadingSystem::EndProcessThread()
+{
+	std::shared_ptr<MLSTerminateThreadProcess> message = std::shared_ptr<MLSTerminateThreadProcess>(DBG_NEW MLSTerminateThreadProcess());
+	std::unique_lock<std::mutex> messageQueueLock(MessageQueueMutex);
+	QueueMessage(message);
+	messageQueueLock.unlock();
 }
 
 MeshLoadingSystem::MeshLoadingSystem()
@@ -411,8 +434,15 @@ void MeshLoadingSystem::ProcessMessage(std::shared_ptr<Message> message)
 {
 	if (message->GetMessageType() == Message::Type::COMMAND)
 	{
+		if ((message->MessageInfo()).compare("Terminate Process") == 0)
+		{
+			_terminateProcess = true;
+		}
+
 		if ((message->MessageInfo()).compare("Generate Binaries") == 0)
+		{
 			GenerateBinaries();
+		}
 
 		if ((message->MessageInfo()).compare("Load Model") == 0)
 		{

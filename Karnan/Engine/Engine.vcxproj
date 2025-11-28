@@ -171,6 +171,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MeshLoadingSystem.cpp" />
     <ClCompile Include="src\SimpleRenderSystem.cpp" />
+    <ClCompile Include="src\Threading\KarnanMutex.cpp" />
     <ClCompile Include="src\VertexBuffer.cpp" />
     <ClCompile Include="src\VulkanDescriptors.cpp" />
   </ItemGroup>
@@ -189,6 +190,7 @@
     <ClInclude Include="src\GameObject.h" />
     <ClInclude Include="src\IndexBuffer.h" />
     <ClInclude Include="src\InputManagementSystem.h" />
+    <ClInclude Include="src\Threading\IThreadableProcess.h" />
     <ClInclude Include="src\KarnanBuffer.h" />
     <ClInclude Include="src\KarnanCamera.h" />
     <ClInclude Include="src\KarnanDevice.h" />
@@ -210,6 +212,8 @@
     <ClInclude Include="src\MessagingSystem\Messages.h" />
     <ClInclude Include="src\MessagingSystem\MessageSystem.h" />
     <ClInclude Include="src\SimpleRenderSystem.h" />
+    <ClInclude Include="src\Threading\KarnanMutex.h" />
+    <ClInclude Include="src\Threading\KarnanThreading.h" />
     <ClInclude Include="src\VertexBuffer.h" />
     <ClInclude Include="src\VulkanDescriptors.h" />
   </ItemGroup>

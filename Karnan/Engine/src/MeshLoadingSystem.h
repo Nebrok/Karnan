@@ -5,6 +5,7 @@
 #include "IndexBuffer.h"
 #include "BasicMesh.h"
 #include "MessagingSystem/MessageSystem.h"
+#include "Threading/IThreadableProcess.h"
 
 //std libs
 #include <string>
@@ -12,16 +13,18 @@
 #include <unordered_map>
 #include <memory>
 
-
-class MeshLoadingSystem : public IMessageSystem
+class MeshLoadingSystem : public IMessageSystem, public IThreadableProcess
 {
 public:
 	static MeshLoadingSystem* Instance;
+
 
 private:
 	KarnanDevice& _karnanDevice;
 
 	std::unordered_map<std::string, std::shared_ptr<BasicMesh>> _meshMap;
+	
+	bool _terminateProcess = false;
 
 
 public:
@@ -35,7 +38,12 @@ public:
 	std::shared_ptr<VertexBuffer> GetVertexBuffer(const std::string& filename);
 	std::shared_ptr<IndexBuffer> GetIndexBuffer(const std::string& filename);
 
-	void Processor();
+
+	//Threading Related Functions
+	virtual void Process() override;
+
+	virtual void BeginProcessAsSeperateThread();
+	virtual void EndProcessThread();
 
 	virtual void QueueMessage(std::shared_ptr<Message> message) override;
 

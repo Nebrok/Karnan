@@ -34,3 +34,13 @@ public:
 	{}
 	virtual ~MLSGenerateBinaries() override {};
 };
+
+class MLSTerminateThreadProcess : public MLSBaseMessage
+{
+public:
+	MLSTerminateThreadProcess()
+		:MLSBaseMessage(Message::Type::COMMAND, "Terminate Process")
+	{}
+	virtual ~MLSTerminateThreadProcess() override {};
+
+};

@@ -105,6 +105,9 @@
     <ClCompile Include="src\InputManagementSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Threading\KarnanMutex.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\KarnanWindow.h">
@@ -216,6 +219,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\MessagingSystem\Messages.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Threading\IThreadableProcess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Threading\KarnanThreading.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Threading\KarnanMutex.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

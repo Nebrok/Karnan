@@ -6,10 +6,14 @@
 #include <vector>
 #include <queue>
 #include <memory>
+#include <mutex>
+
 
 class IMessageSystem
 {
 public:
+	std::mutex MessageQueueMutex;
+
 
 protected:
 	std::queue<std::shared_ptr<Message>> _messages;

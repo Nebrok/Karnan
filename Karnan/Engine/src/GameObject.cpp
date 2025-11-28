@@ -27,14 +27,19 @@ void GameObject::Update(double deltaTime)
 
 void GameObject::Render(VkCommandBuffer commandBuffer)
 {
-	MeshLoadingSystem::Instance->GetMesh(_meshName)->Bind(commandBuffer);
-	MeshLoadingSystem::Instance->GetMesh(_meshName)->Draw(commandBuffer);
+	std::shared_ptr<BasicMesh> mesh = MeshLoadingSystem::Instance->GetMesh(_meshName);
+	if (mesh == nullptr)
+		return;
+	mesh->Bind(commandBuffer);
+	mesh->Draw(commandBuffer);
 }
 
 void GameObject::CreateMesh(const std::string& filename)
 {
 	std::shared_ptr<MLSLoadModelMessage> message = std::shared_ptr<MLSLoadModelMessage>(DBG_NEW MLSLoadModelMessage(filename));
+	std::unique_lock<std::mutex> messageQueueLock(MeshLoadingSystem::Instance->MessageQueueMutex);
 	MeshLoadingSystem::Instance->QueueMessage(message);
+	messageQueueLock.unlock();
 	_meshName = filename;
 }
 
