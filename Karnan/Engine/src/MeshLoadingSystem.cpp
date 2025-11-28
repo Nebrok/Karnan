@@ -53,7 +53,7 @@ void MeshLoadingSystem::LoadMesh(const std::string& filepath)
 	std::string modelName = filepath.substr(lastSlash + 1);
 	if (auto search = _meshMap.find(filepath); search != _meshMap.end())
 	{
-		std::cout << "Model: " << filepath << " is already loaded.";
+		std::cout << "Model: " << filepath << " is already loaded." << '\n';
 	}
 	else if (std::string binaryFilepath = CheckForBinary(modelName); binaryFilepath != "")
 	{
@@ -70,6 +70,10 @@ void MeshLoadingSystem::LoadMesh(const std::string& filepath)
 		std::cout << "Vertices: " << vertices.size() << '\n';
 		std::cout << "Indices: " << indices.size() << '\n';
 		std::cout << "Time to load file: " << objLoadTime << " seconds." << '\n';
+	}
+	else
+	{
+		std::cout << "Could not find file: " + filepath + " when attempting to load mesh!" + '\n';
 	}
 }
 
