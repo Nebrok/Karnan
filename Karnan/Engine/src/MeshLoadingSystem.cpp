@@ -238,24 +238,6 @@ std::shared_ptr<BasicMesh> MeshLoadingSystem::GetMesh(const std::string& filenam
 	return nullptr;
 }
 
-std::shared_ptr<VertexBuffer> MeshLoadingSystem::GetVertexBuffer(const std::string& filename)
-{
-	if (auto search = _meshMap.find(filename); search != _meshMap.end())
-	{
-		return _meshMap.at(filename)->GetVertexBuffer();
-	}
-	return nullptr;
-}
-
-std::shared_ptr<IndexBuffer> MeshLoadingSystem::GetIndexBuffer(const std::string& filename)
-{
-	if (auto search = _meshMap.find(filename); search != _meshMap.end())
-	{
-		return _meshMap.at(filename)->GetIndexBuffer();
-	}
-	return nullptr;
-}
-
 void MeshLoadingSystem::Process()
 {
 	while (!_terminateProcess)

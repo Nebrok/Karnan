@@ -35,9 +35,6 @@ public:
 	void CreateMesh(const std::string& modelName, std::vector<VertexBuffer::Vertex>& vertices, std::vector<uint32_t>& indices);
 	
 	std::shared_ptr<BasicMesh> GetMesh(const std::string& filename);
-	std::shared_ptr<VertexBuffer> GetVertexBuffer(const std::string& filename);
-	std::shared_ptr<IndexBuffer> GetIndexBuffer(const std::string& filename);
-
 
 	//Threading Related Functions
 	virtual void Process() override;
@@ -49,7 +46,6 @@ public:
 
 protected:
 	virtual std::shared_ptr<Message> PollQueue() override;
-
 	virtual void ProcessMessage(std::shared_ptr<Message> message) override;
 
 

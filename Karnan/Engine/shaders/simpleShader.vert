@@ -18,7 +18,7 @@ layout (push_constant) uniform Push
 	mat4 normalMatrix;
 } push;
 
-vec3 directionToLight = vec3(0, 1, 0);
+vec3 directionToLight = vec3(0.5, 0.5, 0.5);
 const float AMBIENT = 0.01;
 
 void main()

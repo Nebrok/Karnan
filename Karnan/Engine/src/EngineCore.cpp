@@ -52,8 +52,10 @@ void EngineCore::Init()
 
 void EngineCore::Run()
 {
-	std::unique_ptr<SimpleRenderSystem> tempRenderer(DBG_NEW SimpleRenderSystem(_karnanDevice, _karnanRenderer.GetSwapChainRenderPass(), KarnanSwapChain::MAX_FRAMES_IN_FLIGHT));
-	_renderSystem = move(tempRenderer);
+	_renderSystem = std::unique_ptr<SimpleRenderSystem>(DBG_NEW SimpleRenderSystem(
+		_karnanDevice, 
+		_karnanRenderer.GetSwapChainRenderPass(), 
+		KarnanSwapChain::MAX_FRAMES_IN_FLIGHT));
 
 
 	_meshLoadingSystem->BeginProcessAsSeperateThread();
