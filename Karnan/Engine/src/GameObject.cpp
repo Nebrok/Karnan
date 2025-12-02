@@ -2,6 +2,7 @@
 
 #include "EngineCore.h"
 #include "MessagingSystem/Messages.h"
+#include "AssetManagement/AssetManager.h"
 
 GameObject::GameObject(const char* objectName)
 	: _karnanDevice(EngineCore::Device()), ObjectName(objectName)
@@ -22,12 +23,15 @@ void GameObject::Init()
 
 void GameObject::Update(double deltaTime)
 {
-	
+	if (_meshRefreshed)
+	{
+		_meshRefreshed = false;
+	}
 }
 
 void GameObject::Render(VkCommandBuffer commandBuffer)
 {
-	std::shared_ptr<BasicMesh> mesh = MeshLoadingSystem::Instance->GetMesh(_meshName);
+	std::shared_ptr<BasicMesh> mesh = AssetManager::Instance->GetMesh(_meshName);
 	if (mesh == nullptr)
 		return;
 	mesh->Bind(commandBuffer);
@@ -36,9 +40,9 @@ void GameObject::Render(VkCommandBuffer commandBuffer)
 
 void GameObject::CreateMesh(const std::string& filename)
 {
-	std::shared_ptr<MLSLoadModelMessage> message = std::shared_ptr<MLSLoadModelMessage>(DBG_NEW MLSLoadModelMessage(filename));
-	std::unique_lock<std::mutex> messageQueueLock(MeshLoadingSystem::Instance->MessageQueueMutex);
-	MeshLoadingSystem::Instance->QueueMessage(message);
+	std::shared_ptr<AMLoadMeshMessage> message = std::shared_ptr<AMLoadMeshMessage>(DBG_NEW AMLoadMeshMessage(Message::System::NONE, filename, this));
+	std::unique_lock<std::mutex> messageQueueLock(AssetManager::Instance->MessageQueueMutex);
+	AssetManager::Instance->QueueMessage(message);
 	messageQueueLock.unlock();
 	_meshName = filename;
 }

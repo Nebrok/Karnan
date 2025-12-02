@@ -14,6 +14,7 @@
 #include "InputManagementSystem.h"
 #include "SimpleRenderSystem.h"
 #include "MeshLoadingSystem.h"
+#include "AssetManagement/AssetManager.h"
 
 
 const int WIDTH = 800;
@@ -34,6 +35,7 @@ private:
 	GLFWwindow* _windowRef;
 
 	MeshLoadingSystem* _meshLoadingSystem;
+	AssetManager* _assetManager;
 	std::unique_ptr<InputManagementSystem> _inputManagementSystem;
 	std::unique_ptr<SimpleRenderSystem> _renderSystem;
 	std::unique_ptr<KarnanScene> _scene;

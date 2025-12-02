@@ -47,6 +47,7 @@ void EngineCore::DestroyEngine()
 void EngineCore::Init()
 {
 	_meshLoadingSystem = MeshLoadingSystem::StartMeshLoadingSystem();
+	_assetManager = AssetManager::StartupAssetManager();
 	_inputManagementSystem = std::unique_ptr<InputManagementSystem>(InputManagementSystem::StartupInputManagementSystem());
 }
 
@@ -60,7 +61,7 @@ void EngineCore::Run()
 
 	_meshLoadingSystem->BeginProcessAsSeperateThread();
 
-	std::shared_ptr<MLSGenerateBinaries> message = std::shared_ptr<MLSGenerateBinaries>(DBG_NEW MLSGenerateBinaries());
+	std::shared_ptr<MLSGenerateBinaries> message = std::shared_ptr<MLSGenerateBinaries>(DBG_NEW MLSGenerateBinaries(Message::System::NONE));
 	std::unique_lock<std::mutex> messageQueueLock(_meshLoadingSystem->MessageQueueMutex);
 	_meshLoadingSystem->QueueMessage(message);
 	messageQueueLock.unlock();
@@ -90,6 +91,7 @@ void EngineCore::Run()
 		}
 
 		_inputManagementSystem->UpdateKeyReads(_windowRef);
+		_assetManager->Process();
 		_scene->UpdateScene(frameTime);
 
 
@@ -122,6 +124,7 @@ void EngineCore::Run()
 	
 	_meshLoadingSystem->EndProcessThread();
 	MeshLoadingSystem::DestroyMeshLoadingSystem();
+	AssetManager::DestroyAssetManager();
 }
 
 void EngineCore::LoadScene()

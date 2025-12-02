@@ -7,6 +7,7 @@
 #include <queue>
 #include <memory>
 #include <mutex>
+#include <unordered_map>
 
 
 class IMessageSystem
@@ -17,6 +18,7 @@ public:
 
 protected:
 	std::queue<std::shared_ptr<Message>> _messages;
+	std::unordered_map<void*, std::shared_ptr<Message>> _awaitingReply;
 
 public:
 	virtual ~IMessageSystem() {};

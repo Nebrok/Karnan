@@ -6,6 +6,7 @@
 #include "EngineCore.h"
 #include "KarnanUtils.h"
 #include "MessagingSystem/Messages.h"
+#include "AssetManagement/AssetManager.h"
 
 //std libs
 #include <vector>
@@ -57,18 +58,18 @@ void MeshLoadingSystem::LoadMesh(const std::string& filepath)
 	}
 	else if (std::string binaryFilepath = CheckForBinary(modelName); binaryFilepath != "")
 	{
-		std::vector<VertexBuffer::Vertex> vertices;
-		std::vector<uint32_t> indices;
+		std::vector<VertexBuffer::Vertex>* vertices = DBG_NEW std::vector<VertexBuffer::Vertex>();
+		std::vector<uint32_t>* indices = DBG_NEW std::vector<uint32_t>();
 
 		auto currentTime = std::chrono::high_resolution_clock::now();
-		LoadModelFromKMSH(binaryFilepath, vertices, indices);
+		LoadModelFromKMSH(binaryFilepath, *vertices, *indices);
 		auto newTime = std::chrono::high_resolution_clock::now();
 		double objLoadTime = std::chrono::duration<double, std::chrono::seconds::period>(newTime - currentTime).count();
 
 		CreateMesh(filepath, vertices, indices);
 		std::cout << filepath << " loaded successfully from kmsh with: " << '\n';
-		std::cout << "Vertices: " << vertices.size() << '\n';
-		std::cout << "Indices: " << indices.size() << '\n';
+		std::cout << "Vertices: " << vertices->size() << '\n';
+		std::cout << "Indices: " << indices->size() << '\n';
 		std::cout << "Time to load file: " << objLoadTime << " seconds." << '\n';
 	}
 	else
@@ -209,24 +210,15 @@ void MeshLoadingSystem::LoadObjToBinary(const std::string& filename)
 	SerialiseMesh("assets/bin/" + modelName + ".kmsh", vertices, indices);
 }
 
-void MeshLoadingSystem::CreateMesh(const std::string& modelName, std::vector<VertexBuffer::Vertex>& vertices, std::vector<uint32_t>& indices)
+void MeshLoadingSystem::CreateMesh(const std::string& modelName, std::vector<VertexBuffer::Vertex>* vertices, std::vector<uint32_t>* indices)
 {
-	std::shared_ptr<VertexBuffer> vertexBuffer(DBG_NEW VertexBuffer(_karnanDevice));
-	vertexBuffer->CreateVertexBuffers(vertices);
+	std::shared_ptr<AMCreateMeshMessage> createMessage = std::shared_ptr<AMCreateMeshMessage>(
+		DBG_NEW AMCreateMeshMessage(Message::System::ASSET_MANAGER, modelName, vertices, indices));
 
-	std::shared_ptr<BasicMesh> mesh;
-	if (indices.size() > 0)
-	{
-		std::shared_ptr<IndexBuffer> indexBuffer(DBG_NEW IndexBuffer(_karnanDevice));
-		indexBuffer->CreateIndexBuffers(indices);
-		mesh = std::shared_ptr<BasicMesh>(DBG_NEW BasicMesh(modelName, vertexBuffer, indexBuffer));
-	}
-	else
-	{
-		mesh = std::shared_ptr<BasicMesh>(DBG_NEW BasicMesh(modelName, vertexBuffer, nullptr));
-	}
+	std::unique_lock<std::mutex> messageQueueLock(AssetManager::Instance->MessageQueueMutex);
+	AssetManager::Instance->QueueMessage(createMessage);
+	messageQueueLock.unlock();
 
-	_meshMap.insert({ modelName, mesh });
 }
 
 std::shared_ptr<BasicMesh> MeshLoadingSystem::GetMesh(const std::string& filename)
@@ -263,7 +255,7 @@ void MeshLoadingSystem::BeginProcessAsSeperateThread()
 
 void MeshLoadingSystem::EndProcessThread()
 {
-	std::shared_ptr<MLSTerminateThreadProcess> message = std::shared_ptr<MLSTerminateThreadProcess>(DBG_NEW MLSTerminateThreadProcess());
+	std::shared_ptr<MLSTerminateThreadProcess> message = std::shared_ptr<MLSTerminateThreadProcess>(DBG_NEW MLSTerminateThreadProcess(Message::System::MESH_LOADING));
 	std::unique_lock<std::mutex> messageQueueLock(MessageQueueMutex);
 	QueueMessage(message);
 	messageQueueLock.unlock();
@@ -398,9 +390,6 @@ std::vector<int> MeshLoadingSystem::ParseFacePoint(const std::string& point)
 	return indices;
 }
 
-
-
-
 void MeshLoadingSystem::QueueMessage(std::shared_ptr<Message> message)
 {
 	_messages.push(message);
@@ -435,6 +424,18 @@ void MeshLoadingSystem::ProcessMessage(std::shared_ptr<Message> message)
 			std::string filepathToLoad = dynamic_cast<MLSLoadModelMessage*>(message.get())->FilePath;
 			if (filepathToLoad.compare("") != 0)
 				LoadMesh(filepathToLoad);
+		}
+		if ((message->MessageInfo()).compare("Load Model") == 0 && message->GetCallingSystem() == Message::System::ASSET_MANAGER)
+		{
+			std::string filepathToLoad = dynamic_cast<MLSLoadModelMessage*>(message.get())->FilePath;
+			if (filepathToLoad.compare("") != 0)
+				LoadMesh(filepathToLoad);
+			std::shared_ptr<AMReplyLoadMeshMessage> loadReplyMessage = std::shared_ptr<AMReplyLoadMeshMessage>(
+				DBG_NEW AMReplyLoadMeshMessage(Message::System::MESH_LOADING, message->ReplyKey));
+			std::unique_lock<std::mutex> messageQueueLock(AssetManager::Instance->MessageQueueMutex);
+			AssetManager::Instance->QueueMessage(loadReplyMessage);
+			messageQueueLock.unlock();
+
 		}
 	}
 }

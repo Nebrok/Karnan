@@ -32,7 +32,7 @@ public:
 	static void DestroyMeshLoadingSystem();
 
 	void LoadMesh(const std::string& filename);
-	void CreateMesh(const std::string& modelName, std::vector<VertexBuffer::Vertex>& vertices, std::vector<uint32_t>& indices);
+	void CreateMesh(const std::string& modelName, std::vector<VertexBuffer::Vertex>* vertices, std::vector<uint32_t>* indices);
 	
 	std::shared_ptr<BasicMesh> GetMesh(const std::string& filename);
 
@@ -42,9 +42,11 @@ public:
 	virtual void BeginProcessAsSeperateThread();
 	virtual void EndProcessThread();
 
+	//Expects that around this call the queue mutex is locked by the calling thread
 	virtual void QueueMessage(std::shared_ptr<Message> message) override;
 
 protected:
+	//Should lock the queue mutex around this call
 	virtual std::shared_ptr<Message> PollQueue() override;
 	virtual void ProcessMessage(std::shared_ptr<Message> message) override;
 

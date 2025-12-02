@@ -150,6 +150,7 @@
     <ClCompile Include="dep\imgui\imgui_draw.cpp" />
     <ClCompile Include="dep\imgui\imgui_tables.cpp" />
     <ClCompile Include="dep\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="src\AssetManagement\AssetManager.cpp" />
     <ClCompile Include="src\BasicMesh.cpp" />
     <ClCompile Include="src\EngineCore.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
@@ -185,11 +186,13 @@
     <ClInclude Include="dep\imgui\imstb_rectpack.h" />
     <ClInclude Include="dep\imgui\imstb_textedit.h" />
     <ClInclude Include="dep\imgui\imstb_truetype.h" />
+    <ClInclude Include="src\AssetManagement\AssetManager.h" />
     <ClInclude Include="src\BasicMesh.h" />
     <ClInclude Include="src\EngineCore.h" />
     <ClInclude Include="src\GameObject.h" />
     <ClInclude Include="src\IndexBuffer.h" />
     <ClInclude Include="src\InputManagementSystem.h" />
+    <ClInclude Include="src\MessagingSystem\AssetManagerMessages.h" />
     <ClInclude Include="src\Threading\IThreadableProcess.h" />
     <ClInclude Include="src\KarnanBuffer.h" />
     <ClInclude Include="src\KarnanCamera.h" />

@@ -100,7 +100,10 @@ protected:
 
 
 	bool _renderable = false;
+    bool _meshRefreshed = false;
     std::string _meshName = "";
+    std::shared_ptr<BasicMesh> _meshPointer = nullptr;
+
     std::shared_ptr<KarnanMaterial> _material = nullptr;
 
 public:
@@ -125,6 +128,8 @@ public:
     
     void CreateMesh(const std::string& filename);
     void CreateMaterial(const std::string& filename);
+
+    void SetMeshRefreshed() { _meshRefreshed = true; };
 
 
 private:

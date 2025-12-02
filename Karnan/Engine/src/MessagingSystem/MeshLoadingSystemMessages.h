@@ -6,8 +6,8 @@ class MLSBaseMessage : public Message
 
 
 public:
-	MLSBaseMessage(Message::Type messageType, std::string messageInfo)
-		: Message(System::MESH_LOADING, messageType, messageInfo)
+	MLSBaseMessage(System callingSystem, Message::Type messageType, std::string messageInfo)
+		: Message(System::MESH_LOADING, callingSystem, messageType, messageInfo)
 	{
 	}
 	virtual ~MLSBaseMessage() override {};
@@ -19,8 +19,8 @@ public:
 	std::string FilePath = "";
 
 public:
-	MLSLoadModelMessage(std::string filePath)
-		: MLSBaseMessage(Message::Type::COMMAND, "Load Model"), FilePath(filePath)
+	MLSLoadModelMessage(System callingSystem, std::string filePath)
+		: MLSBaseMessage(callingSystem, Message::Type::COMMAND, "Load Model"), FilePath(filePath)
 	{
 	}
 	virtual ~MLSLoadModelMessage() override {};
@@ -29,8 +29,8 @@ public:
 class MLSGenerateBinaries : public MLSBaseMessage
 {
 public:
-	MLSGenerateBinaries()
-		: MLSBaseMessage(Message::Type::COMMAND, "Generate Binaries")
+	MLSGenerateBinaries(System callingSystem)
+		: MLSBaseMessage(callingSystem, Message::Type::COMMAND, "Generate Binaries")
 	{}
 	virtual ~MLSGenerateBinaries() override {};
 };
@@ -38,8 +38,8 @@ public:
 class MLSTerminateThreadProcess : public MLSBaseMessage
 {
 public:
-	MLSTerminateThreadProcess()
-		:MLSBaseMessage(Message::Type::COMMAND, "Terminate Process")
+	MLSTerminateThreadProcess(System callingSystem)
+		:MLSBaseMessage(callingSystem, Message::Type::COMMAND, "Terminate Process")
 	{}
 	virtual ~MLSTerminateThreadProcess() override {};
 

@@ -1,0 +1,122 @@
+#include "AssetManager.h"
+
+#include "../EngineCore.h"
+#include "../MessagingSystem/Messages.h"
+
+AssetManager* AssetManager::Instance = nullptr;
+
+AssetManager* AssetManager::StartupAssetManager()
+{
+	if (AssetManager::Instance == nullptr)
+	{
+		Instance = DBG_NEW AssetManager();
+	}
+	return Instance;
+}
+
+void AssetManager::DestroyAssetManager()
+{
+	delete(AssetManager::Instance);
+}
+
+void AssetManager::Process()
+{
+	std::unique_lock<std::mutex> messageQueueLock(MessageQueueMutex);
+	std::shared_ptr<Message> message = PollQueue();
+	messageQueueLock.unlock();
+	while (message != nullptr)
+	{
+		ProcessMessage(message);
+		std::unique_lock<std::mutex> messageQueueLock(MessageQueueMutex);
+		message = PollQueue();
+		messageQueueLock.unlock();
+	}
+}
+
+std::shared_ptr<BasicMesh> AssetManager::GetMesh(const std::string& filename)
+{
+	if (auto search = _meshMap.find(filename); search != _meshMap.end())
+	{
+		return _meshMap.at(filename);
+	}
+	return nullptr;
+}
+
+void AssetManager::QueueMessage(std::shared_ptr<Message> message)
+{
+	_messages.push(message);
+}
+
+void AssetManager::ProcessMessage(std::shared_ptr<Message> message)
+{
+	if (message->GetMessageType() == Message::Type::REPLY)
+	{
+		if ((message->MessageInfo()).compare("Load Mesh Reply") == 0)
+		{
+			Message* key = dynamic_cast<AMReplyLoadMeshMessage*>(message.get())->OriginalMessageKey;
+			if (_awaitingReply.contains(key))
+			{
+				std::shared_ptr<Message> awaitingReplyMessage = _awaitingReply.at(key);
+				GameObject* go = dynamic_cast<AMLoadMeshMessage*>(awaitingReplyMessage.get())->CallingGO;
+				go->SetMeshRefreshed();
+			}
+		}
+	}
+	
+	if (message->GetMessageType() == Message::Type::COMMAND)
+	{
+		if ((message->MessageInfo()).compare("Create Mesh") == 0)
+		{
+			AMCreateMeshMessage* createMeshMessage = dynamic_cast<AMCreateMeshMessage*>(message.get());
+			CreateMesh(createMeshMessage->Meshname, *(createMeshMessage->Vertices), *(createMeshMessage->Indices));
+			delete(createMeshMessage->Vertices);
+			delete(createMeshMessage->Indices);
+		}
+		if ((message->MessageInfo()).compare("Load Mesh") == 0)
+		{
+			std::string filepath = dynamic_cast<AMLoadMeshMessage*>(message.get())->Filepath;
+			std::shared_ptr<MLSLoadModelMessage> loadMessage = std::shared_ptr<MLSLoadModelMessage>(DBG_NEW MLSLoadModelMessage(Message::System::ASSET_MANAGER, filepath));
+			loadMessage->ReplyKey = message.get();
+			std::unique_lock<std::mutex> messageQueueLock(MeshLoadingSystem::Instance->MessageQueueMutex);
+			MeshLoadingSystem::Instance->QueueMessage(loadMessage);
+			messageQueueLock.unlock();
+			_awaitingReply[message.get()] = message;
+		}
+	}
+}
+
+std::shared_ptr<Message> AssetManager::PollQueue()
+{
+	if (_messages.empty())
+		return nullptr;
+
+	std::shared_ptr<Message> message = _messages.front();
+	_messages.pop();
+	return message;
+}
+
+AssetManager::AssetManager()
+	: _karnanDevice(EngineCore::Device())
+{
+
+}
+
+void AssetManager::CreateMesh(const std::string& modelName, std::vector<VertexBuffer::Vertex>& vertices, std::vector<uint32_t>& indices)
+{
+	std::shared_ptr<VertexBuffer> vertexBuffer(DBG_NEW VertexBuffer(_karnanDevice));
+	vertexBuffer->CreateVertexBuffers(vertices);
+
+	std::shared_ptr<BasicMesh> mesh;
+	if (indices.size() > 0)
+	{
+		std::shared_ptr<IndexBuffer> indexBuffer(DBG_NEW IndexBuffer(_karnanDevice));
+		indexBuffer->CreateIndexBuffers(indices);
+		mesh = std::shared_ptr<BasicMesh>(DBG_NEW BasicMesh(modelName, vertexBuffer, indexBuffer));
+	}
+	else
+	{
+		mesh = std::shared_ptr<BasicMesh>(DBG_NEW BasicMesh(modelName, vertexBuffer, nullptr));
+	}
+
+	_meshMap.insert({ modelName, mesh });
+}
