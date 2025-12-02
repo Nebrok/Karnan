@@ -94,7 +94,6 @@ void EngineCore::Run()
 		_assetManager->Process();
 		_scene->UpdateScene(frameTime);
 
-
 		if (_editorMode)
 			_editor->Update();
 

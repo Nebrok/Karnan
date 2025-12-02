@@ -1,5 +1,7 @@
 #include "KarnanEditor.h"
-#include "EngineCore.h"
+#include "../EngineCore.h"
+
+KarnanEditor* KarnanEditor::Instance = nullptr;
 
 KarnanEditor::KarnanEditor()
 {
@@ -31,8 +33,18 @@ void KarnanEditor::Render(VkCommandBuffer commandBuffer)
 	_mainGUI->Render(commandBuffer);
 }
 
+KarnanEditor* KarnanEditor::StartupEditor()
+{
+	if (KarnanEditor::Instance == nullptr)
+	{
+		KarnanEditor::Instance = DBG_NEW KarnanEditor();
+	}
+
+	return KarnanEditor::Instance;
+}
+
 void KarnanEditor::DestroyEditor()
 {
-	KarnanMainGUI* gui = _mainGUI.release();
+	KarnanMainGUI* gui = KarnanEditor::Instance->_mainGUI.release();
 	delete(gui);
 }

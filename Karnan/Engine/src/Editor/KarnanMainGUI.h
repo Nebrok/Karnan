@@ -54,10 +54,11 @@ public:
 
 	void Render(VkCommandBuffer& commandBuffer);
 
-
 	void BuildHierarchyWindow();
 	void BuildDetailsWindow();
 	void BuildGameObjectCreator();
+	void BuildContentBrowser();
+
 
 private:
 

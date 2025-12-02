@@ -152,6 +152,10 @@
     <ClCompile Include="dep\imgui\imgui_widgets.cpp" />
     <ClCompile Include="src\AssetManagement\AssetManager.cpp" />
     <ClCompile Include="src\BasicMesh.cpp" />
+    <ClCompile Include="src\Editor\EditorDetailsPanel.cpp" />
+    <ClCompile Include="src\Editor\EditorGOCreatorPanel.cpp" />
+    <ClCompile Include="src\Editor\EditorHierarchyPanel.cpp" />
+    <ClCompile Include="src\Editor\IPanel.h" />
     <ClCompile Include="src\EngineCore.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\IndexBuffer.cpp" />
@@ -159,9 +163,9 @@
     <ClCompile Include="src\KarnanBuffer.cpp" />
     <ClCompile Include="src\KarnanCamera.cpp" />
     <ClCompile Include="src\KarnanDevice.cpp" />
-    <ClCompile Include="src\KarnanEditor.cpp" />
+    <ClCompile Include="src\Editor\KarnanEditor.cpp" />
     <ClCompile Include="src\KarnanGlobalUBO.cpp" />
-    <ClCompile Include="src\KarnanMainGUI.cpp" />
+    <ClCompile Include="src\Editor\KarnanMainGUI.cpp" />
     <ClCompile Include="src\KarnanMaterial.cpp" />
     <ClCompile Include="src\KarnanPipeline.cpp" />
     <ClCompile Include="src\KarnanRenderer.cpp" />
@@ -188,6 +192,9 @@
     <ClInclude Include="dep\imgui\imstb_truetype.h" />
     <ClInclude Include="src\AssetManagement\AssetManager.h" />
     <ClInclude Include="src\BasicMesh.h" />
+    <ClInclude Include="src\Editor\EditorDetailsPanel.h" />
+    <ClInclude Include="src\Editor\EditorGOCreatorPanel.h" />
+    <ClInclude Include="src\Editor\EditorHierarchyPanel.h" />
     <ClInclude Include="src\EngineCore.h" />
     <ClInclude Include="src\GameObject.h" />
     <ClInclude Include="src\IndexBuffer.h" />
@@ -197,10 +204,10 @@
     <ClInclude Include="src\KarnanBuffer.h" />
     <ClInclude Include="src\KarnanCamera.h" />
     <ClInclude Include="src\KarnanDevice.h" />
-    <ClInclude Include="src\KarnanEditor.h" />
+    <ClInclude Include="src\Editor\KarnanEditor.h" />
     <ClInclude Include="src\KarnanFrameInfo.h" />
     <ClInclude Include="src\KarnanGlobalUBO.h" />
-    <ClInclude Include="src\KarnanMainGUI.h" />
+    <ClInclude Include="src\Editor\KarnanMainGUI.h" />
     <ClInclude Include="src\KarnanMaterial.h" />
     <ClInclude Include="src\KarnanPipeline.h" />
     <ClInclude Include="src\KarnanRenderer.h" />

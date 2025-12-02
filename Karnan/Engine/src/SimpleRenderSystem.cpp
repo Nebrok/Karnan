@@ -80,7 +80,6 @@ void SimpleRenderSystem::CreateUniformBuffers()
 	}
 }
 
-
 //TODO: Fix the descriptor pool to dynamically expand to fit needs.
 void SimpleRenderSystem::CreateDesciptorSets()
 {

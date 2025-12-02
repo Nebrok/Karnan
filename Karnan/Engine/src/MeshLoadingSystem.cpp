@@ -2,7 +2,6 @@
 
 #define GLM_ENABLE_EXPERIMENTAL
 #include <glm/gtx/hash.hpp>
-
 #include "EngineCore.h"
 #include "KarnanUtils.h"
 #include "MessagingSystem/Messages.h"
@@ -52,11 +51,7 @@ void MeshLoadingSystem::LoadMesh(const std::string& filepath)
 {
 	size_t lastSlash = filepath.rfind('/');
 	std::string modelName = filepath.substr(lastSlash + 1);
-	if (auto search = _meshMap.find(filepath); search != _meshMap.end())
-	{
-		std::cout << "Model: " << filepath << " is already loaded." << '\n';
-	}
-	else if (std::string binaryFilepath = CheckForBinary(modelName); binaryFilepath != "")
+	if (std::string binaryFilepath = CheckForBinary(modelName); binaryFilepath != "")
 	{
 		std::vector<VertexBuffer::Vertex>* vertices = DBG_NEW std::vector<VertexBuffer::Vertex>();
 		std::vector<uint32_t>* indices = DBG_NEW std::vector<uint32_t>();
@@ -218,16 +213,6 @@ void MeshLoadingSystem::CreateMesh(const std::string& modelName, std::vector<Ver
 	std::unique_lock<std::mutex> messageQueueLock(AssetManager::Instance->MessageQueueMutex);
 	AssetManager::Instance->QueueMessage(createMessage);
 	messageQueueLock.unlock();
-
-}
-
-std::shared_ptr<BasicMesh> MeshLoadingSystem::GetMesh(const std::string& filename)
-{
-	if (auto search = _meshMap.find(filename); search != _meshMap.end())
-	{
-		return _meshMap.at(filename);
-	}
-	return nullptr;
 }
 
 void MeshLoadingSystem::Process()
@@ -264,7 +249,6 @@ void MeshLoadingSystem::EndProcessThread()
 MeshLoadingSystem::MeshLoadingSystem()
 	: _karnanDevice(EngineCore::Instance->Device())
 {
-
 }
 
 void MeshLoadingSystem::SerialiseMesh(const std::string& outputPath, std::vector<VertexBuffer::Vertex>& vertices, std::vector<uint32_t>& indices)

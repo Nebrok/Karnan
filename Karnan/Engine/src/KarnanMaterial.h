@@ -50,6 +50,11 @@ public:
 	VkDescriptorSet& GetDescriptorSet() { return _materialDescriptorSet; };
 	bool HasDescriptorSet() const { return _hasMaterialDescriptorSet; };
 	void SetValidDescriptorSet() { _hasMaterialDescriptorSet = true; };
+
+
+
+
+
 private:
 
 

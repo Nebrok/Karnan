@@ -3,6 +3,9 @@
 #include "../EngineCore.h"
 #include "../MessagingSystem/Messages.h"
 
+#include <iostream>
+
+
 AssetManager* AssetManager::Instance = nullptr;
 
 AssetManager* AssetManager::StartupAssetManager()
@@ -75,6 +78,13 @@ void AssetManager::ProcessMessage(std::shared_ptr<Message> message)
 		if ((message->MessageInfo()).compare("Load Mesh") == 0)
 		{
 			std::string filepath = dynamic_cast<AMLoadMeshMessage*>(message.get())->Filepath;
+
+			if (auto search = _meshMap.find(filepath); search != _meshMap.end())
+			{
+				std::cout << "Model: " << filepath << " is already loaded." << '\n';
+				return;
+			}
+
 			std::shared_ptr<MLSLoadModelMessage> loadMessage = std::shared_ptr<MLSLoadModelMessage>(DBG_NEW MLSLoadModelMessage(Message::System::ASSET_MANAGER, filepath));
 			loadMessage->ReplyKey = message.get();
 			std::unique_lock<std::mutex> messageQueueLock(MeshLoadingSystem::Instance->MessageQueueMutex);

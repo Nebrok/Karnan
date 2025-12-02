@@ -8,21 +8,25 @@ class KarnanEditor
 {
 
 public:
+	static KarnanEditor* Instance;
 
 private:
 	std::unique_ptr<KarnanMainGUI> _mainGUI;
-
+	GameObject* _lastHighlightedGo;
 
 public:
-	KarnanEditor();
-	~KarnanEditor();
+	static KarnanEditor* StartupEditor();
+	static void DestroyEditor();
 
 	void Init();
 	void Update();
 	void Render(VkCommandBuffer commandBuffer);
 
-	void DestroyEditor();
+	GameObject* GetLastHighlightedGO() { return _lastHighlightedGo; };
+
 
 private:
+	KarnanEditor();
+	~KarnanEditor();
 
 };

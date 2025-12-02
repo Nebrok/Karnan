@@ -3,12 +3,10 @@
 
 #include <stdexcept>
 
-#include "EngineCore.h"
-#include "KarnanDevice.h"
-#include "KarnanRenderer.h"
-#include "KarnanSwapChain.h"
-
-#include "Cube.h"
+#include "../EngineCore.h"
+#include "../KarnanDevice.h"
+#include "../KarnanRenderer.h"
+#include "../KarnanSwapChain.h"
 
 #include "glm/gtc/type_ptr.hpp"
 
@@ -247,6 +245,15 @@ void KarnanMainGUI::BuildGameObjectCreator()
 	{
 		CreateNewGameObject(data);
 	}
+
+	ImGui::End();
+}
+
+void KarnanMainGUI::BuildContentBrowser()
+{
+	bool contentBrowserOpen = true;
+	ImGui::Begin("Content Browser", &contentBrowserOpen);
+
 
 	ImGui::End();
 }

@@ -90,10 +90,10 @@
     <ClCompile Include="dep\imgui\backends\imgui_impl_vulkan.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\KarnanMainGUI.cpp">
+    <ClCompile Include="src\Editor\KarnanMainGUI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\KarnanEditor.cpp">
+    <ClCompile Include="src\Editor\KarnanEditor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\KarnanMaterial.cpp">
@@ -109,6 +109,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\AssetManagement\AssetManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Editor\IPanel.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Editor\EditorHierarchyPanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Editor\EditorDetailsPanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Editor\EditorGOCreatorPanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -194,10 +206,10 @@
     <ClInclude Include="dep\imgui\backends\imgui_impl_vulkan.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\KarnanMainGUI.h">
+    <ClInclude Include="src\Editor\KarnanMainGUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\KarnanEditor.h">
+    <ClInclude Include="src\Editor\KarnanEditor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\KarnanMaterial.h">
@@ -237,6 +249,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\MessagingSystem\AssetManagerMessages.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Editor\EditorHierarchyPanel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Editor\EditorDetailsPanel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Editor\EditorGOCreatorPanel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

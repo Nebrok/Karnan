@@ -18,14 +18,10 @@ class MeshLoadingSystem : public IMessageSystem, public IThreadableProcess
 public:
 	static MeshLoadingSystem* Instance;
 
-
 private:
 	KarnanDevice& _karnanDevice;
-
-	std::unordered_map<std::string, std::shared_ptr<BasicMesh>> _meshMap;
 	
 	bool _terminateProcess = false;
-
 
 public:
 	static MeshLoadingSystem* StartMeshLoadingSystem();
@@ -33,8 +29,6 @@ public:
 
 	void LoadMesh(const std::string& filename);
 	void CreateMesh(const std::string& modelName, std::vector<VertexBuffer::Vertex>* vertices, std::vector<uint32_t>* indices);
-	
-	std::shared_ptr<BasicMesh> GetMesh(const std::string& filename);
 
 	//Threading Related Functions
 	virtual void Process() override;
@@ -49,7 +43,6 @@ protected:
 	//Should lock the queue mutex around this call
 	virtual std::shared_ptr<Message> PollQueue() override;
 	virtual void ProcessMessage(std::shared_ptr<Message> message) override;
-
 
 private:
 	MeshLoadingSystem();
@@ -66,10 +59,8 @@ private:
 	std::vector<std::string> Triangularise(const std::vector<std::string>& polygon);
 	std::vector<int> ParseFacePoint(const std::string& point);
 
-
 	//Command Message Functions
 	void GenerateBinaries();
-
 
 	//Command Message Helpers
 	std::vector<std::string> FindAllModelFilepaths(std::string& rootFolder);

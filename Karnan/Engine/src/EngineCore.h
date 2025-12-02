@@ -3,13 +3,14 @@
 #include "imgui_impl_glfw.h"
 #include "imgui_impl_vulkan.h"
 
-#include "KarnanEditor.h"
 
 #include "KarnanWindow.h"
 #include "KarnanDevice.h"
 #include "KarnanRenderer.h"
 #include "KarnanScene.h"
-#include "KarnanMainGUI.h"
+
+#include "Editor/KarnanEditor.h"
+#include "Editor/KarnanMainGUI.h"
 
 #include "InputManagementSystem.h"
 #include "SimpleRenderSystem.h"

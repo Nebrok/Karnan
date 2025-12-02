@@ -3,7 +3,7 @@
 
 
 #include "EngineCore.h"
-#include "KarnanEditor.h"
+#include "Editor/KarnanEditor.h"
 
 #define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
@@ -13,13 +13,12 @@ int main(int argc, char** argv)
 {
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 	EngineCore* engine = EngineCore::StartupEngine();
-    KarnanEditor editor{};
+    KarnanEditor* editor = KarnanEditor::StartupEditor();;
 
 	engine->Init();
-    editor.Init();
+    editor->Init();
 
-    engine->SetEditorMode(&editor);
-
+    engine->SetEditorMode(editor);
 
     try
     {
@@ -31,7 +30,7 @@ int main(int argc, char** argv)
         return EXIT_FAILURE;
     }
 
-    editor.DestroyEditor();
+    editor->DestroyEditor();
     engine->DestroyEngine();
     return EXIT_SUCCESS;
 }
