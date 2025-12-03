@@ -8,5 +8,6 @@
 class IPanel
 {
 public:
-	virtual void OnImGUIRender() = 0;
+	IPanel() {};
+	virtual void OnImGUIRender() {};
 };

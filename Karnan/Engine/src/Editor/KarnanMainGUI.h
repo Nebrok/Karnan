@@ -18,16 +18,6 @@ class KarnanSwapChain;
 class KarnanRenderer;
 class GameObject;
 
-
-struct NewGameObjectData
-{
-	std::string ObjectName;
-	glm::vec3 Translation;
-	glm::vec3 Rotation;
-	glm::vec3 Scale = {1.0f, 1.0f, 1.0f};
-};
-
-
 class KarnanMainGUI
 {
 
@@ -54,15 +44,7 @@ public:
 
 	void Render(VkCommandBuffer& commandBuffer);
 
-	void BuildHierarchyWindow();
-	void BuildDetailsWindow();
-	void BuildGameObjectCreator();
-	void BuildContentBrowser();
-
-
 private:
-
-	void UpdateDetailsPanel(GameObject* go);
-	void CreateNewGameObject(NewGameObjectData data);
+	
 
 };

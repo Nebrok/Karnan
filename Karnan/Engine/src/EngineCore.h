@@ -10,7 +10,6 @@
 #include "KarnanScene.h"
 
 #include "Editor/KarnanEditor.h"
-#include "Editor/KarnanMainGUI.h"
 
 #include "InputManagementSystem.h"
 #include "SimpleRenderSystem.h"

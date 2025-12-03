@@ -1,10 +1,10 @@
 #pragma once
 #include "SimpleRenderSystem.h"
 
-#include "Cube.h"
 #include "KarnanCamera.h"
 #include "KarnanFrameInfo.h"
 
+#include "Boids/BoidManager.h"
 
 class KarnanScene
 {
@@ -20,6 +20,8 @@ private:
 	GameObject* Plane;
 	GameObject* Viewer;
 	KarnanCamera* Camera;
+
+	BoidManager* _boidManager;
 
 public:
 	KarnanScene(SimpleRenderSystem& renderSystem);

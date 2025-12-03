@@ -152,6 +152,9 @@
     <ClCompile Include="dep\imgui\imgui_widgets.cpp" />
     <ClCompile Include="src\AssetManagement\AssetManager.cpp" />
     <ClCompile Include="src\BasicMesh.cpp" />
+    <ClCompile Include="src\Boids\Boid.cpp" />
+    <ClCompile Include="src\Boids\BoidManager.cpp" />
+    <ClCompile Include="src\Editor\EditorContentBrowser.cpp" />
     <ClCompile Include="src\Editor\EditorDetailsPanel.cpp" />
     <ClCompile Include="src\Editor\EditorGOCreatorPanel.cpp" />
     <ClCompile Include="src\Editor\EditorHierarchyPanel.cpp" />
@@ -192,6 +195,9 @@
     <ClInclude Include="dep\imgui\imstb_truetype.h" />
     <ClInclude Include="src\AssetManagement\AssetManager.h" />
     <ClInclude Include="src\BasicMesh.h" />
+    <ClInclude Include="src\Boids\Boid.h" />
+    <ClInclude Include="src\Boids\BoidManager.h" />
+    <ClInclude Include="src\Editor\EditorContentBrowser.h" />
     <ClInclude Include="src\Editor\EditorDetailsPanel.h" />
     <ClInclude Include="src\Editor\EditorGOCreatorPanel.h" />
     <ClInclude Include="src\Editor\EditorHierarchyPanel.h" />

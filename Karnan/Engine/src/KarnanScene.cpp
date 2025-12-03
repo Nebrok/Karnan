@@ -19,11 +19,6 @@ KarnanScene::~KarnanScene()
 
 void KarnanScene::LoadScene()
 {
-	//GameObject* Cube = DBG_NEW GameObject("assets/cube.obj");
-	//Cube->CreateMesh("assets/cube.obj");
-	//Cube->CreateMaterial("textures/Staff_low_lambert1_BaseColor.png");
-	//Cube->Transform.Translation = { 0.0f, 0.0f, 0.0f };
-
 	GameObject* Dragon = DBG_NEW GameObject("assets/Dragon_80K.obj");
 	Dragon->CreateMesh("assets/Dragon_80K.obj");
 	Dragon->CreateMaterial("textures/Staff_low_lambert1_BaseColor.png");
@@ -46,10 +41,13 @@ void KarnanScene::LoadScene()
 	FoundationL5->CreateMesh("assets/FortificationsLevel5.obj");
 	FoundationL5->CreateMaterial("assets/fortifications.png");
 	FoundationL5->Transform.Translation = { 3.0f, 0.f, 0.f };
+
+	_boidManager = DBG_NEW BoidManager();
 }
 
 void KarnanScene::UpdateScene(double deltaTime)
 {
+	_boidManager->UpdateBoids(deltaTime);
 	for (auto gameObject : _gameObjects)
 	{
 		gameObject->Update(deltaTime);

@@ -1,6 +1,11 @@
 #include "KarnanEditor.h"
 #include "../EngineCore.h"
 
+#include "EditorHierarchyPanel.h"
+#include "EditorDetailsPanel.h"
+#include "EditorGOCreatorPanel.h"
+#include "EditorContentBrowser.h"
+
 KarnanEditor* KarnanEditor::Instance = nullptr;
 
 KarnanEditor::KarnanEditor()
@@ -17,14 +22,27 @@ void KarnanEditor::Init()
 {
 	_mainGUI = std::make_unique<KarnanMainGUI>(EngineCore::Device(), EngineCore::Renderer(), EngineCore::Window());
 	_mainGUI->Init();
+
+	_panels.push_back(new EditorHierarchyPanel());
+	_panels.push_back(new EditorDetailsPanel());
+	_panels.push_back(new EditorGOCreatorPanel());
+	_panels.push_back(new EditorContentBrowser());
+
 }
 
 void KarnanEditor::Update()
 {
 	_mainGUI->NewFrame();
+	for (auto panel : _panels)
+	{
+		panel->OnImGUIRender();
+	}
+	
+	/*
 	_mainGUI->BuildHierarchyWindow();
 	_mainGUI->BuildDetailsWindow();
 	_mainGUI->BuildGameObjectCreator();
+	*/
 	_mainGUI->EndFrame();
 }
 
@@ -45,6 +63,13 @@ KarnanEditor* KarnanEditor::StartupEditor()
 
 void KarnanEditor::DestroyEditor()
 {
+	for (auto panel : KarnanEditor::Instance->_panels)
+	{
+		delete(panel);
+	}
+
 	KarnanMainGUI* gui = KarnanEditor::Instance->_mainGUI.release();
 	delete(gui);
+
+	delete(KarnanEditor::Instance);
 }

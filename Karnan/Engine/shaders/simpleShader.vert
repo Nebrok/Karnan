@@ -19,10 +19,11 @@ layout (push_constant) uniform Push
 } push;
 
 vec3 directionToLight = vec3(0.5, 0.5, 0.5);
-const float AMBIENT = 0.01;
+const float AMBIENT = 0.1;
 
 void main()
 {
+	directionToLight = normalize(directionToLight);
 	gl_Position = ubo.projectionViewMatrix * push.modelMatrix * vec4(position, 1.0);
 	vec3 normalWorldSpace = normalize(mat3(push.normalMatrix) * normal);
 	

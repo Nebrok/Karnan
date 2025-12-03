@@ -1,8 +1,11 @@
 #pragma once
 #include "KarnanMainGUI.h"
 
-#include <memory>
+#include "IPanel.h"
 
+
+#include <memory>
+#include <vector>
 
 class KarnanEditor
 {
@@ -11,8 +14,11 @@ public:
 	static KarnanEditor* Instance;
 
 private:
+	GameObject* _lastHighlightedGo = nullptr;
 	std::unique_ptr<KarnanMainGUI> _mainGUI;
-	GameObject* _lastHighlightedGo;
+
+	std::vector<IPanel*> _panels;
+
 
 public:
 	static KarnanEditor* StartupEditor();
@@ -23,6 +29,7 @@ public:
 	void Render(VkCommandBuffer commandBuffer);
 
 	GameObject* GetLastHighlightedGO() { return _lastHighlightedGo; };
+	void SetLastHighlightedGO(GameObject* go) { _lastHighlightedGo = go; };
 
 
 private:

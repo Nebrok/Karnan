@@ -13,7 +13,7 @@ void EditorHierarchyPanel::OnImGUIRender()
 		ImGui::PushID(go->GetId());
 		if (ImGui::Button(go->ObjectName))
 		{
-			UpdateDetailsPanel(go);
+			KarnanEditor::Instance->SetLastHighlightedGO(go);
 		}
 		ImGui::PopID();
 	}
