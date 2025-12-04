@@ -4,6 +4,10 @@
 #include "MessagingSystem/Messages.h"
 #include "AssetManagement/AssetManager.h"
 
+#include <iostream>
+
+int GameObject::testThingy = 0;
+
 GameObject::GameObject(const char* objectName)
 	: _karnanDevice(EngineCore::Device()), ObjectName(objectName)
 {

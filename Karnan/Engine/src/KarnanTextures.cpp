@@ -4,6 +4,7 @@
 #include "EngineCore.h"
 
 #include <stdexcept>
+#include <iostream>
 
 KarnanTexture::KarnanTexture(std::string filepath)
 	: _karnanDevice(EngineCore::Device()), _filepath(filepath)
@@ -31,6 +32,7 @@ void KarnanTexture::CreateTextureImage()
 
 	if (!pixelData)
 	{
+		std::cout << "Filepath: " << _filepath << '\n';
 		throw std::runtime_error("failed to load texture from file!");
 	}
 	imageSize = textureWidth * textureHeight * 4;

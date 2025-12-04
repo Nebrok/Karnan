@@ -30,7 +30,7 @@ private:
 
 public:
 	Message(System recipientSystem, System callingSystem, Type messageType, std::string messageInfo)
-		: _recipientSystem(recipientSystem), _messageType(messageType), _messageInfo(messageInfo)
+		: _recipientSystem(recipientSystem), _callingSystem(callingSystem), _messageType(messageType), _messageInfo(messageInfo)
 	{
 	}
 	virtual ~Message() {};

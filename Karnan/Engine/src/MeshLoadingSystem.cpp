@@ -120,7 +120,7 @@ void MeshLoadingSystem::LoadObj(const std::string& filename, std::vector<VertexB
 
 		if (prefix == "vt")
 		{
-			glm::vec3 modelUV;
+			glm::vec2 modelUV;
 			iss >> modelUV.x >> modelUV.y;
 			modelUVs.push_back(modelUV);
 		}
@@ -403,12 +403,6 @@ void MeshLoadingSystem::ProcessMessage(std::shared_ptr<Message> message)
 			GenerateBinaries();
 		}
 
-		if ((message->MessageInfo()).compare("Load Model") == 0)
-		{
-			std::string filepathToLoad = dynamic_cast<MLSLoadModelMessage*>(message.get())->FilePath;
-			if (filepathToLoad.compare("") != 0)
-				LoadMesh(filepathToLoad);
-		}
 		if ((message->MessageInfo()).compare("Load Model") == 0 && message->GetCallingSystem() == Message::System::ASSET_MANAGER)
 		{
 			std::string filepathToLoad = dynamic_cast<MLSLoadModelMessage*>(message.get())->FilePath;
@@ -420,6 +414,12 @@ void MeshLoadingSystem::ProcessMessage(std::shared_ptr<Message> message)
 			AssetManager::Instance->QueueMessage(loadReplyMessage);
 			messageQueueLock.unlock();
 
+		}
+		else if ((message->MessageInfo()).compare("Load Model") == 0)
+		{
+			std::string filepathToLoad = dynamic_cast<MLSLoadModelMessage*>(message.get())->FilePath;
+			if (filepathToLoad.compare("") != 0)
+				LoadMesh(filepathToLoad);
 		}
 	}
 }

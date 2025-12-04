@@ -1,0 +1,14 @@
+# Blender 4.3.0 MTL File: 'lion_head_4k.blend'
+# www.blender.org
+
+newmtl lion_head
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:/Users/KorbenLyall-Wilson/AppData/Local/Temp/62eafe37-172a-4f82-b672-45e7634eb148_lion_head_4k.blend.zip.148/textures/lion_head_diff_4k.jpg
+map_Ns C:/Users/KorbenLyall-Wilson/AppData/Local/Temp/62eafe37-172a-4f82-b672-45e7634eb148_lion_head_4k.blend.zip.148/textures/lion_head_rough_4k.exr
+map_refl C:/Users/KorbenLyall-Wilson/AppData/Local/Temp/62eafe37-172a-4f82-b672-45e7634eb148_lion_head_4k.blend.zip.148/textures/lion_head_metal_4k.exr
+map_Bump -bm 1.000000 C:/Users/KorbenLyall-Wilson/AppData/Local/Temp/62eafe37-172a-4f82-b672-45e7634eb148_lion_head_4k.blend.zip.148/textures/lion_head_nor_gl_4k.exr

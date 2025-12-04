@@ -1,5 +1,6 @@
 #include "Boid.h"
 
+#include <iostream>
 
 Boid::Boid()
 {
@@ -20,7 +21,7 @@ void Boid::Init()
 
 Boid::~Boid()
 {
-    delete(_gameObject);
+    
 }
 
 void Boid::UpdateBoid(float deltaTime)

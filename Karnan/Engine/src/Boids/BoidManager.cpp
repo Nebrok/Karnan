@@ -5,6 +5,8 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/constants.hpp>
 
+#include <iostream>
+
 BoidManager::BoidManager()
 {
     for (int i = 0; i < _numberBoids; i++)

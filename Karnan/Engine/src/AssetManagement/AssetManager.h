@@ -8,6 +8,8 @@
 #include <unordered_map>
 #include <memory>
 
+class GameObject;
+
 class AssetManager : public IMessageSystem
 {
 
@@ -16,6 +18,9 @@ public:
 
 private:
 	std::unordered_map<std::string, std::shared_ptr<BasicMesh>> _meshMap;
+	std::unordered_map<std::string, std::vector<GameObject*>> _loadRequested;
+
+
 	KarnanDevice& _karnanDevice;
 
 public:

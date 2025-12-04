@@ -20,10 +20,10 @@ private:
 
 public:
 	Boid();
-	void Init();
 
 	~Boid();
 
+	void Init();
 	void UpdateBoid(float deltaTime);
 
 	glm::vec3 GetVelocity() { return _velocity; }

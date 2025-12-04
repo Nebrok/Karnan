@@ -15,6 +15,7 @@ KarnanScene::~KarnanScene()
 	{
 		delete gameObject;
 	}
+	delete(_boidManager);
 }
 
 void KarnanScene::LoadScene()
@@ -41,6 +42,12 @@ void KarnanScene::LoadScene()
 	FoundationL5->CreateMesh("assets/FortificationsLevel5.obj");
 	FoundationL5->CreateMaterial("assets/fortifications.png");
 	FoundationL5->Transform.Translation = { 3.0f, 0.f, 0.f };
+
+
+	GameObject* LionHead = DBG_NEW GameObject("Lion Head");
+	LionHead->CreateMesh("assets/lion_head_4k.obj");
+	LionHead->CreateMaterial("textures/lion_head_diff_4k.png");
+	LionHead->Transform.Translation = { 0.0f, 0.f, 0.f };
 
 	_boidManager = DBG_NEW BoidManager();
 }

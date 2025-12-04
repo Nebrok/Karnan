@@ -57,11 +57,22 @@ void AssetManager::ProcessMessage(std::shared_ptr<Message> message)
 		if ((message->MessageInfo()).compare("Load Mesh Reply") == 0)
 		{
 			Message* key = dynamic_cast<AMReplyLoadMeshMessage*>(message.get())->OriginalMessageKey;
+			std::string filepath = "";
 			if (_awaitingReply.contains(key))
 			{
 				std::shared_ptr<Message> awaitingReplyMessage = _awaitingReply.at(key);
 				GameObject* go = dynamic_cast<AMLoadMeshMessage*>(awaitingReplyMessage.get())->CallingGO;
 				go->SetMeshRefreshed();
+				filepath = dynamic_cast<AMLoadMeshMessage*>(awaitingReplyMessage.get())->Filepath;
+			}
+			_awaitingReply.erase(key);
+			if (auto search = _loadRequested.find(filepath); search != _loadRequested.end())
+			{
+				for (auto go : _loadRequested[filepath])
+				{
+					go->SetMeshRefreshed();
+				}
+				_loadRequested.erase(filepath);
 			}
 		}
 	}
@@ -84,6 +95,12 @@ void AssetManager::ProcessMessage(std::shared_ptr<Message> message)
 				std::cout << "Model: " << filepath << " is already loaded." << '\n';
 				return;
 			}
+			if (auto search = _loadRequested.find(filepath); search != _loadRequested.end())
+			{
+				std::cout << "Model: " << filepath << " has already been requested to load." << '\n';
+				_loadRequested[filepath].push_back(dynamic_cast<AMLoadMeshMessage*>(message.get())->CallingGO);
+				return;
+			}
 
 			std::shared_ptr<MLSLoadModelMessage> loadMessage = std::shared_ptr<MLSLoadModelMessage>(DBG_NEW MLSLoadModelMessage(Message::System::ASSET_MANAGER, filepath));
 			loadMessage->ReplyKey = message.get();
@@ -91,6 +108,7 @@ void AssetManager::ProcessMessage(std::shared_ptr<Message> message)
 			MeshLoadingSystem::Instance->QueueMessage(loadMessage);
 			messageQueueLock.unlock();
 			_awaitingReply[message.get()] = message;
+			_loadRequested[filepath].push_back(dynamic_cast<AMLoadMeshMessage*>(message.get())->CallingGO);
 		}
 	}
 }
