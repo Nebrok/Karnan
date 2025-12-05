@@ -60,7 +60,7 @@ void KarnanMaterial::CreateTextureInSlot(uint32_t slot, std::string filePath)
 
 	if (_materialTextures[slot] != nullptr)
 	{
-		throw std::runtime_error("Material already exists in slot texture is being bound to");
+		throw std::runtime_error("Texture already exists in slot that the texture is being bound to");
 	}
 
 	std::unique_ptr<KarnanTexture> texture(DBG_NEW KarnanTexture(filePath));

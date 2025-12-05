@@ -1,6 +1,7 @@
 #pragma once
 #include "BaseMessage.h"
 #include "../GameObject.h"
+#include "../KarnanMaterial.h"
 
 #include <vector>
 
@@ -72,4 +73,17 @@ public:
 	}
 
 	virtual ~AMReplyLoadMeshMessage() override {};
+};
+
+
+class AMCreateMaterialMessage : public AMBaseCommandMessage
+{
+public:
+	MaterialConstructParams& MaterialConstructInfo;
+
+public:
+	AMCreateMaterialMessage(System callingSystem, MaterialConstructParams& materialConstructInfo)
+		: AMBaseCommandMessage(callingSystem, "Create Material"), MaterialConstructInfo(materialConstructInfo)
+	{
+	}
 };

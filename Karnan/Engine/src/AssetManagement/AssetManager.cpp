@@ -2,6 +2,7 @@
 
 #include "../EngineCore.h"
 #include "../MessagingSystem/Messages.h"
+#include "../KarnanMaterial.h"
 
 #include <iostream>
 
@@ -109,6 +110,22 @@ void AssetManager::ProcessMessage(std::shared_ptr<Message> message)
 			messageQueueLock.unlock();
 			_awaitingReply[message.get()] = message;
 			_loadRequested[filepath].push_back(dynamic_cast<AMLoadMeshMessage*>(message.get())->CallingGO);
+		}
+		if ((message->MessageInfo()).compare("Create Material") == 0)
+		{
+			MaterialConstructParams& materialConstructionDetails = dynamic_cast<AMCreateMaterialMessage*>(message.get())->MaterialConstructInfo;
+			std::string filepath = materialConstructionDetails.MaterialName;
+			std::shared_ptr<KarnanMaterial> material = std::shared_ptr<KarnanMaterial>(DBG_NEW KarnanMaterial());
+			_materialMap[filepath] = material;
+			int index = 0;
+			for (auto textureFilepath : materialConstructionDetails.Textures)
+			{
+				if (textureFilepath == "")
+					continue;
+				material->CreateTextureInSlot(index, textureFilepath);
+				index++;
+			}
+
 		}
 	}
 }

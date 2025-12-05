@@ -6,10 +6,17 @@
 #include "VulkanDescriptors.h"
 #include "KarnanTextures.h"
 
-
 #include <string>
 #include <vector>
 #include <memory>
+
+
+struct MaterialConstructParams
+{
+	std::string MaterialName;
+	std::string Textures[8];
+};
+
 
 class KarnanMaterial
 {
@@ -32,6 +39,7 @@ private:
 
 	VkSampler _tempSampler;
 
+
 public:
 	KarnanMaterial();
 	~KarnanMaterial();
@@ -50,9 +58,6 @@ public:
 	VkDescriptorSet& GetDescriptorSet() { return _materialDescriptorSet; };
 	bool HasDescriptorSet() const { return _hasMaterialDescriptorSet; };
 	void SetValidDescriptorSet() { _hasMaterialDescriptorSet = true; };
-
-
-
 
 
 private:

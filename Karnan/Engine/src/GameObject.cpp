@@ -6,8 +6,6 @@
 
 #include <iostream>
 
-int GameObject::testThingy = 0;
-
 GameObject::GameObject(const char* objectName)
 	: _karnanDevice(EngineCore::Device()), ObjectName(objectName)
 {
@@ -53,6 +51,9 @@ void GameObject::CreateMesh(const std::string& filename)
 
 void GameObject::CreateMaterial(const std::string& filename)
 {
+	MaterialConstructParams constructParams;
+
+
 	std::unique_ptr<KarnanMaterial> material = std::unique_ptr<KarnanMaterial>(DBG_NEW KarnanMaterial());
 	_material = move(material);
 	_material->Init();

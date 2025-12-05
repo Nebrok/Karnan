@@ -92,8 +92,6 @@ public:
 
     const char* ObjectName;
     
-    static int testThingy;
-
 protected:
     uint32_t _objectId;
 

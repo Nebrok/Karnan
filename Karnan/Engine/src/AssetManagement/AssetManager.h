@@ -1,6 +1,7 @@
 #pragma once
 #include "../MessagingSystem/MessageSystem.h"
 #include "../BasicMesh.h"
+#include "../KarnanMaterial.h"
 
 //std libs
 #include <string>
@@ -18,6 +19,10 @@ public:
 
 private:
 	std::unordered_map<std::string, std::shared_ptr<BasicMesh>> _meshMap;
+
+	std::unordered_map<std::string, std::shared_ptr<KarnanMaterial>> _materialMap;
+
+
 	std::unordered_map<std::string, std::vector<GameObject*>> _loadRequested;
 
 
@@ -34,8 +39,6 @@ public:
 	virtual void QueueMessage(std::shared_ptr<Message> message) override;
 
 protected:
-
-
 	// ------------ Message System -----------------------------------------
 	virtual void ProcessMessage(std::shared_ptr<Message> message) override;
 
