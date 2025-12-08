@@ -206,6 +206,8 @@
     <ClInclude Include="src\IndexBuffer.h" />
     <ClInclude Include="src\InputManagementSystem.h" />
     <ClInclude Include="src\MessagingSystem\AssetManagerMessages.h" />
+    <ClInclude Include="src\Serialisation\ReflectionRegistry.h" />
+    <ClInclude Include="src\Serialisation\Serialise.h" />
     <ClInclude Include="src\Threading\IThreadableProcess.h" />
     <ClInclude Include="src\KarnanBuffer.h" />
     <ClInclude Include="src\KarnanCamera.h" />

@@ -125,6 +125,8 @@ public:
     virtual void Init();
     virtual void Update(double deltaTime);
     virtual void Render(VkCommandBuffer commandBuffer);
+
+    virtual void Serialise();
     
     void CreateMesh(const std::string& filename);
     void CreateMaterial(const std::string& filename);
