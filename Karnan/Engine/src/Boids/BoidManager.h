@@ -9,7 +9,7 @@
 class BoidManager
 {
 private:
-	int _numberBoids = 40;
+	int _numberBoids = 10;
 
 	float _separationDistance = 1.35f;
 	float _alignmentDistance = 10.0f;

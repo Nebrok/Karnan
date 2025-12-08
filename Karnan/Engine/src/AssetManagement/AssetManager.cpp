@@ -46,6 +46,15 @@ std::shared_ptr<BasicMesh> AssetManager::GetMesh(const std::string& filename)
 	return nullptr;
 }
 
+std::shared_ptr<KarnanMaterial> AssetManager::GetMaterial(const std::string& filename)
+{
+	if (auto search = _materialMap.find(filename); search != _materialMap.end())
+	{
+		return _materialMap.at(filename);
+	}
+	return nullptr;
+}
+
 void AssetManager::QueueMessage(std::shared_ptr<Message> message)
 {
 	_messages.push(message);
@@ -115,8 +124,17 @@ void AssetManager::ProcessMessage(std::shared_ptr<Message> message)
 		{
 			MaterialConstructParams& materialConstructionDetails = dynamic_cast<AMCreateMaterialMessage*>(message.get())->MaterialConstructInfo;
 			std::string filepath = materialConstructionDetails.MaterialName;
+
+			if (auto search = _loadRequested.find(filepath); search != _loadRequested.end())
+			{
+				std::cout << "Material: " << filepath << " has already been requested to load." << '\n';
+				_loadRequested[filepath].push_back(dynamic_cast<AMCreateMaterialMessage*>(message.get())->CallingGO);
+				return;
+			}
+
 			std::shared_ptr<KarnanMaterial> material = std::shared_ptr<KarnanMaterial>(DBG_NEW KarnanMaterial());
 			_materialMap[filepath] = material;
+			material->Init();
 			int index = 0;
 			for (auto textureFilepath : materialConstructionDetails.Textures)
 			{
@@ -125,6 +143,9 @@ void AssetManager::ProcessMessage(std::shared_ptr<Message> message)
 				material->CreateTextureInSlot(index, textureFilepath);
 				index++;
 			}
+			material->CreateImageInfos();
+
+			_loadRequested[filepath].push_back(dynamic_cast<AMCreateMaterialMessage*>(message.get())->CallingGO);
 
 		}
 	}

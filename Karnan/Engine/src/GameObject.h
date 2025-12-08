@@ -103,6 +103,7 @@ protected:
     std::string _meshName = "";
     std::shared_ptr<BasicMesh> _meshPointer = nullptr;
 
+    std::string _materialName = "";
     std::shared_ptr<KarnanMaterial> _material = nullptr;
 
 public:

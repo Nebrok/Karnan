@@ -79,11 +79,12 @@ public:
 class AMCreateMaterialMessage : public AMBaseCommandMessage
 {
 public:
-	MaterialConstructParams& MaterialConstructInfo;
+	MaterialConstructParams MaterialConstructInfo;
+	GameObject* CallingGO;
 
 public:
-	AMCreateMaterialMessage(System callingSystem, MaterialConstructParams& materialConstructInfo)
-		: AMBaseCommandMessage(callingSystem, "Create Material"), MaterialConstructInfo(materialConstructInfo)
+	AMCreateMaterialMessage(System callingSystem, MaterialConstructParams materialConstructInfo, GameObject* callingGO)
+		: AMBaseCommandMessage(callingSystem, "Create Material"), MaterialConstructInfo(materialConstructInfo), CallingGO(callingGO)
 	{
 	}
 };
