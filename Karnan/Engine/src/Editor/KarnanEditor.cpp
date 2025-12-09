@@ -37,12 +37,6 @@ void KarnanEditor::Update()
 	{
 		panel->OnImGUIRender();
 	}
-	
-	/*
-	_mainGUI->BuildHierarchyWindow();
-	_mainGUI->BuildDetailsWindow();
-	_mainGUI->BuildGameObjectCreator();
-	*/
 	_mainGUI->EndFrame();
 }
 

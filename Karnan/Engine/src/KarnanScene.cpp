@@ -1,6 +1,12 @@
 #include "KarnanScene.h"
 
 #include <iostream>
+#include <sstream>
+#include <fstream>
+
+//cereal serialisation
+#include "cereal/archives/json.hpp"
+
 
 KarnanScene::KarnanScene(SimpleRenderSystem& renderSystem)
 	: _renderSystem(renderSystem)
@@ -80,4 +86,21 @@ bool KarnanScene::RegisterGO(GameObject* gameObject)
 {
 	_gameObjects.push_back(gameObject);
 	return true;
+}
+
+void KarnanScene::SerialiseScene()
+{
+	std::stringstream ss;
+
+	cereal::JSONOutputArchive oarchive(ss);
+
+	for (auto go : _gameObjects)
+	{
+		oarchive(*go);
+	}
+
+	std::ofstream outFile;
+	outFile.open("assets/TEST_SCENE_SERIALISATION.txt");
+	outFile << ss.rdbuf();
+	outFile.close();
 }

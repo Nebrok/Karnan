@@ -117,6 +117,7 @@ void EngineCore::Run()
 		/* Poll for and process events */
 		glfwPollEvents();
 	}
+	_scene->SerialiseScene();
 
 	vkDeviceWaitIdle(_karnanDevice.Device());
 

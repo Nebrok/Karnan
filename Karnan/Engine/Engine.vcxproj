@@ -112,7 +112,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Engine\dep\glfw\include;$(SolutionDir)Engine\dep\glm\;C:\VulkanSDK\1.4.309.0\Include;$(SolutionDir)Engine\dep\imgui;$(SolutionDir)Engine\dep\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine\dep\glfw\include;$(SolutionDir)Engine\dep\glm\;C:\VulkanSDK\1.4.309.0\Include;$(SolutionDir)Engine\dep\imgui;$(SolutionDir)Engine\dep\imgui\backends;$(SolutionDir)Engine\dep\cereal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -130,7 +130,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Engine\dep\glfw\include;$(SolutionDir)Engine\dep\glm\;C:\VulkanSDK\1.4.309.0\Include;$(SolutionDir)Engine\dep\imgui;$(SolutionDir)Engine\dep\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Engine\dep\glfw\include;$(SolutionDir)Engine\dep\glm\;C:\VulkanSDK\1.4.309.0\Include;$(SolutionDir)Engine\dep\imgui;$(SolutionDir)Engine\dep\imgui\backends;$(SolutionDir)Engine\dep\cereal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -148,6 +148,7 @@
     <ClCompile Include="dep\imgui\imgui.cpp" />
     <ClCompile Include="dep\imgui\imgui_demo.cpp" />
     <ClCompile Include="dep\imgui\imgui_draw.cpp" />
+    <ClCompile Include="dep\imgui\imgui_stdlib.cpp" />
     <ClCompile Include="dep\imgui\imgui_tables.cpp" />
     <ClCompile Include="dep\imgui\imgui_widgets.cpp" />
     <ClCompile Include="src\AssetManagement\AssetManager.cpp" />
@@ -190,6 +191,7 @@
     <ClInclude Include="dep\imgui\imconfig.h" />
     <ClInclude Include="dep\imgui\imgui.h" />
     <ClInclude Include="dep\imgui\imgui_internal.h" />
+    <ClInclude Include="dep\imgui\imgui_stdlib.h" />
     <ClInclude Include="dep\imgui\imstb_rectpack.h" />
     <ClInclude Include="dep\imgui\imstb_textedit.h" />
     <ClInclude Include="dep\imgui\imstb_truetype.h" />
@@ -206,8 +208,7 @@
     <ClInclude Include="src\IndexBuffer.h" />
     <ClInclude Include="src\InputManagementSystem.h" />
     <ClInclude Include="src\MessagingSystem\AssetManagerMessages.h" />
-    <ClInclude Include="src\Serialisation\ReflectionRegistry.h" />
-    <ClInclude Include="src\Serialisation\Serialise.h" />
+    <ClInclude Include="src\Serialisation\DefinitionsKarnanCereal.h" />
     <ClInclude Include="src\Threading\IThreadableProcess.h" />
     <ClInclude Include="src\KarnanBuffer.h" />
     <ClInclude Include="src\KarnanCamera.h" />

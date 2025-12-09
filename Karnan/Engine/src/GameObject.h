@@ -10,6 +10,11 @@
 //std libs
 #include <memory>
 
+//cereal
+#include <cereal/archives/json.hpp>
+#include <cereal/types/polymorphic.hpp>
+#include "Serialisation/DefinitionsKarnanCereal.h"
+
 namespace Karnan
 {
 	struct Transform
@@ -80,6 +85,14 @@ namespace Karnan
             };
         }
 
+        template<class Archive>
+        void serialize(Archive& archive)
+        {
+            archive(CEREAL_NVP(Translation));
+            archive(CEREAL_NVP(Rotation));
+            archive(CEREAL_NVP(Scale));
+        }
+
 	};
 
 }
@@ -90,13 +103,12 @@ class GameObject
 public:
     Karnan::Transform Transform;
 
-    const char* ObjectName;
+    std::string ObjectName;
     
 protected:
     uint32_t _objectId;
 
 	KarnanDevice& _karnanDevice;
-
 
 	bool _renderable = false;
     bool _meshRefreshed = false;
@@ -126,15 +138,35 @@ public:
     virtual void Update(double deltaTime);
     virtual void Render(VkCommandBuffer commandBuffer);
 
-    virtual void Serialise();
-    
     void CreateMesh(const std::string& filename);
     void CreateMaterial(const std::string& filename);
 
     void SetMeshRefreshed() { _meshRefreshed = true; };
+    void SetGOName(std::string name) { ObjectName = name; };
+
+
+    //Cereal serialisation
+    template <class Archive>
+    void serialize(Archive& ar)
+    {
+        ar(CEREAL_NVP(Transform));
+        ar(CEREAL_NVP(ObjectName));
+        ar(CEREAL_NVP(_meshName));
+        ar(CEREAL_NVP(_materialName));
+    };
+
+    template <class Archive>
+    void load_and_construct(Archive& ar, cereal::construct<GameObject>& construct)
+    {
+        std::string GameObjectName;
+        ar(GameObjectName);
+        construct(GameObjectName);
+    }
 
 
 private:
 
 
 };
+
+//CEREAL_REGISTER_TYPE(GameObject)

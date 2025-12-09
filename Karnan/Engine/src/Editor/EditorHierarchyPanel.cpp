@@ -11,7 +11,7 @@ void EditorHierarchyPanel::OnImGUIRender()
 	for (GameObject* go : EngineCore::GetAllGameObjectsInActiveScene())
 	{
 		ImGui::PushID(go->GetId());
-		if (ImGui::Button(go->ObjectName))
+		if (ImGui::Button(go->ObjectName.c_str()))
 		{
 			KarnanEditor::Instance->SetLastHighlightedGO(go);
 		}

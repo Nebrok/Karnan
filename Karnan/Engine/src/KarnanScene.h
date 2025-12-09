@@ -34,6 +34,8 @@ public:
 	bool RegisterGO(GameObject* gameObject);
 	std::vector<GameObject*> GetAllGameObjects() { return _gameObjects; };
 
+	void SerialiseScene();
+
 
 private:
 
