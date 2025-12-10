@@ -1,2333 +1,313 @@
 {
     "value0": {
-        "Transform": {
-            "Translation": {
-                "value0": 0.0,
-                "value1": 2.0,
-                "value2": 0.0
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
+        "polymorphic_id": 1073741824,
+        "ptr_wrapper": {
+            "id": 2147483649,
+            "data": {
+                "Transform": {
+                    "Translation": {
+                        "value0": 0.0,
+                        "value1": 2.0,
+                        "value2": 0.0
+                    },
+                    "Rotation": {
+                        "value0": 0.0,
+                        "value1": 0.0,
+                        "value2": 0.0
+                    },
+                    "Scale": {
+                        "value0": 1.0,
+                        "value1": 1.0,
+                        "value2": 1.0
+                    }
+                },
+                "Object Name": "assets/Dragon_80K.obj",
+                "Mesh Name": "assets/Dragon_80K.obj",
+                "Material Name": "textures/Staff_low_lambert1_BaseColor.png"
             }
-        },
-        "ObjectName": "assets/Dragon_80K.obj",
-        "_meshName": "assets/Dragon_80K.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
+        }
     },
     "value1": {
-        "Transform": {
-            "Translation": {
-                "value0": 5.0,
-                "value1": 3.0,
-                "value2": 5.0
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
+        "polymorphic_id": 2147483649,
+        "polymorphic_name": "KarnanCamera",
+        "ptr_wrapper": {
+            "id": 2147483650,
+            "data": {
+                "cereal::base_class<GameObject>(this)": {
+                    "Transform": {
+                        "Translation": {
+                            "value0": 5.0,
+                            "value1": 3.0,
+                            "value2": 5.0
+                        },
+                        "Rotation": {
+                            "value0": 0.0,
+                            "value1": 0.0,
+                            "value2": 0.0
+                        },
+                        "Scale": {
+                            "value0": 1.0,
+                            "value1": 1.0,
+                            "value2": 1.0
+                        }
+                    },
+                    "Object Name": "MainCamera",
+                    "Mesh Name": "",
+                    "Material Name": ""
+                },
+                "_aspect": 60.0
             }
-        },
-        "ObjectName": "MainCamera",
-        "_meshName": "",
-        "_materialName": ""
+        }
     },
     "value2": {
-        "Transform": {
-            "Translation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
+        "polymorphic_id": 1073741824,
+        "ptr_wrapper": {
+            "id": 2147483651,
+            "data": {
+                "Transform": {
+                    "Translation": {
+                        "value0": 0.0,
+                        "value1": 0.0,
+                        "value2": 0.0
+                    },
+                    "Rotation": {
+                        "value0": 0.0,
+                        "value1": 0.0,
+                        "value2": 0.0
+                    },
+                    "Scale": {
+                        "value0": 1.0,
+                        "value1": 1.0,
+                        "value2": 1.0
+                    }
+                },
+                "Object Name": "FishStaff",
+                "Mesh Name": "assets/Fishstaff.obj",
+                "Material Name": "textures/Staff_low_lambert1_BaseColor.png"
             }
-        },
-        "ObjectName": "FishStaff",
-        "_meshName": "assets/Fishstaff.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
+        }
     },
     "value3": {
-        "Transform": {
-            "Translation": {
-                "value0": -3.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
+        "polymorphic_id": 1073741824,
+        "ptr_wrapper": {
+            "id": 2147483652,
+            "data": {
+                "Transform": {
+                    "Translation": {
+                        "value0": -3.0,
+                        "value1": 0.0,
+                        "value2": 0.0
+                    },
+                    "Rotation": {
+                        "value0": 0.0,
+                        "value1": 0.0,
+                        "value2": 0.0
+                    },
+                    "Scale": {
+                        "value0": 1.0,
+                        "value1": 1.0,
+                        "value2": 1.0
+                    }
+                },
+                "Object Name": "Well",
+                "Mesh Name": "assets/well.obj",
+                "Material Name": "textures/Staff_low_lambert1_BaseColor.png"
             }
-        },
-        "ObjectName": "Well",
-        "_meshName": "assets/well.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
+        }
     },
     "value4": {
-        "Transform": {
-            "Translation": {
-                "value0": 3.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
+        "polymorphic_id": 1073741824,
+        "ptr_wrapper": {
+            "id": 2147483653,
+            "data": {
+                "Transform": {
+                    "Translation": {
+                        "value0": 3.0,
+                        "value1": 0.0,
+                        "value2": 0.0
+                    },
+                    "Rotation": {
+                        "value0": 0.0,
+                        "value1": 0.0,
+                        "value2": 0.0
+                    },
+                    "Scale": {
+                        "value0": 1.0,
+                        "value1": 1.0,
+                        "value2": 1.0
+                    }
+                },
+                "Object Name": "FoundationsLevel5",
+                "Mesh Name": "assets/FortificationsLevel5.obj",
+                "Material Name": "assets/fortifications.png"
             }
-        },
-        "ObjectName": "FoundationsLevel5",
-        "_meshName": "assets/FortificationsLevel5.obj",
-        "_materialName": "assets/fortifications.png"
+        }
     },
     "value5": {
-        "Transform": {
-            "Translation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
+        "polymorphic_id": 1073741824,
+        "ptr_wrapper": {
+            "id": 2147483654,
+            "data": {
+                "Transform": {
+                    "Translation": {
+                        "value0": 0.0,
+                        "value1": 0.0,
+                        "value2": 0.0
+                    },
+                    "Rotation": {
+                        "value0": 0.0,
+                        "value1": 0.0,
+                        "value2": 0.0
+                    },
+                    "Scale": {
+                        "value0": 1.0,
+                        "value1": 1.0,
+                        "value2": 1.0
+                    }
+                },
+                "Object Name": "Lion Head",
+                "Mesh Name": "assets/lion_head_4k.obj",
+                "Material Name": "textures/lion_head_diff_4k.png"
             }
-        },
-        "ObjectName": "Lion Head",
-        "_meshName": "assets/lion_head_4k.obj",
-        "_materialName": "textures/lion_head_diff_4k.png"
+        }
     },
     "value6": {
-        "Transform": {
-            "Translation": {
-                "value0": -17.2342586517334,
-                "value1": 7.533280372619629,
-                "value2": 15.152419090270996
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
+        "polymorphic_id": 1073741824,
+        "ptr_wrapper": {
+            "id": 2147483655,
+            "data": {
+                "Transform": {
+                    "Translation": {
+                        "value0": 4.454695224761963,
+                        "value1": -12.891214370727539,
+                        "value2": -15.269230842590332
+                    },
+                    "Rotation": {
+                        "value0": 0.0,
+                        "value1": 0.0,
+                        "value2": 0.0
+                    },
+                    "Scale": {
+                        "value0": 1.0,
+                        "value1": 1.0,
+                        "value2": 1.0
+                    }
+                },
+                "Object Name": "Boid",
+                "Mesh Name": "assets/cube.obj",
+                "Material Name": "textures/Staff_low_lambert1_BaseColor.png"
             }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
+        }
     },
     "value7": {
-        "Transform": {
-            "Translation": {
-                "value0": -13.782931327819825,
-                "value1": 5.735036373138428,
-                "value2": 13.6627197265625
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
+        "polymorphic_id": 1073741824,
+        "ptr_wrapper": {
+            "id": 2147483656,
+            "data": {
+                "Transform": {
+                    "Translation": {
+                        "value0": 15.358466148376465,
+                        "value1": -7.834527969360352,
+                        "value2": -10.944869041442871
+                    },
+                    "Rotation": {
+                        "value0": 0.0,
+                        "value1": 0.0,
+                        "value2": 0.0
+                    },
+                    "Scale": {
+                        "value0": 1.0,
+                        "value1": 1.0,
+                        "value2": 1.0
+                    }
+                },
+                "Object Name": "Boid",
+                "Mesh Name": "assets/cube.obj",
+                "Material Name": "textures/Staff_low_lambert1_BaseColor.png"
             }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
+        }
     },
     "value8": {
-        "Transform": {
-            "Translation": {
-                "value0": -15.437122344970704,
-                "value1": 3.361090898513794,
-                "value2": 14.985712051391602
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
+        "polymorphic_id": 1073741824,
+        "ptr_wrapper": {
+            "id": 2147483657,
+            "data": {
+                "Transform": {
+                    "Translation": {
+                        "value0": 10.750123023986817,
+                        "value1": 10.239095687866211,
+                        "value2": -7.447221755981445
+                    },
+                    "Rotation": {
+                        "value0": 0.0,
+                        "value1": 0.0,
+                        "value2": 0.0
+                    },
+                    "Scale": {
+                        "value0": 1.0,
+                        "value1": 1.0,
+                        "value2": 1.0
+                    }
+                },
+                "Object Name": "Boid",
+                "Mesh Name": "assets/cube.obj",
+                "Material Name": "textures/Staff_low_lambert1_BaseColor.png"
             }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
+        }
     },
     "value9": {
-        "Transform": {
-            "Translation": {
-                "value0": 18.299259185791017,
-                "value1": -18.114933013916017,
-                "value2": -6.096454620361328
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
+        "polymorphic_id": 1073741824,
+        "ptr_wrapper": {
+            "id": 2147483658,
+            "data": {
+                "Transform": {
+                    "Translation": {
+                        "value0": 10.56396770477295,
+                        "value1": 8.906105995178223,
+                        "value2": -7.352442741394043
+                    },
+                    "Rotation": {
+                        "value0": 0.0,
+                        "value1": 0.0,
+                        "value2": 0.0
+                    },
+                    "Scale": {
+                        "value0": 1.0,
+                        "value1": 1.0,
+                        "value2": 1.0
+                    }
+                },
+                "Object Name": "Boid",
+                "Mesh Name": "assets/cube.obj",
+                "Material Name": "textures/Staff_low_lambert1_BaseColor.png"
             }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
+        }
     },
     "value10": {
-        "Transform": {
-            "Translation": {
-                "value0": 15.860050201416016,
-                "value1": -3.9142513275146486,
-                "value2": -12.56645393371582
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value11": {
-        "Transform": {
-            "Translation": {
-                "value0": -15.994261741638184,
-                "value1": 5.392795562744141,
-                "value2": 15.211292266845704
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value12": {
-        "Transform": {
-            "Translation": {
-                "value0": -13.72288703918457,
-                "value1": 6.544734954833984,
-                "value2": 12.594693183898926
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value13": {
-        "Transform": {
-            "Translation": {
-                "value0": -13.275434494018555,
-                "value1": 6.941474914550781,
-                "value2": 14.223329544067383
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value14": {
-        "Transform": {
-            "Translation": {
-                "value0": -17.047990798950197,
-                "value1": 5.132599353790283,
-                "value2": 14.443124771118164
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value15": {
-        "Transform": {
-            "Translation": {
-                "value0": -14.993570327758789,
-                "value1": 5.7600603103637699,
-                "value2": 14.609471321105957
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value16": {
-        "Transform": {
-            "Translation": {
-                "value0": 19.650022506713868,
-                "value1": -16.868715286254884,
-                "value2": -5.815957546234131
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value17": {
-        "Transform": {
-            "Translation": {
-                "value0": -15.5026216506958,
-                "value1": 7.163928985595703,
-                "value2": 12.39923095703125
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value18": {
-        "Transform": {
-            "Translation": {
-                "value0": -13.112558364868164,
-                "value1": 7.691369533538818,
-                "value2": 13.114250183105469
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value19": {
-        "Transform": {
-            "Translation": {
-                "value0": -13.155329704284668,
-                "value1": 5.153941631317139,
-                "value2": 12.648314476013184
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value20": {
-        "Transform": {
-            "Translation": {
-                "value0": -17.040712356567384,
-                "value1": -11.036712646484375,
-                "value2": -4.951925754547119
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value21": {
-        "Transform": {
-            "Translation": {
-                "value0": -15.528575897216797,
-                "value1": 4.673576831817627,
-                "value2": 12.068735122680664
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value22": {
-        "Transform": {
-            "Translation": {
-                "value0": -15.171195983886719,
-                "value1": 4.491229057312012,
-                "value2": 15.681979179382325
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value23": {
-        "Transform": {
-            "Translation": {
-                "value0": -17.143978118896486,
-                "value1": 5.960556983947754,
-                "value2": 15.522710800170899
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value24": {
-        "Transform": {
-            "Translation": {
-                "value0": -19.0350399017334,
-                "value1": 6.193907737731934,
-                "value2": 13.264510154724121
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value25": {
-        "Transform": {
-            "Translation": {
-                "value0": -17.12110710144043,
-                "value1": 4.532368183135986,
-                "value2": 15.621964454650879
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value26": {
-        "Transform": {
-            "Translation": {
-                "value0": -17.321331024169923,
-                "value1": -9.169715881347657,
-                "value2": -4.730671405792236
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value27": {
-        "Transform": {
-            "Translation": {
-                "value0": -14.848126411437989,
-                "value1": 6.000692844390869,
-                "value2": 12.131071090698243
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value28": {
-        "Transform": {
-            "Translation": {
-                "value0": -11.983041763305664,
-                "value1": 7.286587238311768,
-                "value2": 14.382184982299805
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value29": {
-        "Transform": {
-            "Translation": {
-                "value0": -14.314970016479493,
-                "value1": 6.504880428314209,
-                "value2": 14.665870666503907
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value30": {
-        "Transform": {
-            "Translation": {
-                "value0": -12.333016395568848,
-                "value1": 6.114889621734619,
-                "value2": 12.022493362426758
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value31": {
-        "Transform": {
-            "Translation": {
-                "value0": -14.69128131866455,
-                "value1": 7.191678047180176,
-                "value2": 15.777891159057618
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value32": {
-        "Transform": {
-            "Translation": {
-                "value0": -16.076156616210939,
-                "value1": 6.75437593460083,
-                "value2": 15.844808578491211
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value33": {
-        "Transform": {
-            "Translation": {
-                "value0": -15.763509750366211,
-                "value1": 7.2200026512146,
-                "value2": 14.620211601257325
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value34": {
-        "Transform": {
-            "Translation": {
-                "value0": -14.420514106750489,
-                "value1": 7.446700572967529,
-                "value2": 13.5005464553833
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value35": {
-        "Transform": {
-            "Translation": {
-                "value0": 5.354183673858643,
-                "value1": 3.148524284362793,
-                "value2": 9.171160697937012
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value36": {
-        "Transform": {
-            "Translation": {
-                "value0": -13.181578636169434,
-                "value1": 7.581246852874756,
-                "value2": 11.535394668579102
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value37": {
-        "Transform": {
-            "Translation": {
-                "value0": 18.696176528930665,
-                "value1": -16.688331604003908,
-                "value2": -3.8768017292022707
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value38": {
-        "Transform": {
-            "Translation": {
-                "value0": -15.590312957763672,
-                "value1": 5.464869499206543,
-                "value2": 13.43862247467041
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value39": {
-        "Transform": {
-            "Translation": {
-                "value0": -19.72551727294922,
-                "value1": 6.674015522003174,
-                "value2": 16.735179901123048
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value40": {
-        "Transform": {
-            "Translation": {
-                "value0": -19.34598159790039,
-                "value1": 6.195660591125488,
-                "value2": 17.967924118041993
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value41": {
-        "Transform": {
-            "Translation": {
-                "value0": -16.896907806396486,
-                "value1": 5.595938682556152,
-                "value2": 13.267939567565918
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value42": {
-        "Transform": {
-            "Translation": {
-                "value0": 4.8723530769348148,
-                "value1": 4.3113555908203129,
-                "value2": 9.909468650817871
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value43": {
-        "Transform": {
-            "Translation": {
-                "value0": -12.425931930541993,
-                "value1": 5.333433628082275,
-                "value2": 13.334708213806153
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value44": {
-        "Transform": {
-            "Translation": {
-                "value0": 13.45845890045166,
-                "value1": -2.8657920360565187,
-                "value2": 2.625054121017456
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value45": {
-        "Transform": {
-            "Translation": {
-                "value0": -18.023765563964845,
-                "value1": 7.6218390464782719,
-                "value2": 13.796525955200196
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value46": {
-        "Transform": {
-            "Translation": {
-                "value0": 17.145967483520509,
-                "value1": -18.59226417541504,
-                "value2": -4.314229488372803
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value47": {
-        "Transform": {
-            "Translation": {
-                "value0": -1.4766484498977662,
-                "value1": -7.506869792938232,
-                "value2": -12.621755599975586
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value48": {
-        "Transform": {
-            "Translation": {
-                "value0": -11.933260917663575,
-                "value1": 5.916990280151367,
-                "value2": 14.446917533874512
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value49": {
-        "Transform": {
-            "Translation": {
-                "value0": -13.005693435668946,
-                "value1": 4.303194522857666,
-                "value2": 14.837297439575196
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value50": {
-        "Transform": {
-            "Translation": {
-                "value0": -18.14251136779785,
-                "value1": 6.866960525512695,
-                "value2": 16.687137603759767
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value51": {
-        "Transform": {
-            "Translation": {
-                "value0": 6.835897922515869,
-                "value1": 3.635453462600708,
-                "value2": 8.051997184753418
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value52": {
-        "Transform": {
-            "Translation": {
-                "value0": -16.675138473510743,
-                "value1": 6.358883380889893,
-                "value2": 12.138642311096192
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value53": {
-        "Transform": {
-            "Translation": {
-                "value0": 19.393774032592775,
-                "value1": 6.035977840423584,
-                "value2": 17.181495666503908
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value54": {
-        "Transform": {
-            "Translation": {
-                "value0": 5.895962715148926,
-                "value1": 4.356561183929443,
-                "value2": 8.728984832763672
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value55": {
-        "Transform": {
-            "Translation": {
-                "value0": 9.234928131103516,
-                "value1": -4.66010856628418,
-                "value2": -8.86811637878418
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value56": {
-        "Transform": {
-            "Translation": {
-                "value0": -13.228832244873047,
-                "value1": 7.427231311798096,
-                "value2": 15.475967407226563
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value57": {
-        "Transform": {
-            "Translation": {
-                "value0": -18.18545150756836,
-                "value1": 6.438692569732666,
-                "value2": 14.70754623413086
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value58": {
-        "Transform": {
-            "Translation": {
-                "value0": 19.932090759277345,
-                "value1": 6.107112407684326,
-                "value2": 15.945469856262207
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value59": {
-        "Transform": {
-            "Translation": {
-                "value0": -13.964653968811036,
-                "value1": 5.002587795257568,
-                "value2": 16.11465072631836
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value60": {
-        "Transform": {
-            "Translation": {
-                "value0": -3.749619483947754,
-                "value1": -1.0955883264541627,
-                "value2": -15.066640853881836
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value61": {
-        "Transform": {
-            "Translation": {
-                "value0": -12.925434112548829,
-                "value1": 3.4374284744262697,
-                "value2": 13.645642280578614
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value62": {
-        "Transform": {
-            "Translation": {
-                "value0": -17.488889694213868,
-                "value1": -10.166574478149414,
-                "value2": -5.914019584655762
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value63": {
-        "Transform": {
-            "Translation": {
-                "value0": 6.681293487548828,
-                "value1": 2.871408462524414,
-                "value2": 9.205467224121094
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value64": {
-        "Transform": {
-            "Translation": {
-                "value0": -11.970044136047364,
-                "value1": 7.382421970367432,
-                "value2": 12.244653701782227
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value65": {
-        "Transform": {
-            "Translation": {
-                "value0": -16.888206481933595,
-                "value1": 6.516696453094482,
-                "value2": 14.334611892700196
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value66": {
-        "Transform": {
-            "Translation": {
-                "value0": -16.266218185424806,
-                "value1": -9.981019020080567,
-                "value2": -4.438562393188477
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value67": {
-        "Transform": {
-            "Translation": {
-                "value0": -13.721455574035645,
-                "value1": 4.5262322425842289,
-                "value2": 13.571671485900879
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value68": {
-        "Transform": {
-            "Translation": {
-                "value0": -17.87075424194336,
-                "value1": 5.38367223739624,
-                "value2": 16.51053237915039
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value69": {
-        "Transform": {
-            "Translation": {
-                "value0": -14.253348350524903,
-                "value1": 3.4880833625793459,
-                "value2": 14.271650314331055
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value70": {
-        "Transform": {
-            "Translation": {
-                "value0": -15.514106750488282,
-                "value1": 8.052151679992676,
-                "value2": 13.590907096862793
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value71": {
-        "Transform": {
-            "Translation": {
-                "value0": -15.032397270202637,
-                "value1": 5.948475360870361,
-                "value2": 15.941550254821778
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value72": {
-        "Transform": {
-            "Translation": {
-                "value0": -12.384949684143067,
-                "value1": 5.254739284515381,
-                "value2": 15.571768760681153
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value73": {
-        "Transform": {
-            "Translation": {
-                "value0": -13.793689727783204,
-                "value1": 6.781038761138916,
-                "value2": 16.69593620300293
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value74": {
-        "Transform": {
-            "Translation": {
-                "value0": -16.339733123779298,
-                "value1": 6.938155174255371,
-                "value2": 13.340517044067383
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value75": {
-        "Transform": {
-            "Translation": {
-                "value0": -13.561624526977539,
-                "value1": 5.862632751464844,
-                "value2": 11.462406158447266
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value76": {
-        "Transform": {
-            "Translation": {
-                "value0": -18.921005249023439,
-                "value1": 5.737382888793945,
-                "value2": 15.645275115966797
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value77": {
-        "Transform": {
-            "Translation": {
-                "value0": -14.071147918701172,
-                "value1": 4.659754753112793,
-                "value2": 11.807384490966797
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value78": {
-        "Transform": {
-            "Translation": {
-                "value0": -14.41552448272705,
-                "value1": 6.909974098205566,
-                "value2": 11.188342094421387
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value79": {
-        "Transform": {
-            "Translation": {
-                "value0": -15.326749801635743,
-                "value1": 3.813877582550049,
-                "value2": 13.359795570373536
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value80": {
-        "Transform": {
-            "Translation": {
-                "value0": -13.433545112609864,
-                "value1": 6.119707107543945,
-                "value2": 15.535594940185547
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value81": {
-        "Transform": {
-            "Translation": {
-                "value0": 19.697954177856447,
-                "value1": 7.518463611602783,
-                "value2": 15.957674980163575
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value82": {
-        "Transform": {
-            "Translation": {
-                "value0": -11.963248252868653,
-                "value1": 4.333245754241943,
-                "value2": 13.982636451721192
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value83": {
-        "Transform": {
-            "Translation": {
-                "value0": -19.47796058654785,
-                "value1": 4.923527240753174,
-                "value2": 17.44887351989746
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value84": {
-        "Transform": {
-            "Translation": {
-                "value0": -14.250038146972657,
-                "value1": 7.981051921844482,
-                "value2": 14.670092582702637
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value85": {
-        "Transform": {
-            "Translation": {
-                "value0": 4.88242244720459,
-                "value1": 2.4075887203216554,
-                "value2": 8.145111083984375
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value86": {
-        "Transform": {
-            "Translation": {
-                "value0": -14.213057518005371,
-                "value1": 4.770978927612305,
-                "value2": 14.810541152954102
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value87": {
-        "Transform": {
-            "Translation": {
-                "value0": -16.81256675720215,
-                "value1": 5.019065856933594,
-                "value2": 12.01954460144043
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value88": {
-        "Transform": {
-            "Translation": {
-                "value0": 17.44913101196289,
-                "value1": -16.934192657470704,
-                "value2": -4.395175933837891
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value89": {
-        "Transform": {
-            "Translation": {
-                "value0": -12.965496063232422,
-                "value1": 3.873861312866211,
-                "value2": 12.25761890411377
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value90": {
-        "Transform": {
-            "Translation": {
-                "value0": -14.295775413513184,
-                "value1": 7.783148765563965,
-                "value2": 12.247293472290039
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value91": {
-        "Transform": {
-            "Translation": {
-                "value0": -14.222966194152832,
-                "value1": 3.5773165225982668,
-                "value2": 12.64221477508545
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value92": {
-        "Transform": {
-            "Translation": {
-                "value0": -15.034952163696289,
-                "value1": 5.32155704498291,
-                "value2": 11.014907836914063
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value93": {
-        "Transform": {
-            "Translation": {
-                "value0": 18.31226348876953,
-                "value1": -17.97869873046875,
-                "value2": -3.994727611541748
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value94": {
-        "Transform": {
-            "Translation": {
-                "value0": -14.689020156860352,
-                "value1": 5.000377178192139,
-                "value2": 12.99502944946289
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value95": {
-        "Transform": {
-            "Translation": {
-                "value0": -13.256672859191895,
-                "value1": 5.572246551513672,
-                "value2": 14.321539878845215
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value96": {
-        "Transform": {
-            "Translation": {
-                "value0": -18.296415328979493,
-                "value1": 4.945825099945068,
-                "value2": 13.965890884399414
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value97": {
-        "Transform": {
-            "Translation": {
-                "value0": -14.757583618164063,
-                "value1": 6.263277530670166,
-                "value2": 13.422394752502442
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value98": {
-        "Transform": {
-            "Translation": {
-                "value0": -18.568038940429689,
-                "value1": 7.6057047843933109,
-                "value2": 15.59890365600586
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value99": {
-        "Transform": {
-            "Translation": {
-                "value0": 18.555028915405275,
-                "value1": -17.227890014648439,
-                "value2": -5.107086658477783
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value100": {
-        "Transform": {
-            "Translation": {
-                "value0": -15.543904304504395,
-                "value1": 4.562620639801025,
-                "value2": 14.37600326538086
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value101": {
-        "Transform": {
-            "Translation": {
-                "value0": 4.873091697692871,
-                "value1": 3.757566452026367,
-                "value2": 8.062560081481934
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value102": {
-        "Transform": {
-            "Translation": {
-                "value0": -13.051572799682618,
-                "value1": 8.259387016296387,
-                "value2": 14.424327850341797
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value103": {
-        "Transform": {
-            "Translation": {
-                "value0": -15.769264221191407,
-                "value1": 6.594955921173096,
-                "value2": 11.196663856506348
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value104": {
-        "Transform": {
-            "Translation": {
-                "value0": -14.009299278259278,
-                "value1": 8.715113639831543,
-                "value2": 13.370809555053711
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
-    },
-    "value105": {
-        "Transform": {
-            "Translation": {
-                "value0": -12.346336364746094,
-                "value1": 6.592516899108887,
-                "value2": 13.304468154907227
-            },
-            "Rotation": {
-                "value0": 0.0,
-                "value1": 0.0,
-                "value2": 0.0
-            },
-            "Scale": {
-                "value0": 1.0,
-                "value1": 1.0,
-                "value2": 1.0
-            }
-        },
-        "ObjectName": "Boid",
-        "_meshName": "assets/cube.obj",
-        "_materialName": "textures/Staff_low_lambert1_BaseColor.png"
+        "polymorphic_id": 1073741824,
+        "ptr_wrapper": {
+            "id": 2147483659,
+            "data": {
+                "Transform": {
+                    "Translation": {
+                        "value0": -18.629165649414064,
+                        "value1": -5.572213172912598,
+                        "value2": 12.242361068725586
+                    },
+                    "Rotation": {
+                        "value0": 0.0,
+                        "value1": 0.0,
+                        "value2": 0.0
+                    },
+                    "Scale": {
+                        "value0": 1.0,
+                        "value1": 1.0,
+                        "value2": 1.0
+                    }
+                },
+                "Object Name": "Boid",
+                "Mesh Name": "assets/cube.obj",
+                "Material Name": "textures/Staff_low_lambert1_BaseColor.png"
+            }
+        }
     }

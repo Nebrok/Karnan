@@ -17,10 +17,6 @@ KarnanScene::KarnanScene(SimpleRenderSystem& renderSystem)
 
 KarnanScene::~KarnanScene()
 {
-	for (auto gameObject : _gameObjects)
-	{
-		delete gameObject;
-	}
 	delete(_boidManager);
 }
 
@@ -76,7 +72,7 @@ void KarnanScene::RenderScene(Karnan::FrameInfo frameInfo)
 	for(auto go : _gameObjects)
 	{
 		if (go->IsRenderable())
-			renderableObjects.push_back(go);
+			renderableObjects.push_back(go.get());
 	}
 
 	_renderSystem.RenderObjects(frameInfo, *Camera, renderableObjects);
@@ -84,7 +80,7 @@ void KarnanScene::RenderScene(Karnan::FrameInfo frameInfo)
 
 bool KarnanScene::RegisterGO(GameObject* gameObject)
 {
-	_gameObjects.push_back(gameObject);
+	_gameObjects.push_back(std::shared_ptr<GameObject>(gameObject));
 	return true;
 }
 
@@ -96,7 +92,7 @@ void KarnanScene::SerialiseScene()
 
 	for (auto go : _gameObjects)
 	{
-		oarchive(*go);
+		oarchive(go);
 	}
 
 	std::ofstream outFile;

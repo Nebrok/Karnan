@@ -149,18 +149,18 @@ public:
     template <class Archive>
     void serialize(Archive& ar)
     {
-        ar(CEREAL_NVP(Transform));
-        ar(CEREAL_NVP(ObjectName));
-        ar(CEREAL_NVP(_meshName));
-        ar(CEREAL_NVP(_materialName));
+        ar(cereal::make_nvp("Transform", Transform));
+        ar(cereal::make_nvp("Object Name", ObjectName));
+        ar(cereal::make_nvp("Mesh Name", _meshName));
+        ar(cereal::make_nvp("Material Name", _materialName));
     };
-
+    
     template <class Archive>
-    void load_and_construct(Archive& ar, cereal::construct<GameObject>& construct)
+    static void load_and_construct(Archive& ar, cereal::construct<GameObject>& construct)
     {
-        std::string GameObjectName;
-        ar(GameObjectName);
-        construct(GameObjectName);
+        std::string gameObjectName;
+        ar(cereal::make_nvp("Object Name", gameObjectName));
+        construct(gameObjectName);
     }
 
 

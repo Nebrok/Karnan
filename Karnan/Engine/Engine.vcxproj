@@ -173,7 +173,7 @@
     <ClCompile Include="src\KarnanMaterial.cpp" />
     <ClCompile Include="src\KarnanPipeline.cpp" />
     <ClCompile Include="src\KarnanRenderer.cpp" />
-    <ClCompile Include="src\KarnanScene.cpp" />
+    <ClCompile Include="src\SceneManagement\KarnanScene.cpp" />
     <ClCompile Include="src\KarnanSwapChain.cpp" />
     <ClCompile Include="src\KarnanTextures.cpp" />
     <ClCompile Include="src\KarnanWindow.cpp" />
@@ -208,6 +208,7 @@
     <ClInclude Include="src\IndexBuffer.h" />
     <ClInclude Include="src\InputManagementSystem.h" />
     <ClInclude Include="src\MessagingSystem\AssetManagerMessages.h" />
+    <ClInclude Include="src\SceneManagement\SceneDataObject.h" />
     <ClInclude Include="src\Serialisation\DefinitionsKarnanCereal.h" />
     <ClInclude Include="src\Threading\IThreadableProcess.h" />
     <ClInclude Include="src\KarnanBuffer.h" />
@@ -220,7 +221,7 @@
     <ClInclude Include="src\KarnanMaterial.h" />
     <ClInclude Include="src\KarnanPipeline.h" />
     <ClInclude Include="src\KarnanRenderer.h" />
-    <ClInclude Include="src\KarnanScene.h" />
+    <ClInclude Include="src\SceneManagement\KarnanScene.h" />
     <ClInclude Include="src\KarnanSwapChain.h" />
     <ClInclude Include="src\KarnanTextures.h" />
     <ClInclude Include="src\KarnanUtils.h" />

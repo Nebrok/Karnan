@@ -1,10 +1,10 @@
 #pragma once
-#include "SimpleRenderSystem.h"
+#include "../SimpleRenderSystem.h"
 
-#include "KarnanCamera.h"
-#include "KarnanFrameInfo.h"
+#include "../KarnanCamera.h"
+#include "../KarnanFrameInfo.h"
 
-#include "Boids/BoidManager.h"
+#include "../Boids/BoidManager.h"
 
 class KarnanScene
 {
@@ -14,7 +14,7 @@ public:
 private:
 	SimpleRenderSystem& _renderSystem;
 
-	std::vector<GameObject*> _gameObjects;
+	std::vector<std::shared_ptr<GameObject>> _gameObjects;
 
 	// Temp
 	GameObject* Plane;
@@ -32,7 +32,7 @@ public:
 	void RenderScene(Karnan::FrameInfo frameInfo);
 
 	bool RegisterGO(GameObject* gameObject);
-	std::vector<GameObject*> GetAllGameObjects() { return _gameObjects; };
+	std::vector<std::shared_ptr<GameObject>> GetAllGameObjects() { return _gameObjects; };
 
 	void SerialiseScene();
 

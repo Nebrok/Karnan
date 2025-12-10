@@ -15,7 +15,7 @@ bool EngineCore::AddGameObjectToActiveScene(GameObject* gameObject)
 	return Instance->_scene->RegisterGO(gameObject);
 }
 
-std::vector<GameObject*> EngineCore::GetAllGameObjectsInActiveScene()
+std::vector<std::shared_ptr<GameObject>> EngineCore::GetAllGameObjectsInActiveScene()
 {
 	return Instance->_scene->GetAllGameObjects();
 }

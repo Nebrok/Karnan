@@ -42,7 +42,7 @@
     <ClCompile Include="src\VertexBuffer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\KarnanScene.cpp">
+    <ClCompile Include="src\SceneManagement\KarnanScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\GameObject.cpp">
@@ -161,7 +161,7 @@
     <ClInclude Include="src\VertexBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\KarnanScene.h">
+    <ClInclude Include="src\SceneManagement\KarnanScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\GameObject.h">
@@ -285,6 +285,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Serialisation\DefinitionsKarnanCereal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SceneManagement\SceneDataObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

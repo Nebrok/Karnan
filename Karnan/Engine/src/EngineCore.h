@@ -7,7 +7,7 @@
 #include "KarnanWindow.h"
 #include "KarnanDevice.h"
 #include "KarnanRenderer.h"
-#include "KarnanScene.h"
+#include "SceneManagement/KarnanScene.h"
 
 #include "Editor/KarnanEditor.h"
 
@@ -57,7 +57,7 @@ public:
 	static KarnanRenderer& Renderer() { return Instance->_karnanRenderer; };
 	static GLFWwindow* Window() { return Instance->_windowRef; };
 	static bool AddGameObjectToActiveScene(GameObject* gameObject);
-	static std::vector<GameObject*> GetAllGameObjectsInActiveScene();
+	static std::vector<std::shared_ptr<GameObject>> GetAllGameObjectsInActiveScene();
 
 private:
 	EngineCore();
