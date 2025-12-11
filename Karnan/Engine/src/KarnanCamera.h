@@ -23,8 +23,10 @@ private:
 	float _aspect = 60.0f;
 
 public:
-	KarnanCamera(const char* objectName, glm::vec3 position);
+	KarnanCamera(const char* objectName);
 
+
+	void Init() override;
 	void Update(double deltaTime) override;
 
 	void SetOrthographicProjection(float left, float right, float top, float bottom, float near, float far);
@@ -47,21 +49,28 @@ public:
 
 	//Cereal serialisation
 	template <class Archive>
-	void serialize(Archive& ar)
+	void save(Archive& ar) const
 	{
-		ar(CEREAL_NVP(cereal::base_class<GameObject>(this)));
+		ar(cereal::base_class<GameObject>(this));
 		ar(CEREAL_NVP(_aspect));
 	};
 
 	template <class Archive>
-	static void load_and_construct(Archive& ar, cereal::construct<KarnanCamera>& construct)
+	void load(Archive& ar)
 	{
-		std::string gameObjectName;
-		glm::vec3 transform;
-		ar(cereal::make_nvp("Object Name", gameObjectName));
-		ar(cereal::make_nvp("Transform", transform));
-		construct(gameObjectName.c_str() , transform);
-	}
+		ar(cereal::base_class<GameObject>(this));
+		ar(CEREAL_NVP(_aspect));
+	};
+
+protected:
+	KarnanCamera() 
+		: GameObject("Weewooo"), _aspect(60)
+	{
+
+	};
+
+	friend class cereal::access;
+
 
 private:
 
@@ -69,6 +78,7 @@ private:
 
 };
 
-#include <cereal/archives/json.hpp>
+#include <cereal/archives/xml.hpp>
 
 CEREAL_REGISTER_TYPE(KarnanCamera);
+CEREAL_REGISTER_POLYMORPHIC_RELATION(GameObject, KarnanCamera);

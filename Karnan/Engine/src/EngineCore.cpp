@@ -10,7 +10,7 @@
 
 EngineCore* EngineCore::Instance = nullptr;
 
-bool EngineCore::AddGameObjectToActiveScene(GameObject* gameObject)
+bool EngineCore::AddGameObjectToActiveScene(std::shared_ptr<GameObject> gameObject)
 {
 	return Instance->_scene->RegisterGO(gameObject);
 }

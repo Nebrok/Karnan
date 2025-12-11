@@ -11,8 +11,9 @@
 #include <memory>
 
 //cereal
-#include <cereal/archives/json.hpp>
+#include <cereal/types/memory.hpp>
 #include <cereal/types/polymorphic.hpp>
+#include <cereal/archives/xml.hpp>
 #include "Serialisation/DefinitionsKarnanCereal.h"
 
 namespace Karnan
@@ -105,6 +106,8 @@ public:
 
     std::string ObjectName;
     
+    std::vector<std::string> Tags;
+
 protected:
     uint32_t _objectId;
 
@@ -130,9 +133,13 @@ public:
 
     void SetRenderable(bool renderable) { _renderable = renderable; };
     bool IsRenderable() const { return _renderable; };
+    bool HasTag(std::string tag);
 
     uint32_t GetId() const { return _objectId; };
     std::shared_ptr<KarnanMaterial> GetMaterial() { return _material; };
+    std::string GetMeshName() { return _meshName; };
+    std::string GetMaterialName() { return _materialName; };
+
 
     virtual void Init();
     virtual void Update(double deltaTime);
@@ -147,20 +154,42 @@ public:
 
     //Cereal serialisation
     template <class Archive>
-    void serialize(Archive& ar)
+    void save(Archive& ar) const
     {
         ar(cereal::make_nvp("Transform", Transform));
-        ar(cereal::make_nvp("Object Name", ObjectName));
-        ar(cereal::make_nvp("Mesh Name", _meshName));
-        ar(cereal::make_nvp("Material Name", _materialName));
+        ar(cereal::make_nvp("Object_Name", ObjectName));
+        ar(cereal::make_nvp("Mesh_Name", _meshName));
+        ar(cereal::make_nvp("Material_Name", _materialName));
     };
     
+    template <class Archive>
+    void load(Archive& ar)
+    {;
+        ar(cereal::make_nvp("Transform", Transform));
+        ar(cereal::make_nvp("Object_Name", ObjectName));
+        ar(cereal::make_nvp("Mesh_Name", _meshName));
+        ar(cereal::make_nvp("Material_Name", _materialName));
+    };
+
     template <class Archive>
     static void load_and_construct(Archive& ar, cereal::construct<GameObject>& construct)
     {
         std::string gameObjectName;
-        ar(cereal::make_nvp("Object Name", gameObjectName));
-        construct(gameObjectName);
+        ar(cereal::make_nvp("Object_Name", gameObjectName));
+        construct(gameObjectName.c_str());
+
+        Karnan::Transform transform;
+        ar(cereal::make_nvp("Transform", transform));
+        construct->Transform = transform;
+        
+        std::string meshName;
+        ar(cereal::make_nvp("Mesh_Name", meshName));
+        construct->_meshName = meshName;
+
+        std::string materialName;
+        ar(cereal::make_nvp("Material_Name", materialName));
+        construct->_materialName = materialName;
+
     }
 
 

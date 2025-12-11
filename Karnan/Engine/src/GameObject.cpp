@@ -10,12 +10,23 @@ GameObject::GameObject(const char* objectName)
 	: _karnanDevice(EngineCore::Device()), ObjectName(objectName)
 {
 	_objectId = GenerateNewId();
-	EngineCore::AddGameObjectToActiveScene(this);
 }
 
 GameObject::~GameObject()
 {
 
+}
+
+bool GameObject::HasTag(std::string compareTag)
+{
+	for (auto tag : Tags)
+	{
+		if (tag.compare(compareTag) == 0)
+		{
+			return true;
+		}
+	}
+	return false;
 }
 
 void GameObject::Init()

@@ -5,11 +5,17 @@
 #include <limits>
 #include <glm/gtc/constants.hpp>
 
-KarnanCamera::KarnanCamera(const char* objectName, glm::vec3 position)
+KarnanCamera::KarnanCamera(const char* objectName)
     : GameObject(objectName)
 {
     _renderable = false;
-    Transform.Translation = position;
+    std::cout << "Do you get called! from the camera constructor" << '\n';
+}
+
+void KarnanCamera::Init()
+{
+    _renderable = false;
+    Tags.push_back("Main Camera");
 }
 
 void KarnanCamera::Update(double deltaTime)

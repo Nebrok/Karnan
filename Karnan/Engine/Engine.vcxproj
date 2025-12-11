@@ -179,6 +179,7 @@
     <ClCompile Include="src\KarnanWindow.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MeshLoadingSystem.cpp" />
+    <ClCompile Include="src\SceneManagement\SceneDataObject.cpp" />
     <ClCompile Include="src\SimpleRenderSystem.cpp" />
     <ClCompile Include="src\Threading\KarnanMutex.cpp" />
     <ClCompile Include="src\VertexBuffer.cpp" />

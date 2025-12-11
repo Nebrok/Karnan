@@ -7,6 +7,7 @@
 //cereal serialisation
 #include "cereal/archives/json.hpp"
 
+#include "SceneDataObject.h"
 
 KarnanScene::KarnanScene(SimpleRenderSystem& renderSystem)
 	: _renderSystem(renderSystem)
@@ -22,12 +23,28 @@ KarnanScene::~KarnanScene()
 
 void KarnanScene::LoadScene()
 {
+	SceneDataObject sceneData;
+	sceneData.SceneName = "TestScene1";
+
+	_gameObjects.clear();
+	sceneData.LoadScene(_gameObjects);
+
+	for (auto gameObject : _gameObjects)
+	{
+		if (gameObject->HasTag("Main Camera"))
+		{
+			Camera = dynamic_cast<KarnanCamera*>(gameObject.get());
+		}
+	}
+	
+	/*
 	GameObject* Dragon = DBG_NEW GameObject("assets/Dragon_80K.obj");
 	Dragon->CreateMesh("assets/Dragon_80K.obj");
 	Dragon->CreateMaterial("textures/Staff_low_lambert1_BaseColor.png");
 	Dragon->Transform.Translation = { 0.0f, 2.0f, 0.0f };
 
-	Camera = DBG_NEW KarnanCamera("MainCamera", { 5.0f, 3.0f, 5.0f });
+	Camera = DBG_NEW KarnanCamera("MainCamera");
+	Camera->Transform.Translation = { 5.0f, 3.0f, 5.0f };
 
 	Plane = DBG_NEW GameObject("FishStaff");
 	Plane->CreateMesh("assets/Fishstaff.obj");
@@ -50,13 +67,12 @@ void KarnanScene::LoadScene()
 	LionHead->CreateMesh("assets/lion_head_4k.obj");
 	LionHead->CreateMaterial("textures/lion_head_diff_4k.png");
 	LionHead->Transform.Translation = { 0.0f, 0.f, 0.f };
-
-	_boidManager = DBG_NEW BoidManager();
+	*/
+	
 }
 
 void KarnanScene::UpdateScene(double deltaTime)
 {
-	_boidManager->UpdateBoids(deltaTime);
 	for (auto gameObject : _gameObjects)
 	{
 		gameObject->Update(deltaTime);
@@ -78,7 +94,7 @@ void KarnanScene::RenderScene(Karnan::FrameInfo frameInfo)
 	_renderSystem.RenderObjects(frameInfo, *Camera, renderableObjects);
 }
 
-bool KarnanScene::RegisterGO(GameObject* gameObject)
+bool KarnanScene::RegisterGO(std::shared_ptr<GameObject> gameObject)
 {
 	_gameObjects.push_back(std::shared_ptr<GameObject>(gameObject));
 	return true;
@@ -86,17 +102,10 @@ bool KarnanScene::RegisterGO(GameObject* gameObject)
 
 void KarnanScene::SerialiseScene()
 {
-	std::stringstream ss;
+	SceneDataObject sceneData;
+	sceneData.SceneName = "TestScene1";
+	sceneData.SaveScene(_gameObjects);
 
-	cereal::JSONOutputArchive oarchive(ss);
-
-	for (auto go : _gameObjects)
-	{
-		oarchive(go);
-	}
-
-	std::ofstream outFile;
-	outFile.open("assets/TEST_SCENE_SERIALISATION.txt");
-	outFile << ss.rdbuf();
-	outFile.close();
+	//std::vector<std::shared_ptr<GameObject>> gameObjectsTemp;
+	//sceneData.LoadScene(gameObjectsTemp);
 }

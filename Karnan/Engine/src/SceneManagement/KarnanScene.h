@@ -16,10 +16,11 @@ private:
 
 	std::vector<std::shared_ptr<GameObject>> _gameObjects;
 
+	KarnanCamera* Camera;
+
 	// Temp
 	GameObject* Plane;
 	GameObject* Viewer;
-	KarnanCamera* Camera;
 
 	BoidManager* _boidManager;
 
@@ -31,7 +32,7 @@ public:
 	void UpdateScene(double deltaTime);
 	void RenderScene(Karnan::FrameInfo frameInfo);
 
-	bool RegisterGO(GameObject* gameObject);
+	bool RegisterGO(std::shared_ptr<GameObject> gameObject);
 	std::vector<std::shared_ptr<GameObject>> GetAllGameObjects() { return _gameObjects; };
 
 	void SerialiseScene();
