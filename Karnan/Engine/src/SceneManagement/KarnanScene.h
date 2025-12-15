@@ -22,8 +22,6 @@ private:
 	GameObject* Plane;
 	GameObject* Viewer;
 
-	BoidManager* _boidManager;
-
 public:
 	KarnanScene(SimpleRenderSystem& renderSystem);
 	~KarnanScene();

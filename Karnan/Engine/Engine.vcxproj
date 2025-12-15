@@ -197,6 +197,7 @@
     <ClInclude Include="dep\imgui\imstb_textedit.h" />
     <ClInclude Include="dep\imgui\imstb_truetype.h" />
     <ClInclude Include="src\AssetManagement\AssetManager.h" />
+    <ClInclude Include="src\AssetManagement\MaterialDataObject.h" />
     <ClInclude Include="src\BasicMesh.h" />
     <ClInclude Include="src\Boids\Boid.h" />
     <ClInclude Include="src\Boids\BoidManager.h" />

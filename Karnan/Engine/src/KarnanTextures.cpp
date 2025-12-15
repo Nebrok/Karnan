@@ -32,8 +32,8 @@ void KarnanTexture::CreateTextureImage()
 
 	if (!pixelData)
 	{
-		std::cout << "Filepath: " << _filepath << '\n';
-		throw std::runtime_error("failed to load texture from file!");
+		std::cout << "Unable to load texture with filepath: " << _filepath << '\n';
+		pixelData = stbi_load("assets/textures/NULL_TEXTURE.png", &textureWidth, &textureHeight, &textureChannels, STBI_rgb_alpha);
 	}
 	imageSize = textureWidth * textureHeight * 4;
 

@@ -13,7 +13,7 @@ bool SceneDataObject::SaveScene(const std::vector<std::shared_ptr<GameObject>>& 
 {
 	std::stringstream ss;
 
-	//ss << gameObjects.size() << '\n';
+	ss << gameObjects.size() << '\n';
 	{
 		cereal::XMLOutputArchive oarchive(ss);
 
@@ -46,8 +46,8 @@ bool SceneDataObject::LoadScene(std::vector<std::shared_ptr<GameObject>>& gameOb
 		std::cout << "Could not open file: " << "assets/scenes/" + SceneName + ".kscn" << '\n';
 	}
 
-	int numberGOs = 7;
-	//ss >> numberGOs;
+	int numberGOs;
+	ss >> numberGOs;
 	{
 		cereal::XMLInputArchive ar(ss);
 

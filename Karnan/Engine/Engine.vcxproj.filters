@@ -293,6 +293,9 @@
     <ClInclude Include="src\SceneManagement\SceneDataObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\AssetManagement\MaterialDataObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\compile.bat">

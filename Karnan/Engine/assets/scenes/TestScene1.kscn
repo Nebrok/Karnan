@@ -1,3 +1,4 @@
+6
 <?xml version="1.0" encoding="utf-8"?>
 <cereal>
 	<value0>
@@ -7,8 +8,8 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>0</value0>
-						<value1>0</value1>
+						<value0>1.5</value0>
+						<value1>2</value1>
 						<value2>0</value2>
 					</Translation>
 					<Rotation>
@@ -23,8 +24,8 @@
 					</Scale>
 				</Transform>
 				<Object_Name>assets/Dragon_80K.obj</Object_Name>
-				<Mesh_Name></Mesh_Name>
-				<Material_Name></Material_Name>
+				<Mesh_Name>assets/Dragon_80K.obj</Mesh_Name>
+				<Material_Name>textures/Staff_low_lambert1_BaseColor.png</Material_Name>
 			</data>
 		</ptr_wrapper>
 	</value0>
@@ -37,13 +38,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>5</value0>
-							<value1>3</value1>
-							<value2>5</value2>
+							<value0>-5.1134018898010254</value0>
+							<value1>-0.91045963764190674</value1>
+							<value2>2.6457486152648926</value2>
 						</Translation>
 						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
+							<value0>-0.095736384391784668</value0>
+							<value1>1.6989802122116089</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -67,9 +68,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
+						<value0>-1.5</value0>
+						<value1>-14.75</value1>
+						<value2>3</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -83,8 +84,8 @@
 					</Scale>
 				</Transform>
 				<Object_Name>FishStaff</Object_Name>
-				<Mesh_Name></Mesh_Name>
-				<Material_Name></Material_Name>
+				<Mesh_Name>assets/Fishstaff.obj</Mesh_Name>
+				<Material_Name>textures/Staff_low_lambert1_BaseColor.png</Material_Name>
 			</data>
 		</ptr_wrapper>
 	</value2>
@@ -95,8 +96,8 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>0</value0>
-						<value1>0</value1>
+						<value0>-3</value0>
+						<value1>-4</value1>
 						<value2>0</value2>
 					</Translation>
 					<Rotation>
@@ -111,8 +112,8 @@
 					</Scale>
 				</Transform>
 				<Object_Name>Well</Object_Name>
-				<Mesh_Name></Mesh_Name>
-				<Material_Name></Material_Name>
+				<Mesh_Name>assets/well.obj</Mesh_Name>
+				<Material_Name>textures/Staff_low_lambert1_BaseColor.png</Material_Name>
 			</data>
 		</ptr_wrapper>
 	</value3>
@@ -123,8 +124,8 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>0</value0>
-						<value1>0</value1>
+						<value0>7</value0>
+						<value1>-4</value1>
 						<value2>0</value2>
 					</Translation>
 					<Rotation>
@@ -139,8 +140,8 @@
 					</Scale>
 				</Transform>
 				<Object_Name>FoundationsLevel5</Object_Name>
-				<Mesh_Name></Mesh_Name>
-				<Material_Name></Material_Name>
+				<Mesh_Name>assets/FortificationsLevel5.obj</Mesh_Name>
+				<Material_Name>assets/fortifications.png</Material_Name>
 			</data>
 		</ptr_wrapper>
 	</value4>
@@ -167,38 +168,10 @@
 					</Scale>
 				</Transform>
 				<Object_Name>Lion Head</Object_Name>
-				<Mesh_Name></Mesh_Name>
-				<Material_Name></Material_Name>
+				<Mesh_Name>assets/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>textures/lion_head_diff_4k.png</Material_Name>
 			</data>
 		</ptr_wrapper>
 	</value5>
-	<value6>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483655</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Boid</Object_Name>
-				<Mesh_Name></Mesh_Name>
-				<Material_Name></Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value6>
 </cereal>
 
