@@ -1,4 +1,4 @@
-6
+9
 <?xml version="1.0" encoding="utf-8"?>
 <cereal>
 	<value0>
@@ -14,7 +14,7 @@
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
-						<value1>0</value1>
+						<value1>-1.690000057220459</value1>
 						<value2>0</value2>
 					</Rotation>
 					<Scale>
@@ -38,13 +38,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>-5.1134018898010254</value0>
-							<value1>-0.91045963764190674</value1>
-							<value2>2.6457486152648926</value2>
+							<value0>-4.942138671875</value0>
+							<value1>11.976742744445801</value1>
+							<value2>0.37243479490280151</value2>
 						</Translation>
 						<Rotation>
-							<value0>-0.095736384391784668</value0>
-							<value1>1.6989802122116089</value1>
+							<value0>-0.32566371560096741</value0>
+							<value1>1.6907322406768799</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -69,7 +69,7 @@
 				<Transform>
 					<Translation>
 						<value0>-1.5</value0>
-						<value1>-14.75</value1>
+						<value1>-0.30000001192092896</value1>
 						<value2>3</value2>
 					</Translation>
 					<Rotation>
@@ -124,13 +124,13 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>7</value0>
-						<value1>-4</value1>
+						<value0>10</value0>
+						<value1>35.119998931884766</value1>
 						<value2>0</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
-						<value1>0</value1>
+						<value1>0.95999997854232788</value1>
 						<value2>0</value2>
 					</Rotation>
 					<Scale>
@@ -173,5 +173,89 @@
 			</data>
 		</ptr_wrapper>
 	</value5>
+	<value6>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483655</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>0</value0>
+						<value1>7.5</value1>
+						<value2>0</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>3.1700000762939453</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>NewGameObject</Object_Name>
+				<Mesh_Name>assets/models/SponzaSceneMaybe.obj</Mesh_Name>
+				<Material_Name>textures/Staff_low_lambert1_BaseColor.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value6>
+	<value7>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483656</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>43.959999084472656</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>NewGameObject</Object_Name>
+				<Mesh_Name>assets/models/SponzaSceneMaybe.obj</Mesh_Name>
+				<Material_Name>textures/Staff_low_lambert1_BaseColor.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value7>
+	<value8>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483657</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>-42.770000457763672</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>NewGameObject</Object_Name>
+				<Mesh_Name>assets/models/SponzaSceneMaybe.obj</Mesh_Name>
+				<Material_Name>textures/Staff_low_lambert1_BaseColor.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value8>
 </cereal>
 

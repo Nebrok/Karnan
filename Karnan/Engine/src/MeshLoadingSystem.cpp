@@ -8,12 +8,11 @@
 #include "AssetManagement/AssetManager.h"
 
 //std libs
-#include <vector>
 #include <fstream>
 #include <sstream>
 #include <iostream>
 #include <chrono>
-#include <filesystem>
+
 
 namespace std
 {
@@ -49,9 +48,8 @@ void MeshLoadingSystem::DestroyMeshLoadingSystem()
 
 void MeshLoadingSystem::LoadMesh(const std::string& filepath)
 {
-	size_t lastSlash = filepath.rfind('/');
-	std::string modelName = filepath.substr(lastSlash + 1);
-	if (std::string binaryFilepath = CheckForBinary(modelName); binaryFilepath != "")
+	std::filesystem::path meshpath{ filepath };
+	if (std::string binaryFilepath = CheckForBinary(meshpath.stem().string()); binaryFilepath != "")
 	{
 		std::vector<VertexBuffer::Vertex>* vertices = DBG_NEW std::vector<VertexBuffer::Vertex>();
 		std::vector<uint32_t>* indices = DBG_NEW std::vector<uint32_t>();
@@ -193,16 +191,14 @@ void MeshLoadingSystem::LoadObj(const std::string& filename, std::vector<VertexB
 	std::cout << "Time to load file " + filename + ": " << objLoadTime << " seconds." << '\n';
 }
 
-void MeshLoadingSystem::LoadObjToBinary(const std::string& filename)
+void MeshLoadingSystem::LoadObjToBinary(const std::filesystem::path& filepath)
 {
 	std::vector<VertexBuffer::Vertex> vertices;
 	std::vector<uint32_t> indices;
 	
-	LoadObj(filename, vertices, indices);
+	LoadObj(filepath.string(), vertices, indices);
 
-	size_t lastSlash = filename.rfind('/');
-	std::string modelName = filename.substr(lastSlash);
-	SerialiseMesh("assets/bin/" + modelName + ".kmsh", vertices, indices);
+	SerialiseMesh("assets/bin/" + filepath.stem().string() + ".kmsh", vertices, indices);
 }
 
 void MeshLoadingSystem::CreateMesh(const std::string& modelName, std::vector<VertexBuffer::Vertex>* vertices, std::vector<uint32_t>* indices)
@@ -426,24 +422,23 @@ void MeshLoadingSystem::ProcessMessage(std::shared_ptr<Message> message)
 
 void MeshLoadingSystem::GenerateBinaries()
 {
-	std::string rootFolder{ "./assets" };
-	for (auto filepath : FindAllModelFilepaths(rootFolder))
+	std::filesystem::path rootFolder{ "./assets" };
+	for (std::filesystem::path& filepath : FindAllModelFilepaths(rootFolder))
 	{
-		std::string filename = StripFilenameFromFilepath(filepath);
+		std::string filename = filepath.stem().string();
 		if (CheckForBinary(filename) == "")
 		{
-			LoadObjToBinary(rootFolder + "/" + filepath);
+			LoadObjToBinary(std::filesystem::path(rootFolder.string() + "\\" + filepath.string()));
 		}
 	}
 }
 
-std::vector<std::string> MeshLoadingSystem::FindAllModelFilepaths(std::string& rootFolder)
+std::vector<std::filesystem::path> MeshLoadingSystem::FindAllModelFilepaths(std::filesystem::path rootPath)
 {
-	std::vector<std::string> objFiles;
-	std::filesystem::path rootPath(rootFolder);
+	std::vector<std::filesystem::path> objFiles;
 
 	if (!std::filesystem::exists(rootPath) || !std::filesystem::is_directory(rootPath)) {
-		std::cerr << "Invalid directory: " << rootFolder << std::endl;
+		std::cerr << "Invalid directory: " << rootPath.string() << std::endl;
 		return objFiles;
 	}
 
@@ -451,7 +446,7 @@ std::vector<std::string> MeshLoadingSystem::FindAllModelFilepaths(std::string& r
 		if (entry.is_regular_file() && (entry.path().extension() == ".obj" || entry.path().extension() == ".OBJ")) {
 			// Store the path relative to the root folder
 			objFiles.push_back(
-				std::filesystem::relative(entry.path(), rootPath).string()
+				std::filesystem::relative(entry.path(), rootPath)
 			);
 		}
 	}

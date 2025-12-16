@@ -1,6 +1,7 @@
 #include "EditorGOCreatorPanel.h"
 
 #include "../GameObject.h"
+#include "../EngineCore.h"
 
 #include "glm/gtc/type_ptr.hpp"
 
@@ -30,8 +31,9 @@ void EditorGOCreatorPanel::OnImGUIRender()
 
 void EditorGOCreatorPanel::CreateNewGameObject(NewGameObjectData data)
 {
-	GameObject* newGo = new GameObject("GameObject");
-	newGo->CreateMesh("assets/Fishstaffsculpt.obj");
+	GameObject* newGo = new GameObject("NewGameObject");
+	newGo->CreateMesh("assets/models/SponzaSceneMaybe.obj");
 	newGo->CreateMaterial("textures/Staff_low_lambert1_BaseColor.png");
 	newGo->Transform.Scale = { 1.0f, 1.0f, 1.0f };
+	EngineCore::Instance->AddGameObjectToActiveScene(std::shared_ptr<GameObject>(newGo));
 }

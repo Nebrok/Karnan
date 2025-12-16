@@ -12,6 +12,7 @@
 #include <vector>
 #include <unordered_map>
 #include <memory>
+#include <filesystem>
 
 class MeshLoadingSystem : public IMessageSystem, public IThreadableProcess
 {
@@ -54,7 +55,7 @@ private:
 	std::string CheckForBinary(const std::string& filename);
 
 	void LoadObj(const std::string& filename, std::vector<VertexBuffer::Vertex>& vertices, std::vector<uint32_t>& indices);
-	void LoadObjToBinary(const std::string& filename);
+	void LoadObjToBinary(const std::filesystem::path& filename);
 	
 	std::vector<std::string> Triangularise(const std::vector<std::string>& polygon);
 	std::vector<int> ParseFacePoint(const std::string& point);
@@ -63,7 +64,7 @@ private:
 	void GenerateBinaries();
 
 	//Command Message Helpers
-	std::vector<std::string> FindAllModelFilepaths(std::string& rootFolder);
+	std::vector<std::filesystem::path> FindAllModelFilepaths(std::filesystem::path rootPath);
 	std::string StripFilenameFromFilepath(std::string filepath);
 
 };

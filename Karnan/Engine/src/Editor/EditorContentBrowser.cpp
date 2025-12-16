@@ -8,6 +8,15 @@ void EditorContentBrowser::OnImGUIRender()
 	bool gameObjectBuilderOpen = true;
 	ImGui::Begin("Content Browser", &gameObjectBuilderOpen);
 
+	if (ImGui::Button("<---"))
+	{
+		if (_workingFilepath.parent_path() != "")
+		{
+			_workingFilepath = _workingFilepath.parent_path();
+		}
+	}
+
+
 	for (auto& file : std::filesystem::directory_iterator(_workingFilepath))
 	{
 		if (file.is_directory())
