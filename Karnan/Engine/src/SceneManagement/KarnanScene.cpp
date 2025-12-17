@@ -36,44 +36,10 @@ void KarnanScene::LoadScene()
 			Camera = dynamic_cast<KarnanCamera*>(gameObject.get());
 		}
 	}
-	
-	/*
-	GameObject* Dragon = DBG_NEW GameObject("assets/Dragon_80K.obj");
-	Dragon->CreateMesh("assets/Dragon_80K.obj");
-	Dragon->CreateMaterial("textures/Staff_low_lambert1_BaseColor.png");
-	Dragon->Transform.Translation = { 1.5f, 2.0f, 0.0f };
-	_gameObjects.push_back(std::shared_ptr<GameObject>(Dragon));
 
-	Camera = DBG_NEW KarnanCamera("MainCamera");
-	Camera->Transform.Translation = { 5.0f, 3.0f, 5.0f };
-	_gameObjects.push_back(std::shared_ptr<GameObject>(Camera));
-
-	Plane = DBG_NEW GameObject("FishStaff");
-	Plane->CreateMesh("assets/Fishstaff.obj");
-	Plane->CreateMaterial("textures/Staff_low_lambert1_BaseColor.png");
-	Plane->Transform.Translation = { -1.5f, 1.0f, 3.0f };
-	Plane->Transform.Scale = { 1.0f, 1.0f, 1.0f };
-	_gameObjects.push_back(std::shared_ptr<GameObject>(Plane));
-
-	GameObject* Well = DBG_NEW GameObject("Well");
-	Well->CreateMesh("assets/well.obj");
-	Well->CreateMaterial("textures/Staff_low_lambert1_BaseColor.png");
-	Well->Transform.Translation = { -3.0f, -4.f, 0.f };
-	_gameObjects.push_back(std::shared_ptr<GameObject>(Well));
-
-	GameObject* FoundationL5 = DBG_NEW GameObject("FoundationsLevel5");
-	FoundationL5->CreateMesh("assets/FortificationsLevel5.obj");
-	FoundationL5->CreateMaterial("assets/fortifications.png");
-	FoundationL5->Transform.Translation = { 7.0f, -4.f, 0.f };
-	_gameObjects.push_back(std::shared_ptr<GameObject>(FoundationL5));
-
-
-	GameObject* LionHead = DBG_NEW GameObject("Lion Head");
-	LionHead->CreateMesh("assets/lion_head_4k.obj");
-	LionHead->CreateMaterial("textures/lion_head_diff_4k.png");
-	LionHead->Transform.Translation = { 0.0f, 0.f, 0.f };
-	_gameObjects.push_back(std::shared_ptr<GameObject>(LionHead));
-	*/
+	PointLight* firstLight = DBG_NEW PointLight();
+	firstLight->Transform.Translation = { 1.0f, 1.0f, 1.0f };
+	_gameObjects.push_back(std::shared_ptr<PointLight>(firstLight));
 
 }
 
@@ -91,19 +57,50 @@ void KarnanScene::RenderScene(Karnan::FrameInfo frameInfo)
 	_renderSystem.BindPipeline(frameInfo.commandBuffer);
 
 	std::vector<GameObject*> renderableObjects;
+	std::vector<GameObject*> sceneLights;
 	for(auto go : _gameObjects)
 	{
 		if (go->IsRenderable())
 			renderableObjects.push_back(go.get());
+
+		if (PointLight* light = dynamic_cast<PointLight*>(go.get()); light != nullptr)
+			sceneLights.push_back(go.get());
 	}
 
-	_renderSystem.RenderObjects(frameInfo, *Camera, renderableObjects);
+	_renderSystem.RenderObjects(frameInfo, *Camera, sceneLights, renderableObjects);
 }
 
 bool KarnanScene::RegisterGO(std::shared_ptr<GameObject> gameObject)
 {
 	_gameObjects.push_back(std::shared_ptr<GameObject>(gameObject));
 	return true;
+}
+
+void KarnanScene::DeleteGO(uint32_t goID)
+{
+	size_t indexToBeDeleted = -1;
+	for (int i = 0; i < _gameObjects.size(); i++)
+	{
+		if (_gameObjects[i]->GetId() == goID)
+		{
+			indexToBeDeleted = i;
+		}
+	}
+	std::shared_ptr<GameObject> deletedGO;
+	std::string objectName;
+	uint32_t objectId;
+	long numberRefs;
+	if (indexToBeDeleted >= 0)
+	{
+		deletedGO = _gameObjects[indexToBeDeleted];
+		objectName = deletedGO->ObjectName;
+		objectId = deletedGO->GetId();
+		numberRefs = deletedGO.use_count();
+		_gameObjects.erase(_gameObjects.begin() + indexToBeDeleted);
+	}
+	std::cout << "GameObject deleted: " << objectName << " with ID: " << objectId << '\n';
+	std::cout << "GameObject references at deletion: " << numberRefs << '\n';
+
 }
 
 void KarnanScene::SerialiseScene()

@@ -188,8 +188,6 @@ void KarnanPipeline::CreateGraphicsPipeline(const PipelineConfigInfo& configInfo
 	pipelineInfo.basePipelineIndex = -1;
 	pipelineInfo.basePipelineHandle = VK_NULL_HANDLE;
 
-
-
 	if (vkCreateGraphicsPipelines(_karnanDevice.Device(), VK_NULL_HANDLE, 1, &pipelineInfo, nullptr, &_graphicsPipeline) != VK_SUCCESS)
 		throw std::runtime_error("Graphics Pipeline creation failed!");
 }

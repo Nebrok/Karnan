@@ -14,7 +14,7 @@ public:
 	static KarnanEditor* Instance;
 
 private:
-	GameObject* _lastHighlightedGo = nullptr;
+	std::shared_ptr<GameObject> _lastHighlightedGo = nullptr;
 	std::unique_ptr<KarnanMainGUI> _mainGUI;
 
 	std::vector<IPanel*> _panels;
@@ -28,8 +28,8 @@ public:
 	void Update();
 	void Render(VkCommandBuffer commandBuffer);
 
-	GameObject* GetLastHighlightedGO() { return _lastHighlightedGo; };
-	void SetLastHighlightedGO(GameObject* go) { _lastHighlightedGo = go; };
+	std::shared_ptr<GameObject> GetLastHighlightedGO() { return _lastHighlightedGo; };
+	void SetLastHighlightedGO(std::shared_ptr<GameObject> go) { _lastHighlightedGo = go; };
 
 
 private:

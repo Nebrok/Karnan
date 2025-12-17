@@ -15,6 +15,11 @@ bool EngineCore::AddGameObjectToActiveScene(std::shared_ptr<GameObject> gameObje
 	return Instance->_scene->RegisterGO(gameObject);
 }
 
+void EngineCore::DeleteGOFromActiveScene(uint32_t id)
+{
+	Instance->_scene->DeleteGO(id);
+}
+
 std::vector<std::shared_ptr<GameObject>> EngineCore::GetAllGameObjectsInActiveScene()
 {
 	return Instance->_scene->GetAllGameObjects();

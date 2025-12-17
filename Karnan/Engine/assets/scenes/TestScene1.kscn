@@ -1,4 +1,4 @@
-9
+7
 <?xml version="1.0" encoding="utf-8"?>
 <cereal>
 	<value0>
@@ -23,7 +23,7 @@
 						<value2>1</value2>
 					</Scale>
 				</Transform>
-				<Object_Name>assets/Dragon_80K.obj</Object_Name>
+				<Object_Name>Dragon 80K</Object_Name>
 				<Mesh_Name>assets/Dragon_80K.obj</Mesh_Name>
 				<Material_Name>textures/Staff_low_lambert1_BaseColor.png</Material_Name>
 			</data>
@@ -38,13 +38,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>-4.942138671875</value0>
-							<value1>11.976742744445801</value1>
-							<value2>0.37243479490280151</value2>
+							<value0>-1.4824045896530151</value0>
+							<value1>1.8765033483505249</value1>
+							<value2>8.0278615951538086</value2>
 						</Translation>
 						<Rotation>
-							<value0>-0.32566371560096741</value0>
-							<value1>1.6907322406768799</value1>
+							<value0>0.23431260883808136</value0>
+							<value1>3.1635379791259766</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -125,7 +125,7 @@
 				<Transform>
 					<Translation>
 						<value0>10</value0>
-						<value1>35.119998931884766</value1>
+						<value1>5</value1>
 						<value2>0</value2>
 					</Translation>
 					<Rotation>
@@ -174,88 +174,46 @@
 		</ptr_wrapper>
 	</value5>
 	<value6>
-		<polymorphic_id>1073741824</polymorphic_id>
+		<polymorphic_id>2147483650</polymorphic_id>
+		<polymorphic_name>PointLight</polymorphic_name>
 		<ptr_wrapper>
 			<id>2147483655</id>
 			<data>
-				<Transform>
-					<Translation>
-						<value0>0</value0>
-						<value1>7.5</value1>
-						<value2>0</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>3.1700000762939453</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>NewGameObject</Object_Name>
-				<Mesh_Name>assets/models/SponzaSceneMaybe.obj</Mesh_Name>
-				<Material_Name>textures/Staff_low_lambert1_BaseColor.png</Material_Name>
+				<value0>
+					<Transform>
+						<Translation>
+							<value0>1</value0>
+							<value1>1</value1>
+							<value2>1</value2>
+						</Translation>
+						<Rotation>
+							<value0>0</value0>
+							<value1>0</value1>
+							<value2>0</value2>
+						</Rotation>
+						<Scale>
+							<value0>1</value0>
+							<value1>1</value1>
+							<value2>1</value2>
+						</Scale>
+					</Transform>
+					<Object_Name>Point Light</Object_Name>
+					<Mesh_Name></Mesh_Name>
+					<Material_Name></Material_Name>
+				</value0>
+				<_lightColour>
+					<value0>1</value0>
+					<value1>1</value1>
+					<value2>1</value2>
+				</_lightColour>
+				<_attenuation>
+					<value0>1</value0>
+					<value1>0.10000000149011612</value1>
+					<value2>0.0099999997764825821</value2>
+				</_attenuation>
+				<_intensity>1</_intensity>
 			</data>
 		</ptr_wrapper>
 	</value6>
-	<value7>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483656</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>43.959999084472656</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>NewGameObject</Object_Name>
-				<Mesh_Name>assets/models/SponzaSceneMaybe.obj</Mesh_Name>
-				<Material_Name>textures/Staff_low_lambert1_BaseColor.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value7>
-	<value8>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483657</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>-42.770000457763672</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>NewGameObject</Object_Name>
-				<Mesh_Name>assets/models/SponzaSceneMaybe.obj</Mesh_Name>
-				<Material_Name>textures/Staff_low_lambert1_BaseColor.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value8>
 </cereal>
 

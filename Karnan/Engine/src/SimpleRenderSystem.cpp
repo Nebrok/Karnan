@@ -1,5 +1,7 @@
 #include "SimpleRenderSystem.h"
 
+#include "Lights/PointLight.h"
+
 #include <stdexcept>
 #include <array>
 
@@ -28,9 +30,22 @@ void SimpleRenderSystem::BindPipeline(VkCommandBuffer commandBuffer)
 	_karnanPipeline->Bind(commandBuffer);
 }
 
-void SimpleRenderSystem::RenderObjects(Karnan::FrameInfo frameInfo, KarnanCamera& camera, std::vector<GameObject*> gameObjects)
+void SimpleRenderSystem::RenderObjects(Karnan::FrameInfo frameInfo, KarnanCamera& camera, std::vector<GameObject*> lights, std::vector<GameObject*> gameObjects)
 {
 	Karnan::GlobalUBO ubo{};
+
+	int activeLights = 0;
+	for (auto go : lights)
+	{
+		PointLight* light = dynamic_cast<PointLight*>(go);
+		ubo.lightPositions[activeLights] = go->Transform.Translation;
+		ubo.lightColours[activeLights] = light->GetColour();
+		ubo.lightAttentuations[activeLights] = light->GetAttentuation();
+		ubo.lightIntensities[activeLights] = light->GetIntensity();
+		++activeLights;
+	}
+
+	ubo.numberLights = activeLights;
 	ubo.projectionView = camera.GetProjection() * camera.GetView();
 	_globalUBOBuffers[frameInfo.FrameIndex]->UpdateUBO(&ubo);
 

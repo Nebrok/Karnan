@@ -14,7 +14,7 @@ void EditorHierarchyPanel::OnImGUIRender()
 		ImGui::PushID(go->GetId());
 		if (ImGui::Button(go->ObjectName.c_str()))
 		{
-			KarnanEditor::Instance->SetLastHighlightedGO(go);
+			KarnanEditor::Instance->SetLastHighlightedGO(sharedGo);
 		}
 		ImGui::PopID();
 	}

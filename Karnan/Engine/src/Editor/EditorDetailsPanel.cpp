@@ -2,7 +2,7 @@
 
 #include "../EngineCore.h"
 #include "KarnanEditor.h"
-#include "../GameObject.h"
+
 
 #include "glm/gtc/type_ptr.hpp"
 
@@ -15,7 +15,7 @@ void EditorDetailsPanel::OnImGUIRender()
 	bool detailsOpen = true;
 	ImGui::Begin("Details", &detailsOpen);
 
-	GameObject* lastHighlightedGO = KarnanEditor::Instance->GetLastHighlightedGO();
+	std::shared_ptr<GameObject> lastHighlightedGO = KarnanEditor::Instance->GetLastHighlightedGO();
 	if (lastHighlightedGO == nullptr)
 	{
 		ImGui::End();
@@ -39,5 +39,17 @@ void EditorDetailsPanel::OnImGUIRender()
 	//which in turn handles the changing of the material
 
 
+	ImGui::SeparatorText("WARNING");
+	if (ImGui::Button("Delete GameObject"))
+	{
+		DeleteGameObject(lastHighlightedGO.get());
+	}
+
 	ImGui::End();
+}
+
+void EditorDetailsPanel::DeleteGameObject(GameObject* go)
+{
+	KarnanEditor::Instance->SetLastHighlightedGO(nullptr);
+	EngineCore::DeleteGOFromActiveScene(go->GetId());
 }

@@ -10,12 +10,18 @@
 
 #include "KarnanBuffer.h"
 
+#define MAX_LIGHTS 16
 
 namespace Karnan
 {
 	struct GlobalUBO
 	{
 		glm::mat4 projectionView{ 1.f };
+		uint32_t numberLights;
+		glm::vec3 lightPositions[MAX_LIGHTS];
+		glm::vec3 lightColours[MAX_LIGHTS];
+		glm::vec3 lightAttentuations[MAX_LIGHTS];
+		float lightIntensities[MAX_LIGHTS];
 	};
 }
 
