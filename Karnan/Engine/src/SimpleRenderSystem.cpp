@@ -38,14 +38,15 @@ void SimpleRenderSystem::RenderObjects(Karnan::FrameInfo frameInfo, KarnanCamera
 	for (auto go : lights)
 	{
 		PointLight* light = dynamic_cast<PointLight*>(go);
-		ubo.lightPositions[activeLights] = go->Transform.Translation;
-		ubo.lightColours[activeLights] = light->GetColour();
-		ubo.lightAttentuations[activeLights] = light->GetAttentuation();
-		ubo.lightIntensities[activeLights] = light->GetIntensity();
+		ubo.lightPositions[activeLights] = glm::vec4(go->Transform.Translation, 1);
+		ubo.lightColours[activeLights] = glm::vec4(light->GetColour(), 1);
+		ubo.lightAttentuations[activeLights] = glm::vec4(light->GetAttentuation(), 1);
+		ubo.lightIntensities[activeLights].x = light->GetIntensity();
 		++activeLights;
 	}
 
-	ubo.numberLights = activeLights;
+	ubo.cameraPos = glm::vec4(camera.Transform.Translation, 1);
+	ubo.numberLights.x = activeLights;
 	ubo.projectionView = camera.GetProjection() * camera.GetView();
 	_globalUBOBuffers[frameInfo.FrameIndex]->UpdateUBO(&ubo);
 
@@ -105,7 +106,7 @@ void SimpleRenderSystem::CreateDesciptorSets()
 		.build();
 	
 	auto globalSetLayout = KarnanDescriptorSetLayout::Builder(_karnanDevice)
-		.addBinding(0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, VK_SHADER_STAGE_VERTEX_BIT)
+		.addBinding(0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, VK_SHADER_STAGE_ALL)
 		.build();
 	_globalSetLayout = move(globalSetLayout);
 

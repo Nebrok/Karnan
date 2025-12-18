@@ -13,4 +13,5 @@ void PointLight::Init()
 
 void PointLight::Update(double deltaTime)
 {
+	
 }

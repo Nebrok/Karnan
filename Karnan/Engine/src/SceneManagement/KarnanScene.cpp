@@ -37,9 +37,13 @@ void KarnanScene::LoadScene()
 		}
 	}
 
+	/*
 	PointLight* firstLight = DBG_NEW PointLight();
 	firstLight->Transform.Translation = { 1.0f, 1.0f, 1.0f };
+	firstLight->SetColour({ 0.0f, 0.0f, 1.0f });
 	_gameObjects.push_back(std::shared_ptr<PointLight>(firstLight));
+	*/
+	
 
 }
 
@@ -108,7 +112,4 @@ void KarnanScene::SerialiseScene()
 	SceneDataObject sceneData;
 	sceneData.SceneName = "TestScene1";
 	sceneData.SaveScene(_gameObjects);
-
-	//std::vector<std::shared_ptr<GameObject>> gameObjectsTemp;
-	//sceneData.LoadScene(gameObjectsTemp);
 }

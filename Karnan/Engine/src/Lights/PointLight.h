@@ -23,6 +23,7 @@ public:
 	void Update(double deltaTime) override;
 
 	glm::vec3 GetColour() {	return _lightColour;};
+	void SetColour(glm::vec3 colour) { _lightColour = colour; };
 	glm::vec3 GetAttentuation() { return _attenuation; };
 	float GetIntensity() { return _intensity; };
 

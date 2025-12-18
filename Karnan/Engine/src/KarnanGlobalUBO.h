@@ -17,11 +17,12 @@ namespace Karnan
 	struct GlobalUBO
 	{
 		glm::mat4 projectionView{ 1.f };
-		uint32_t numberLights;
-		glm::vec3 lightPositions[MAX_LIGHTS];
-		glm::vec3 lightColours[MAX_LIGHTS];
-		glm::vec3 lightAttentuations[MAX_LIGHTS];
-		float lightIntensities[MAX_LIGHTS];
+		glm::vec4 cameraPos;
+		glm::vec4 lightPositions[MAX_LIGHTS];
+		glm::vec4 lightColours[MAX_LIGHTS];
+		glm::vec4 lightAttentuations[MAX_LIGHTS];
+		glm::vec4 lightIntensities[MAX_LIGHTS]; //x is intensity
+		glm::vec4 numberLights; //x is numbler lights
 	};
 }
 
