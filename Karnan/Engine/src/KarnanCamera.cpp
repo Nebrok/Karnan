@@ -65,6 +65,12 @@ void KarnanCamera::Update(double deltaTime)
        Transform.Translation += _moveSpeed * (float)deltaTime * glm::normalize(moveDir);
     }
 
+    _moveSpeed += InputManagementSystem::Instance->GetScrollDelta().y;
+    if (InputManagementSystem::Instance->GetScrollDelta().y != 0)
+    {
+        int waaa = 1;
+    }
+
     SetViewYXZ(Transform.Translation, Transform.Rotation);
 }
 

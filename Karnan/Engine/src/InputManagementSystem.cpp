@@ -11,6 +11,12 @@ InputManagementSystem* InputManagementSystem::StartupInputManagementSystem()
 	return Instance;
 }
 
+void InputManagementSystem::InputSystemScrollCallback(GLFWwindow* window, double xoffset, double yoffset)
+{
+	InputManagementSystem::Instance->_mouseWheelOffsets.x += xoffset;
+	InputManagementSystem::Instance->_mouseWheelOffsets.y += yoffset;
+}
+
 void InputManagementSystem::UpdateKeyReads(GLFWwindow* window)
 {
 	_keyReadingsPressed[SupportedKeys::w] = glfwGetKey(window, (int)SupportedKeys::w) == GLFW_PRESS;
@@ -24,6 +30,8 @@ void InputManagementSystem::UpdateKeyReads(GLFWwindow* window)
 	_keyReadingsPressed[SupportedKeys::arrow_left] = glfwGetKey(window, (int)SupportedKeys::arrow_left) == GLFW_PRESS;
 	_keyReadingsPressed[SupportedKeys::arrow_down] = glfwGetKey(window, (int)SupportedKeys::arrow_down) == GLFW_PRESS;
 	_keyReadingsPressed[SupportedKeys::arrow_right] = glfwGetKey(window, (int)SupportedKeys::arrow_right) == GLFW_PRESS;
+
+	_mouseWheelOffsets = { 0.0f,0.0f,0.0f };
 }
 
 bool InputManagementSystem::GetKeyPressed(SupportedKeys key)

@@ -1,6 +1,10 @@
 #pragma once
 #include "KarnanWindow.h"
 
+#define GLM_FORCE_RADIANS
+#define GLM_FORCE_DEPTH_ZERO_TO_ONE
+#include <glm/glm.hpp>
+#include <glm/gtc/constants.hpp>
 
 #include <unordered_map>
 
@@ -29,11 +33,15 @@ public:
 private:
 	std::unordered_map<InputManagementSystem::SupportedKeys, bool> _keyReadingsPressed;
 
+	glm::vec3 _mouseWheelOffsets{ 0.0f, 0.0f, 0.0f };
+
 public:
 	static InputManagementSystem* StartupInputManagementSystem();
+	static void InputSystemScrollCallback(GLFWwindow* window, double xoffset, double yoffset);
 
 	void UpdateKeyReads(GLFWwindow* window);
 	bool GetKeyPressed(SupportedKeys key);
+	const glm::vec3 GetScrollDelta() const { return _mouseWheelOffsets; };
 
 private:
 	InputManagementSystem();

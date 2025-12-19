@@ -54,6 +54,7 @@ void EngineCore::Init()
 	_meshLoadingSystem = MeshLoadingSystem::StartMeshLoadingSystem();
 	_assetManager = AssetManager::StartupAssetManager();
 	_inputManagementSystem = std::unique_ptr<InputManagementSystem>(InputManagementSystem::StartupInputManagementSystem());
+	glfwSetScrollCallback(_windowRef, InputManagementSystem::InputSystemScrollCallback);
 }
 
 void EngineCore::Run()

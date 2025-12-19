@@ -19,8 +19,8 @@ public:
 	PointLight();
 
 
-	void Init() override;
-	void Update(double deltaTime) override;
+	virtual void Init() override;
+	virtual void Update(double deltaTime) override;
 
 	glm::vec3 GetColour() {	return _lightColour;};
 	void SetColour(glm::vec3 colour) { _lightColour = colour; };

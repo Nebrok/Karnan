@@ -37,14 +37,16 @@ void main()
 
 	vec3 diffuseLumin = vec3(0,0,0);
 	vec3 specularLumin = vec3(0,0,0);
+	
+	vec3 vectorToEye = normalize(vecToEye);
+	vec3 normalisedNormal = normalize(fragNormalWorld);
 
 	for (int i = 0; i < ubo.numberLights.x; i++)
 	{
 		vec3 lightDiffuse = vec3(0,0,0);
 		vec3 lightSpecular = vec3(0,0,0);
 
-		vec3 directionToLight = normalize(ubo.cameraPos.xyz - fragPosWorld);
-		vec3 normalisedNormal = normalize(fragNormalWorld);
+		vec3 directionToLight = normalize(ubo.lightPositions[i].xyz - fragPosWorld);
 
 		float difIntensity = max(dot(directionToLight, normalisedNormal), 0.0);
 		if (difIntensity > 0)
@@ -55,6 +57,17 @@ void main()
 			float attenuation = 1 / (ubo.lightAttentuations[i].x + ubo.lightAttentuations[i].y * distance + ubo.lightAttentuations[i].z * pow(distance, 2));
 
 			lightDiffuse += diffusePart * attenuation;
+
+			vec3 halfVector = normalize((directionToLight + vectorToEye) / 2);
+			float initialBrightness = max(dot(halfVector, normalisedNormal), 0.0);
+
+			float totalBrightness = initialBrightness;
+			for (int j = 0; j < 80; j++)
+			{
+				totalBrightness *= initialBrightness;
+			}
+			
+			lightSpecular = totalBrightness * ubo.lightColours[i].xyz * attenuation * matDiffuseColor;
 
 		}
 
