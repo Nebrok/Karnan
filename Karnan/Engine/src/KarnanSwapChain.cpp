@@ -267,6 +267,49 @@ void KarnanSwapChain::CreateDepthResources()
 
 void KarnanSwapChain::CreateRenderPass()
 {
+
+    VkAttachmentDescription positionsAttachment{}; 
+    positionsAttachment.format = VK_FORMAT_R16G16B16A16_SFLOAT;
+    positionsAttachment.samples = VK_SAMPLE_COUNT_1_BIT;
+    positionsAttachment.loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR;
+    positionsAttachment.storeOp = VK_ATTACHMENT_STORE_OP_STORE;
+    positionsAttachment.stencilStoreOp = VK_ATTACHMENT_STORE_OP_DONT_CARE;
+    positionsAttachment.stencilLoadOp = VK_ATTACHMENT_LOAD_OP_DONT_CARE;
+    positionsAttachment.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
+    positionsAttachment.finalLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+
+    VkAttachmentReference positionsAttachmentRef = {};
+    positionsAttachmentRef.attachment = 0;
+    positionsAttachmentRef.layout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+
+    VkAttachmentDescription normalsAttachment{};
+    normalsAttachment.format = VK_FORMAT_R16G16B16A16_SFLOAT;
+    normalsAttachment.samples = VK_SAMPLE_COUNT_1_BIT;
+    normalsAttachment.loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR;
+    normalsAttachment.storeOp = VK_ATTACHMENT_STORE_OP_STORE;
+    normalsAttachment.stencilStoreOp = VK_ATTACHMENT_STORE_OP_DONT_CARE;
+    normalsAttachment.stencilLoadOp = VK_ATTACHMENT_LOAD_OP_DONT_CARE;
+    normalsAttachment.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
+    normalsAttachment.finalLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+
+    VkAttachmentReference normalsAttachmentRef = {};
+    normalsAttachmentRef.attachment = 1;
+    normalsAttachmentRef.layout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+
+    VkAttachmentDescription albedoAttachment{};
+    albedoAttachment.format = VK_FORMAT_R8G8B8A8_UNORM;
+    albedoAttachment.samples = VK_SAMPLE_COUNT_1_BIT;
+    albedoAttachment.loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR;
+    albedoAttachment.storeOp = VK_ATTACHMENT_STORE_OP_STORE;
+    albedoAttachment.stencilStoreOp = VK_ATTACHMENT_STORE_OP_DONT_CARE;
+    albedoAttachment.stencilLoadOp = VK_ATTACHMENT_LOAD_OP_DONT_CARE;
+    albedoAttachment.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
+    albedoAttachment.finalLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+
+    VkAttachmentReference albedoAttachmentRef = {};
+    albedoAttachmentRef.attachment = 2;
+    albedoAttachmentRef.layout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+
     VkAttachmentDescription depthAttachment{};
     depthAttachment.format = FindDepthFormat();
     depthAttachment.samples = VK_SAMPLE_COUNT_1_BIT;
@@ -278,10 +321,10 @@ void KarnanSwapChain::CreateRenderPass()
     depthAttachment.finalLayout = VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL;
 
     VkAttachmentReference depthAttachmentRef{};
-    depthAttachmentRef.attachment = 1;
+    depthAttachmentRef.attachment = 3;
     depthAttachmentRef.layout = VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL;
 
-    VkAttachmentDescription colorAttachment = {};
+    VkAttachmentDescription colorAttachment{};
     colorAttachment.format = GetSwapChainImageFormat();
     colorAttachment.samples = VK_SAMPLE_COUNT_1_BIT;
     colorAttachment.loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR;
@@ -292,14 +335,27 @@ void KarnanSwapChain::CreateRenderPass()
     colorAttachment.finalLayout = VK_IMAGE_LAYOUT_PRESENT_SRC_KHR;
 
     VkAttachmentReference colorAttachmentRef = {};
-    colorAttachmentRef.attachment = 0;
+    colorAttachmentRef.attachment = 4;
     colorAttachmentRef.layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
 
-    VkSubpassDescription subpass = {};
-    subpass.pipelineBindPoint = VK_PIPELINE_BIND_POINT_GRAPHICS;
-    subpass.colorAttachmentCount = 1;
-    subpass.pColorAttachments = &colorAttachmentRef;
-    subpass.pDepthStencilAttachment = &depthAttachmentRef;
+    VkAttachmentDescription materialAttachment{};
+    
+
+
+    VkAttachmentReference geoColorReferences[] = { positionsAttachmentRef, normalsAttachmentRef, colorAttachmentRef };
+    VkSubpassDescription geometrySubpass = {};
+    geometrySubpass.pipelineBindPoint = VK_PIPELINE_BIND_POINT_GRAPHICS;
+    geometrySubpass.colorAttachmentCount = 3;
+    geometrySubpass.pColorAttachments = geoColorReferences;
+    geometrySubpass.pDepthStencilAttachment = &depthAttachmentRef;
+
+    VkAttachmentReference lightingColorReferences[] = { positionsAttachmentRef, normalsAttachmentRef, colorAttachmentRef };
+    VkSubpassDescription lightingSubpass = {};
+    lightingSubpass.pipelineBindPoint = VK_PIPELINE_BIND_POINT_GRAPHICS;
+    lightingSubpass.inputAttachmentCount = 3;
+    lightingSubpass.colorAttachmentCount = 1;
+    lightingSubpass.pColorAttachments = lightingColorReferences;
+    lightingSubpass.pDepthStencilAttachment = &depthAttachmentRef;
 
     VkSubpassDependency dependency = {};
     dependency.srcSubpass = VK_SUBPASS_EXTERNAL;
