@@ -96,7 +96,6 @@ void EngineCore::Run()
 			frameUpdateRunningTime = 0;
 		}
 
-		_inputManagementSystem->UpdateKeyReads(_windowRef);
 		_assetManager->Process();
 		_scene->UpdateScene(frameTime);
 
@@ -121,6 +120,7 @@ void EngineCore::Run()
 		}
 
 		/* Poll for and process events */
+		_inputManagementSystem->UpdateKeyReads(_windowRef);
 		glfwPollEvents();
 	}
 	_scene->SerialiseScene();
