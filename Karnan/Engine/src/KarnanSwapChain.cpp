@@ -339,8 +339,6 @@ void KarnanSwapChain::CreateRenderPass()
     colorAttachmentRef.layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
 
     VkAttachmentDescription materialAttachment{};
-    
-
 
     VkAttachmentReference geoColorReferences[] = { positionsAttachmentRef, normalsAttachmentRef, colorAttachmentRef };
     VkSubpassDescription geometrySubpass = {};
@@ -349,38 +347,41 @@ void KarnanSwapChain::CreateRenderPass()
     geometrySubpass.pColorAttachments = geoColorReferences;
     geometrySubpass.pDepthStencilAttachment = &depthAttachmentRef;
 
-    VkAttachmentReference lightingColorReferences[] = { positionsAttachmentRef, normalsAttachmentRef, colorAttachmentRef };
-    VkSubpassDescription lightingSubpass = {};
-    lightingSubpass.pipelineBindPoint = VK_PIPELINE_BIND_POINT_GRAPHICS;
-    lightingSubpass.inputAttachmentCount = 3;
-    lightingSubpass.colorAttachmentCount = 1;
-    lightingSubpass.pColorAttachments = lightingColorReferences;
-    lightingSubpass.pDepthStencilAttachment = &depthAttachmentRef;
+    VkSubpassDependency dependencyIn = {};
+    dependencyIn.srcSubpass = VK_SUBPASS_EXTERNAL;
+    dependencyIn.dstSubpass = 0;
+    dependencyIn.srcStageMask = VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT;
+    dependencyIn.dstStageMask = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
+    dependencyIn.srcAccessMask = VK_ACCESS_MEMORY_READ_BIT;
+    dependencyIn.dstAccessMask = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT;
+    dependencyIn.dependencyFlags = VK_DEPENDENCY_BY_REGION_BIT;
 
-    VkSubpassDependency dependency = {};
-    dependency.srcSubpass = VK_SUBPASS_EXTERNAL;
-    dependency.srcAccessMask = 0;
-    dependency.srcStageMask =
-        VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT | VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT;
-    dependency.dstSubpass = 0;
-    dependency.dstStageMask =
-        VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT | VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT;
-    dependency.dstAccessMask =
-        VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT;
+    VkSubpassDependency dependencyOut = {};
+    dependencyOut.srcSubpass = 0;
+    dependencyOut.dstSubpass = VK_SUBPASS_EXTERNAL;
+    dependencyOut.srcStageMask = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
+    dependencyOut.dstStageMask = VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT;
+    dependencyOut.srcAccessMask = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
+    dependencyOut.dstAccessMask = VK_ACCESS_SHADER_READ_BIT;
+    dependencyOut.dependencyFlags = VK_DEPENDENCY_BY_REGION_BIT;
 
-    std::array<VkAttachmentDescription, 2> attachments = { colorAttachment, depthAttachment };
+    std::array<VkAttachmentDescription, 4> attachments = { positionsAttachment, normalsAttachment, albedoAttachment, depthAttachment };
+    std::array<VkSubpassDependency, 2> dependencies = { dependencyIn, dependencyOut};
     VkRenderPassCreateInfo renderPassInfo = {};
     renderPassInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO;
     renderPassInfo.attachmentCount = static_cast<uint32_t>(attachments.size());
     renderPassInfo.pAttachments = attachments.data();
     renderPassInfo.subpassCount = 1;
-    renderPassInfo.pSubpasses = &subpass;
-    renderPassInfo.dependencyCount = 1;
-    renderPassInfo.pDependencies = &dependency;
+    renderPassInfo.pSubpasses = &geometrySubpass;
+    renderPassInfo.dependencyCount = static_cast<uint32_t>(dependencies.size());
+    renderPassInfo.pDependencies = dependencies.data();
 
     if (vkCreateRenderPass(_karnanDevice.Device(), &renderPassInfo, nullptr, &_renderPass) != VK_SUCCESS) {
         throw std::runtime_error("failed to create render pass!");
     }
+
+
+
 }
 
 void KarnanSwapChain::CreateFrameBuffers()
