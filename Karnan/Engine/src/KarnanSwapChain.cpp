@@ -37,11 +37,34 @@ KarnanSwapChain::~KarnanSwapChain()
         vkFreeMemory(_karnanDevice.Device(), _depthImageMemorys[i], nullptr);
     }
 
-    for (auto framebuffer : _swapChainFramebuffers) {
+    for (int i = 0; i < _positionImages.size(); i++) {
+        vkDestroyImageView(_karnanDevice.Device(), _positionImageViews[i], nullptr);
+        vkDestroyImage(_karnanDevice.Device(), _positionImages[i], nullptr);
+        vkFreeMemory(_karnanDevice.Device(), _positionImageMemorys[i], nullptr);
+    }
+
+    for (int i = 0; i < _normalImages.size(); i++) {
+        vkDestroyImageView(_karnanDevice.Device(), _normalImageViews[i], nullptr);
+        vkDestroyImage(_karnanDevice.Device(), _normalImages[i], nullptr);
+        vkFreeMemory(_karnanDevice.Device(), _normalImageMemorys[i], nullptr);
+    }
+
+    for (int i = 0; i < _albedoImages.size(); i++) {
+        vkDestroyImageView(_karnanDevice.Device(), _albedoImageViews[i], nullptr);
+        vkDestroyImage(_karnanDevice.Device(), _albedoImages[i], nullptr);
+        vkFreeMemory(_karnanDevice.Device(), _albedoImageMemorys[i], nullptr);
+    }
+
+    for (auto framebuffer : _swapChainGeometryFramebuffers) {
         vkDestroyFramebuffer(_karnanDevice.Device(), framebuffer, nullptr);
     }
 
-    vkDestroyRenderPass(_karnanDevice.Device(), _renderPass, nullptr);
+    for (auto framebuffer : _swapChainLightingFramebuffers) {
+        vkDestroyFramebuffer(_karnanDevice.Device(), framebuffer, nullptr);
+    }
+
+    vkDestroyRenderPass(_karnanDevice.Device(), _geometryRenderPass, nullptr);
+    vkDestroyRenderPass(_karnanDevice.Device(), _lightingRenderPass, nullptr);
 
     // cleanup synchronization objects
     for (size_t i = 0; i < MAX_FRAMES_IN_FLIGHT; i++) {
@@ -128,6 +151,7 @@ void KarnanSwapChain::Init()
     CreateSwapChain();
     CreateImageViews();
     CreateRenderPass();
+    CreateGBufferResources();
     CreateDepthResources();
     CreateFrameBuffers();
     CreateSyncObjects();
@@ -219,6 +243,140 @@ void KarnanSwapChain::CreateImageViews()
 
 }
 
+void KarnanSwapChain::CreateGBufferResources()
+{
+    VkExtent2D swapChainExtent = GetSwapChainExtent();
+    
+    // Positions Images and views
+    {
+        _positionImages.resize(ImageCount());
+        _positionImageMemorys.resize(ImageCount());
+        _positionImageViews.resize(ImageCount());
+
+        for (int i = 0; i < _positionImages.size(); i++) {
+            VkImageCreateInfo imageInfo{};
+            imageInfo.sType = VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO;
+            imageInfo.imageType = VK_IMAGE_TYPE_2D;
+            imageInfo.extent.width = swapChainExtent.width;
+            imageInfo.extent.height = swapChainExtent.height;
+            imageInfo.extent.depth = 1;
+            imageInfo.mipLevels = 1;
+            imageInfo.arrayLayers = 1;
+            imageInfo.format = _positionsFormat;
+            imageInfo.tiling = VK_IMAGE_TILING_OPTIMAL;
+            imageInfo.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
+            imageInfo.usage = VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT;
+            imageInfo.samples = VK_SAMPLE_COUNT_1_BIT;
+            imageInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
+            imageInfo.flags = 0;
+
+            _karnanDevice.CreateImageWithInfo(imageInfo, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, _positionImages[i], _positionImageMemorys[i]);
+
+            VkImageViewCreateInfo viewInfo{};
+            viewInfo.sType = VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO;
+            viewInfo.image = _positionImages[i];
+            viewInfo.viewType = VK_IMAGE_VIEW_TYPE_2D;
+            viewInfo.format = _positionsFormat;
+            viewInfo.subresourceRange.aspectMask = VK_IMAGE_ASPECT_DEPTH_BIT;
+            viewInfo.subresourceRange.baseMipLevel = 0;
+            viewInfo.subresourceRange.levelCount = 1;
+            viewInfo.subresourceRange.baseArrayLayer = 0;
+            viewInfo.subresourceRange.layerCount = 1;
+
+            if (vkCreateImageView(_karnanDevice.Device(), &viewInfo, nullptr, &_positionImageViews[i]) != VK_SUCCESS) {
+                throw std::runtime_error("failed to create texture image view!");
+            }
+        }
+    }
+
+
+    // Normal Images and views
+    {
+        _normalImages.resize(ImageCount());
+        _normalImageMemorys.resize(ImageCount());
+        _normalImageViews.resize(ImageCount());
+
+        for (int i = 0; i < _normalImages.size(); i++) {
+            VkImageCreateInfo imageInfo{};
+            imageInfo.sType = VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO;
+            imageInfo.imageType = VK_IMAGE_TYPE_2D;
+            imageInfo.extent.width = swapChainExtent.width;
+            imageInfo.extent.height = swapChainExtent.height;
+            imageInfo.extent.depth = 1;
+            imageInfo.mipLevels = 1;
+            imageInfo.arrayLayers = 1;
+            imageInfo.format = _normalFormat;
+            imageInfo.tiling = VK_IMAGE_TILING_OPTIMAL;
+            imageInfo.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
+            imageInfo.usage = VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT;
+            imageInfo.samples = VK_SAMPLE_COUNT_1_BIT;
+            imageInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
+            imageInfo.flags = 0;
+
+            _karnanDevice.CreateImageWithInfo(imageInfo, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, _normalImages[i], _normalImageMemorys[i]);
+
+            VkImageViewCreateInfo viewInfo{};
+            viewInfo.sType = VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO;
+            viewInfo.image = _normalImages[i];
+            viewInfo.viewType = VK_IMAGE_VIEW_TYPE_2D;
+            viewInfo.format = _normalFormat;
+            viewInfo.subresourceRange.aspectMask = VK_IMAGE_ASPECT_DEPTH_BIT;
+            viewInfo.subresourceRange.baseMipLevel = 0;
+            viewInfo.subresourceRange.levelCount = 1;
+            viewInfo.subresourceRange.baseArrayLayer = 0;
+            viewInfo.subresourceRange.layerCount = 1;
+
+            if (vkCreateImageView(_karnanDevice.Device(), &viewInfo, nullptr, &_normalImageViews[i]) != VK_SUCCESS) {
+                throw std::runtime_error("failed to create texture image view!");
+            }
+        }
+    }
+
+
+    // Albedo Images and views
+    {
+        _albedoImages.resize(ImageCount());
+        _albedoImageMemorys.resize(ImageCount());
+        _albedoImageViews.resize(ImageCount());
+
+        for (int i = 0; i < _albedoImages.size(); i++) {
+            VkImageCreateInfo imageInfo{};
+            imageInfo.sType = VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO;
+            imageInfo.imageType = VK_IMAGE_TYPE_2D;
+            imageInfo.extent.width = swapChainExtent.width;
+            imageInfo.extent.height = swapChainExtent.height;
+            imageInfo.extent.depth = 1;
+            imageInfo.mipLevels = 1;
+            imageInfo.arrayLayers = 1;
+            imageInfo.format = _albedoFormat;
+            imageInfo.tiling = VK_IMAGE_TILING_OPTIMAL;
+            imageInfo.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
+            imageInfo.usage = VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT;
+            imageInfo.samples = VK_SAMPLE_COUNT_1_BIT;
+            imageInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
+            imageInfo.flags = 0;
+
+            _karnanDevice.CreateImageWithInfo(imageInfo, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, _albedoImages[i], _albedoImageMemorys[i]);
+
+            VkImageViewCreateInfo viewInfo{};
+            viewInfo.sType = VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO;
+            viewInfo.image = _albedoImages[i];
+            viewInfo.viewType = VK_IMAGE_VIEW_TYPE_2D;
+            viewInfo.format = _albedoFormat;
+            viewInfo.subresourceRange.aspectMask = VK_IMAGE_ASPECT_DEPTH_BIT;
+            viewInfo.subresourceRange.baseMipLevel = 0;
+            viewInfo.subresourceRange.levelCount = 1;
+            viewInfo.subresourceRange.baseArrayLayer = 0;
+            viewInfo.subresourceRange.layerCount = 1;
+
+            if (vkCreateImageView(_karnanDevice.Device(), &viewInfo, nullptr, &_albedoImageViews[i]) != VK_SUCCESS) {
+                throw std::runtime_error("failed to create texture image view!");
+            }
+        }
+    }
+
+}
+
 void KarnanSwapChain::CreateDepthResources()
 {
     VkFormat depthFormat = FindDepthFormat();
@@ -267,9 +425,8 @@ void KarnanSwapChain::CreateDepthResources()
 
 void KarnanSwapChain::CreateRenderPass()
 {
-
     VkAttachmentDescription positionsAttachment{}; 
-    positionsAttachment.format = VK_FORMAT_R16G16B16A16_SFLOAT;
+    positionsAttachment.format = _positionsFormat;
     positionsAttachment.samples = VK_SAMPLE_COUNT_1_BIT;
     positionsAttachment.loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR;
     positionsAttachment.storeOp = VK_ATTACHMENT_STORE_OP_STORE;
@@ -283,7 +440,7 @@ void KarnanSwapChain::CreateRenderPass()
     positionsAttachmentRef.layout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
 
     VkAttachmentDescription normalsAttachment{};
-    normalsAttachment.format = VK_FORMAT_R16G16B16A16_SFLOAT;
+    normalsAttachment.format = _normalFormat;
     normalsAttachment.samples = VK_SAMPLE_COUNT_1_BIT;
     normalsAttachment.loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR;
     normalsAttachment.storeOp = VK_ATTACHMENT_STORE_OP_STORE;
@@ -297,7 +454,7 @@ void KarnanSwapChain::CreateRenderPass()
     normalsAttachmentRef.layout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
 
     VkAttachmentDescription albedoAttachment{};
-    albedoAttachment.format = VK_FORMAT_R8G8B8A8_UNORM;
+    albedoAttachment.format = _albedoFormat;
     albedoAttachment.samples = VK_SAMPLE_COUNT_1_BIT;
     albedoAttachment.loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR;
     albedoAttachment.storeOp = VK_ATTACHMENT_STORE_OP_STORE;
@@ -367,43 +524,91 @@ void KarnanSwapChain::CreateRenderPass()
 
     std::array<VkAttachmentDescription, 4> attachments = { positionsAttachment, normalsAttachment, albedoAttachment, depthAttachment };
     std::array<VkSubpassDependency, 2> dependencies = { dependencyIn, dependencyOut};
-    VkRenderPassCreateInfo renderPassInfo = {};
-    renderPassInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO;
-    renderPassInfo.attachmentCount = static_cast<uint32_t>(attachments.size());
-    renderPassInfo.pAttachments = attachments.data();
-    renderPassInfo.subpassCount = 1;
-    renderPassInfo.pSubpasses = &geometrySubpass;
-    renderPassInfo.dependencyCount = static_cast<uint32_t>(dependencies.size());
-    renderPassInfo.pDependencies = dependencies.data();
+    VkRenderPassCreateInfo geoRenderPassInfo = {};
+    geoRenderPassInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO;
+    geoRenderPassInfo.attachmentCount = static_cast<uint32_t>(attachments.size());
+    geoRenderPassInfo.pAttachments = attachments.data();
+    geoRenderPassInfo.subpassCount = 1;
+    geoRenderPassInfo.pSubpasses = &geometrySubpass;
+    geoRenderPassInfo.dependencyCount = static_cast<uint32_t>(dependencies.size());
+    geoRenderPassInfo.pDependencies = dependencies.data();
 
-    if (vkCreateRenderPass(_karnanDevice.Device(), &renderPassInfo, nullptr, &_renderPass) != VK_SUCCESS) {
-        throw std::runtime_error("failed to create render pass!");
+    if (vkCreateRenderPass(_karnanDevice.Device(), &geoRenderPassInfo, nullptr, &_geometryRenderPass) != VK_SUCCESS) {
+        throw std::runtime_error("failed to create geometry render pass!");
     }
 
+    //Lighting Render Pass
 
+    VkSubpassDescription lightingSubpass = {};
+    lightingSubpass.pipelineBindPoint = VK_PIPELINE_BIND_POINT_GRAPHICS;
+    lightingSubpass.colorAttachmentCount = 1;
+    lightingSubpass.pColorAttachments = &colorAttachmentRef;
+
+    VkSubpassDependency lightingDependencyIn = {};
+    dependencyIn.srcSubpass = VK_SUBPASS_EXTERNAL;
+    dependencyIn.dstSubpass = 0;
+    dependencyIn.srcStageMask = VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT;
+    dependencyIn.dstStageMask = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
+    dependencyIn.srcAccessMask = VK_ACCESS_SHADER_READ_BIT;
+    dependencyIn.dstAccessMask = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
+    dependencyIn.dependencyFlags = VK_DEPENDENCY_BY_REGION_BIT;
+
+    VkRenderPassCreateInfo lightingRenderPassInfo = {};
+    lightingRenderPassInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO;
+    lightingRenderPassInfo.attachmentCount = 1;
+    lightingRenderPassInfo.pAttachments = &colorAttachment;
+    lightingRenderPassInfo.subpassCount = 1;
+    lightingRenderPassInfo.pSubpasses = &lightingSubpass;
+    lightingRenderPassInfo.dependencyCount = 1;
+    lightingRenderPassInfo.pDependencies = &lightingDependencyIn;
+
+    if (vkCreateRenderPass(_karnanDevice.Device(), &lightingRenderPassInfo, nullptr, &_lightingRenderPass) != VK_SUCCESS) {
+        throw std::runtime_error("failed to create lighting render pass!");
+    }
 
 }
 
 void KarnanSwapChain::CreateFrameBuffers()
 {
-    _swapChainFramebuffers.resize(ImageCount());
+    VkExtent2D swapChainExtent = GetSwapChainExtent();
+    _swapChainGeometryFramebuffers.resize(ImageCount());
+    _swapChainLightingFramebuffers.resize(ImageCount());
+    
     for (size_t i = 0; i < ImageCount(); i++) {
-        std::array<VkImageView, 2> attachments = { _swapChainImageViews[i], _depthImageViews[i]};
+        std::array<VkImageView, 4> geometryAttachments = { _positionImageViews[i], _normalImageViews[i], _albedoImageViews[i], _depthImageViews[i]};
 
-        VkExtent2D swapChainExtent = GetSwapChainExtent();
         VkFramebufferCreateInfo framebufferInfo = {};
         framebufferInfo.sType = VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO;
-        framebufferInfo.renderPass = _renderPass;
-        framebufferInfo.attachmentCount = static_cast<uint32_t>(attachments.size());
-        framebufferInfo.pAttachments = attachments.data();
+        framebufferInfo.renderPass = _geometryRenderPass;
+        framebufferInfo.attachmentCount = static_cast<uint32_t>(geometryAttachments.size());
+        framebufferInfo.pAttachments = geometryAttachments.data();
         framebufferInfo.width = swapChainExtent.width;
         framebufferInfo.height = swapChainExtent.height;
         framebufferInfo.layers = 1;
 
-        if (vkCreateFramebuffer(_karnanDevice.Device(), &framebufferInfo, nullptr, &_swapChainFramebuffers[i]) != VK_SUCCESS) {
-            throw std::runtime_error("failed to create framebuffer!");
+        if (vkCreateFramebuffer(_karnanDevice.Device(), &framebufferInfo, nullptr, &_swapChainGeometryFramebuffers[i]) != VK_SUCCESS) {
+            throw std::runtime_error("failed to create geometry framebuffer!");
         }
     }
+
+    for (size_t i = 0; i < ImageCount(); i++) {
+        std::array<VkImageView, 1> lightingAttachments = { _swapChainImageViews[i] };
+
+        VkFramebufferCreateInfo framebufferInfo = {};
+        framebufferInfo.sType = VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO;
+        framebufferInfo.renderPass = _lightingRenderPass;
+        framebufferInfo.attachmentCount = static_cast<uint32_t>(lightingAttachments.size());
+        framebufferInfo.pAttachments = lightingAttachments.data();
+        framebufferInfo.width = swapChainExtent.width;
+        framebufferInfo.height = swapChainExtent.height;
+        framebufferInfo.layers = 1;
+
+        if (vkCreateFramebuffer(_karnanDevice.Device(), &framebufferInfo, nullptr, &_swapChainLightingFramebuffers[i]) != VK_SUCCESS) {
+            throw std::runtime_error("failed to create lighting framebuffer!");
+        }
+    }
+
+
 }
 
 void KarnanSwapChain::CreateSyncObjects()

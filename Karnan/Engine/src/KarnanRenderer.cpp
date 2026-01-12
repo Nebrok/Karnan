@@ -16,6 +16,27 @@ KarnanRenderer::~KarnanRenderer()
 	FreeCommandBuffers();
 }
 
+void KarnanRenderer::RenderFrame(double frameTime, KarnanScene& scene, KarnanEditor& editor)
+{
+	if (auto commandBuffer = BeginFrame())
+	{
+		BeginGeometryRenderPass(commandBuffer);
+
+		EndGeometryRenderPass(commandBuffer);
+
+
+		ConfigureBarriers(commandBuffer);
+
+
+		BeginLightingRenderPass(commandBuffer);
+
+		EndLightingRenderPass(commandBuffer);
+
+
+		EndFrame();
+	}
+}
+
 VkCommandBuffer KarnanRenderer::BeginFrame()
 {
 	assert(!_isFrameStarted && "Can't call begin frame while already in progrss");
@@ -48,6 +69,98 @@ VkCommandBuffer KarnanRenderer::BeginFrame()
 	return commandBuffer;
 }
 
+void KarnanRenderer::BeginGeometryRenderPass(VkCommandBuffer commandBuffer)
+{
+	assert(_isFrameStarted && "Cannot call BeginSwapChainRenderPass if frame is not in progress");
+	assert(commandBuffer == GetCurrentCommandBuffer() && "BeginSwapChainRenderPass: provided commandBuffer does not match current");
+
+	VkExtent2D swapchainExtent = _karnanSwapChain->GetSwapChainExtent();
+
+	VkRenderPassBeginInfo renderPassInfo{};
+	renderPassInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO;
+	renderPassInfo.renderPass = _karnanSwapChain->GetGeometryRenderPass();
+	renderPassInfo.framebuffer = _karnanSwapChain->GetGeometryFrameBuffer(_currentImageIndex);
+
+	renderPassInfo.renderArea.offset = { 0,0 };
+	renderPassInfo.renderArea.extent = swapchainExtent;
+
+	std::array<VkClearValue, 4> clearValues{};
+	clearValues[0].color = { 0.f, 0.f, 0.f, 1.0f };
+	clearValues[1].color = { 0.f, 0.f, 0.f, 1.0f };
+	clearValues[2].color = { 0.f, 0.f, 0.f, 1.0f };
+	clearValues[3].depthStencil = { 1.0f, 0 };
+	renderPassInfo.clearValueCount = static_cast<uint32_t>(clearValues.size());
+	renderPassInfo.pClearValues = clearValues.data();
+
+	vkCmdBeginRenderPass(commandBuffer, &renderPassInfo, VK_SUBPASS_CONTENTS_INLINE);
+
+	VkViewport viewport{};
+	viewport.x = 0.0f;
+	viewport.y = 0.0f;
+	viewport.width = static_cast<float>(swapchainExtent.width);
+	viewport.height = static_cast<float>(swapchainExtent.height);
+	viewport.minDepth = 0.0f;
+	viewport.maxDepth = 1.0f;
+	VkRect2D scissor{ {0,0}, swapchainExtent };
+	vkCmdSetViewport(commandBuffer, 0, 1, &viewport);
+	vkCmdSetScissor(commandBuffer, 0, 1, &scissor);
+}
+
+void KarnanRenderer::EndGeometryRenderPass(VkCommandBuffer commandBuffer)
+{
+	assert(_isFrameStarted && "Cannot call EndSwapChainRenderPass if frame is not in progress");
+	assert(commandBuffer == GetCurrentCommandBuffer() && "EndSwapChainRenderPass: provided commandBuffer does not match current");
+
+	vkCmdEndRenderPass(commandBuffer);
+}
+
+void KarnanRenderer::ConfigureBarriers(VkCommandBuffer commandBuffer)
+{
+}
+
+void KarnanRenderer::BeginLightingRenderPass(VkCommandBuffer commandBuffer)
+{
+	assert(_isFrameStarted && "Cannot call BeginSwapChainRenderPass if frame is not in progress");
+	assert(commandBuffer == GetCurrentCommandBuffer() && "BeginSwapChainRenderPass: provided commandBuffer does not match current");
+
+	VkExtent2D swapchainExtent = _karnanSwapChain->GetSwapChainExtent();
+
+	VkRenderPassBeginInfo renderPassInfo{};
+	renderPassInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO;
+	renderPassInfo.renderPass = _karnanSwapChain->GetLightingRenderPass();
+	renderPassInfo.framebuffer = _karnanSwapChain->GetLightingFrameBuffer(_currentImageIndex);
+
+	renderPassInfo.renderArea.offset = { 0,0 };
+	renderPassInfo.renderArea.extent = swapchainExtent;
+
+	std::array<VkClearValue, 1> clearValues{};
+	clearValues[0].color = { 0.08f, 0.08f, 0.08f, 1.0f };
+	renderPassInfo.clearValueCount = static_cast<uint32_t>(clearValues.size());
+	renderPassInfo.pClearValues = clearValues.data();
+
+	vkCmdBeginRenderPass(commandBuffer, &renderPassInfo, VK_SUBPASS_CONTENTS_INLINE);
+
+	VkViewport viewport{};
+	viewport.x = 0.0f;
+	viewport.y = 0.0f;
+	viewport.width = static_cast<float>(swapchainExtent.width);
+	viewport.height = static_cast<float>(swapchainExtent.height);
+	viewport.minDepth = 0.0f;
+	viewport.maxDepth = 1.0f;
+	VkRect2D scissor{ {0,0}, swapchainExtent };
+	vkCmdSetViewport(commandBuffer, 0, 1, &viewport);
+	vkCmdSetScissor(commandBuffer, 0, 1, &scissor);
+}
+
+void KarnanRenderer::EndLightingRenderPass(VkCommandBuffer commandBuffer)
+{
+	assert(_isFrameStarted && "Cannot call EndSwapChainRenderPass if frame is not in progress");
+	assert(commandBuffer == GetCurrentCommandBuffer() && "EndSwapChainRenderPass: provided commandBuffer does not match current");
+
+	vkCmdEndRenderPass(commandBuffer);
+}
+
+/*
 void KarnanRenderer::BeginSwapChainRenderPass(VkCommandBuffer commandBuffer)
 {
 	assert(_isFrameStarted && "Cannot call BeginSwapChainRenderPass if frame is not in progress");
@@ -88,6 +201,7 @@ void KarnanRenderer::EndSwapChainRenderPass(VkCommandBuffer commandBuffer)
 
 	vkCmdEndRenderPass(commandBuffer);
 }
+*/
 
 void KarnanRenderer::EndFrame()
 {

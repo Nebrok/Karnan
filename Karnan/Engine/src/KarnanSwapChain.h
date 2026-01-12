@@ -28,8 +28,28 @@ private:
 	std::vector<VkImage> _swapChainImages;
 	std::vector<VkImageView> _swapChainImageViews;
 
-	std::vector<VkFramebuffer> _swapChainFramebuffers;
-	VkRenderPass _renderPass;
+	//GBuffer Resources
+	VkFormat _positionsFormat = VK_FORMAT_R16G16B16A16_SFLOAT;
+	std::vector<VkImage> _positionImages;
+	std::vector<VkDeviceMemory> _positionImageMemorys;
+	std::vector<VkImageView> _positionImageViews;
+
+	VkFormat _normalFormat = VK_FORMAT_R16G16B16A16_SFLOAT;
+	std::vector<VkImage> _normalImages;
+	std::vector<VkDeviceMemory> _normalImageMemorys;
+	std::vector<VkImageView> _normalImageViews;
+
+	VkFormat _albedoFormat = VK_FORMAT_R8G8B8A8_UNORM;
+	std::vector<VkImage> _albedoImages;
+	std::vector<VkDeviceMemory> _albedoImageMemorys;
+	std::vector<VkImageView> _albedoImageViews;
+
+
+	std::vector<VkFramebuffer> _swapChainGeometryFramebuffers;
+	std::vector<VkFramebuffer> _swapChainLightingFramebuffers;
+
+	VkRenderPass _geometryRenderPass;
+	VkRenderPass _lightingRenderPass;
 
 	std::vector<VkSemaphore> _imageAvailableSemaphores;
 	std::vector<VkSemaphore> _renderFinishedSemaphores;
@@ -49,8 +69,10 @@ public:
 	VkFormat GetSwapChainImageFormat() { return _swapChainImageFormat; }
 	size_t ImageCount() { return _swapChainImages.size(); }
 	VkExtent2D GetSwapChainExtent() { return _swapChainExtent; }
-	VkFramebuffer GetFrameBuffer(int index) { return _swapChainFramebuffers[index]; }
-	VkRenderPass GetRenderPass() { return _renderPass; }
+	VkFramebuffer GetGeometryFrameBuffer(int index) { return _swapChainGeometryFramebuffers[index]; }
+	VkFramebuffer GetLightingFrameBuffer(int index) { return _swapChainLightingFramebuffers[index]; }
+	VkRenderPass GetGeometryRenderPass() { return _geometryRenderPass; }
+	VkRenderPass GetLightingRenderPass() { return _lightingRenderPass; }
 
 	VkFormat FindDepthFormat();
 
@@ -72,6 +94,7 @@ private:
 
 	void CreateSwapChain();
 	void CreateImageViews();
+	void CreateGBufferResources();
 	void CreateDepthResources();
 	void CreateRenderPass();
 	void CreateFrameBuffers();

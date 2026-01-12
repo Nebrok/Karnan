@@ -94,7 +94,7 @@ void KarnanMainGUI::Init()
 	init_info.MinImageCount = KarnanSwapChain::MAX_FRAMES_IN_FLIGHT;
 	init_info.ImageCount = KarnanSwapChain::MAX_FRAMES_IN_FLIGHT;
 	init_info.Allocator = nullptr;
-	init_info.PipelineInfoMain.RenderPass = _karnanRenderer.GetSwapChainRenderPass();
+	init_info.PipelineInfoMain.RenderPass = _karnanRenderer.GetSwapChainLightingRenderPass();
 	init_info.PipelineInfoMain.Subpass = 0;
 	init_info.PipelineInfoMain.MSAASamples = VK_SAMPLE_COUNT_1_BIT;
 	init_info.CheckVkResultFn = check_vk_result;

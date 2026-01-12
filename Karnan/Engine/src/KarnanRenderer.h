@@ -2,6 +2,8 @@
 #include "KarnanWindow.h"
 #include "KarnanDevice.h"
 #include "KarnanSwapChain.h"
+#include "SceneManagement/KarnanScene.h"
+#include "Editor/KarnanEditor.h"
 
 //std libs
 #include <cassert>
@@ -30,14 +32,29 @@ public:
 	KarnanRenderer(const KarnanRenderer&) = delete;
 	KarnanRenderer& operator=(const KarnanRenderer&) = delete;
 
+	void RenderFrame(double frameTime, KarnanScene& scene, KarnanEditor& editor);
+
+
 	VkCommandBuffer BeginFrame();
-	void BeginSwapChainRenderPass(VkCommandBuffer commandBuffer);
-	void EndSwapChainRenderPass(VkCommandBuffer commandBuffer);
+
+
+	void BeginGeometryRenderPass(VkCommandBuffer commandBuffer);
+	void EndGeometryRenderPass(VkCommandBuffer commandBuffer);
+
+	void ConfigureBarriers(VkCommandBuffer commandBuffer);
+
+	void BeginLightingRenderPass(VkCommandBuffer commandBuffer);
+	void EndLightingRenderPass(VkCommandBuffer commandBuffer);
+
+	//void BeginSwapChainRenderPass(VkCommandBuffer commandBuffer);
+	//void EndSwapChainRenderPass(VkCommandBuffer commandBuffer);
 	void EndFrame();
 
 
 
-	VkRenderPass GetSwapChainRenderPass() const { return _karnanSwapChain->GetRenderPass(); };
+	VkRenderPass GetSwapChainGeometryRenderPass() const { return _karnanSwapChain->GetGeometryRenderPass(); };
+	VkRenderPass GetSwapChainLightingRenderPass() const { return _karnanSwapChain->GetLightingRenderPass(); };
+
 	float GetAspectRatio() const { return _karnanSwapChain->ExtentAspectRatio(); }
 
 	bool IsFrameInProgress() const { return _isFrameStarted; };

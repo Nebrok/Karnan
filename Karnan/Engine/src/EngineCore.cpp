@@ -61,7 +61,7 @@ void EngineCore::Run()
 {
 	_renderSystem = std::unique_ptr<SimpleRenderSystem>(DBG_NEW SimpleRenderSystem(
 		_karnanDevice, 
-		_karnanRenderer.GetSwapChainRenderPass(), 
+		_karnanRenderer.GetSwapChainGeometryRenderPass(),
 		KarnanSwapChain::MAX_FRAMES_IN_FLIGHT));
 
 
@@ -102,6 +102,9 @@ void EngineCore::Run()
 		if (_editorMode)
 			_editor->Update();
 
+		_karnanRenderer.RenderFrame(frameTime, *_scene, *_editor);
+
+		/*
 		if (auto commandBuffer = _karnanRenderer.BeginFrame())
 		{
 			int frameIndex = _karnanRenderer.GetFrameIndex();
@@ -118,6 +121,7 @@ void EngineCore::Run()
 			_karnanRenderer.EndSwapChainRenderPass(commandBuffer);
 			_karnanRenderer.EndFrame();
 		}
+		*/
 
 		/* Poll for and process events */
 		_inputManagementSystem->UpdateKeyReads(_windowRef);
