@@ -202,6 +202,7 @@
     <ClInclude Include="src\BasicMesh.h" />
     <ClInclude Include="src\Boids\Boid.h" />
     <ClInclude Include="src\Boids\BoidManager.h" />
+    <ClInclude Include="src\DeferredRenderSystem.h" />
     <ClInclude Include="src\Editor\EditorContentBrowser.h" />
     <ClInclude Include="src\Editor\EditorDetailsPanel.h" />
     <ClInclude Include="src\Editor\EditorGOCreatorPanel.h" />
