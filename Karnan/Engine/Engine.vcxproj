@@ -155,6 +155,7 @@
     <ClCompile Include="src\BasicMesh.cpp" />
     <ClCompile Include="src\Boids\Boid.cpp" />
     <ClCompile Include="src\Boids\BoidManager.cpp" />
+    <ClCompile Include="src\DeferredRenderSystem.cpp" />
     <ClCompile Include="src\Editor\EditorContentBrowser.cpp" />
     <ClCompile Include="src\Editor\EditorDetailsPanel.cpp" />
     <ClCompile Include="src\Editor\EditorGOCreatorPanel.cpp" />

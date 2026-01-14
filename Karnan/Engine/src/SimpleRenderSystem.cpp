@@ -34,6 +34,7 @@ void SimpleRenderSystem::RenderObjects(Karnan::FrameInfo frameInfo, KarnanCamera
 {
 	Karnan::GlobalUBO ubo{};
 
+	/* Since changing the UBO to support deferred this won't work anymore
 	int activeLights = 0;
 	for (auto go : lights)
 	{
@@ -49,6 +50,7 @@ void SimpleRenderSystem::RenderObjects(Karnan::FrameInfo frameInfo, KarnanCamera
 	ubo.numberLights.x = activeLights;
 	ubo.projectionView = camera.GetProjection() * camera.GetView();
 	_globalUBOBuffers[frameInfo.FrameIndex]->UpdateUBO(&ubo);
+	*/
 
 	vkCmdBindDescriptorSets(
 		frameInfo.commandBuffer,
