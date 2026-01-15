@@ -23,5 +23,8 @@ layout (location = 0) out vec4 outColor;
 
 void main()
 {
-	outColor = vec4(0.5, 1.0, 0.8, 1.0);
+	vec3 toCamera = lightUbo.cameraPos.rgb - texture(gBufferPosition, texCoords).rgb;
+	float cameraAngle = dot(normalize(toCamera), texture(gBufferNormal, texCoords).rgb);
+
+	outColor = vec4(texture(gBufferAlbedo, texCoords).rgb * cameraAngle, 1.0);
 }

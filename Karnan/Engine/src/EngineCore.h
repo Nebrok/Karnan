@@ -12,7 +12,8 @@
 #include "Editor/KarnanEditor.h"
 
 #include "InputManagementSystem.h"
-#include "SimpleRenderSystem.h"
+//#include "SimpleRenderSystem.h"
+#include "DeferredRenderSystem.h"
 #include "MeshLoadingSystem.h"
 #include "AssetManagement/AssetManager.h"
 
@@ -37,7 +38,7 @@ private:
 	MeshLoadingSystem* _meshLoadingSystem;
 	AssetManager* _assetManager;
 	std::unique_ptr<InputManagementSystem> _inputManagementSystem;
-	std::unique_ptr<SimpleRenderSystem> _renderSystem;
+	std::unique_ptr<DeferredRenderSystem> _renderSystem;
 	std::unique_ptr<KarnanScene> _scene;
 
 	bool _editorMode = false;

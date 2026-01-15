@@ -171,6 +171,7 @@
     <ClCompile Include="src\Editor\KarnanEditor.cpp" />
     <ClCompile Include="src\KarnanGlobalUBO.cpp" />
     <ClCompile Include="src\Editor\KarnanMainGUI.cpp" />
+    <ClCompile Include="src\KarnanLightsUBO.cpp" />
     <ClCompile Include="src\KarnanMaterial.cpp" />
     <ClCompile Include="src\KarnanPipeline.cpp" />
     <ClCompile Include="src\KarnanRenderer.cpp" />
@@ -212,6 +213,7 @@
     <ClInclude Include="src\GameObject.h" />
     <ClInclude Include="src\IndexBuffer.h" />
     <ClInclude Include="src\InputManagementSystem.h" />
+    <ClInclude Include="src\KarnanLightsUBO.h" />
     <ClInclude Include="src\Lights\PointLight.h" />
     <ClInclude Include="src\MessagingSystem\AssetManagerMessages.h" />
     <ClInclude Include="src\SceneManagement\SceneDataObject.h" />

@@ -59,9 +59,9 @@ void EngineCore::Init()
 
 void EngineCore::Run()
 {
-	_renderSystem = std::unique_ptr<SimpleRenderSystem>(DBG_NEW SimpleRenderSystem(
+	_renderSystem = std::unique_ptr<DeferredRenderSystem>(DBG_NEW DeferredRenderSystem(
 		_karnanDevice, 
-		_karnanRenderer.GetSwapChainGeometryRenderPass(),
+		_karnanRenderer.GetSwapChain(),
 		KarnanSwapChain::MAX_FRAMES_IN_FLIGHT));
 
 
@@ -102,7 +102,30 @@ void EngineCore::Run()
 		if (_editorMode)
 			_editor->Update();
 
-		_karnanRenderer.RenderFrame(frameTime, *_scene, *_editor);
+		if (auto commandBuffer = _karnanRenderer.BeginFrame())
+		{
+			std::vector<GameObject*> lights;
+			std::vector<GameObject*> gameObjects;
+			KarnanCamera* camera = _scene->PrepareRenderInfo(_karnanRenderer.GetAspectRatio(), lights, gameObjects);
+
+
+			_karnanRenderer.BeginGeometryRenderPass(commandBuffer);
+
+			_renderSystem->GeometryPass(commandBuffer, _karnanRenderer.GetFrameIndex(), camera, gameObjects);
+			_karnanRenderer.EndGeometryRenderPass(commandBuffer);
+
+
+			_karnanRenderer.ConfigureBarriers(commandBuffer);
+
+
+			_karnanRenderer.BeginLightingRenderPass(commandBuffer);
+			_renderSystem->LightingPass(commandBuffer, _karnanRenderer.GetFrameIndex(), camera, lights, _karnanRenderer.GetSwapChain());
+			_editor->Render(commandBuffer);
+			_karnanRenderer.EndLightingRenderPass(commandBuffer);
+
+			_karnanRenderer.EndFrame();
+		}
+
 
 		/*
 		if (auto commandBuffer = _karnanRenderer.BeginFrame())
@@ -139,7 +162,7 @@ void EngineCore::Run()
 
 void EngineCore::LoadScene()
 {
-	std::unique_ptr<KarnanScene> newScene(DBG_NEW KarnanScene(*_renderSystem));
+	std::unique_ptr<KarnanScene> newScene(DBG_NEW KarnanScene());
 	_scene = move(newScene);
 
 	_scene->LoadScene();

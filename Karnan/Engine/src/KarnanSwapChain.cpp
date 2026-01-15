@@ -63,6 +63,8 @@ KarnanSwapChain::~KarnanSwapChain()
         vkDestroyFramebuffer(_karnanDevice.Device(), framebuffer, nullptr);
     }
 
+    vkDestroySampler(_karnanDevice.Device(), _bufferSampler, nullptr);
+
     vkDestroyRenderPass(_karnanDevice.Device(), _geometryRenderPass, nullptr);
     vkDestroyRenderPass(_karnanDevice.Device(), _lightingRenderPass, nullptr);
 
@@ -152,6 +154,8 @@ void KarnanSwapChain::Init()
     CreateImageViews();
     CreateRenderPass();
     CreateGBufferResources();
+    CreateSampler();
+    CreateGBufferDescriptorSets();
     CreateDepthResources();
     CreateFrameBuffers();
     CreateSyncObjects();
@@ -265,7 +269,7 @@ void KarnanSwapChain::CreateGBufferResources()
             imageInfo.format = _positionsFormat;
             imageInfo.tiling = VK_IMAGE_TILING_OPTIMAL;
             imageInfo.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
-            imageInfo.usage = VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT;
+            imageInfo.usage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_SAMPLED_BIT;
             imageInfo.samples = VK_SAMPLE_COUNT_1_BIT;
             imageInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
             imageInfo.flags = 0;
@@ -277,7 +281,7 @@ void KarnanSwapChain::CreateGBufferResources()
             viewInfo.image = _positionImages[i];
             viewInfo.viewType = VK_IMAGE_VIEW_TYPE_2D;
             viewInfo.format = _positionsFormat;
-            viewInfo.subresourceRange.aspectMask = VK_IMAGE_ASPECT_DEPTH_BIT;
+            viewInfo.subresourceRange.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
             viewInfo.subresourceRange.baseMipLevel = 0;
             viewInfo.subresourceRange.levelCount = 1;
             viewInfo.subresourceRange.baseArrayLayer = 0;
@@ -308,7 +312,7 @@ void KarnanSwapChain::CreateGBufferResources()
             imageInfo.format = _normalFormat;
             imageInfo.tiling = VK_IMAGE_TILING_OPTIMAL;
             imageInfo.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
-            imageInfo.usage = VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT;
+            imageInfo.usage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_SAMPLED_BIT;
             imageInfo.samples = VK_SAMPLE_COUNT_1_BIT;
             imageInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
             imageInfo.flags = 0;
@@ -320,7 +324,7 @@ void KarnanSwapChain::CreateGBufferResources()
             viewInfo.image = _normalImages[i];
             viewInfo.viewType = VK_IMAGE_VIEW_TYPE_2D;
             viewInfo.format = _normalFormat;
-            viewInfo.subresourceRange.aspectMask = VK_IMAGE_ASPECT_DEPTH_BIT;
+            viewInfo.subresourceRange.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
             viewInfo.subresourceRange.baseMipLevel = 0;
             viewInfo.subresourceRange.levelCount = 1;
             viewInfo.subresourceRange.baseArrayLayer = 0;
@@ -351,7 +355,7 @@ void KarnanSwapChain::CreateGBufferResources()
             imageInfo.format = _albedoFormat;
             imageInfo.tiling = VK_IMAGE_TILING_OPTIMAL;
             imageInfo.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
-            imageInfo.usage = VK_IMAGE_USAGE_DEPTH_STENCIL_ATTACHMENT_BIT;
+            imageInfo.usage = VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_SAMPLED_BIT;
             imageInfo.samples = VK_SAMPLE_COUNT_1_BIT;
             imageInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
             imageInfo.flags = 0;
@@ -363,7 +367,7 @@ void KarnanSwapChain::CreateGBufferResources()
             viewInfo.image = _albedoImages[i];
             viewInfo.viewType = VK_IMAGE_VIEW_TYPE_2D;
             viewInfo.format = _albedoFormat;
-            viewInfo.subresourceRange.aspectMask = VK_IMAGE_ASPECT_DEPTH_BIT;
+            viewInfo.subresourceRange.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
             viewInfo.subresourceRange.baseMipLevel = 0;
             viewInfo.subresourceRange.levelCount = 1;
             viewInfo.subresourceRange.baseArrayLayer = 0;
@@ -373,6 +377,80 @@ void KarnanSwapChain::CreateGBufferResources()
                 throw std::runtime_error("failed to create texture image view!");
             }
         }
+    }
+
+}
+
+void KarnanSwapChain::CreateSampler()
+{
+    VkSamplerCreateInfo samplerInfo = {};
+    samplerInfo.sType = VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO;
+    samplerInfo.pNext = nullptr;
+    samplerInfo.magFilter = VK_FILTER_LINEAR;
+    samplerInfo.minFilter = VK_FILTER_LINEAR;
+    samplerInfo.addressModeU = VK_SAMPLER_ADDRESS_MODE_REPEAT;
+    samplerInfo.addressModeV = VK_SAMPLER_ADDRESS_MODE_REPEAT;
+    samplerInfo.addressModeW = VK_SAMPLER_ADDRESS_MODE_REPEAT;
+
+    vkCreateSampler(_karnanDevice.Device(), &samplerInfo, nullptr, &_bufferSampler);
+}
+
+void KarnanSwapChain::CreateGBufferDescriptorSets()
+{
+    _gBufferDescriptorPool = KarnanDescriptorPool::Builder(_karnanDevice)
+        .setMaxSets(100)
+        .addPoolSize(VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, 100)
+        .build();
+
+
+    auto lightingSetLayout = KarnanDescriptorSetLayout::Builder(_karnanDevice)
+        .addBinding(0, VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, VK_SHADER_STAGE_FRAGMENT_BIT)
+        .addBinding(1, VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, VK_SHADER_STAGE_FRAGMENT_BIT)
+        .addBinding(2, VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, VK_SHADER_STAGE_FRAGMENT_BIT)
+        .build();
+    _gBufferDescriptorSetLayout = move(lightingSetLayout);
+
+    _positionDescriptorImages.clear();
+    for (int i = 0; i < ImageCount(); i++)
+    {
+        VkDescriptorImageInfo imageBufferInfo{};
+        imageBufferInfo.sampler = _bufferSampler;
+        imageBufferInfo.imageView = _positionImageViews[i];
+        imageBufferInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+
+        _positionDescriptorImages.push_back(imageBufferInfo);
+    }
+
+    _normalDescriptorImages.clear();
+    for (int i = 0; i < ImageCount(); i++)
+    {
+        VkDescriptorImageInfo imageBufferInfo{};
+        imageBufferInfo.sampler = _bufferSampler;
+        imageBufferInfo.imageView = _normalImageViews[i];
+        imageBufferInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+
+        _normalDescriptorImages.push_back(imageBufferInfo);
+    }
+
+    _albedoDescriptorImages.clear();
+    for (int i = 0; i < ImageCount(); i++)
+    {
+        VkDescriptorImageInfo imageBufferInfo{};
+        imageBufferInfo.sampler = _bufferSampler;
+        imageBufferInfo.imageView = _albedoImageViews[i];
+        imageBufferInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+
+        _albedoDescriptorImages.push_back(imageBufferInfo);
+    }
+
+    _gBufferDescriptorSets.resize(ImageCount());
+    KarnanDescriptorWriter writer = { *_gBufferDescriptorSetLayout, *_gBufferDescriptorPool };
+    for (int i = 0; i < ImageCount(); i++)
+    {
+        writer.writeImage(0, &(_positionDescriptorImages[i]));
+        writer.writeImage(1, &(_normalDescriptorImages[i]));
+        writer.writeImage(2, &(_albedoDescriptorImages[i]));
+        writer.build(_gBufferDescriptorSets[i]);
     }
 
 }
@@ -437,7 +515,7 @@ void KarnanSwapChain::CreateRenderPass()
 
     VkAttachmentReference positionsAttachmentRef = {};
     positionsAttachmentRef.attachment = 0;
-    positionsAttachmentRef.layout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+    positionsAttachmentRef.layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
 
     VkAttachmentDescription normalsAttachment{};
     normalsAttachment.format = _normalFormat;
@@ -451,7 +529,7 @@ void KarnanSwapChain::CreateRenderPass()
 
     VkAttachmentReference normalsAttachmentRef = {};
     normalsAttachmentRef.attachment = 1;
-    normalsAttachmentRef.layout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+    normalsAttachmentRef.layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
 
     VkAttachmentDescription albedoAttachment{};
     albedoAttachment.format = _albedoFormat;
@@ -465,7 +543,7 @@ void KarnanSwapChain::CreateRenderPass()
 
     VkAttachmentReference albedoAttachmentRef = {};
     albedoAttachmentRef.attachment = 2;
-    albedoAttachmentRef.layout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+    albedoAttachmentRef.layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
 
     VkAttachmentDescription depthAttachment{};
     depthAttachment.format = FindDepthFormat();
@@ -492,12 +570,12 @@ void KarnanSwapChain::CreateRenderPass()
     colorAttachment.finalLayout = VK_IMAGE_LAYOUT_PRESENT_SRC_KHR;
 
     VkAttachmentReference colorAttachmentRef = {};
-    colorAttachmentRef.attachment = 4;
+    colorAttachmentRef.attachment = 0;
     colorAttachmentRef.layout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
 
     VkAttachmentDescription materialAttachment{};
 
-    VkAttachmentReference geoColorReferences[] = { positionsAttachmentRef, normalsAttachmentRef, colorAttachmentRef };
+    VkAttachmentReference geoColorReferences[] = { positionsAttachmentRef, normalsAttachmentRef, albedoAttachmentRef };
     VkSubpassDescription geometrySubpass = {};
     geometrySubpass.pipelineBindPoint = VK_PIPELINE_BIND_POINT_GRAPHICS;
     geometrySubpass.colorAttachmentCount = 3;
@@ -510,7 +588,7 @@ void KarnanSwapChain::CreateRenderPass()
     dependencyIn.srcStageMask = VK_PIPELINE_STAGE_BOTTOM_OF_PIPE_BIT;
     dependencyIn.dstStageMask = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
     dependencyIn.srcAccessMask = VK_ACCESS_MEMORY_READ_BIT;
-    dependencyIn.dstAccessMask = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT;
+    dependencyIn.dstAccessMask = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
     dependencyIn.dependencyFlags = VK_DEPENDENCY_BY_REGION_BIT;
 
     VkSubpassDependency dependencyOut = {};
@@ -545,13 +623,13 @@ void KarnanSwapChain::CreateRenderPass()
     lightingSubpass.pColorAttachments = &colorAttachmentRef;
 
     VkSubpassDependency lightingDependencyIn = {};
-    dependencyIn.srcSubpass = VK_SUBPASS_EXTERNAL;
-    dependencyIn.dstSubpass = 0;
-    dependencyIn.srcStageMask = VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT;
-    dependencyIn.dstStageMask = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
-    dependencyIn.srcAccessMask = VK_ACCESS_SHADER_READ_BIT;
-    dependencyIn.dstAccessMask = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
-    dependencyIn.dependencyFlags = VK_DEPENDENCY_BY_REGION_BIT;
+    lightingDependencyIn.srcSubpass = VK_SUBPASS_EXTERNAL;
+    lightingDependencyIn.dstSubpass = 0;
+    lightingDependencyIn.srcStageMask = VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT;
+    lightingDependencyIn.dstStageMask = VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT;
+    lightingDependencyIn.srcAccessMask = VK_ACCESS_SHADER_READ_BIT;
+    lightingDependencyIn.dstAccessMask = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
+    lightingDependencyIn.dependencyFlags = VK_DEPENDENCY_BY_REGION_BIT;
 
     VkRenderPassCreateInfo lightingRenderPassInfo = {};
     lightingRenderPassInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_CREATE_INFO;

@@ -32,9 +32,6 @@ public:
 	KarnanRenderer(const KarnanRenderer&) = delete;
 	KarnanRenderer& operator=(const KarnanRenderer&) = delete;
 
-	void RenderFrame(double frameTime, KarnanScene& scene, KarnanEditor& editor);
-
-
 	VkCommandBuffer BeginFrame();
 
 
@@ -50,7 +47,7 @@ public:
 	//void EndSwapChainRenderPass(VkCommandBuffer commandBuffer);
 	void EndFrame();
 
-
+	KarnanSwapChain* GetSwapChain() { return _karnanSwapChain.get(); }
 
 	VkRenderPass GetSwapChainGeometryRenderPass() const { return _karnanSwapChain->GetGeometryRenderPass(); };
 	VkRenderPass GetSwapChainLightingRenderPass() const { return _karnanSwapChain->GetLightingRenderPass(); };

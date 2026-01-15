@@ -9,8 +9,7 @@
 
 #include "SceneDataObject.h"
 
-KarnanScene::KarnanScene(SimpleRenderSystem& renderSystem)
-	: _renderSystem(renderSystem)
+KarnanScene::KarnanScene()
 {
 	
 
@@ -55,23 +54,23 @@ void KarnanScene::UpdateScene(double deltaTime)
 	}
 }
 
-void KarnanScene::RenderScene(Karnan::FrameInfo frameInfo)
+KarnanCamera* KarnanScene::PrepareRenderInfo(float aspectRatio, std::vector<GameObject*>& lights, std::vector<GameObject*>& gameObjects)
 {
-	Camera->SetPerspectiveProjection(glm::radians(90.f), frameInfo.Aspect, 0.1f, 200.0f);
-	_renderSystem.BindPipeline(frameInfo.commandBuffer);
+	Camera->SetPerspectiveProjection(glm::radians(90.f), aspectRatio, 0.1f, 200.0f);
 
-	std::vector<GameObject*> renderableObjects;
-	std::vector<GameObject*> sceneLights;
-	for(auto go : _gameObjects)
+	lights.clear();
+	gameObjects.clear();
+
+	for (auto go : _gameObjects)
 	{
 		if (go->IsRenderable())
-			renderableObjects.push_back(go.get());
+			gameObjects.push_back(go.get());
 
 		if (PointLight* light = dynamic_cast<PointLight*>(go.get()); light != nullptr)
-			sceneLights.push_back(go.get());
+			lights.push_back(go.get());
 	}
 
-	_renderSystem.RenderObjects(frameInfo, *Camera, sceneLights, renderableObjects);
+	return Camera;
 }
 
 bool KarnanScene::RegisterGO(std::shared_ptr<GameObject> gameObject)

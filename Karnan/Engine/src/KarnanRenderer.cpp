@@ -16,27 +16,6 @@ KarnanRenderer::~KarnanRenderer()
 	FreeCommandBuffers();
 }
 
-void KarnanRenderer::RenderFrame(double frameTime, KarnanScene& scene, KarnanEditor& editor)
-{
-	if (auto commandBuffer = BeginFrame())
-	{
-		BeginGeometryRenderPass(commandBuffer);
-
-		EndGeometryRenderPass(commandBuffer);
-
-
-		ConfigureBarriers(commandBuffer);
-
-
-		BeginLightingRenderPass(commandBuffer);
-
-		EndLightingRenderPass(commandBuffer);
-
-
-		EndFrame();
-	}
-}
-
 VkCommandBuffer KarnanRenderer::BeginFrame()
 {
 	assert(!_isFrameStarted && "Can't call begin frame while already in progrss");
@@ -134,7 +113,7 @@ void KarnanRenderer::BeginLightingRenderPass(VkCommandBuffer commandBuffer)
 	renderPassInfo.renderArea.extent = swapchainExtent;
 
 	std::array<VkClearValue, 1> clearValues{};
-	clearValues[0].color = { 0.08f, 0.08f, 0.08f, 1.0f };
+	clearValues[0].color = { 0.5f, 0.5f, 0.5f, 1.0f };
 	renderPassInfo.clearValueCount = static_cast<uint32_t>(clearValues.size());
 	renderPassInfo.pClearValues = clearValues.data();
 

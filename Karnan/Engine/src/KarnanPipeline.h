@@ -18,7 +18,9 @@ struct PipelineConfigInfo
 	VkPipelineInputAssemblyStateCreateInfo inputAssemblyInfo;
 	VkPipelineRasterizationStateCreateInfo rasterizationInfo;
 	VkPipelineMultisampleStateCreateInfo multisampleInfo;
-	VkPipelineColorBlendAttachmentState colorBlendAttachment;
+	VkPipelineColorBlendAttachmentState colorBlendAttachment1;
+	VkPipelineColorBlendAttachmentState colorBlendAttachment2;
+	VkPipelineColorBlendAttachmentState colorBlendAttachment3;
 	VkPipelineColorBlendStateCreateInfo colorBlendInfo;
 	VkPipelineDepthStencilStateCreateInfo depthStencilInfo;
 	std::vector<VkDynamicState> dynamicStateEnables;
@@ -49,6 +51,8 @@ public:
 	void Bind(VkCommandBuffer commandBuffer);
 
 	static void DefaultPipelineConfigInfo(PipelineConfigInfo& configInfo);
+	static void GeometryPipelineConfigInfo(PipelineConfigInfo& configInfo);
+	static void LightingPipelineConfigInfo(PipelineConfigInfo& configInfo);
 
 private:
 	static std::vector<char> ReadFile(const std::string& filepath);

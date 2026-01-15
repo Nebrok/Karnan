@@ -13,8 +13,6 @@ class KarnanScene
 public:
 
 private:
-	SimpleRenderSystem& _renderSystem;
-
 	std::vector<std::shared_ptr<GameObject>> _gameObjects;
 
 	KarnanCamera* Camera;
@@ -24,12 +22,14 @@ private:
 	GameObject* Viewer;
 
 public:
-	KarnanScene(SimpleRenderSystem& renderSystem);
+	KarnanScene();
 	~KarnanScene();
 
 	void LoadScene();
 	void UpdateScene(double deltaTime);
-	void RenderScene(Karnan::FrameInfo frameInfo);
+
+	KarnanCamera* PrepareRenderInfo(float aspectRatio, std::vector<GameObject*>& lights, std::vector<GameObject*>& gameObjects);
+
 
 	bool RegisterGO(std::shared_ptr<GameObject> gameObject);
 	void DeleteGO(uint32_t goID);

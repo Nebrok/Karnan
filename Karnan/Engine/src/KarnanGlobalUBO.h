@@ -10,9 +10,6 @@
 
 #include "KarnanBuffer.h"
 
-#define FORWARD_MAX_LIGHTS 16
-#define DEFERRED_MAX_LIGHTS 128
-
 namespace Karnan
 {
 	struct GlobalUBO

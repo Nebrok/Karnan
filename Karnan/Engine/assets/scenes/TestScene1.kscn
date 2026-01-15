@@ -38,13 +38,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>-11.20824146270752</value0>
-							<value1>1.5954314470291138</value1>
-							<value2>3.5021669864654541</value2>
+							<value0>2.0047273635864258</value0>
+							<value1>0.20663975179195404</value1>
+							<value2>2.0922622680664062</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.41238662600517273</value0>
-							<value1>2.0391166210174561</value1>
+							<value0>0</value0>
+							<value1>2.3075034618377686</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>

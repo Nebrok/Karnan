@@ -1,6 +1,8 @@
 #pragma once
 #include "KarnanDevice.h"
 
+#include "VulkanDescriptors.h"
+
 //std libs
 #include <memory>
 
@@ -45,6 +47,19 @@ private:
 	std::vector<VkImageView> _albedoImageViews;
 
 
+	//GBuffer Descriptor info
+	std::unique_ptr<KarnanDescriptorPool> _gBufferDescriptorPool{};
+	std::unique_ptr<KarnanDescriptorSetLayout> _gBufferDescriptorSetLayout;
+
+	std::vector<VkDescriptorImageInfo> _positionDescriptorImages;
+	std::vector<VkDescriptorImageInfo> _normalDescriptorImages;
+	std::vector<VkDescriptorImageInfo> _albedoDescriptorImages;
+
+	std::vector<VkDescriptorSet> _gBufferDescriptorSets;
+
+
+	VkSampler _bufferSampler;
+
 	std::vector<VkFramebuffer> _swapChainGeometryFramebuffers;
 	std::vector<VkFramebuffer> _swapChainLightingFramebuffers;
 
@@ -76,6 +91,8 @@ public:
 
 	VkFormat FindDepthFormat();
 
+	VkDescriptorSetLayout GetGBufferDescriptorSetLayout() { return _gBufferDescriptorSetLayout->getDescriptorSetLayout(); }
+	VkDescriptorSet& GetCurrentGBufferDescriptorSet() { return _gBufferDescriptorSets[currentFrame]; }
 
 	float ExtentAspectRatio() {
 		return static_cast<float>(_swapChainExtent.width) / static_cast<float>(_swapChainExtent.height);
@@ -95,6 +112,8 @@ private:
 	void CreateSwapChain();
 	void CreateImageViews();
 	void CreateGBufferResources();
+	void CreateSampler();
+	void CreateGBufferDescriptorSets();
 	void CreateDepthResources();
 	void CreateRenderPass();
 	void CreateFrameBuffers();

@@ -19,6 +19,7 @@ struct SimplePushConstantData
 	glm::mat4 normalMatrix{ 1.f };
 };
 
+
 class SimpleRenderSystem
 {
 
