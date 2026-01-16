@@ -67,7 +67,7 @@ public:
 	void SetupPipelines();
 
 	void GeometryPass(VkCommandBuffer commandBuffer, int frameIndex, KarnanCamera* camera, std::vector<GameObject*>& gameObjects);
-	void LightingPass(VkCommandBuffer commandBuffer, int frameIndex, KarnanCamera* camera, std::vector<GameObject*>& lights, KarnanSwapChain* currentSwapchain);
+	void LightingPass(VkCommandBuffer commandBuffer, int frameIndex, int imageIndex, KarnanCamera* camera, std::vector<GameObject*>& lights, KarnanSwapChain* currentSwapchain);
 
 private:
 	void DrawFullscreenQuad(VkCommandBuffer commandBuffer);

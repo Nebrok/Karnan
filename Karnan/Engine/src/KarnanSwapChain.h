@@ -92,7 +92,11 @@ public:
 	VkFormat FindDepthFormat();
 
 	VkDescriptorSetLayout GetGBufferDescriptorSetLayout() { return _gBufferDescriptorSetLayout->getDescriptorSetLayout(); }
-	VkDescriptorSet& GetCurrentGBufferDescriptorSet() { return _gBufferDescriptorSets[currentFrame]; }
+	VkDescriptorSet& GetCurrentGBufferDescriptorSet(int index) { return _gBufferDescriptorSets[index]; }
+
+	VkImage GetPositionImage(int index) { return _positionImages[index]; };
+	VkImage GetNormalImage(int index) { return _normalImages[index]; };
+	VkImage GetAlbedoImage(int index) { return _albedoImages[index]; };
 
 	float ExtentAspectRatio() {
 		return static_cast<float>(_swapChainExtent.width) / static_cast<float>(_swapChainExtent.height);

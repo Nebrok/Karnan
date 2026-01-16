@@ -119,7 +119,7 @@ void EngineCore::Run()
 
 
 			_karnanRenderer.BeginLightingRenderPass(commandBuffer);
-			_renderSystem->LightingPass(commandBuffer, _karnanRenderer.GetFrameIndex(), camera, lights, _karnanRenderer.GetSwapChain());
+			_renderSystem->LightingPass(commandBuffer, _karnanRenderer.GetFrameIndex(), _karnanRenderer.GetImageIndex(), camera, lights, _karnanRenderer.GetSwapChain());
 			_editor->Render(commandBuffer);
 			_karnanRenderer.EndLightingRenderPass(commandBuffer);
 

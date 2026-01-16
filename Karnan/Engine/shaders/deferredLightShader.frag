@@ -21,10 +21,54 @@ layout (set = 1, binding = 2) uniform sampler2D gBufferAlbedo;
 
 layout (location = 0) out vec4 outColor; 
 
+const float AMBIENT = 0.1;
+
 void main()
 {
-	vec3 toCamera = lightUbo.cameraPos.rgb - texture(gBufferPosition, texCoords).rgb;
-	float cameraAngle = dot(normalize(toCamera), texture(gBufferNormal, texCoords).rgb);
+	vec3 matDiffuseColor = texture(gBufferAlbedo, texCoords).xyz;
+	vec3 normal = texture(gBufferNormal, texCoords).xyz;
+	vec3 worldPosition = texture(gBufferPosition, texCoords).xyz;
 
-	outColor = vec4(texture(gBufferAlbedo, texCoords).rgb * cameraAngle, 1.0);
+	vec3 normalisedCameraDirection = normalize(lightUbo.cameraPos.xyz - worldPosition);
+
+	vec3 diffuseLumin = vec3(0,0,0);
+	vec3 specularLumin = vec3(0,0,0);
+	
+	for (int i = 0; i < lightUbo.numberLights.x; i++)
+	{
+		vec3 lightDiffuse = vec3(0,0,0);
+		vec3 lightSpecular = vec3(0,0,0);
+
+		vec3 directionToLight = normalize(lightUbo.lightPositions[i].xyz - worldPosition);
+
+		float difIntensity = max(dot(directionToLight, normal), 0.0);
+		if (difIntensity > 0)
+		{
+			vec3 diffusePart = difIntensity * lightUbo.lightColours[i].xyz * matDiffuseColor;
+			float distance = length(lightUbo.lightPositions[i].xyz - worldPosition);
+
+			float attenuation = 1 / (lightUbo.lightAttentuations[i].x + lightUbo.lightAttentuations[i].y * distance + lightUbo.lightAttentuations[i].z * pow(distance, 2));
+
+			lightDiffuse += diffusePart * attenuation;
+
+			vec3 halfVector = normalize((directionToLight + normalisedCameraDirection) / 2);
+			float initialBrightness = max(dot(halfVector, normal), 0.0);
+
+			float totalBrightness = initialBrightness;
+			for (int j = 0; j < 80; j++)
+			{
+				totalBrightness *= initialBrightness;
+			}
+
+			lightSpecular = totalBrightness * lightUbo.lightColours[i].xyz * attenuation * matDiffuseColor;
+
+		}
+
+		diffuseLumin += lightDiffuse;
+		specularLumin += lightSpecular;
+
+
+	}
+	
+	outColor = vec4((matDiffuseColor * AMBIENT) + diffuseLumin + specularLumin, 1);
 }

@@ -38,13 +38,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>2.0047273635864258</value0>
-							<value1>0.20663975179195404</value1>
-							<value2>2.0922622680664062</value2>
+							<value0>2.109332799911499</value0>
+							<value1>0.92011082172393799</value1>
+							<value2>2.7716841697692871</value2>
 						</Translation>
 						<Rotation>
-							<value0>0</value0>
-							<value1>2.3075034618377686</value1>
+							<value0>0.46024924516677856</value0>
+							<value1>3.8281674385070801</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -183,7 +183,7 @@
 					<Transform>
 						<Translation>
 							<value0>3.309999942779541</value0>
-							<value1>0.019999999552965164</value1>
+							<value1>0.67000001668930054</value1>
 							<value2>-1.1699999570846558</value2>
 						</Translation>
 						<Rotation>
@@ -223,8 +223,8 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>0.10000000149011612</value0>
-							<value1>2.619999885559082</value1>
+							<value0>-0.05000000074505806</value0>
+							<value1>1.2400000095367432</value1>
 							<value2>-0.87000000476837158</value2>
 						</Translation>
 						<Rotation>
@@ -265,7 +265,7 @@
 					<Transform>
 						<Translation>
 							<value0>-0.05000000074505806</value0>
-							<value1>0.070000000298023224</value1>
+							<value1>0.2199999988079071</value1>
 							<value2>1.9299999475479126</value2>
 						</Translation>
 						<Rotation>

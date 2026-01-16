@@ -196,7 +196,7 @@ void DeferredRenderSystem::GeometryPass(VkCommandBuffer commandBuffer, int frame
 
 }
 
-void DeferredRenderSystem::LightingPass(VkCommandBuffer commandBuffer, int frameIndex, KarnanCamera* camera, std::vector<GameObject*>& lights, KarnanSwapChain* currentSwapchain)
+void DeferredRenderSystem::LightingPass(VkCommandBuffer commandBuffer, int frameIndex, int imageIndex, KarnanCamera* camera, std::vector<GameObject*>& lights, KarnanSwapChain* currentSwapchain)
 {
 	_lightingPipeline->Bind(commandBuffer);
 
@@ -229,7 +229,7 @@ void DeferredRenderSystem::LightingPass(VkCommandBuffer commandBuffer, int frame
 		VK_PIPELINE_BIND_POINT_GRAPHICS,
 		_lightingLayout,
 		1, 1,
-		&currentSwapchain->GetCurrentGBufferDescriptorSet(),
+		&currentSwapchain->GetCurrentGBufferDescriptorSet(imageIndex),
 		0, nullptr);
 
 
@@ -244,12 +244,12 @@ void DeferredRenderSystem::DrawFullscreenQuad(VkCommandBuffer commandBuffer)
 	{
 		std::vector<VertexBuffer::Vertex> vertices =
 		{
-			{ {-1.0f, -1.0f, 0.0f}, {1.0f, 1.0f, 1.0f}, {0.0f, 1.0f}},
-			{ { 1.0f, -1.0f, 0.0f}, {1.0f, 1.0f, 1.0f}, {1.0f, 1.0f}},
-			{ {-1.0f,  1.0f, 0.0f}, {1.0f, 1.0f, 1.0f}, {0.0f, 0.0f}},
-			{ { 1.0f, -1.0f, 0.0f}, {1.0f, 1.0f, 1.0f}, {1.0f, 1.0f}},
-			{ { 1.0f,  1.0f, 0.0f}, {1.0f, 1.0f, 1.0f}, {1.0f, 0.0f}},
-			{ {-1.0f,  1.0f, 0.0f}, {1.0f, 1.0f, 1.0f}, {0.0f, 0.0f}}
+			{ {-1.0f, -1.0f, 0.0f}, {1.0f, 1.0f, 1.0f}, {0.0f, 0.0f}},
+			{ { 1.0f, -1.0f, 0.0f}, {1.0f, 1.0f, 1.0f}, {1.0f, 0.0f}},
+			{ {-1.0f,  1.0f, 0.0f}, {1.0f, 1.0f, 1.0f}, {0.0f, 1.0f}},
+			{ { 1.0f, -1.0f, 0.0f}, {1.0f, 1.0f, 1.0f}, {1.0f, 0.0f}},
+			{ { 1.0f,  1.0f, 0.0f}, {1.0f, 1.0f, 1.0f}, {1.0f, 1.0f}},
+			{ {-1.0f,  1.0f, 0.0f}, {1.0f, 1.0f, 1.0f}, {0.0f, 1.0f}}
 		};
 
 		_quadBuffer = DBG_NEW VertexBuffer{ _karnanDevice, vertices };

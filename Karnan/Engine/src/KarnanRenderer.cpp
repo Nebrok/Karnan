@@ -66,7 +66,7 @@ void KarnanRenderer::BeginGeometryRenderPass(VkCommandBuffer commandBuffer)
 	std::array<VkClearValue, 4> clearValues{};
 	clearValues[0].color = { 0.f, 0.f, 0.f, 1.0f };
 	clearValues[1].color = { 0.f, 0.f, 0.f, 1.0f };
-	clearValues[2].color = { 0.f, 0.f, 0.f, 1.0f };
+	clearValues[2].color = { 0.08f, 0.08f, 0.08f, 1.0f };
 	clearValues[3].depthStencil = { 1.0f, 0 };
 	renderPassInfo.clearValueCount = static_cast<uint32_t>(clearValues.size());
 	renderPassInfo.pClearValues = clearValues.data();
@@ -95,6 +95,68 @@ void KarnanRenderer::EndGeometryRenderPass(VkCommandBuffer commandBuffer)
 
 void KarnanRenderer::ConfigureBarriers(VkCommandBuffer commandBuffer)
 {
+	/* In the end I don't think this is necessary because of the subpass dependencies
+	VkImageMemoryBarrier positionImageBarrier{};
+	positionImageBarrier.sType = VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER;
+	positionImageBarrier.oldLayout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
+	positionImageBarrier.newLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+	positionImageBarrier.srcAccessMask = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
+	positionImageBarrier.dstAccessMask = VK_ACCESS_SHADER_READ_BIT;
+	positionImageBarrier.srcQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
+	positionImageBarrier.dstQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
+	positionImageBarrier.image = _karnanSwapChain->GetPositionImage();
+	positionImageBarrier.subresourceRange = { VK_IMAGE_ASPECT_COLOR_BIT, 0, 1, 0, 1 };
+
+	VkImageMemoryBarrier normalImageBarrier{};
+	normalImageBarrier.sType = VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER;
+	normalImageBarrier.oldLayout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
+	normalImageBarrier.newLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+	normalImageBarrier.srcAccessMask = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
+	normalImageBarrier.dstAccessMask = VK_ACCESS_SHADER_READ_BIT;
+	normalImageBarrier.srcQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
+	normalImageBarrier.dstQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
+	normalImageBarrier.image = _karnanSwapChain->GetNormalImage();
+	normalImageBarrier.subresourceRange = { VK_IMAGE_ASPECT_COLOR_BIT, 0, 1, 0, 1 };
+
+	VkImageMemoryBarrier albedoImageBarrier{};
+	albedoImageBarrier.sType = VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER;
+	albedoImageBarrier.oldLayout = VK_IMAGE_LAYOUT_COLOR_ATTACHMENT_OPTIMAL;
+	albedoImageBarrier.newLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+	albedoImageBarrier.srcAccessMask = VK_ACCESS_COLOR_ATTACHMENT_WRITE_BIT;
+	albedoImageBarrier.dstAccessMask = VK_ACCESS_SHADER_READ_BIT;
+	albedoImageBarrier.srcQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
+	albedoImageBarrier.dstQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
+	albedoImageBarrier.image = _karnanSwapChain->GetAlbedoImage();
+	albedoImageBarrier.subresourceRange = { VK_IMAGE_ASPECT_COLOR_BIT, 0, 1, 0, 1 };
+
+	vkCmdPipelineBarrier(
+		commandBuffer,
+		VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT,
+		VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT,
+		0,
+		0, nullptr,
+		0, nullptr,
+		1, &positionImageBarrier);
+
+	vkCmdPipelineBarrier(
+		commandBuffer,
+		VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT,
+		VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT,
+		0,
+		0, nullptr,
+		0, nullptr,
+		1, &normalImageBarrier);
+
+	vkCmdPipelineBarrier(
+		commandBuffer,
+		VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT,
+		VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT,
+		0,
+		0, nullptr,
+		0, nullptr,
+		1, &albedoImageBarrier);
+	*/
+
 }
 
 void KarnanRenderer::BeginLightingRenderPass(VkCommandBuffer commandBuffer)
@@ -113,7 +175,7 @@ void KarnanRenderer::BeginLightingRenderPass(VkCommandBuffer commandBuffer)
 	renderPassInfo.renderArea.extent = swapchainExtent;
 
 	std::array<VkClearValue, 1> clearValues{};
-	clearValues[0].color = { 0.5f, 0.5f, 0.5f, 1.0f };
+	clearValues[0].color = { 0.0f, 0.0f, 0.0f, 1.0f };
 	renderPassInfo.clearValueCount = static_cast<uint32_t>(clearValues.size());
 	renderPassInfo.pClearValues = clearValues.data();
 
@@ -138,49 +200,6 @@ void KarnanRenderer::EndLightingRenderPass(VkCommandBuffer commandBuffer)
 
 	vkCmdEndRenderPass(commandBuffer);
 }
-
-/*
-void KarnanRenderer::BeginSwapChainRenderPass(VkCommandBuffer commandBuffer)
-{
-	assert(_isFrameStarted && "Cannot call BeginSwapChainRenderPass if frame is not in progress");
-	assert(commandBuffer == GetCurrentCommandBuffer() && "BeginSwapChainRenderPass: provided commandBuffer does not match current");
-
-	VkRenderPassBeginInfo renderPassInfo{};
-	renderPassInfo.sType = VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO;
-	renderPassInfo.renderPass = _karnanSwapChain->GetRenderPass();
-	renderPassInfo.framebuffer = _karnanSwapChain->GetFrameBuffer(_currentImageIndex);
-
-	renderPassInfo.renderArea.offset = { 0,0 };
-	renderPassInfo.renderArea.extent = _karnanSwapChain->GetSwapChainExtent();
-
-	std::array<VkClearValue, 2> clearValues{};
-	clearValues[0].color = { 0.08f, 0.08f, 0.08f, 1.0f };
-	clearValues[1].depthStencil = { 1.0f, 0 };
-	renderPassInfo.clearValueCount = static_cast<uint32_t>(clearValues.size());
-	renderPassInfo.pClearValues = clearValues.data();
-
-	vkCmdBeginRenderPass(commandBuffer, &renderPassInfo, VK_SUBPASS_CONTENTS_INLINE);
-
-	VkViewport viewport{};
-	viewport.x = 0.0f;
-	viewport.y = 0.0f;
-	viewport.width = static_cast<float>(_karnanSwapChain->GetSwapChainExtent().width);
-	viewport.height = static_cast<float>(_karnanSwapChain->GetSwapChainExtent().height);
-	viewport.minDepth = 0.0f;
-	viewport.maxDepth = 1.0f;
-	VkRect2D scissor{ {0,0}, _karnanSwapChain->GetSwapChainExtent() };
-	vkCmdSetViewport(commandBuffer, 0, 1, &viewport);
-	vkCmdSetScissor(commandBuffer, 0, 1, &scissor);
-}
-
-void KarnanRenderer::EndSwapChainRenderPass(VkCommandBuffer commandBuffer)
-{
-	assert(_isFrameStarted && "Cannot call EndSwapChainRenderPass if frame is not in progress");
-	assert(commandBuffer == GetCurrentCommandBuffer() && "EndSwapChainRenderPass: provided commandBuffer does not match current");
-
-	vkCmdEndRenderPass(commandBuffer);
-}
-*/
 
 void KarnanRenderer::EndFrame()
 {

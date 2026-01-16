@@ -67,6 +67,12 @@ public:
 		return _currentFrameIndex;
 	}
 
+	int GetImageIndex() const
+	{
+		assert(_isFrameStarted && "Cannot get frame index when frame is not in progress");
+		return _currentImageIndex;
+	}
+
 private:
 
 	void CreateCommandBuffers();
