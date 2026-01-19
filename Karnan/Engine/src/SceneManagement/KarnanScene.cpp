@@ -37,11 +37,16 @@ void KarnanScene::LoadScene()
 	}
 
 	/*
-	PointLight* firstLight = DBG_NEW PointLight();
-	firstLight->Transform.Translation = { 1.0f, 1.0f, 1.0f };
-	firstLight->SetColour({ 0.0f, 0.0f, 1.0f });
-	_gameObjects.push_back(std::shared_ptr<PointLight>(firstLight));
 	*/
+	for (int i = 0; i < 50; i++)
+	{
+		PointLight* firstLight = DBG_NEW PointLight();
+		firstLight->Transform.Translation = { float(rand() % 25), float(rand() % 25), float(rand() % 25) };
+		firstLight->SetColour({1.0f, 1.0f, 1.0f });
+		_gameObjects.push_back(std::shared_ptr<PointLight>(firstLight));
+	}
+	
+	
 	
 
 }
