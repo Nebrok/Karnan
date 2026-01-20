@@ -31,7 +31,7 @@ void EditorGOCreatorPanel::OnImGUIRender()
 
 void EditorGOCreatorPanel::CreateNewGameObject(NewGameObjectData data)
 {
-	GameObject* newGo = new GameObject("NewGameObject");
+	GameObject* newGo = DBG_NEW GameObject("NewGameObject");
 	newGo->CreateMesh("assets/models/SponzaSceneMaybe.obj");
 	newGo->CreateMaterial("textures/Staff_low_lambert1_BaseColor.png");
 	newGo->Transform.Scale = { 1.0f, 1.0f, 1.0f };

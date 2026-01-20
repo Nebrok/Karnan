@@ -28,9 +28,6 @@ private:
 
 	KarnanDevice& _karnanDevice;
 
-	std::string _vertexShaderFilepath;
-	std::string _fragShaderFilepath;
-
 	std::vector<std::unique_ptr<KarnanTexture>> _materialTextures;
 	std::vector<VkDescriptorImageInfo> _materialDescriptorImages;
 

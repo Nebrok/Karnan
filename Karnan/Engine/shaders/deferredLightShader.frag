@@ -55,7 +55,7 @@ void main()
 			float initialBrightness = max(dot(halfVector, normal), 0.0);
 
 			float totalBrightness = initialBrightness;
-			for (int j = 0; j < 80; j++)
+			for (int j = 0; j < 160; j++)
 			{
 				totalBrightness *= initialBrightness;
 			}

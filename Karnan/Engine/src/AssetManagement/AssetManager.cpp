@@ -5,6 +5,7 @@
 #include "../KarnanMaterial.h"
 
 #include <iostream>
+#include <filesystem>
 
 
 AssetManager* AssetManager::Instance = nullptr;
@@ -44,6 +45,33 @@ std::shared_ptr<BasicMesh> AssetManager::GetMesh(const std::string& filename)
 		return _meshMap.at(filename);
 	}
 	return nullptr;
+}
+
+std::vector<std::string> AssetManager::GetLoadedMeshes()
+{
+	std::vector<std::string> meshNames;
+	for (auto keyValue : _meshMap)
+	{
+		meshNames.push_back(keyValue.first);
+	}
+	return meshNames;
+}
+
+std::vector<std::string> AssetManager::FindMeshBinariesInAssetFolder()
+{
+	std::vector<std::string> objFiles;
+
+	for (const auto& entry : std::filesystem::recursive_directory_iterator("./assets")) {
+		if (entry.is_regular_file() && (entry.path().extension() == ".obj" || entry.path().extension() == ".OBJ")) {
+			// Store the path relative to the root folder
+			objFiles.push_back(
+				std::filesystem::relative(entry.path(), std::filesystem::current_path()).generic_string()
+			);
+		}
+	}
+
+
+	return objFiles;
 }
 
 std::shared_ptr<KarnanMaterial> AssetManager::GetMaterial(const std::string& filename)

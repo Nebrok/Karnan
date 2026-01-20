@@ -37,15 +37,31 @@ void KarnanScene::LoadScene()
 	}
 
 	/*
-	*/
 	for (int i = 0; i < 50; i++)
 	{
 		PointLight* firstLight = DBG_NEW PointLight();
 		firstLight->Transform.Translation = { float(rand() % 25), float(rand() % 25), float(rand() % 25) };
-		firstLight->SetColour({1.0f, 1.0f, 1.0f });
+		firstLight->SetColour({ rand() % 100 / 100.f, rand() % 100 / 100.f, rand() % 100 / 100.f });
 		_gameObjects.push_back(std::shared_ptr<PointLight>(firstLight));
+
 	}
 	
+	for (int i = 0; i < 250; i++)
+	{
+		GameObject* dummy = DBG_NEW GameObject("Lion Head Asteroid");
+		dummy->Transform.Translation = { float(rand() % 25), float(rand() % 25), float(rand() % 25) };
+		dummy->CreateMesh("./assets/models/lion_head_4k.obj");
+		dummy->CreateMaterial("./assets/textures/lion_head_diff_4k.png");
+		_gameObjects.push_back(std::shared_ptr<GameObject>(dummy));
+	}
+	
+	GameObject* cube = DBG_NEW GameObject("Cube");
+	cube->Transform.Translation = { 12.5f, -12.5f, 12.5f };
+	cube->Transform.Scale = { 25, 25, 25 };
+	cube->CreateMesh("./assets/models/cube.obj");
+	cube->CreateMaterial("./assets/textures/lion_head_diff_4k.png");
+	_gameObjects.push_back(std::shared_ptr<GameObject>(cube));
+	*/
 	
 	
 

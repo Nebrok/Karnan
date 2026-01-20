@@ -17,6 +17,6 @@ public:
 	void DeleteGameObject(GameObject* go);
 
 private:
-
+	void ChangeMeshButton();
 
 };

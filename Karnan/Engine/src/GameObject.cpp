@@ -40,7 +40,9 @@ void GameObject::Update(double deltaTime)
 	{
 		_meshRefreshed = false;
 	}
-	_material = AssetManager::Instance->GetMaterial(_materialName);
+	if (_material == nullptr)
+		_material = AssetManager::Instance->GetMaterial(_materialName);
+
 	if (_material != nullptr)
 	{
 		_renderable = true;
@@ -76,19 +78,19 @@ void GameObject::CreateMaterial(const std::string& filename)
 	constructParams.Textures[0] = filename;
 	constructParams.MaterialName = filename;
 
-
 	std::shared_ptr<AMCreateMaterialMessage> message = std::shared_ptr<AMCreateMaterialMessage>(DBG_NEW AMCreateMaterialMessage(Message::System::NONE, constructParams, this));
 	std::unique_lock<std::mutex> messageQueueLock(AssetManager::Instance->MessageQueueMutex);
 	AssetManager::Instance->QueueMessage(message);
 	messageQueueLock.unlock();
 	_materialName = filename;
+}
 
-	/*
-	std::unique_ptr<KarnanMaterial> material = std::unique_ptr<KarnanMaterial>(DBG_NEW KarnanMaterial());
-	_material = move(material);
-	_material->Init();
-	_material->CreateTextureInSlot(0, filename.c_str());
-	_material->CreateImageInfos();
-	_renderable = true;
-	*/
+void GameObject::AddMaterial(const std::string& filename)
+{
+	std::shared_ptr<KarnanMaterial> material = AssetManager::Instance->GetMaterial(filename);
+	if (material == nullptr)
+	{
+		_materialName = "NONE";
+	}
+	_material = material;
 }

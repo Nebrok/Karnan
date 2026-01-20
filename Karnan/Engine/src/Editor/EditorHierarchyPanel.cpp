@@ -8,11 +8,17 @@ void EditorHierarchyPanel::OnImGUIRender()
 {
 	bool hierarchyOpen = true;
 	ImGui::Begin("Hierarchy", &hierarchyOpen);
+	if (ImGui::BeginPopupContextWindow())
+	{
+		ContextMenu();
+	}
+
+
 	for (std::shared_ptr<GameObject> sharedGo : EngineCore::GetAllGameObjectsInActiveScene())
 	{
 		GameObject* go = sharedGo.get();
 		ImGui::PushID(go->GetId());
-		if (ImGui::Button(go->ObjectName.c_str()))
+		if (ImGui::Selectable(go->ObjectName.c_str()))
 		{
 			KarnanEditor::Instance->SetLastHighlightedGO(sharedGo);
 		}
@@ -20,4 +26,16 @@ void EditorHierarchyPanel::OnImGUIRender()
 	}
 
 	ImGui::End();
+}
+
+void EditorHierarchyPanel::ContextMenu()
+{
+	if (ImGui::Button("Create New GameObject"))
+	{
+		GameObject* newGo = DBG_NEW GameObject("NewGameObject");
+		newGo->Transform.Translation = { 0.0f, 0.0f, 0.0f };
+		newGo->Transform.Scale = { 1.0f, 1.0f, 1.0f };
+		EngineCore::Instance->AddGameObjectToActiveScene(std::shared_ptr<GameObject>(newGo));
+	}
+	ImGui::EndPopup();
 }

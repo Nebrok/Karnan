@@ -9,6 +9,9 @@
 #include <stdlib.h>
 #include <crtdbg.h>
 
+#include "AssetManagement/MaterialDataObject.h"
+
+
 int main(int argc, char** argv)
 {
     _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
@@ -29,6 +32,9 @@ int main(int argc, char** argv)
         std::cerr << e.what() << std::endl;
         return EXIT_FAILURE;
     }
+
+    MaterialDataObject test;
+    test.SaveMaterial();
 
     editor->DestroyEditor();
     engine->DestroyEngine();

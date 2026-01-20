@@ -23,6 +23,7 @@ DeferredRenderSystem::~DeferredRenderSystem()
 {
 	vkDestroyPipelineLayout(_karnanDevice.Device(), _geometryLayout, nullptr);
 	vkDestroyPipelineLayout(_karnanDevice.Device(), _lightingLayout, nullptr);
+	delete(_quadBuffer);
 }
 
 void DeferredRenderSystem::CreateUniformBuffers()

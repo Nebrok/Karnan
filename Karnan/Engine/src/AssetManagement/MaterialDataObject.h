@@ -6,17 +6,19 @@ class MaterialDataObject
 {
 
 public:
-	std::string MaterialName;
+	std::string MaterialName = "test";
 	std::string Textures[8];
-
-	std::string VertexShaderFilepath;
-	std::string FragmentShaderFilepath;
-
 
 private:
 
 
 public:
+	MaterialDataObject();
+	~MaterialDataObject();
+
+	void SaveMaterial();
+	void LoadMaterial(std::string filePath);
+
 
 
 private:

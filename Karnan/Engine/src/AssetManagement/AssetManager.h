@@ -35,6 +35,10 @@ public:
 	void Process();
 
 	std::shared_ptr<BasicMesh> GetMesh(const std::string& filename);
+	std::vector<std::string> GetLoadedMeshes();
+	std::vector<std::string> FindMeshBinariesInAssetFolder();
+
+
 	std::shared_ptr<KarnanMaterial> GetMaterial(const std::string& filename);
 
 	virtual void QueueMessage(std::shared_ptr<Message> message) override;

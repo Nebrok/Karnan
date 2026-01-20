@@ -32,8 +32,30 @@ void EditorDetailsPanel::OnImGUIRender()
 	ImGui::DragFloat3("Rotation:", glm::value_ptr(lastHighlightedGO->Transform.Rotation), 0.01f);
 	ImGui::DragFloat3("Scale:", glm::value_ptr(lastHighlightedGO->Transform.Scale), 0.01f);
 
+	ImGui::SeparatorText("Mesh");
+	ImGui::Text("Mesh Name: ");
+	ImGui::Text(lastHighlightedGO->GetMeshName().c_str());
+	if (ImGui::BeginPopupContextItem("ChangeMeshPopup"))
+	{
+		ImGui::SeparatorText("Choose new mesh");
+		ImGui::BeginChild("Mesh Lish", ImVec2(250.0f, 100.0f), true, ImGuiWindowFlags_AlwaysVerticalScrollbar);
+		std::vector<std::string> meshNames = AssetManager::Instance->FindMeshBinariesInAssetFolder();
+		for (auto meshName : meshNames)
+		{
+			if (ImGui::Selectable(meshName.c_str()))
+			{
+				lastHighlightedGO->CreateMesh(meshName);
+			}
+		}
+		ImGui::EndChild();
+		ImGui::EndPopup();
+	}
+	ChangeMeshButton();
 
 	ImGui::SeparatorText("Material");
+	ImGui::Text("Material Name: ");
+	ImGui::Text(lastHighlightedGO->GetMaterialName().c_str());
+
 	//Use some sort of query to search through the assets folder and find all .kmat types
 	//Then use a Gameobject set material function to pass along the filepath to the found material
 	//which in turn handles the changing of the material
@@ -52,4 +74,12 @@ void EditorDetailsPanel::DeleteGameObject(GameObject* go)
 {
 	KarnanEditor::Instance->SetLastHighlightedGO(nullptr);
 	EngineCore::DeleteGOFromActiveScene(go->GetId());
+}
+
+void EditorDetailsPanel::ChangeMeshButton()
+{
+	if (ImGui::Button("Change Mesh"))
+	{
+		ImGui::OpenPopup("ChangeMeshPopup");
+	}
 }
