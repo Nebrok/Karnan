@@ -72,6 +72,9 @@ void EngineCore::Run()
 	_meshLoadingSystem->QueueMessage(message);
 	messageQueueLock.unlock();
 	
+	_assetManager->LoadMaterialDataFromDisk();
+
+
 	LoadScene();
 
 	int fpsFrameCount = 0;

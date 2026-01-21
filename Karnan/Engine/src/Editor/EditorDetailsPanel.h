@@ -18,5 +18,7 @@ public:
 
 private:
 	void ChangeMeshButton();
+	void DisplayGameObject();
+	void DisplayMaterialData();
 
 };

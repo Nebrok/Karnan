@@ -17,7 +17,7 @@ MaterialDataObject::~MaterialDataObject()
 
 }
 
-void MaterialDataObject::SaveMaterial()
+std::string MaterialDataObject::SaveMaterial()
 {
 	std::fstream fileOut;
 	std::string materialFolder = "./assets/materials/";
@@ -42,10 +42,11 @@ void MaterialDataObject::SaveMaterial()
 	}
 
 	fileOut.close();
+	return materialFolder + filename;
 }
 
 void MaterialDataObject::LoadMaterial(std::string filePath)
 {
-
+	//TODO
 }
 

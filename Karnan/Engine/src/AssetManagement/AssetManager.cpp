@@ -2,7 +2,6 @@
 
 #include "../EngineCore.h"
 #include "../MessagingSystem/Messages.h"
-#include "../KarnanMaterial.h"
 
 #include <iostream>
 #include <filesystem>
@@ -70,8 +69,44 @@ std::vector<std::string> AssetManager::FindMeshBinariesInAssetFolder()
 		}
 	}
 
-
 	return objFiles;
+}
+
+void AssetManager::LoadMaterialDataFromDisk()
+{
+	std::vector<std::string> filepaths;
+
+	for (const auto& entry : std::filesystem::recursive_directory_iterator("./assets")) {
+		if (entry.is_regular_file() && (entry.path().extension() == ".kmat")) {
+			// Store the path relative to the root folder
+			filepaths.push_back(std::filesystem::relative(entry.path(), std::filesystem::current_path()).generic_string());
+		}
+	}
+
+	for (std::string filepath : filepaths)
+	{
+		std::shared_ptr<MaterialDataObject> newDataObject = std::shared_ptr<MaterialDataObject>(DBG_NEW MaterialDataObject());
+		newDataObject->LoadMaterial(filepath);
+		_materialDataMap[filepath] = newDataObject;
+	}
+
+}
+
+bool AssetManager::AddNewMaterialDataObject()
+{
+	std::shared_ptr<MaterialDataObject> newDataObject = std::shared_ptr<MaterialDataObject>(DBG_NEW MaterialDataObject());
+	newDataObject->MaterialName = "New Material";
+	std::string newFilepath = newDataObject->SaveMaterial();
+	_materialDataMap[newFilepath] = newDataObject;
+	return true;
+}
+
+std::shared_ptr<MaterialDataObject> AssetManager::GetMaterialData(const std::string& filepath)
+{
+	if (!_materialDataMap.contains(filepath))
+		return nullptr;
+
+	return _materialDataMap.at(filepath);
 }
 
 std::shared_ptr<KarnanMaterial> AssetManager::GetMaterial(const std::string& filename)
@@ -81,6 +116,24 @@ std::shared_ptr<KarnanMaterial> AssetManager::GetMaterial(const std::string& fil
 		return _materialMap.at(filename);
 	}
 	return nullptr;
+}
+
+bool AssetManager::CreateTexture(std::string filepath)
+{
+	std::shared_ptr<KarnanTexture> newTexture = std::shared_ptr<KarnanTexture>(DBG_NEW KarnanTexture(filepath));
+	if (newTexture == nullptr)
+		return false;
+
+	_textureMap[filepath] = newTexture;
+	return true;
+}
+
+std::shared_ptr<KarnanTexture> AssetManager::GetTexture(const std::string& filepath)
+{
+	if (!_textureMap.contains(filepath))
+		return nullptr;
+
+	return _textureMap.at(filepath);
 }
 
 void AssetManager::QueueMessage(std::shared_ptr<Message> message)

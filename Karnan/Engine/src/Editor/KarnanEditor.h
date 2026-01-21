@@ -7,17 +7,30 @@
 #include <memory>
 #include <vector>
 
+
+
 class KarnanEditor
 {
-
 public:
+	enum class DetailsPanelTypes
+	{
+		NONE,
+		GAMEOBJECT,
+		LIGHT,
+		MATERIAL
+	};	
+
 	static KarnanEditor* Instance;
 
 private:
-	std::shared_ptr<GameObject> _lastHighlightedGo = nullptr;
 	std::unique_ptr<KarnanMainGUI> _mainGUI;
 
 	std::vector<IPanel*> _panels;
+
+	DetailsPanelTypes _currentSelectedType = DetailsPanelTypes::NONE;
+	std::shared_ptr<GameObject> _lastHighlightedGo = nullptr;
+	void* _lastSelectedItem = nullptr;
+
 
 
 public:
@@ -28,9 +41,13 @@ public:
 	void Update();
 	void Render(VkCommandBuffer commandBuffer);
 
-	std::shared_ptr<GameObject> GetLastHighlightedGO() { return _lastHighlightedGo; };
-	void SetLastHighlightedGO(std::shared_ptr<GameObject> go) { _lastHighlightedGo = go; };
+	GameObject* GetLastHighlightedGO();
+	void SetLastHighlightedGO(GameObject* go);
 
+	void SetMaterialAsSelected(std::string filepath);
+
+	DetailsPanelTypes GetCurrentSelectedType() const { return _currentSelectedType; };
+	void* GetCurrentSelectedItem() const { return _lastSelectedItem; };
 
 private:
 	KarnanEditor();

@@ -20,7 +20,7 @@ void EditorHierarchyPanel::OnImGUIRender()
 		ImGui::PushID(go->GetId());
 		if (ImGui::Selectable(go->ObjectName.c_str()))
 		{
-			KarnanEditor::Instance->SetLastHighlightedGO(sharedGo);
+			KarnanEditor::Instance->SetLastHighlightedGO(go);
 		}
 		ImGui::PopID();
 	}

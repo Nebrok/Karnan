@@ -63,7 +63,14 @@ void KarnanMaterial::CreateTextureInSlot(uint32_t slot, std::string filePath)
 		throw std::runtime_error("Texture already exists in slot that the texture is being bound to");
 	}
 
-	std::unique_ptr<KarnanTexture> texture(DBG_NEW KarnanTexture(filePath));
-	_materialTextures[slot] = move(texture);
+	if (AssetManager::Instance->IsTextureLoaded(filePath))
+	{
+		_materialTextures[slot] = AssetManager::Instance->GetTexture(filePath);
+	}
+	else
+	{
+		AssetManager::Instance->CreateTexture(filePath);
+		_materialTextures[slot] = AssetManager::Instance->GetTexture(filePath);
+	}	
 }
 

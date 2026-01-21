@@ -28,7 +28,7 @@ private:
 
 	KarnanDevice& _karnanDevice;
 
-	std::vector<std::unique_ptr<KarnanTexture>> _materialTextures;
+	std::vector<std::shared_ptr<KarnanTexture>> _materialTextures;
 	std::vector<VkDescriptorImageInfo> _materialDescriptorImages;
 
 	VkDescriptorSet _materialDescriptorSet;

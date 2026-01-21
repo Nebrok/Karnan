@@ -1,4 +1,4 @@
-302
+252
 <?xml version="1.0" encoding="utf-8"?>
 <cereal>
 	<value0>
@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>56.879356384277344</value0>
-							<value1>15.171369552612305</value1>
-							<value2>8.9116373062133789</value2>
+							<value0>-6.2372212409973145</value0>
+							<value1>6.8173770904541016</value1>
+							<value2>15.459753036499023</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.19594301283359528</value0>
-							<value1>4.6456069946289062</value1>
+							<value0>0.51164728403091431</value0>
+							<value1>1.8412836790084839</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -165,1688 +165,7 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>2</value0>
-							<value1>11</value1>
-							<value2>16</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.039999999105930328</value0>
-					<value1>0.019999999552965164</value1>
-					<value2>0.52999997138977051</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value4>
-	<value5>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483654</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>17</value0>
-							<value1>7</value1>
-							<value2>21</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.15999999642372131</value0>
-					<value1>0.18000000715255737</value1>
-					<value2>0.94999998807907104</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value5>
-	<value6>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483655</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>22</value0>
-							<value1>1.190000057220459</value1>
-							<value2>21</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.37999999523162842</value0>
-					<value1>0.68999999761581421</value1>
-					<value2>0.11999999731779099</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value6>
-	<value7>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483656</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>17</value0>
-							<value1>24</value1>
-							<value2>10</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.93999999761581421</value0>
-					<value1>0.029999999329447746</value1>
-					<value2>0.10999999940395355</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value7>
-	<value8>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483657</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>22</value0>
-							<value1>8</value1>
-							<value2>23</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.63999998569488525</value0>
-					<value1>0.40999999642372131</value1>
-					<value2>0.10999999940395355</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value8>
-	<value9>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483658</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>3</value0>
-							<value1>18</value1>
-							<value2>22</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.43999999761581421</value0>
-					<value1>0.62000000476837158</value1>
-					<value2>0.56999999284744263</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value9>
-	<value10>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483659</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>12</value0>
-							<value1>9</value1>
-							<value2>23</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.40999999642372131</value0>
-					<value1>0.28999999165534973</value1>
-					<value2>0.77999997138977051</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value10>
-	<value11>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483660</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>16</value0>
-							<value1>10</value1>
-							<value2>15</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.41999998688697815</value0>
-					<value1>0.87999999523162842</value1>
-					<value2>0.059999998658895493</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value11>
-	<value12>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483661</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>15</value0>
-							<value1>17</value1>
-							<value2>14</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.47999998927116394</value0>
-					<value1>0.46000000834465027</value1>
-					<value2>0.05000000074505806</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value12>
-	<value13>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483662</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>15</value0>
-							<value1>4</value1>
-							<value2>20</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.5</value0>
-					<value1>0.059999998658895493</value1>
-					<value2>0.0099999997764825821</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value13>
-	<value14>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483663</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>18</value0>
-							<value1>23</value1>
-							<value2>4</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.23000000417232513</value0>
-					<value1>0.8399999737739563</value1>
-					<value2>0.54000002145767212</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value14>
-	<value15>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483664</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>6</value0>
-							<value1>15</value1>
-							<value2>16</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.75999999046325684</value0>
-					<value1>0.31000000238418579</value1>
-					<value2>0.079999998211860657</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value15>
-	<value16>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483665</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>19</value0>
-							<value1>14</value1>
-							<value2>1</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.23000000417232513</value0>
-					<value1>0.37000000476837158</value1>
-					<value2>0.37999999523162842</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value16>
-	<value17>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483666</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>18</value0>
-							<value1>7</value1>
-							<value2>4</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.40999999642372131</value0>
-					<value1>0.33000001311302185</value1>
-					<value2>0.15000000596046448</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value17>
-	<value18>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483667</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>14</value0>
-							<value1>8</value1>
-							<value2>4</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.30000001192092896</value0>
-					<value1>0.76999998092651367</value1>
-					<value2>0.059999998658895493</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value18>
-	<value19>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483668</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>23</value0>
-							<value1>11</value1>
-							<value2>21</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.44999998807907104</value0>
-					<value1>0.23999999463558197</value1>
-					<value2>0.72000002861022949</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value19>
-	<value20>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483669</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>20</value0>
-							<value1>4</value1>
-							<value2>2</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.73000001907348633</value0>
-					<value1>0.97000002861022949</value1>
-					<value2>0.11999999731779099</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value20>
-	<value21>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483670</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>11</value0>
-							<value1>15</value1>
-							<value2>11</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.36000001430511475</value0>
-					<value1>0.55000001192092896</value1>
-					<value2>0.67000001668930054</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value21>
-	<value22>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483671</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>5</value0>
-							<value1>24</value1>
-							<value2>6</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.51999998092651367</value0>
-					<value1>0.5</value1>
-					<value2>0.5</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value22>
-	<value23>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483672</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>16</value0>
-							<value1>24</value1>
-							<value2>16</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.30000001192092896</value0>
-					<value1>0.070000000298023224</value1>
-					<value2>0.9100000262260437</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value23>
-	<value24>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483673</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>7</value0>
-							<value1>12</value1>
-							<value2>7</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.87000000476837158</value0>
-					<value1>0.52999997138977051</value1>
-					<value2>0.82999998331069946</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value24>
-	<value25>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483674</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>20</value0>
-							<value1>9</value1>
-							<value2>9</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.57999998331069946</value0>
-					<value1>0.20999999344348907</value1>
-					<value2>0.87999999523162842</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value25>
-	<value26>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483675</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>22</value0>
-							<value1>21</value1>
-							<value2>6</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.30000001192092896</value0>
-					<value1>0.12999999523162842</value1>
-					<value2>0.68000000715255737</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value26>
-	<value27>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483676</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>0</value0>
-							<value1>16</value1>
-							<value2>12</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.55000001192092896</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.5899999737739563</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value27>
-	<value28>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483677</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>24</value0>
-							<value1>12</value1>
-							<value2>23</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.82999998331069946</value0>
-					<value1>0.94999998807907104</value1>
-					<value2>0.40999999642372131</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value28>
-	<value29>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483678</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>2</value0>
-							<value1>0</value1>
-							<value2>16</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.36000001430511475</value0>
-					<value1>0.74000000953674316</value1>
-					<value2>0.20000000298023224</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value29>
-	<value30>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483679</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>21</value0>
-							<value1>21</value1>
-							<value2>23</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.99000000953674316</value0>
-					<value1>0.68000000715255737</value1>
-					<value2>0.8399999737739563</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value30>
-	<value31>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483680</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>6</value0>
-							<value1>9</value1>
-							<value2>3</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.99000000953674316</value0>
-					<value1>0.18000000715255737</value1>
-					<value2>0.37999999523162842</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value31>
-	<value32>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483681</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>0</value0>
-							<value1>13</value1>
-							<value2>2</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.67000001668930054</value0>
-					<value1>0.2800000011920929</value1>
-					<value2>0.93000000715255737</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value32>
-	<value33>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483682</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>23</value0>
-							<value1>8</value1>
-							<value2>7</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.20999999344348907</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.17000000178813934</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value33>
-	<value34>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483683</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>13</value0>
-							<value1>14</value1>
-							<value2>9</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.15999999642372131</value0>
-					<value1>0.34999999403953552</value1>
-					<value2>0.50999999046325684</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value34>
-	<value35>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483684</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>0</value0>
-							<value1>24</value1>
-							<value2>19</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.56000000238418579</value0>
-					<value1>0.98000001907348633</value1>
-					<value2>0.029999999329447746</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value35>
-	<value36>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483685</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>24</value0>
-							<value1>8</value1>
-							<value2>19</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.090000003576278687</value0>
-					<value1>0.88999998569488525</value1>
-					<value2>0.019999999552965164</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value36>
-	<value37>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483686</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>20</value0>
-							<value1>10</value1>
-							<value2>18</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.43000000715255737</value0>
-					<value1>0.23000000417232513</value1>
-					<value2>0.87000000476837158</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value37>
-	<value38>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483687</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>14</value0>
-							<value1>3</value1>
-							<value2>23</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0</value0>
-					<value1>0.57999998331069946</value1>
-					<value2>0.18000000715255737</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value38>
-	<value39>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483688</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>5</value0>
-							<value1>21</value1>
-							<value2>23</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.81000000238418579</value0>
-					<value1>0.88999998569488525</value1>
-					<value2>0.98000001907348633</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value39>
-	<value40>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483689</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>9</value0>
-							<value1>7</value1>
-							<value2>22</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.2199999988079071</value0>
-					<value1>0.37999999523162842</value1>
-					<value2>0.92000001668930054</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value40>
-	<value41>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483690</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>13</value0>
-							<value1>4</value1>
-							<value2>15</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.56999999284744263</value0>
-					<value1>0.57999998331069946</value1>
-					<value2>0.9100000262260437</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value41>
-	<value42>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483691</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>15</value0>
-							<value1>13</value1>
-							<value2>6</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.10999999940395355</value0>
-					<value1>0.019999999552965164</value1>
-					<value2>0.34000000357627869</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value42>
-	<value43>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483692</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>22</value0>
-							<value1>5</value1>
-							<value2>3</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.46000000834465027</value0>
-					<value1>0.62000000476837158</value1>
-					<value2>0.86000001430511475</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value43>
-	<value44>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483693</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>0</value0>
-							<value1>8</value1>
-							<value2>19</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Point Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/textures/NULL_TEXTURE.png</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0.41999998688697815</value0>
-					<value1>0.43999999761581421</value1>
-					<value2>0.15999999642372131</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value44>
-	<value45>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483694</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>6</value0>
+							<value0>6.2899999618530273</value0>
 							<value1>23</value1>
 							<value2>22</value2>
 						</Translation>
@@ -1878,17 +197,17 @@
 				<_intensity>1</_intensity>
 			</data>
 		</ptr_wrapper>
-	</value45>
-	<value46>
+	</value4>
+	<value5>
 		<polymorphic_id>2</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483695</id>
+			<id>2147483654</id>
 			<data>
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>7</value0>
-							<value1>1</value1>
+							<value0>4.6599998474121094</value0>
+							<value1>2.0499999523162842</value1>
 							<value2>17</value2>
 						</Translation>
 						<Rotation>
@@ -1919,11 +238,11 @@
 				<_intensity>1</_intensity>
 			</data>
 		</ptr_wrapper>
-	</value46>
-	<value47>
+	</value5>
+	<value6>
 		<polymorphic_id>2</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483696</id>
+			<id>2147483655</id>
 			<data>
 				<value0>
 					<Transform>
@@ -1960,17 +279,17 @@
 				<_intensity>1</_intensity>
 			</data>
 		</ptr_wrapper>
-	</value47>
-	<value48>
+	</value6>
+	<value7>
 		<polymorphic_id>2</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483697</id>
+			<id>2147483656</id>
 			<data>
 				<value0>
 					<Transform>
 						<Translation>
 							<value0>1</value0>
-							<value1>14</value1>
+							<value1>7.6999998092651367</value1>
 							<value2>5</value2>
 						</Translation>
 						<Rotation>
@@ -2001,11 +320,11 @@
 				<_intensity>1</_intensity>
 			</data>
 		</ptr_wrapper>
-	</value48>
-	<value49>
+	</value7>
+	<value8>
 		<polymorphic_id>2</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483698</id>
+			<id>2147483657</id>
 			<data>
 				<value0>
 					<Transform>
@@ -2042,11 +361,11 @@
 				<_intensity>1</_intensity>
 			</data>
 		</ptr_wrapper>
-	</value49>
-	<value50>
+	</value8>
+	<value9>
 		<polymorphic_id>2</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483699</id>
+			<id>2147483658</id>
 			<data>
 				<value0>
 					<Transform>
@@ -2083,11 +402,11 @@
 				<_intensity>1</_intensity>
 			</data>
 		</ptr_wrapper>
-	</value50>
-	<value51>
+	</value9>
+	<value10>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483700</id>
+			<id>2147483659</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -2111,6 +430,1154 @@
 				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
 			</data>
 		</ptr_wrapper>
+	</value10>
+	<value11>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483660</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>17</value0>
+						<value1>0</value1>
+						<value2>5</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value11>
+	<value12>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483661</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>9</value0>
+						<value1>24</value1>
+						<value2>16</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value12>
+	<value13>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483662</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>12</value0>
+						<value1>20</value1>
+						<value2>10</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value13>
+	<value14>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483663</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>23</value0>
+						<value1>4</value1>
+						<value2>21</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value14>
+	<value15>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483664</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>12</value0>
+						<value1>4</value1>
+						<value2>24</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value15>
+	<value16>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483665</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>18</value0>
+						<value1>20</value1>
+						<value2>22</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value16>
+	<value17>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483666</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>16</value0>
+						<value1>21</value1>
+						<value2>11</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value17>
+	<value18>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483667</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>8</value0>
+						<value1>7</value1>
+						<value2>20</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value18>
+	<value19>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483668</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>8</value0>
+						<value1>21</value1>
+						<value2>7</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value19>
+	<value20>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483669</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>6</value0>
+						<value1>19</value1>
+						<value2>21</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value20>
+	<value21>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483670</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>22</value0>
+						<value1>4</value1>
+						<value2>11</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value21>
+	<value22>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483671</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>16</value0>
+						<value1>19</value1>
+						<value2>9</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value22>
+	<value23>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483672</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>17</value0>
+						<value1>14</value1>
+						<value2>3</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value23>
+	<value24>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483673</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>24</value0>
+						<value1>4</value1>
+						<value2>10</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value24>
+	<value25>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483674</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>20</value0>
+						<value1>24</value1>
+						<value2>11</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value25>
+	<value26>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483675</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>13</value0>
+						<value1>24</value1>
+						<value2>22</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value26>
+	<value27>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483676</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>18</value0>
+						<value1>18</value1>
+						<value2>12</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value27>
+	<value28>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483677</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>5</value0>
+						<value1>8</value1>
+						<value2>16</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value28>
+	<value29>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483678</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>2</value0>
+						<value1>0</value1>
+						<value2>2</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value29>
+	<value30>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483679</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>14</value0>
+						<value1>14</value1>
+						<value2>24</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value30>
+	<value31>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483680</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>9</value0>
+						<value1>24</value1>
+						<value2>22</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value31>
+	<value32>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483681</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>9</value0>
+						<value1>8</value1>
+						<value2>20</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value32>
+	<value33>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483682</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>12</value0>
+						<value1>22</value1>
+						<value2>18</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value33>
+	<value34>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483683</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>2</value0>
+						<value1>23</value1>
+						<value2>20</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value34>
+	<value35>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483684</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>13</value0>
+						<value1>18</value1>
+						<value2>17</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value35>
+	<value36>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483685</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>10</value0>
+						<value1>2</value1>
+						<value2>5</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value36>
+	<value37>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483686</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>13</value0>
+						<value1>2</value1>
+						<value2>2</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value37>
+	<value38>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483687</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>24</value0>
+						<value1>2</value1>
+						<value2>0</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value38>
+	<value39>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483688</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>18</value0>
+						<value1>24</value1>
+						<value2>23</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value39>
+	<value40>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483689</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>22</value0>
+						<value1>11</value1>
+						<value2>6</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value40>
+	<value41>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483690</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>3</value0>
+						<value1>7</value1>
+						<value2>5</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value41>
+	<value42>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483691</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>18</value0>
+						<value1>0</value1>
+						<value2>6</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value42>
+	<value43>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483692</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>17</value0>
+						<value1>17</value1>
+						<value2>22</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value43>
+	<value44>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483693</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>11</value0>
+						<value1>14</value1>
+						<value2>0</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value44>
+	<value45>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483694</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>12</value0>
+						<value1>10</value1>
+						<value2>13</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value45>
+	<value46>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483695</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>24</value0>
+						<value1>20</value1>
+						<value2>20</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value46>
+	<value47>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483696</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>10</value0>
+						<value1>8</value1>
+						<value2>11</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value47>
+	<value48>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483697</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>10</value0>
+						<value1>21</value1>
+						<value2>17</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value48>
+	<value49>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483698</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>10</value0>
+						<value1>0</value1>
+						<value2>15</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value49>
+	<value50>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483699</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>19</value0>
+						<value1>20</value1>
+						<value2>24</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value50>
+	<value51>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483700</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>19</value0>
+						<value1>0</value1>
+						<value2>1</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lion Head Asteroid</Object_Name>
+				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
+			</data>
+		</ptr_wrapper>
 	</value51>
 	<value52>
 		<polymorphic_id>1073741824</polymorphic_id>
@@ -2119,9 +1586,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>17</value0>
-						<value1>0</value1>
-						<value2>5</value2>
+						<value0>19</value0>
+						<value1>8</value1>
+						<value2>2</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2147,9 +1614,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>9</value0>
-						<value1>24</value1>
-						<value2>16</value2>
+						<value0>21</value0>
+						<value1>16</value1>
+						<value2>3</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2175,9 +1642,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>12</value0>
-						<value1>20</value1>
-						<value2>10</value2>
+						<value0>18</value0>
+						<value1>1</value1>
+						<value2>9</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2204,8 +1671,8 @@
 				<Transform>
 					<Translation>
 						<value0>18</value0>
-						<value1>3</value1>
-						<value2>14</value2>
+						<value1>14</value1>
+						<value2>19</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2231,9 +1698,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>23</value0>
-						<value1>4</value1>
-						<value2>21</value2>
+						<value0>2</value0>
+						<value1>0</value1>
+						<value2>12</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2259,9 +1726,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>12</value0>
-						<value1>4</value1>
-						<value2>24</value2>
+						<value0>10</value0>
+						<value1>1</value1>
+						<value2>10</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2287,9 +1754,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>12</value0>
-						<value1>16</value1>
-						<value2>24</value2>
+						<value0>7</value0>
+						<value1>20</value1>
+						<value2>15</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2315,9 +1782,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>18</value0>
-						<value1>20</value1>
-						<value2>22</value2>
+						<value0>1</value0>
+						<value1>2</value1>
+						<value2>18</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2343,9 +1810,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>16</value0>
-						<value1>11</value1>
-						<value2>5</value2>
+						<value0>8</value0>
+						<value1>14</value1>
+						<value2>9</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2371,9 +1838,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>13</value0>
-						<value1>7</value1>
-						<value2>5</value2>
+						<value0>7</value0>
+						<value1>11</value1>
+						<value2>15</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2399,9 +1866,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>9</value0>
-						<value1>14</value1>
-						<value2>1</value2>
+						<value0>12</value0>
+						<value1>2</value1>
+						<value2>24</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2427,9 +1894,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>16</value0>
-						<value1>21</value1>
-						<value2>11</value2>
+						<value0>0</value0>
+						<value1>2</value1>
+						<value2>4</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2455,9 +1922,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>13</value0>
-						<value1>13</value1>
-						<value2>5</value2>
+						<value0>3</value0>
+						<value1>23</value1>
+						<value2>20</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2483,9 +1950,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>10</value0>
-						<value1>3</value1>
-						<value2>12</value2>
+						<value0>2</value0>
+						<value1>12</value1>
+						<value2>23</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2511,9 +1978,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>8</value0>
-						<value1>7</value1>
-						<value2>20</value2>
+						<value0>21</value0>
+						<value1>12</value1>
+						<value2>11</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2539,9 +2006,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>13</value0>
-						<value1>6</value1>
-						<value2>21</value2>
+						<value0>20</value0>
+						<value1>0</value1>
+						<value2>14</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2567,9 +2034,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>8</value0>
-						<value1>21</value1>
-						<value2>7</value2>
+						<value0>10</value0>
+						<value1>2</value1>
+						<value2>16</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2595,9 +2062,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>6</value0>
-						<value1>19</value1>
-						<value2>21</value2>
+						<value0>5</value0>
+						<value1>1</value1>
+						<value2>11</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2623,9 +2090,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>22</value0>
-						<value1>4</value1>
-						<value2>11</value2>
+						<value0>21</value0>
+						<value1>11</value1>
+						<value2>22</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2651,9 +2118,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>10</value0>
-						<value1>0</value1>
-						<value2>23</value2>
+						<value0>3</value0>
+						<value1>20</value1>
+						<value2>15</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2679,9 +2146,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>16</value0>
-						<value1>19</value1>
-						<value2>9</value2>
+						<value0>24</value0>
+						<value1>13</value1>
+						<value2>13</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2707,9 +2174,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>17</value0>
-						<value1>14</value1>
-						<value2>3</value2>
+						<value0>15</value0>
+						<value1>1</value1>
+						<value2>12</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2735,9 +2202,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>24</value0>
-						<value1>4</value1>
-						<value2>10</value2>
+						<value0>4</value0>
+						<value1>0</value1>
+						<value2>13</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2763,9 +2230,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>20</value0>
-						<value1>24</value1>
-						<value2>11</value2>
+						<value0>8</value0>
+						<value1>3</value1>
+						<value2>15</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2791,9 +2258,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>13</value0>
-						<value1>24</value1>
-						<value2>22</value2>
+						<value0>7</value0>
+						<value1>2</value1>
+						<value2>0</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2819,9 +2286,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>18</value0>
-						<value1>18</value1>
-						<value2>12</value2>
+						<value0>8</value0>
+						<value1>14</value1>
+						<value2>3</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2847,9 +2314,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>5</value0>
-						<value1>8</value1>
-						<value2>16</value2>
+						<value0>10</value0>
+						<value1>7</value1>
+						<value2>24</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2876,8 +2343,8 @@
 				<Transform>
 					<Translation>
 						<value0>2</value0>
-						<value1>0</value1>
-						<value2>2</value2>
+						<value1>8</value1>
+						<value2>13</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2903,9 +2370,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>14</value0>
-						<value1>14</value1>
-						<value2>24</value2>
+						<value0>12</value0>
+						<value1>1</value1>
+						<value2>0</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2931,9 +2398,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>9</value0>
-						<value1>24</value1>
-						<value2>22</value2>
+						<value0>10</value0>
+						<value1>3</value1>
+						<value2>18</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2960,8 +2427,8 @@
 				<Transform>
 					<Translation>
 						<value0>9</value0>
-						<value1>8</value1>
-						<value2>20</value2>
+						<value1>5</value1>
+						<value2>15</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -2987,9 +2454,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>12</value0>
-						<value1>22</value1>
-						<value2>18</value2>
+						<value0>11</value0>
+						<value1>4</value1>
+						<value2>10</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3015,9 +2482,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>2</value0>
-						<value1>23</value1>
-						<value2>20</value2>
+						<value0>6</value0>
+						<value1>22</value1>
+						<value2>0</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3043,9 +2510,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>13</value0>
-						<value1>18</value1>
-						<value2>17</value2>
+						<value0>23</value0>
+						<value1>10</value1>
+						<value2>6</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3071,9 +2538,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>10</value0>
-						<value1>2</value1>
-						<value2>5</value2>
+						<value0>16</value0>
+						<value1>1</value1>
+						<value2>7</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3099,9 +2566,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>13</value0>
-						<value1>2</value1>
-						<value2>2</value2>
+						<value0>1</value0>
+						<value1>7</value1>
+						<value2>12</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3127,9 +2594,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>24</value0>
-						<value1>2</value1>
-						<value2>0</value2>
+						<value0>21</value0>
+						<value1>19</value1>
+						<value2>11</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3155,9 +2622,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>18</value0>
-						<value1>24</value1>
-						<value2>23</value2>
+						<value0>21</value0>
+						<value1>22</value1>
+						<value2>17</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3183,9 +2650,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>22</value0>
-						<value1>11</value1>
-						<value2>6</value2>
+						<value0>12</value0>
+						<value1>17</value1>
+						<value2>21</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3211,9 +2678,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>3</value0>
-						<value1>7</value1>
-						<value2>5</value2>
+						<value0>10</value0>
+						<value1>16</value1>
+						<value2>23</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3239,9 +2706,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>18</value0>
-						<value1>0</value1>
-						<value2>6</value2>
+						<value0>4</value0>
+						<value1>4</value1>
+						<value2>15</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3267,9 +2734,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>17</value0>
-						<value1>17</value1>
-						<value2>22</value2>
+						<value0>9</value0>
+						<value1>7</value1>
+						<value2>21</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3295,9 +2762,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>11</value0>
-						<value1>14</value1>
-						<value2>0</value2>
+						<value0>5</value0>
+						<value1>3</value1>
+						<value2>12</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3323,9 +2790,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>12</value0>
-						<value1>10</value1>
-						<value2>13</value2>
+						<value0>9</value0>
+						<value1>9</value1>
+						<value2>4</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3351,9 +2818,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>24</value0>
-						<value1>20</value1>
-						<value2>20</value2>
+						<value0>22</value0>
+						<value1>7</value1>
+						<value2>19</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3379,9 +2846,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>10</value0>
-						<value1>8</value1>
-						<value2>11</value2>
+						<value0>7</value0>
+						<value1>13</value1>
+						<value2>7</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3407,9 +2874,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>10</value0>
-						<value1>21</value1>
-						<value2>17</value2>
+						<value0>8</value0>
+						<value1>11</value1>
+						<value2>10</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3435,9 +2902,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>10</value0>
-						<value1>0</value1>
-						<value2>15</value2>
+						<value0>17</value0>
+						<value1>23</value1>
+						<value2>0</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3463,9 +2930,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>19</value0>
-						<value1>20</value1>
-						<value2>24</value2>
+						<value0>13</value0>
+						<value1>23</value1>
+						<value2>17</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3491,9 +2958,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>19</value0>
-						<value1>0</value1>
-						<value2>1</value2>
+						<value0>4</value0>
+						<value1>11</value1>
+						<value2>16</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3519,9 +2986,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>19</value0>
-						<value1>8</value1>
-						<value2>2</value2>
+						<value0>0</value0>
+						<value1>9</value1>
+						<value2>0</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3548,8 +3015,8 @@
 				<Transform>
 					<Translation>
 						<value0>21</value0>
-						<value1>16</value1>
-						<value2>3</value2>
+						<value1>20</value1>
+						<value2>1</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3575,9 +3042,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>18</value0>
-						<value1>1</value1>
-						<value2>9</value2>
+						<value0>9</value0>
+						<value1>5</value1>
+						<value2>8</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3603,9 +3070,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>18</value0>
-						<value1>14</value1>
-						<value2>19</value2>
+						<value0>0</value0>
+						<value1>23</value1>
+						<value2>4</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3631,9 +3098,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>2</value0>
-						<value1>0</value1>
-						<value2>12</value2>
+						<value0>1</value0>
+						<value1>18</value1>
+						<value2>9</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3659,9 +3126,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>10</value0>
-						<value1>1</value1>
-						<value2>10</value2>
+						<value0>12</value0>
+						<value1>9</value1>
+						<value2>6</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3687,9 +3154,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>7</value0>
-						<value1>20</value1>
-						<value2>15</value2>
+						<value0>18</value0>
+						<value1>1</value1>
+						<value2>5</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3715,9 +3182,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>1</value0>
-						<value1>2</value1>
-						<value2>18</value2>
+						<value0>12</value0>
+						<value1>23</value1>
+						<value2>6</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3743,9 +3210,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>8</value0>
-						<value1>14</value1>
-						<value2>9</value2>
+						<value0>0</value0>
+						<value1>13</value1>
+						<value2>16</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3771,9 +3238,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>7</value0>
-						<value1>11</value1>
-						<value2>15</value2>
+						<value0>5</value0>
+						<value1>5</value1>
+						<value2>17</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3800,8 +3267,8 @@
 				<Transform>
 					<Translation>
 						<value0>12</value0>
-						<value1>2</value1>
-						<value2>24</value2>
+						<value1>11</value1>
+						<value2>2</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3827,9 +3294,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>0</value0>
-						<value1>2</value1>
-						<value2>4</value2>
+						<value0>24</value0>
+						<value1>3</value1>
+						<value2>2</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3855,9 +3322,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>3</value0>
-						<value1>23</value1>
-						<value2>20</value2>
+						<value0>18</value0>
+						<value1>21</value1>
+						<value2>23</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3883,9 +3350,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>2</value0>
-						<value1>12</value1>
-						<value2>23</value2>
+						<value0>15</value0>
+						<value1>13</value1>
+						<value2>0</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3911,9 +3378,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>21</value0>
-						<value1>12</value1>
-						<value2>11</value2>
+						<value0>22</value0>
+						<value1>18</value1>
+						<value2>10</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3939,9 +3406,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>20</value0>
-						<value1>0</value1>
-						<value2>14</value2>
+						<value0>17</value0>
+						<value1>7</value1>
+						<value2>12</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3967,9 +3434,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>10</value0>
-						<value1>2</value1>
-						<value2>16</value2>
+						<value0>20</value0>
+						<value1>19</value1>
+						<value2>6</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -3995,9 +3462,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>5</value0>
-						<value1>1</value1>
-						<value2>11</value2>
+						<value0>15</value0>
+						<value1>13</value1>
+						<value2>10</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4023,9 +3490,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>21</value0>
-						<value1>11</value1>
-						<value2>22</value2>
+						<value0>15</value0>
+						<value1>22</value1>
+						<value2>14</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4051,9 +3518,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>3</value0>
+						<value0>15</value0>
 						<value1>20</value1>
-						<value2>15</value2>
+						<value2>3</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4079,9 +3546,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>24</value0>
-						<value1>13</value1>
-						<value2>13</value2>
+						<value0>14</value0>
+						<value1>1</value1>
+						<value2>15</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4107,9 +3574,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>15</value0>
-						<value1>1</value1>
-						<value2>12</value2>
+						<value0>19</value0>
+						<value1>8</value1>
+						<value2>10</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4135,9 +3602,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>4</value0>
-						<value1>0</value1>
-						<value2>13</value2>
+						<value0>9</value0>
+						<value1>17</value1>
+						<value2>5</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4163,9 +3630,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>8</value0>
-						<value1>3</value1>
-						<value2>15</value2>
+						<value0>14</value0>
+						<value1>6</value1>
+						<value2>3</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4191,9 +3658,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>7</value0>
-						<value1>2</value1>
-						<value2>0</value2>
+						<value0>4</value0>
+						<value1>0</value1>
+						<value2>8</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4219,9 +3686,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>8</value0>
-						<value1>14</value1>
-						<value2>3</value2>
+						<value0>17</value0>
+						<value1>22</value1>
+						<value2>24</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4247,9 +3714,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>10</value0>
-						<value1>7</value1>
-						<value2>24</value2>
+						<value0>6</value0>
+						<value1>11</value1>
+						<value2>2</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4275,9 +3742,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>2</value0>
-						<value1>8</value1>
-						<value2>13</value2>
+						<value0>17</value0>
+						<value1>16</value1>
+						<value2>4</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4303,9 +3770,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>12</value0>
-						<value1>1</value1>
-						<value2>0</value2>
+						<value0>15</value0>
+						<value1>13</value1>
+						<value2>24</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4331,9 +3798,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>10</value0>
-						<value1>3</value1>
-						<value2>18</value2>
+						<value0>1</value0>
+						<value1>2</value1>
+						<value2>15</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4359,9 +3826,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>9</value0>
-						<value1>5</value1>
-						<value2>15</value2>
+						<value0>8</value0>
+						<value1>13</value1>
+						<value2>17</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4387,9 +3854,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>11</value0>
-						<value1>4</value1>
-						<value2>10</value2>
+						<value0>24</value0>
+						<value1>1</value1>
+						<value2>17</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4415,9 +3882,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>6</value0>
-						<value1>22</value1>
-						<value2>0</value2>
+						<value0>9</value0>
+						<value1>20</value1>
+						<value2>3</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4443,9 +3910,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>23</value0>
-						<value1>10</value1>
-						<value2>6</value2>
+						<value0>2</value0>
+						<value1>9</value1>
+						<value2>0</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4471,9 +3938,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>16</value0>
-						<value1>1</value1>
-						<value2>7</value2>
+						<value0>11</value0>
+						<value1>23</value1>
+						<value2>20</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4499,9 +3966,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>1</value0>
-						<value1>7</value1>
-						<value2>12</value2>
+						<value0>12</value0>
+						<value1>22</value1>
+						<value2>4</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4527,9 +3994,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>21</value0>
-						<value1>19</value1>
-						<value2>11</value2>
+						<value0>3</value0>
+						<value1>21</value1>
+						<value2>13</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4555,9 +4022,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>21</value0>
-						<value1>22</value1>
-						<value2>17</value2>
+						<value0>6</value0>
+						<value1>13</value1>
+						<value2>10</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4583,9 +4050,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>12</value0>
-						<value1>17</value1>
-						<value2>21</value2>
+						<value0>21</value0>
+						<value1>14</value1>
+						<value2>15</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4611,9 +4078,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>10</value0>
-						<value1>16</value1>
-						<value2>23</value2>
+						<value0>14</value0>
+						<value1>17</value1>
+						<value2>19</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4639,9 +4106,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>4</value0>
-						<value1>4</value1>
-						<value2>15</value2>
+						<value0>13</value0>
+						<value1>16</value1>
+						<value2>4</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4667,9 +4134,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>9</value0>
+						<value0>18</value0>
 						<value1>7</value1>
-						<value2>21</value2>
+						<value2>0</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4696,8 +4163,8 @@
 				<Transform>
 					<Translation>
 						<value0>5</value0>
-						<value1>3</value1>
-						<value2>12</value2>
+						<value1>0</value1>
+						<value2>14</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4723,9 +4190,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>9</value0>
-						<value1>9</value1>
-						<value2>4</value2>
+						<value0>3</value0>
+						<value1>22</value1>
+						<value2>23</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4752,8 +4219,8 @@
 				<Transform>
 					<Translation>
 						<value0>22</value0>
-						<value1>7</value1>
-						<value2>19</value2>
+						<value1>9</value1>
+						<value2>23</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4779,9 +4246,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>7</value0>
-						<value1>13</value1>
-						<value2>7</value2>
+						<value0>21</value0>
+						<value1>14</value1>
+						<value2>13</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4807,9 +4274,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>8</value0>
-						<value1>11</value1>
-						<value2>10</value2>
+						<value0>0</value0>
+						<value1>20</value1>
+						<value2>12</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4835,9 +4302,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>17</value0>
-						<value1>23</value1>
-						<value2>0</value2>
+						<value0>21</value0>
+						<value1>3</value1>
+						<value2>19</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4863,9 +4330,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>13</value0>
-						<value1>23</value1>
-						<value2>17</value2>
+						<value0>12</value0>
+						<value1>19</value1>
+						<value2>10</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4891,9 +4358,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>4</value0>
-						<value1>11</value1>
-						<value2>16</value2>
+						<value0>14</value0>
+						<value1>19</value1>
+						<value2>15</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4919,9 +4386,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>0</value0>
-						<value1>9</value1>
-						<value2>0</value2>
+						<value0>15</value0>
+						<value1>20</value1>
+						<value2>8</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -4947,7 +4414,7 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>21</value0>
+						<value0>18</value0>
 						<value1>20</value1>
 						<value2>1</value2>
 					</Translation>
@@ -4975,9 +4442,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>9</value0>
-						<value1>5</value1>
-						<value2>8</value2>
+						<value0>23</value0>
+						<value1>7</value1>
+						<value2>22</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5003,9 +4470,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>0</value0>
-						<value1>23</value1>
-						<value2>4</value2>
+						<value0>2</value0>
+						<value1>12</value1>
+						<value2>20</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5031,9 +4498,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>1</value0>
-						<value1>18</value1>
-						<value2>9</value2>
+						<value0>13</value0>
+						<value1>1</value1>
+						<value2>3</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5059,9 +4526,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>12</value0>
-						<value1>9</value1>
-						<value2>6</value2>
+						<value0>23</value0>
+						<value1>2</value1>
+						<value2>0</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5087,9 +4554,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>18</value0>
-						<value1>1</value1>
-						<value2>5</value2>
+						<value0>19</value0>
+						<value1>15</value1>
+						<value2>15</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5115,9 +4582,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>12</value0>
-						<value1>23</value1>
-						<value2>6</value2>
+						<value0>3</value0>
+						<value1>18</value1>
+						<value2>22</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5143,9 +4610,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>0</value0>
-						<value1>13</value1>
-						<value2>16</value2>
+						<value0>13</value0>
+						<value1>18</value1>
+						<value2>12</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5171,9 +4638,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>5</value0>
-						<value1>5</value1>
-						<value2>17</value2>
+						<value0>9</value0>
+						<value1>13</value1>
+						<value2>24</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5199,9 +4666,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>12</value0>
-						<value1>11</value1>
-						<value2>2</value2>
+						<value0>6</value0>
+						<value1>13</value1>
+						<value2>17</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5227,9 +4694,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>24</value0>
-						<value1>3</value1>
-						<value2>2</value2>
+						<value0>8</value0>
+						<value1>10</value1>
+						<value2>21</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5255,9 +4722,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>18</value0>
-						<value1>21</value1>
-						<value2>23</value2>
+						<value0>8</value0>
+						<value1>4</value1>
+						<value2>13</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5283,9 +4750,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>15</value0>
-						<value1>13</value1>
-						<value2>0</value2>
+						<value0>21</value0>
+						<value1>15</value1>
+						<value2>24</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5311,9 +4778,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>22</value0>
-						<value1>18</value1>
-						<value2>10</value2>
+						<value0>18</value0>
+						<value1>5</value1>
+						<value2>20</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5339,9 +4806,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>17</value0>
-						<value1>7</value1>
-						<value2>12</value2>
+						<value0>23</value0>
+						<value1>17</value1>
+						<value2>11</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5367,9 +4834,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>20</value0>
-						<value1>19</value1>
-						<value2>6</value2>
+						<value0>8</value0>
+						<value1>10</value1>
+						<value2>1</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5395,9 +4862,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>15</value0>
+						<value0>10</value0>
 						<value1>13</value1>
-						<value2>10</value2>
+						<value2>3</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5423,9 +4890,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>15</value0>
-						<value1>22</value1>
-						<value2>14</value2>
+						<value0>4</value0>
+						<value1>24</value1>
+						<value2>23</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5451,9 +4918,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>15</value0>
-						<value1>20</value1>
-						<value2>3</value2>
+						<value0>23</value0>
+						<value1>9</value1>
+						<value2>7</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5479,9 +4946,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>14</value0>
-						<value1>1</value1>
-						<value2>15</value2>
+						<value0>16</value0>
+						<value1>19</value1>
+						<value2>5</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5507,9 +4974,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>19</value0>
-						<value1>8</value1>
-						<value2>10</value2>
+						<value0>18</value0>
+						<value1>1</value1>
+						<value2>11</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5535,9 +5002,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>9</value0>
-						<value1>17</value1>
-						<value2>5</value2>
+						<value0>0</value0>
+						<value1>5</value1>
+						<value2>1</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5563,9 +5030,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>14</value0>
-						<value1>6</value1>
-						<value2>3</value2>
+						<value0>24</value0>
+						<value1>21</value1>
+						<value2>9</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5591,9 +5058,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>4</value0>
-						<value1>0</value1>
-						<value2>8</value2>
+						<value0>15</value0>
+						<value1>14</value1>
+						<value2>17</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5619,9 +5086,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>17</value0>
-						<value1>22</value1>
-						<value2>24</value2>
+						<value0>0</value0>
+						<value1>13</value1>
+						<value2>17</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5647,9 +5114,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>6</value0>
-						<value1>11</value1>
-						<value2>2</value2>
+						<value0>21</value0>
+						<value1>23</value1>
+						<value2>22</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5675,9 +5142,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>17</value0>
-						<value1>16</value1>
-						<value2>4</value2>
+						<value0>1</value0>
+						<value1>6</value1>
+						<value2>23</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5703,9 +5170,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>15</value0>
-						<value1>13</value1>
-						<value2>24</value2>
+						<value0>4</value0>
+						<value1>4</value1>
+						<value2>5</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5732,8 +5199,8 @@
 				<Transform>
 					<Translation>
 						<value0>1</value0>
-						<value1>2</value1>
-						<value2>15</value2>
+						<value1>12</value1>
+						<value2>0</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5759,9 +5226,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>8</value0>
-						<value1>13</value1>
-						<value2>17</value2>
+						<value0>18</value0>
+						<value1>15</value1>
+						<value2>11</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5787,9 +5254,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>24</value0>
-						<value1>1</value1>
-						<value2>17</value2>
+						<value0>11</value0>
+						<value1>16</value1>
+						<value2>14</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5815,9 +5282,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>9</value0>
-						<value1>20</value1>
-						<value2>3</value2>
+						<value0>19</value0>
+						<value1>6</value1>
+						<value2>2</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5843,9 +5310,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>2</value0>
-						<value1>9</value1>
-						<value2>0</value2>
+						<value0>11</value0>
+						<value1>13</value1>
+						<value2>7</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5871,9 +5338,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>11</value0>
-						<value1>23</value1>
-						<value2>20</value2>
+						<value0>5</value0>
+						<value1>15</value1>
+						<value2>6</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5899,9 +5366,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>12</value0>
-						<value1>22</value1>
-						<value2>4</value2>
+						<value0>5</value0>
+						<value1>16</value1>
+						<value2>0</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5927,9 +5394,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>3</value0>
-						<value1>21</value1>
-						<value2>13</value2>
+						<value0>11</value0>
+						<value1>12</value1>
+						<value2>11</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5955,9 +5422,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>6</value0>
-						<value1>13</value1>
-						<value2>10</value2>
+						<value0>15</value0>
+						<value1>0</value1>
+						<value2>12</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -5983,9 +5450,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>21</value0>
-						<value1>14</value1>
-						<value2>15</value2>
+						<value0>9</value0>
+						<value1>18</value1>
+						<value2>3</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6011,9 +5478,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>14</value0>
-						<value1>17</value1>
-						<value2>19</value2>
+						<value0>16</value0>
+						<value1>2</value1>
+						<value2>8</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6039,8 +5506,8 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>13</value0>
-						<value1>16</value1>
+						<value0>12</value0>
+						<value1>8</value1>
 						<value2>4</value2>
 					</Translation>
 					<Rotation>
@@ -6067,9 +5534,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>18</value0>
-						<value1>7</value1>
-						<value2>0</value2>
+						<value0>3</value0>
+						<value1>9</value1>
+						<value2>3</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6095,9 +5562,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>5</value0>
-						<value1>0</value1>
-						<value2>14</value2>
+						<value0>6</value0>
+						<value1>23</value1>
+						<value2>24</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6123,9 +5590,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>3</value0>
-						<value1>22</value1>
-						<value2>23</value2>
+						<value0>17</value0>
+						<value1>13</value1>
+						<value2>9</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6151,9 +5618,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>22</value0>
-						<value1>9</value1>
-						<value2>23</value2>
+						<value0>3</value0>
+						<value1>0</value1>
+						<value2>5</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6179,9 +5646,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>21</value0>
-						<value1>14</value1>
-						<value2>13</value2>
+						<value0>18</value0>
+						<value1>8</value1>
+						<value2>0</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6207,9 +5674,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>0</value0>
-						<value1>20</value1>
-						<value2>12</value2>
+						<value0>5</value0>
+						<value1>11</value1>
+						<value2>14</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6235,9 +5702,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>21</value0>
-						<value1>3</value1>
-						<value2>19</value2>
+						<value0>3</value0>
+						<value1>1</value1>
+						<value2>18</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6263,9 +5730,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>12</value0>
-						<value1>19</value1>
-						<value2>10</value2>
+						<value0>9</value0>
+						<value1>2</value1>
+						<value2>11</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6292,8 +5759,8 @@
 				<Transform>
 					<Translation>
 						<value0>14</value0>
-						<value1>19</value1>
-						<value2>15</value2>
+						<value1>23</value1>
+						<value2>7</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6319,9 +5786,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>15</value0>
-						<value1>20</value1>
-						<value2>8</value2>
+						<value0>3</value0>
+						<value1>24</value1>
+						<value2>20</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6347,9 +5814,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>18</value0>
-						<value1>20</value1>
-						<value2>1</value2>
+						<value0>2</value0>
+						<value1>23</value1>
+						<value2>6</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6375,9 +5842,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>23</value0>
-						<value1>7</value1>
-						<value2>22</value2>
+						<value0>19</value0>
+						<value1>3</value1>
+						<value2>9</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6403,9 +5870,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>2</value0>
-						<value1>12</value1>
-						<value2>20</value2>
+						<value0>8</value0>
+						<value1>19</value1>
+						<value2>21</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6431,9 +5898,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>13</value0>
-						<value1>1</value1>
-						<value2>3</value2>
+						<value0>3</value0>
+						<value1>20</value1>
+						<value2>6</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6459,9 +5926,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>23</value0>
-						<value1>2</value1>
-						<value2>0</value2>
+						<value0>4</value0>
+						<value1>17</value1>
+						<value2>10</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6487,9 +5954,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>19</value0>
-						<value1>15</value1>
-						<value2>15</value2>
+						<value0>13</value0>
+						<value1>23</value1>
+						<value2>14</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6515,9 +5982,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>3</value0>
-						<value1>18</value1>
-						<value2>22</value2>
+						<value0>22</value0>
+						<value1>13</value1>
+						<value2>12</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6543,9 +6010,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>13</value0>
-						<value1>18</value1>
-						<value2>12</value2>
+						<value0>10</value0>
+						<value1>11</value1>
+						<value2>9</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6571,9 +6038,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>9</value0>
-						<value1>13</value1>
-						<value2>24</value2>
+						<value0>8</value0>
+						<value1>11</value1>
+						<value2>9</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6599,9 +6066,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>6</value0>
-						<value1>13</value1>
-						<value2>17</value2>
+						<value0>18</value0>
+						<value1>15</value1>
+						<value2>19</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6627,9 +6094,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>8</value0>
-						<value1>10</value1>
-						<value2>21</value2>
+						<value0>12</value0>
+						<value1>19</value1>
+						<value2>8</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6655,9 +6122,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>8</value0>
-						<value1>4</value1>
-						<value2>13</value2>
+						<value0>0</value0>
+						<value1>21</value1>
+						<value2>14</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6683,9 +6150,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>21</value0>
+						<value0>17</value0>
 						<value1>15</value1>
-						<value2>24</value2>
+						<value2>5</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6711,9 +6178,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>18</value0>
+						<value0>15</value0>
 						<value1>5</value1>
-						<value2>20</value2>
+						<value2>14</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6739,9 +6206,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>23</value0>
-						<value1>17</value1>
-						<value2>11</value2>
+						<value0>12</value0>
+						<value1>13</value1>
+						<value2>7</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6767,9 +6234,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>8</value0>
+						<value0>4</value0>
 						<value1>10</value1>
-						<value2>1</value2>
+						<value2>10</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6795,9 +6262,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>10</value0>
-						<value1>13</value1>
-						<value2>3</value2>
+						<value0>9</value0>
+						<value1>24</value1>
+						<value2>5</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6823,9 +6290,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>4</value0>
-						<value1>24</value1>
-						<value2>23</value2>
+						<value0>15</value0>
+						<value1>1</value1>
+						<value2>16</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6851,9 +6318,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>23</value0>
-						<value1>9</value1>
-						<value2>7</value2>
+						<value0>15</value0>
+						<value1>4</value1>
+						<value2>10</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6879,9 +6346,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>16</value0>
-						<value1>19</value1>
-						<value2>5</value2>
+						<value0>23</value0>
+						<value1>23</value1>
+						<value2>13</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6907,9 +6374,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>18</value0>
-						<value1>1</value1>
-						<value2>11</value2>
+						<value0>2</value0>
+						<value1>7</value1>
+						<value2>6</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6935,9 +6402,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>0</value0>
-						<value1>5</value1>
-						<value2>1</value2>
+						<value0>14</value0>
+						<value1>13</value1>
+						<value2>8</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6963,9 +6430,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>24</value0>
-						<value1>21</value1>
-						<value2>9</value2>
+						<value0>16</value0>
+						<value1>15</value1>
+						<value2>23</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -6991,9 +6458,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>15</value0>
-						<value1>14</value1>
-						<value2>17</value2>
+						<value0>13</value0>
+						<value1>3</value1>
+						<value2>9</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7019,9 +6486,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>0</value0>
-						<value1>13</value1>
-						<value2>17</value2>
+						<value0>3</value0>
+						<value1>0</value1>
+						<value2>21</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7047,9 +6514,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>21</value0>
-						<value1>23</value1>
-						<value2>22</value2>
+						<value0>10</value0>
+						<value1>24</value1>
+						<value2>21</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7075,9 +6542,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>1</value0>
-						<value1>6</value1>
-						<value2>23</value2>
+						<value0>8</value0>
+						<value1>17</value1>
+						<value2>3</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7103,9 +6570,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>4</value0>
-						<value1>4</value1>
-						<value2>5</value2>
+						<value0>20</value0>
+						<value1>18</value1>
+						<value2>0</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7132,7 +6599,7 @@
 				<Transform>
 					<Translation>
 						<value0>1</value0>
-						<value1>12</value1>
+						<value1>4</value1>
 						<value2>0</value2>
 					</Translation>
 					<Rotation>
@@ -7159,9 +6626,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>18</value0>
-						<value1>15</value1>
-						<value2>11</value2>
+						<value0>23</value0>
+						<value1>9</value1>
+						<value2>18</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7188,8 +6655,8 @@
 				<Transform>
 					<Translation>
 						<value0>11</value0>
-						<value1>16</value1>
-						<value2>14</value2>
+						<value1>5</value1>
+						<value2>16</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7215,9 +6682,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>19</value0>
-						<value1>6</value1>
-						<value2>2</value2>
+						<value0>24</value0>
+						<value1>17</value1>
+						<value2>3</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7243,9 +6710,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>11</value0>
-						<value1>13</value1>
-						<value2>7</value2>
+						<value0>4</value0>
+						<value1>14</value1>
+						<value2>21</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7272,8 +6739,8 @@
 				<Transform>
 					<Translation>
 						<value0>5</value0>
-						<value1>15</value1>
-						<value2>6</value2>
+						<value1>1</value1>
+						<value2>16</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7299,9 +6766,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>5</value0>
-						<value1>16</value1>
-						<value2>0</value2>
+						<value0>16</value0>
+						<value1>1</value1>
+						<value2>16</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7327,9 +6794,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>11</value0>
-						<value1>12</value1>
-						<value2>11</value2>
+						<value0>12</value0>
+						<value1>6</value1>
+						<value2>14</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7356,8 +6823,8 @@
 				<Transform>
 					<Translation>
 						<value0>15</value0>
-						<value1>0</value1>
-						<value2>12</value2>
+						<value1>11</value1>
+						<value2>21</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7383,9 +6850,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>9</value0>
-						<value1>18</value1>
-						<value2>3</value2>
+						<value0>12</value0>
+						<value1>21</value1>
+						<value2>14</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7411,9 +6878,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>16</value0>
-						<value1>2</value1>
-						<value2>8</value2>
+						<value0>9</value0>
+						<value1>15</value1>
+						<value2>2</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7439,9 +6906,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>12</value0>
-						<value1>8</value1>
-						<value2>4</value2>
+						<value0>23</value0>
+						<value1>24</value1>
+						<value2>16</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7467,9 +6934,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>3</value0>
-						<value1>9</value1>
-						<value2>3</value2>
+						<value0>20</value0>
+						<value1>12</value1>
+						<value2>23</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7496,8 +6963,8 @@
 				<Transform>
 					<Translation>
 						<value0>6</value0>
-						<value1>23</value1>
-						<value2>24</value2>
+						<value1>6</value1>
+						<value2>18</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7523,9 +6990,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>17</value0>
-						<value1>13</value1>
-						<value2>9</value2>
+						<value0>18</value0>
+						<value1>2</value1>
+						<value2>7</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7551,9 +7018,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>3</value0>
-						<value1>0</value1>
-						<value2>5</value2>
+						<value0>7</value0>
+						<value1>6</value1>
+						<value2>12</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7579,9 +7046,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>18</value0>
-						<value1>8</value1>
-						<value2>0</value2>
+						<value0>11</value0>
+						<value1>5</value1>
+						<value2>14</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7607,9 +7074,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>5</value0>
-						<value1>11</value1>
-						<value2>14</value2>
+						<value0>9</value0>
+						<value1>9</value1>
+						<value2>6</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7635,9 +7102,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>3</value0>
-						<value1>1</value1>
-						<value2>18</value2>
+						<value0>15</value0>
+						<value1>18</value1>
+						<value2>21</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7663,9 +7130,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>9</value0>
-						<value1>2</value1>
-						<value2>11</value2>
+						<value0>2</value0>
+						<value1>4</value1>
+						<value2>20</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -7691,1406 +7158,6 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>14</value0>
-						<value1>23</value1>
-						<value2>7</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value251>
-	<value252>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483901</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>3</value0>
-						<value1>24</value1>
-						<value2>20</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value252>
-	<value253>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483902</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>2</value0>
-						<value1>23</value1>
-						<value2>6</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value253>
-	<value254>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483903</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>19</value0>
-						<value1>3</value1>
-						<value2>9</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value254>
-	<value255>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483904</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>8</value0>
-						<value1>19</value1>
-						<value2>21</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value255>
-	<value256>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483905</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>3</value0>
-						<value1>20</value1>
-						<value2>6</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value256>
-	<value257>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483906</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>4</value0>
-						<value1>17</value1>
-						<value2>10</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value257>
-	<value258>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483907</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>13</value0>
-						<value1>23</value1>
-						<value2>14</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value258>
-	<value259>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483908</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>22</value0>
-						<value1>13</value1>
-						<value2>12</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value259>
-	<value260>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483909</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>10</value0>
-						<value1>11</value1>
-						<value2>9</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value260>
-	<value261>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483910</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>8</value0>
-						<value1>11</value1>
-						<value2>9</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value261>
-	<value262>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483911</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>18</value0>
-						<value1>15</value1>
-						<value2>19</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value262>
-	<value263>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483912</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>12</value0>
-						<value1>19</value1>
-						<value2>8</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value263>
-	<value264>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483913</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>0</value0>
-						<value1>21</value1>
-						<value2>14</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value264>
-	<value265>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483914</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>17</value0>
-						<value1>15</value1>
-						<value2>5</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value265>
-	<value266>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483915</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>15</value0>
-						<value1>5</value1>
-						<value2>14</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value266>
-	<value267>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483916</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>12</value0>
-						<value1>13</value1>
-						<value2>7</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value267>
-	<value268>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483917</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>4</value0>
-						<value1>10</value1>
-						<value2>10</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value268>
-	<value269>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483918</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>9</value0>
-						<value1>24</value1>
-						<value2>5</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value269>
-	<value270>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483919</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>15</value0>
-						<value1>1</value1>
-						<value2>16</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value270>
-	<value271>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483920</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>15</value0>
-						<value1>4</value1>
-						<value2>10</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value271>
-	<value272>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483921</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>23</value0>
-						<value1>23</value1>
-						<value2>13</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value272>
-	<value273>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483922</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>2</value0>
-						<value1>7</value1>
-						<value2>6</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value273>
-	<value274>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483923</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>14</value0>
-						<value1>13</value1>
-						<value2>8</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value274>
-	<value275>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483924</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>16</value0>
-						<value1>15</value1>
-						<value2>23</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value275>
-	<value276>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483925</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>13</value0>
-						<value1>3</value1>
-						<value2>9</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value276>
-	<value277>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483926</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>3</value0>
-						<value1>0</value1>
-						<value2>21</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value277>
-	<value278>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483927</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>10</value0>
-						<value1>24</value1>
-						<value2>21</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value278>
-	<value279>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483928</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>8</value0>
-						<value1>17</value1>
-						<value2>3</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value279>
-	<value280>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483929</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>20</value0>
-						<value1>18</value1>
-						<value2>0</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value280>
-	<value281>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483930</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>1</value0>
-						<value1>4</value1>
-						<value2>0</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value281>
-	<value282>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483931</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>23</value0>
-						<value1>9</value1>
-						<value2>18</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value282>
-	<value283>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483932</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>11</value0>
-						<value1>5</value1>
-						<value2>16</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value283>
-	<value284>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483933</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>24</value0>
-						<value1>17</value1>
-						<value2>3</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value284>
-	<value285>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483934</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>4</value0>
-						<value1>14</value1>
-						<value2>21</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value285>
-	<value286>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483935</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>5</value0>
-						<value1>1</value1>
-						<value2>16</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value286>
-	<value287>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483936</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>16</value0>
-						<value1>1</value1>
-						<value2>16</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value287>
-	<value288>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483937</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>12</value0>
-						<value1>6</value1>
-						<value2>14</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value288>
-	<value289>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483938</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>15</value0>
-						<value1>11</value1>
-						<value2>21</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value289>
-	<value290>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483939</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>12</value0>
-						<value1>21</value1>
-						<value2>14</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value290>
-	<value291>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483940</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>9</value0>
-						<value1>15</value1>
-						<value2>2</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value291>
-	<value292>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483941</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>23</value0>
-						<value1>24</value1>
-						<value2>16</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value292>
-	<value293>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483942</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>20</value0>
-						<value1>12</value1>
-						<value2>23</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value293>
-	<value294>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483943</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>6</value0>
-						<value1>6</value1>
-						<value2>18</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value294>
-	<value295>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483944</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>18</value0>
-						<value1>2</value1>
-						<value2>7</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value295>
-	<value296>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483945</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>7</value0>
-						<value1>6</value1>
-						<value2>12</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value296>
-	<value297>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483946</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>11</value0>
-						<value1>5</value1>
-						<value2>14</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value297>
-	<value298>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483947</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>9</value0>
-						<value1>9</value1>
-						<value2>6</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value298>
-	<value299>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483948</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>15</value0>
-						<value1>18</value1>
-						<value2>21</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value299>
-	<value300>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483949</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>2</value0>
-						<value1>4</value1>
-						<value2>20</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head Asteroid</Object_Name>
-				<Mesh_Name>./assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value300>
-	<value301>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483950</id>
-			<data>
-				<Transform>
-					<Translation>
 						<value0>12.5</value0>
 						<value1>-25</value1>
 						<value2>12.5</value2>
@@ -9111,6 +7178,6 @@
 				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
 			</data>
 		</ptr_wrapper>
-	</value301>
+	</value251>
 </cereal>
 

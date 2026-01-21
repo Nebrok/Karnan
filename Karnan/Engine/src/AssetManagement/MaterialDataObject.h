@@ -16,7 +16,7 @@ public:
 	MaterialDataObject();
 	~MaterialDataObject();
 
-	void SaveMaterial();
+	std::string SaveMaterial();
 	void LoadMaterial(std::string filePath);
 
 

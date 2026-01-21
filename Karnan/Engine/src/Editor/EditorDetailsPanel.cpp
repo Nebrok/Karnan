@@ -14,8 +14,37 @@ void EditorDetailsPanel::OnImGUIRender()
 {
 	bool detailsOpen = true;
 	ImGui::Begin("Details", &detailsOpen);
+	switch (KarnanEditor::Instance->GetCurrentSelectedType())
+	{
+	case KarnanEditor::DetailsPanelTypes::NONE:
+		break;
+	case KarnanEditor::DetailsPanelTypes::GAMEOBJECT:
+		DisplayGameObject();
+		break;
+	case KarnanEditor::DetailsPanelTypes::MATERIAL:
+		DisplayMaterialData();
+		break;
+	}
+	ImGui::End();
+}
 
-	std::shared_ptr<GameObject> lastHighlightedGO = KarnanEditor::Instance->GetLastHighlightedGO();
+void EditorDetailsPanel::DeleteGameObject(GameObject* go)
+{
+	KarnanEditor::Instance->SetLastHighlightedGO(nullptr);
+	EngineCore::DeleteGOFromActiveScene(go->GetId());
+}
+
+void EditorDetailsPanel::ChangeMeshButton()
+{
+	if (ImGui::Button("Change Mesh"))
+	{
+		ImGui::OpenPopup("ChangeMeshPopup");
+	}
+}
+
+void EditorDetailsPanel::DisplayGameObject()
+{
+	GameObject* lastHighlightedGO = KarnanEditor::Instance->GetLastHighlightedGO();
 	if (lastHighlightedGO == nullptr)
 	{
 		ImGui::End();
@@ -64,22 +93,26 @@ void EditorDetailsPanel::OnImGUIRender()
 	ImGui::SeparatorText("WARNING");
 	if (ImGui::Button("Delete GameObject"))
 	{
-		DeleteGameObject(lastHighlightedGO.get());
+		DeleteGameObject(lastHighlightedGO);
 	}
-
-	ImGui::End();
 }
 
-void EditorDetailsPanel::DeleteGameObject(GameObject* go)
+void EditorDetailsPanel::DisplayMaterialData()
 {
-	KarnanEditor::Instance->SetLastHighlightedGO(nullptr);
-	EngineCore::DeleteGOFromActiveScene(go->GetId());
-}
+	MaterialDataObject* materialData = (MaterialDataObject*)KarnanEditor::Instance->GetCurrentSelectedItem();
+	ImGui::Text("Material Data");
+	ImGui::Separator();
 
-void EditorDetailsPanel::ChangeMeshButton()
-{
-	if (ImGui::Button("Change Mesh"))
+	ImGui::Text("Material Name: ");
+	ImGui::Text(materialData->MaterialName.c_str());
+	
+	ImGui::Text("Textures: ");
+	for (int i = 0; i < 8; i++)
 	{
-		ImGui::OpenPopup("ChangeMeshPopup");
+		ImGui::Text((std::to_string(i) + ": ").c_str());
+		if (materialData->Textures[i] == "")
+			ImGui::Selectable("None");
+		else
+			ImGui::Selectable(materialData->Textures[i].c_str());
 	}
 }

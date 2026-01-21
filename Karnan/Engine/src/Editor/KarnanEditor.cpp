@@ -15,7 +15,6 @@ KarnanEditor::KarnanEditor()
 
 KarnanEditor::~KarnanEditor()
 {
-
 }
 
 void KarnanEditor::Init()
@@ -43,6 +42,27 @@ void KarnanEditor::Update()
 void KarnanEditor::Render(VkCommandBuffer commandBuffer)
 {
 	_mainGUI->Render(commandBuffer);
+}
+
+GameObject* KarnanEditor::GetLastHighlightedGO()
+{
+	if (_currentSelectedType != DetailsPanelTypes::GAMEOBJECT)
+	{
+		return nullptr;
+	}
+	return (GameObject*)_lastSelectedItem;
+}
+
+void KarnanEditor::SetLastHighlightedGO(GameObject* go)
+{
+	_currentSelectedType = DetailsPanelTypes::GAMEOBJECT;
+	_lastSelectedItem = go;
+}
+
+void KarnanEditor::SetMaterialAsSelected(std::string filepath)
+{
+	_currentSelectedType = DetailsPanelTypes::MATERIAL;
+	_lastSelectedItem = AssetManager::Instance->GetMaterialData(filepath).get();
 }
 
 KarnanEditor* KarnanEditor::StartupEditor()
