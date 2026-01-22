@@ -108,6 +108,7 @@ void KarnanScene::DeleteGO(uint32_t goID)
 		if (_gameObjects[i]->GetId() == goID)
 		{
 			indexToBeDeleted = i;
+			break;
 		}
 	}
 	std::shared_ptr<GameObject> deletedGO;

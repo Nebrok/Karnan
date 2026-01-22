@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>-6.2372212409973145</value0>
-							<value1>6.8173770904541016</value1>
-							<value2>15.459753036499023</value2>
+							<value0>1.6435556411743164</value0>
+							<value1>5.8774933815002441</value1>
+							<value2>9.8592081069946289</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.51164728403091431</value0>
-							<value1>1.8412836790084839</value1>
+							<value0>0.16808854043483734</value0>
+							<value1>1.5101650953292847</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -7159,7 +7159,7 @@
 				<Transform>
 					<Translation>
 						<value0>12.5</value0>
-						<value1>-25</value1>
+						<value1>-12.5</value1>
 						<value2>12.5</value2>
 					</Translation>
 					<Rotation>
@@ -7174,7 +7174,7 @@
 					</Scale>
 				</Transform>
 				<Object_Name>Sponza Scene</Object_Name>
-				<Mesh_Name>assets/models/SponzaSceneMaybe.obj</Mesh_Name>
+				<Mesh_Name>assets/models/cube.obj</Mesh_Name>
 				<Material_Name>./assets/textures/lion_head_diff_4k.png</Material_Name>
 			</data>
 		</ptr_wrapper>

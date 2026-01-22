@@ -12,6 +12,12 @@
 
 void EditorDetailsPanel::OnImGUIRender()
 {
+	if (KarnanEditor::Instance->GetCurrentSelectedItem() != _lastFrameSelected)
+	{
+		_selectedChanged = true;
+	}
+
+
 	bool detailsOpen = true;
 	ImGui::Begin("Details", &detailsOpen);
 	switch (KarnanEditor::Instance->GetCurrentSelectedType())
@@ -26,6 +32,9 @@ void EditorDetailsPanel::OnImGUIRender()
 		break;
 	}
 	ImGui::End();
+	_lastFrameSelected = KarnanEditor::Instance->GetCurrentSelectedItem();
+	if (_selectedChanged)
+		_selectedChanged = false;
 }
 
 void EditorDetailsPanel::DeleteGameObject(GameObject* go)
@@ -47,7 +56,6 @@ void EditorDetailsPanel::DisplayGameObject()
 	GameObject* lastHighlightedGO = KarnanEditor::Instance->GetLastHighlightedGO();
 	if (lastHighlightedGO == nullptr)
 	{
-		ImGui::End();
 		return;
 	}
 
@@ -67,7 +75,7 @@ void EditorDetailsPanel::DisplayGameObject()
 	if (ImGui::BeginPopupContextItem("ChangeMeshPopup"))
 	{
 		ImGui::SeparatorText("Choose new mesh");
-		ImGui::BeginChild("Mesh Lish", ImVec2(250.0f, 100.0f), true, ImGuiWindowFlags_AlwaysVerticalScrollbar);
+		ImGui::BeginChild("Mesh List", ImVec2(250.0f, 100.0f), true, ImGuiWindowFlags_AlwaysVerticalScrollbar);
 		std::vector<std::string> meshNames = AssetManager::Instance->FindMeshBinariesInAssetFolder();
 		for (auto meshName : meshNames)
 		{
@@ -100,19 +108,75 @@ void EditorDetailsPanel::DisplayGameObject()
 void EditorDetailsPanel::DisplayMaterialData()
 {
 	MaterialDataObject* materialData = (MaterialDataObject*)KarnanEditor::Instance->GetCurrentSelectedItem();
+	if (_selectedChanged)
+	{
+		_materialCopyObject = MaterialDataObject(*materialData);
+	}
+
 	ImGui::Text("Material Data");
 	ImGui::Separator();
 
 	ImGui::Text("Material Name: ");
-	ImGui::Text(materialData->MaterialName.c_str());
+	std::string GOName = _materialCopyObject.MaterialName;
+	ImGui::InputText("Object Name", &GOName);
+	_materialCopyObject.MaterialName = GOName;
+	//ImGui::Text(_materialCopyObject.MaterialName.c_str());
 	
 	ImGui::Text("Textures: ");
 	for (int i = 0; i < 8; i++)
 	{
+		ImGui::PushID(i);
+		
 		ImGui::Text((std::to_string(i) + ": ").c_str());
-		if (materialData->Textures[i] == "")
-			ImGui::Selectable("None");
-		else
-			ImGui::Selectable(materialData->Textures[i].c_str());
+		if (ImGui::BeginPopupContextItem("ChangeTexturePopup"))
+		{
+			ImGui::SeparatorText("Choose new texture");
+			ImGui::BeginChild("Mesh List", ImVec2(250.0f, 100.0f), true, ImGuiWindowFlags_AlwaysVerticalScrollbar);
+			std::vector<std::string> textureNames = AssetManager::Instance->FindTexturePathsInAssetFolder();
+			for (auto textureName : textureNames)
+			{
+				if (ImGui::Selectable(textureName.c_str()))
+				{
+					_materialCopyObject.Textures[i] = textureName;
+				}
+			}
+			ImGui::EndChild();
+			ImGui::EndPopup();
+		}
+
+		std::string selectableText = "None";
+		if (_materialCopyObject.Textures[i] != "")
+		{
+			selectableText = _materialCopyObject.Textures[i];
+		}
+		if (ImGui::Selectable(selectableText.c_str()))
+		{
+			ImGui::OpenPopup("ChangeTexturePopup");
+		}
+
+		ImGui::PopID();
 	}
+	ImGui::Separator();
+	if (ImGui::Button("Discard Changes"))
+	{
+		DiscardMaterialChanges();
+	}
+	ImGui::SameLine();
+	if (ImGui::Button("Save Changes"))
+	{
+		SaveMaterialChanges();
+	}
+
+}
+
+void EditorDetailsPanel::SaveMaterialChanges()
+{
+	MaterialDataObject* materialData = (MaterialDataObject*)KarnanEditor::Instance->GetCurrentSelectedItem();
+	materialData->UpdateData(_materialCopyObject);
+}
+
+void EditorDetailsPanel::DiscardMaterialChanges()
+{
+	MaterialDataObject* materialData = (MaterialDataObject*)KarnanEditor::Instance->GetCurrentSelectedItem();
+	_materialCopyObject = MaterialDataObject(*materialData);
 }

@@ -55,7 +55,14 @@ GameObject* KarnanEditor::GetLastHighlightedGO()
 
 void KarnanEditor::SetLastHighlightedGO(GameObject* go)
 {
-	_currentSelectedType = DetailsPanelTypes::GAMEOBJECT;
+	if (go == nullptr)
+	{
+		_currentSelectedType = DetailsPanelTypes::NONE;
+	}
+	else
+	{
+		_currentSelectedType = DetailsPanelTypes::GAMEOBJECT;
+	}
 	_lastSelectedItem = go;
 }
 

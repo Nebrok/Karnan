@@ -1,5 +1,7 @@
 #include "MaterialDataObject.h"
 
+#include "AssetManager.h"
+
 #include <iostream>
 #include <fstream>
 #include <filesystem>
@@ -20,12 +22,12 @@ MaterialDataObject::~MaterialDataObject()
 std::string MaterialDataObject::SaveMaterial()
 {
 	std::fstream fileOut;
-	std::string materialFolder = "./assets/materials/";
+	std::string materialFolder = "assets/materials/";
 	std::string filename = MaterialName + ".kmat";
 	fileOut.open(materialFolder + filename, std::fstream::out);
 	if (fileOut.fail())
 	{
-		std::cout << "Failed to open file: " << materialFolder + filename << '\n';
+		std::cout << "Failed to save material data file: " << materialFolder + filename << '\n';
 	}
 
 	std::string version = MATERIAL_FILE_VERSION;
@@ -47,6 +49,74 @@ std::string MaterialDataObject::SaveMaterial()
 
 void MaterialDataObject::LoadMaterial(std::string filePath)
 {
-	//TODO
+	std::fstream fileIn;
+	fileIn.open(filePath, std::fstream::in);
+	if (fileIn.fail())
+	{
+		std::cout << "Failed to open material data file: " << filePath << '\n';
+	}
+
+
+	int lineCount = 0;
+
+	std::string line;
+	while (std::getline(fileIn, line))
+	{
+		std::istringstream iss(line);
+		if (lineCount == 0)
+		{
+			if (line != MATERIAL_FILE_VERSION)
+				throw std::runtime_error("Trying to open old material data version");
+			lineCount++;
+			continue;
+		}
+		std::vector<std::string> splitLine;
+		std::string word;
+		while (std::getline(iss, word, ' '))
+		{
+			splitLine.push_back(word);
+		}
+
+		if (splitLine[0] == "Name:")
+		{
+			//+1 for space
+			MaterialName = line.substr(splitLine[0].size() + 1);
+		}
+
+		if (splitLine[0] == "Texture")
+		{
+			int index = splitLine[1].at(0) - '0';
+			Textures[index] = line.substr(splitLine[0].size() + 1 + splitLine[1].size() + 1);
+		}
+
+		lineCount++;
+	}
+
+	fileIn.close();
+	Filepath = filePath;
+}
+
+void MaterialDataObject::UpdateData(MaterialDataObject& newData)
+{
+	std::string oldFilepath = Filepath;
+	std::string oldMaterialName = MaterialName;
+
+	MaterialName = newData.MaterialName;
+
+	for (int i = 0; i < 8; i++)
+	{
+		Textures[i] = newData.Textures[i];
+	}
+
+	std::string newFilepath = SaveMaterial();
+	Filepath = newFilepath;
+
+	if (oldMaterialName != newData.MaterialName)
+	{
+		AssetManager::Instance->UpdateMaterialDataMap(oldFilepath);
+		std::filesystem::remove(oldFilepath);
+	}
+
+
 }
 

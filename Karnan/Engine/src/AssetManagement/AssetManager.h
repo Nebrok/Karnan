@@ -43,11 +43,17 @@ public:
 
 	void LoadMaterialDataFromDisk();
 	bool AddNewMaterialDataObject();
+	bool UpdateMaterialDataMap(std::string oldFilepathKey);
 	bool IsMaterialDataLoaded(std::string filepath) 
 	{ 
 		return _materialDataMap.contains(filepath); 
 	};
 	std::shared_ptr<MaterialDataObject> GetMaterialData(const std::string& filepath);
+
+	std::vector<std::string> FindTexturePathsInAssetFolder();
+
+
+
 
 	std::shared_ptr<KarnanMaterial> GetMaterial(const std::string& filename);
 

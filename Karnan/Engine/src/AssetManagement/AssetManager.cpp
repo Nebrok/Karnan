@@ -98,6 +98,16 @@ bool AssetManager::AddNewMaterialDataObject()
 	newDataObject->MaterialName = "New Material";
 	std::string newFilepath = newDataObject->SaveMaterial();
 	_materialDataMap[newFilepath] = newDataObject;
+	newDataObject->Filepath = newFilepath;
+	return true;
+}
+
+bool AssetManager::UpdateMaterialDataMap(std::string oldFilepathKey)
+{
+	std::string newKey = _materialDataMap[oldFilepathKey]->Filepath;
+	_materialDataMap[newKey] = _materialDataMap[oldFilepathKey];
+	_materialDataMap.erase(oldFilepathKey);
+	
 	return true;
 }
 
@@ -107,6 +117,22 @@ std::shared_ptr<MaterialDataObject> AssetManager::GetMaterialData(const std::str
 		return nullptr;
 
 	return _materialDataMap.at(filepath);
+}
+
+std::vector<std::string> AssetManager::FindTexturePathsInAssetFolder()
+{
+	std::vector<std::string> textureFiles;
+
+	for (const auto& entry : std::filesystem::recursive_directory_iterator("assets")) {
+		if (entry.is_regular_file() && (entry.path().extension() == ".png")) {
+			// Store the path relative to the root folder
+			textureFiles.push_back(
+				std::filesystem::relative(entry.path(), std::filesystem::current_path()).generic_string()
+			);
+		}
+	}
+
+	return textureFiles;
 }
 
 std::shared_ptr<KarnanMaterial> AssetManager::GetMaterial(const std::string& filename)

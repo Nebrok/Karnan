@@ -33,9 +33,6 @@ int main(int argc, char** argv)
         return EXIT_FAILURE;
     }
 
-    MaterialDataObject test;
-    test.SaveMaterial();
-
     editor->DestroyEditor();
     engine->DestroyEngine();
     return EXIT_SUCCESS;
