@@ -120,6 +120,7 @@ protected:
 
     std::string _materialName = "";
     std::shared_ptr<KarnanMaterial> _material = nullptr;
+    bool _materialChanged = false;
 
 public:
     static uint32_t GenerateNewId()

@@ -119,6 +119,22 @@ std::shared_ptr<MaterialDataObject> AssetManager::GetMaterialData(const std::str
 	return _materialDataMap.at(filepath);
 }
 
+std::vector<std::string> AssetManager::FindMaterialPathsInAssetFolder()
+{
+	std::vector<std::string> materialFiles;
+
+	for (const auto& entry : std::filesystem::recursive_directory_iterator("assets")) {
+		if (entry.is_regular_file() && (entry.path().extension() == ".kmat")) {
+			// Store the path relative to the root folder
+			materialFiles.push_back(
+				std::filesystem::relative(entry.path(), std::filesystem::current_path()).generic_string()
+			);
+		}
+	}
+
+	return materialFiles;
+}
+
 std::vector<std::string> AssetManager::FindTexturePathsInAssetFolder()
 {
 	std::vector<std::string> textureFiles;
@@ -229,21 +245,22 @@ void AssetManager::ProcessMessage(std::shared_ptr<Message> message)
 		}
 		if ((message->MessageInfo()).compare("Create Material") == 0)
 		{
-			MaterialConstructParams& materialConstructionDetails = dynamic_cast<AMCreateMaterialMessage*>(message.get())->MaterialConstructInfo;
-			std::string filepath = materialConstructionDetails.MaterialName;
+			std::string materialDataObjectFilepath = dynamic_cast<AMCreateMaterialMessage*>(message.get())->MaterialDataObjectFilepath;
 
-			if (auto search = _loadRequested.find(filepath); search != _loadRequested.end())
+			if (auto search = _loadRequested.find(materialDataObjectFilepath); search != _loadRequested.end())
 			{
-				std::cout << "Material: " << filepath << " has already been requested to load." << '\n';
-				_loadRequested[filepath].push_back(dynamic_cast<AMCreateMaterialMessage*>(message.get())->CallingGO);
+				std::cout << "Material: " << materialDataObjectFilepath << " has already been requested to load." << '\n';
+				_loadRequested[materialDataObjectFilepath].push_back(dynamic_cast<AMCreateMaterialMessage*>(message.get())->CallingGO);
 				return;
 			}
 
+
+			std::shared_ptr<MaterialDataObject> matData = _materialDataMap[materialDataObjectFilepath];
 			std::shared_ptr<KarnanMaterial> material = std::shared_ptr<KarnanMaterial>(DBG_NEW KarnanMaterial());
-			_materialMap[filepath] = material;
+			_materialMap[materialDataObjectFilepath] = material;
 			material->Init();
 			int index = 0;
-			for (auto textureFilepath : materialConstructionDetails.Textures)
+			for (auto textureFilepath : matData->Textures)
 			{
 				if (textureFilepath == "")
 					continue;
@@ -252,7 +269,7 @@ void AssetManager::ProcessMessage(std::shared_ptr<Message> message)
 			}
 			material->CreateImageInfos();
 
-			_loadRequested[filepath].push_back(dynamic_cast<AMCreateMaterialMessage*>(message.get())->CallingGO);
+			_loadRequested[materialDataObjectFilepath].push_back(dynamic_cast<AMCreateMaterialMessage*>(message.get())->CallingGO);
 
 		}
 	}

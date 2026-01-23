@@ -2,6 +2,7 @@
 #include "BaseMessage.h"
 #include "../GameObject.h"
 #include "../KarnanMaterial.h"
+#include "../AssetManagement/MaterialDataObject.h"
 
 #include <vector>
 
@@ -79,12 +80,12 @@ public:
 class AMCreateMaterialMessage : public AMBaseCommandMessage
 {
 public:
-	MaterialConstructParams MaterialConstructInfo;
+	std::string MaterialDataObjectFilepath;
 	GameObject* CallingGO;
 
 public:
-	AMCreateMaterialMessage(System callingSystem, MaterialConstructParams materialConstructInfo, GameObject* callingGO)
-		: AMBaseCommandMessage(callingSystem, "Create Material"), MaterialConstructInfo(materialConstructInfo), CallingGO(callingGO)
+	AMCreateMaterialMessage(System callingSystem, std::string materialDataFilepath, GameObject* callingGO)
+		: AMBaseCommandMessage(callingSystem, "Create Material"), MaterialDataObjectFilepath(materialDataFilepath), CallingGO(callingGO)
 	{
 	}
 };

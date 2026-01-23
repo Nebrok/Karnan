@@ -25,8 +25,11 @@ public:
 
 private:
 	void ChangeMeshButton();
+	void ChangeMaterialButton();
+	
 	void DisplayGameObject();
 	void DisplayMaterialData();
+	void DisplayLights();
 
 	void SaveMaterialChanges();
 	void DiscardMaterialChanges();

@@ -10,8 +10,7 @@ PointLight::PointLight()
 
 void PointLight::Init()
 {
-	CreateMesh("assets/models/icosphere.obj");
-	CreateMaterial("assets/textures/NULL_TEXTURE.png");
+	Tags.push_back("Point Light");
 }
 
 void PointLight::Update(double deltaTime)

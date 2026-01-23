@@ -49,6 +49,8 @@ public:
 		return _materialDataMap.contains(filepath); 
 	};
 	std::shared_ptr<MaterialDataObject> GetMaterialData(const std::string& filepath);
+	std::vector<std::string> FindMaterialPathsInAssetFolder();
+
 
 	std::vector<std::string> FindTexturePathsInAssetFolder();
 

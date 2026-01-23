@@ -6,6 +6,10 @@
 #include "EditorGOCreatorPanel.h"
 #include "EditorContentBrowser.h"
 
+#include "../Lights/PointLight.h"
+
+
+
 KarnanEditor* KarnanEditor::Instance = nullptr;
 
 KarnanEditor::KarnanEditor()
@@ -24,7 +28,7 @@ void KarnanEditor::Init()
 
 	_panels.push_back(new EditorHierarchyPanel());
 	_panels.push_back(new EditorDetailsPanel());
-	_panels.push_back(new EditorGOCreatorPanel());
+	//_panels.push_back(new EditorGOCreatorPanel());
 	_panels.push_back(new EditorContentBrowser());
 
 }
@@ -64,6 +68,19 @@ void KarnanEditor::SetLastHighlightedGO(GameObject* go)
 		_currentSelectedType = DetailsPanelTypes::GAMEOBJECT;
 	}
 	_lastSelectedItem = go;
+}
+
+void KarnanEditor::SetPointLightAsSelected(PointLight* pointLight)
+{
+	if (pointLight == nullptr)
+	{
+		_currentSelectedType = DetailsPanelTypes::NONE;
+	}
+	else
+	{
+		_currentSelectedType = DetailsPanelTypes::POINT_LIGHT;
+	}
+	_lastSelectedItem = pointLight;
 }
 
 void KarnanEditor::SetMaterialAsSelected(std::string filepath)

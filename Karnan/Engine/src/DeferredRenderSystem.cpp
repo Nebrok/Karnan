@@ -67,6 +67,13 @@ void DeferredRenderSystem::SetupDescriptors()
 	//the material of the current GO is queried for the descriptor set
 	auto materialSetLayout = KarnanDescriptorSetLayout::Builder(_karnanDevice)
 		.addBinding(0, VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, VK_SHADER_STAGE_FRAGMENT_BIT)
+		.addBinding(1, VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, VK_SHADER_STAGE_FRAGMENT_BIT)
+		.addBinding(2, VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, VK_SHADER_STAGE_FRAGMENT_BIT)
+		.addBinding(3, VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, VK_SHADER_STAGE_FRAGMENT_BIT)
+		.addBinding(4, VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, VK_SHADER_STAGE_FRAGMENT_BIT)
+		.addBinding(5, VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, VK_SHADER_STAGE_FRAGMENT_BIT)
+		.addBinding(6, VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, VK_SHADER_STAGE_FRAGMENT_BIT)
+		.addBinding(7, VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER, VK_SHADER_STAGE_FRAGMENT_BIT)
 		.build();
 	_materialDescriptorSetLayout = move(materialSetLayout);
 
@@ -208,7 +215,7 @@ void DeferredRenderSystem::LightingPass(VkCommandBuffer commandBuffer, int frame
 		PointLight* light = dynamic_cast<PointLight*>(go);
 		lightingUbo.lightPositions[activeLights] = glm::vec4(go->Transform.Translation, 1);
 		lightingUbo.lightColours[activeLights] = glm::vec4(light->GetColour(), 1);
-		lightingUbo.lightAttentuations[activeLights] = glm::vec4(light->GetAttentuation(), 1);
+		lightingUbo.lightAttentuations[activeLights] = glm::vec4(light->GetAttenuation(), 1);
 		lightingUbo.lightIntensities[activeLights].x = light->GetIntensity();
 		++activeLights;
 	}

@@ -40,17 +40,24 @@ void GameObject::Update(double deltaTime)
 	{
 		_meshRefreshed = false;
 	}
-	if (_material == nullptr)
+
+	if (_material == nullptr || _materialChanged)
+	{
 		_material = AssetManager::Instance->GetMaterial(_materialName);
+		_materialChanged = false;
+	}
 
 	if (_material != nullptr)
 	{
 		_renderable = true;
 	}
+	
 }
 
 void GameObject::Render(VkCommandBuffer commandBuffer)
 {
+	
+
 	std::shared_ptr<BasicMesh> mesh = AssetManager::Instance->GetMesh(_meshName);
 	if (mesh == nullptr)
 		return;
@@ -70,19 +77,12 @@ void GameObject::CreateMesh(const std::string& filename)
 
 void GameObject::CreateMaterial(const std::string& filename)
 {
-	MaterialConstructParams constructParams;
-	for (auto& textureFilepath : constructParams.Textures)
-	{
-		textureFilepath = "";
-	}
-	constructParams.Textures[0] = filename;
-	constructParams.MaterialName = filename;
-
-	std::shared_ptr<AMCreateMaterialMessage> message = std::shared_ptr<AMCreateMaterialMessage>(DBG_NEW AMCreateMaterialMessage(Message::System::NONE, constructParams, this));
+	std::shared_ptr<AMCreateMaterialMessage> message = std::shared_ptr<AMCreateMaterialMessage>(DBG_NEW AMCreateMaterialMessage(Message::System::NONE, filename, this));
 	std::unique_lock<std::mutex> messageQueueLock(AssetManager::Instance->MessageQueueMutex);
 	AssetManager::Instance->QueueMessage(message);
 	messageQueueLock.unlock();
 	_materialName = filename;
+	_materialChanged = true;
 }
 
 void GameObject::AddMaterial(const std::string& filename)

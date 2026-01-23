@@ -21,7 +21,7 @@ layout (set = 1, binding = 2) uniform sampler2D gBufferAlbedo;
 
 layout (location = 0) out vec4 outColor; 
 
-const float AMBIENT = 0.1;
+const float AMBIENT = 0.2;
 
 void main()
 {
@@ -47,7 +47,7 @@ void main()
 			vec3 diffusePart = difIntensity * lightUbo.lightColours[i].xyz * matDiffuseColor;
 			float distance = length(lightUbo.lightPositions[i].xyz - worldPosition);
 
-			float attenuation = 1 / (lightUbo.lightAttentuations[i].x + lightUbo.lightAttentuations[i].y * distance + lightUbo.lightAttentuations[i].z * pow(distance, 2));
+			float attenuation = lightUbo.lightIntensities[i].x / (lightUbo.lightAttentuations[i].x + lightUbo.lightAttentuations[i].y * distance + lightUbo.lightAttentuations[i].z * pow(distance, 2));
 
 			lightDiffuse += diffusePart * attenuation;
 

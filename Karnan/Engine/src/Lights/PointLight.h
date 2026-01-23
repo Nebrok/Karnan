@@ -24,8 +24,10 @@ public:
 
 	glm::vec3 GetColour() {	return _lightColour;};
 	void SetColour(glm::vec3 colour) { _lightColour = colour; };
-	glm::vec3 GetAttentuation() { return _attenuation; };
+	glm::vec3 GetAttenuation() { return _attenuation; };
+	void SetAttenuation(glm::vec3 attenuation) { _attenuation = attenuation; };
 	float GetIntensity() { return _intensity; };
+	void SetIntensity(float intensity) { _intensity = intensity; };
 
 	//Cereal serialisation
 	template <class Archive>

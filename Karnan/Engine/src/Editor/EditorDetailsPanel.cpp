@@ -2,6 +2,7 @@
 
 #include "../EngineCore.h"
 #include "KarnanEditor.h"
+#include "../Lights/PointLight.h"
 
 
 #include "glm/gtc/type_ptr.hpp"
@@ -30,6 +31,9 @@ void EditorDetailsPanel::OnImGUIRender()
 	case KarnanEditor::DetailsPanelTypes::MATERIAL:
 		DisplayMaterialData();
 		break;
+	case KarnanEditor::DetailsPanelTypes::POINT_LIGHT:
+		DisplayLights();
+		break;
 	}
 	ImGui::End();
 	_lastFrameSelected = KarnanEditor::Instance->GetCurrentSelectedItem();
@@ -51,6 +55,14 @@ void EditorDetailsPanel::ChangeMeshButton()
 	}
 }
 
+void EditorDetailsPanel::ChangeMaterialButton()
+{
+	if (ImGui::Button("Change Material"))
+	{
+		ImGui::OpenPopup("ChangeMaterialPopup");
+	}
+}
+
 void EditorDetailsPanel::DisplayGameObject()
 {
 	GameObject* lastHighlightedGO = KarnanEditor::Instance->GetLastHighlightedGO();
@@ -58,6 +70,9 @@ void EditorDetailsPanel::DisplayGameObject()
 	{
 		return;
 	}
+
+	ImGui::Text("Gameobject");
+	ImGui::Separator();
 
 	ImGui::SeparatorText("Game Object Name");
 	std::string GOName = lastHighlightedGO->ObjectName;
@@ -92,6 +107,22 @@ void EditorDetailsPanel::DisplayGameObject()
 	ImGui::SeparatorText("Material");
 	ImGui::Text("Material Name: ");
 	ImGui::Text(lastHighlightedGO->GetMaterialName().c_str());
+	if (ImGui::BeginPopupContextItem("ChangeMaterialPopup"))
+	{
+		ImGui::SeparatorText("Choose new material");
+		ImGui::BeginChild("Material List", ImVec2(250.0f, 100.0f), true, ImGuiWindowFlags_AlwaysVerticalScrollbar);
+		std::vector<std::string> materialNames = AssetManager::Instance->FindMaterialPathsInAssetFolder();
+		for (auto materialName : materialNames)
+		{
+			if (ImGui::Selectable(materialName.c_str()))
+			{
+				lastHighlightedGO->CreateMaterial(materialName);
+			}
+		}
+		ImGui::EndChild();
+		ImGui::EndPopup();
+	}
+	ChangeMaterialButton();
 
 	//Use some sort of query to search through the assets folder and find all .kmat types
 	//Then use a Gameobject set material function to pass along the filepath to the found material
@@ -166,6 +197,43 @@ void EditorDetailsPanel::DisplayMaterialData()
 	{
 		SaveMaterialChanges();
 	}
+
+}
+
+void EditorDetailsPanel::DisplayLights()
+{
+	ImGui::Text("Point Light");
+	ImGui::Separator();
+
+
+	PointLight* lastHighlightedGO = (PointLight*)KarnanEditor::Instance->GetCurrentSelectedItem();
+	if (lastHighlightedGO == nullptr)
+	{
+		return;
+	}
+
+	ImGui::SeparatorText("Game Object Name");
+	std::string GOName = lastHighlightedGO->ObjectName;
+	ImGui::InputText("Object Name", &GOName);
+	lastHighlightedGO->SetGOName(GOName);
+	ImGui::SeparatorText("Transform");
+
+	ImGui::DragFloat3("Translation:", glm::value_ptr(lastHighlightedGO->Transform.Translation), 0.01f);
+	ImGui::DragFloat3("Rotation:", glm::value_ptr(lastHighlightedGO->Transform.Rotation), 0.01f);
+	ImGui::DragFloat3("Scale:", glm::value_ptr(lastHighlightedGO->Transform.Scale), 0.01f);
+
+	ImGui::SeparatorText("PointLight Details");
+	glm::vec3 colour = lastHighlightedGO->GetColour();
+	ImGui::DragFloat3("Colour:", glm::value_ptr(colour), 0.01f);
+	lastHighlightedGO->SetColour(colour);
+
+	glm::vec3 attenuation = lastHighlightedGO->GetAttenuation();
+	ImGui::DragFloat3("Attenuation:", glm::value_ptr(attenuation), 0.01f);
+	lastHighlightedGO->SetAttenuation(attenuation);
+
+	float intensity = lastHighlightedGO->GetIntensity();
+	ImGui::DragFloat("Intensity", &intensity, 0.01f);
+	lastHighlightedGO->SetIntensity(intensity);
 
 }
 

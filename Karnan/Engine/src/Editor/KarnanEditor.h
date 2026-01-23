@@ -3,11 +3,10 @@
 
 #include "IPanel.h"
 
-
 #include <memory>
 #include <vector>
 
-
+class PointLight;
 
 class KarnanEditor
 {
@@ -16,7 +15,7 @@ public:
 	{
 		NONE,
 		GAMEOBJECT,
-		LIGHT,
+		POINT_LIGHT,
 		MATERIAL
 	};	
 
@@ -43,7 +42,7 @@ public:
 
 	GameObject* GetLastHighlightedGO();
 	void SetLastHighlightedGO(GameObject* go);
-
+	void SetPointLightAsSelected(PointLight* pointLight);
 	void SetMaterialAsSelected(std::string filepath);
 
 	DetailsPanelTypes GetCurrentSelectedType() const { return _currentSelectedType; };
