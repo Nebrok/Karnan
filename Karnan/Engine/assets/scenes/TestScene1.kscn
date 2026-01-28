@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>9.4939079284667969</value0>
-							<value1>16.828903198242188</value1>
-							<value2>-4.8538393974304199</value2>
+							<value0>0.88710463047027588</value0>
+							<value1>1.8587548732757568</value1>
+							<value2>2.1283102035522461</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.91618293523788452</value0>
-							<value1>4.1464180946350098</value1>
+							<value0>0.18199515342712402</value0>
+							<value1>3.5107712745666504</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -57,7 +57,7 @@
 				</Transform>
 				<Object_Name>VikingHouse</Object_Name>
 				<Mesh_Name>assets/models/Viking_House.obj</Mesh_Name>
-				<Material_Name>assets/materials/VikingHouse.kmat</Material_Name>
+				<Material_Name>assets/materials/NULL_MATERIAL.kmat</Material_Name>
 			</data>
 		</ptr_wrapper>
 	</value1>
@@ -70,9 +70,9 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>1.6599999666213989</value0>
-							<value1>44.200000762939453</value1>
-							<value2>1.5499999523162842</value2>
+							<value0>0.44999998807907104</value0>
+							<value1>4.5999999046325684</value1>
+							<value2>0.31000000238418579</value2>
 						</Translation>
 						<Rotation>
 							<value0>0</value0>
@@ -90,16 +90,16 @@
 					<Material_Name>assets/materials/NULL_MATERIAL.kmat</Material_Name>
 				</value0>
 				<_lightColour>
-					<value0>1</value0>
+					<value0>0</value0>
 					<value1>1</value1>
-					<value2>1</value2>
+					<value2>0</value2>
 				</_lightColour>
 				<_attenuation>
 					<value0>1</value0>
 					<value1>0.10000000149011612</value1>
 					<value2>0.0099999997764825821</value2>
 				</_attenuation>
-				<_intensity>0</_intensity>
+				<_intensity>1</_intensity>
 			</data>
 		</ptr_wrapper>
 	</value2>
@@ -140,7 +140,7 @@
 					<value1>0.10000000149011612</value1>
 					<value2>0.0099999997764825821</value2>
 				</_attenuation>
-				<_intensity>0</_intensity>
+				<_intensity>1</_intensity>
 			</data>
 		</ptr_wrapper>
 	</value3>
@@ -180,9 +180,9 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>1.2400000095367432</value0>
-							<value1>8.130000114440918</value1>
-							<value2>-7.3299999237060547</value2>
+							<value0>1.9099999666213989</value0>
+							<value1>2.1500000953674316</value1>
+							<value2>-1.2799999713897705</value2>
 						</Translation>
 						<Rotation>
 							<value0>0</value0>
@@ -200,14 +200,14 @@
 					<Material_Name>assets/materials/NULL_MATERIAL.kmat</Material_Name>
 				</value0>
 				<_lightColour>
-					<value0>1</value0>
-					<value1>0.20000000298023224</value1>
-					<value2>0.20000000298023224</value2>
+					<value0>0</value0>
+					<value1>0</value1>
+					<value2>1</value2>
 				</_lightColour>
 				<_attenuation>
 					<value0>1</value0>
 					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
+					<value2>0.0010000000474974513</value2>
 				</_attenuation>
 				<_intensity>1</_intensity>
 			</data>

@@ -203,9 +203,6 @@
     <ClInclude Include="src\KarnanFrameInfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\Downloads\stb_image.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\KarnanTextures.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -315,6 +312,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\KarnanLightsUBO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Physics\KarnanPhysics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Physics\Colliders.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

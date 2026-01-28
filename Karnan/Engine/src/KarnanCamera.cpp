@@ -16,6 +16,7 @@ void KarnanCamera::Init()
 {
     _renderable = false;
     Tags.push_back("Main Camera");
+    Tags.push_back("Camera");
 }
 
 void KarnanCamera::Update(double deltaTime)
@@ -72,6 +73,11 @@ void KarnanCamera::Update(double deltaTime)
     }
 
     SetViewYXZ(Transform.Translation, Transform.Rotation);
+}
+
+void KarnanCamera::SetProjection(float aspect)
+{
+    SetPerspectiveProjection(glm::radians(_fovy), aspect, _near, _far);
 }
 
 void KarnanCamera::SetOrthographicProjection(
@@ -143,4 +149,18 @@ void KarnanCamera::SetViewYXZ(glm::vec3 position, glm::vec3 rotation) {
     _viewMatrix[3][0] = -glm::dot(u, position);
     _viewMatrix[3][1] = -glm::dot(v, position);
     _viewMatrix[3][2] = -glm::dot(w, position);
+}
+
+void KarnanCamera::RemoveMainCameraTag()
+{
+    int index = 0;
+    for (std::string tag : Tags)
+    {
+        if (tag.compare("Main Camera") == 0)
+        {
+            break;
+        }
+        index++;
+    }
+    Tags.erase(Tags.begin()+index);
 }

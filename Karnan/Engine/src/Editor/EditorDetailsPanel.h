@@ -30,6 +30,7 @@ private:
 	void DisplayGameObject();
 	void DisplayMaterialData();
 	void DisplayLights();
+	void DisplayCamera();
 
 	void SaveMaterialChanges();
 	void DiscardMaterialChanges();

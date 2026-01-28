@@ -25,6 +25,10 @@ void EditorHierarchyPanel::OnImGUIRender()
 			{
 				KarnanEditor::Instance->SetPointLightAsSelected((PointLight*)go);
 			}
+			if (go->HasTag("Camera"))
+			{
+				KarnanEditor::Instance->SetCameraAsSelected((KarnanCamera*)go);
+			}
 			else
 				KarnanEditor::Instance->SetLastHighlightedGO(go);
 		}

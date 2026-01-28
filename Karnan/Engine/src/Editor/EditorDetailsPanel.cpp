@@ -34,6 +34,9 @@ void EditorDetailsPanel::OnImGUIRender()
 	case KarnanEditor::DetailsPanelTypes::POINT_LIGHT:
 		DisplayLights();
 		break;
+	case KarnanEditor::DetailsPanelTypes::CAMERA:
+		DisplayCamera();
+		break;
 	}
 	ImGui::End();
 	_lastFrameSelected = KarnanEditor::Instance->GetCurrentSelectedItem();
@@ -205,7 +208,6 @@ void EditorDetailsPanel::DisplayLights()
 	ImGui::Text("Point Light");
 	ImGui::Separator();
 
-
 	PointLight* lastHighlightedGO = (PointLight*)KarnanEditor::Instance->GetCurrentSelectedItem();
 	if (lastHighlightedGO == nullptr)
 	{
@@ -234,6 +236,74 @@ void EditorDetailsPanel::DisplayLights()
 	float intensity = lastHighlightedGO->GetIntensity();
 	ImGui::DragFloat("Intensity", &intensity, 0.01f);
 	lastHighlightedGO->SetIntensity(intensity);
+
+	ImGui::SeparatorText("Mesh");
+	ImGui::Text("Mesh Name: ");
+	ImGui::Text(lastHighlightedGO->GetMeshName().c_str());
+	if (ImGui::BeginPopupContextItem("ChangeMeshPopup"))
+	{
+		ImGui::SeparatorText("Choose new mesh");
+		ImGui::BeginChild("Mesh List", ImVec2(250.0f, 100.0f), true, ImGuiWindowFlags_AlwaysVerticalScrollbar);
+		std::vector<std::string> meshNames = AssetManager::Instance->FindMeshBinariesInAssetFolder();
+		for (auto meshName : meshNames)
+		{
+			if (ImGui::Selectable(meshName.c_str()))
+			{
+				lastHighlightedGO->CreateMesh(meshName);
+			}
+		}
+		ImGui::EndChild();
+		ImGui::EndPopup();
+	}
+	ChangeMeshButton();
+
+	ImGui::SeparatorText("Material");
+	ImGui::Text("Material Name: ");
+	ImGui::Text(lastHighlightedGO->GetMaterialName().c_str());
+	if (ImGui::BeginPopupContextItem("ChangeMaterialPopup"))
+	{
+		ImGui::SeparatorText("Choose new material");
+		ImGui::BeginChild("Material List", ImVec2(250.0f, 100.0f), true, ImGuiWindowFlags_AlwaysVerticalScrollbar);
+		std::vector<std::string> materialNames = AssetManager::Instance->FindMaterialPathsInAssetFolder();
+		for (auto materialName : materialNames)
+		{
+			if (ImGui::Selectable(materialName.c_str()))
+			{
+				lastHighlightedGO->CreateMaterial(materialName);
+			}
+		}
+		ImGui::EndChild();
+		ImGui::EndPopup();
+	}
+	ChangeMaterialButton();
+
+}
+
+void EditorDetailsPanel::DisplayCamera()
+{
+	ImGui::Text("Camera");
+	ImGui::Separator();
+
+	KarnanCamera* highlightedCamera = (KarnanCamera*)KarnanEditor::Instance->GetCurrentSelectedItem();
+	if (highlightedCamera == nullptr)
+	{
+		return;
+	}
+
+	ImGui::SeparatorText("Game Object Name");
+	std::string GOName = highlightedCamera->ObjectName;
+	ImGui::InputText("Object Name", &GOName);
+	highlightedCamera->SetGOName(GOName);
+	ImGui::SeparatorText("Transform");
+
+	ImGui::DragFloat3("Translation:", glm::value_ptr(highlightedCamera->Transform.Translation), 0.01f);
+	ImGui::DragFloat3("Rotation:", glm::value_ptr(highlightedCamera->Transform.Rotation), 0.01f);
+	ImGui::DragFloat3("Scale:", glm::value_ptr(highlightedCamera->Transform.Scale), 0.01f);
+
+	ImGui::SeparatorText("Camera Settings");
+	float fov = highlightedCamera->GetFOV();
+	ImGui::DragFloat("Vertical FOV", &fov, 1.0f);
+	highlightedCamera->SetFOV(fov);
 
 }
 

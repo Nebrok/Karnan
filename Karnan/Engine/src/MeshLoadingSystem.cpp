@@ -12,7 +12,10 @@
 #include <sstream>
 #include <iostream>
 #include <chrono>
+#include <Windows.h>
 
+//150mb
+#define ALLOWABLE_LEFTOVER_MEMORY_SIZE 157286400
 
 namespace std
 {
@@ -59,11 +62,16 @@ void MeshLoadingSystem::LoadMesh(const std::string& filepath)
 		auto newTime = std::chrono::high_resolution_clock::now();
 		double objLoadTime = std::chrono::duration<double, std::chrono::seconds::period>(newTime - currentTime).count();
 
+		int verticesTotalByteSize = vertices->size() * sizeof(VertexBuffer::Vertex);
+		int indicesTotalByteSize = indices->size() * sizeof(uint32_t);
+		int totalBytesOfMesh = verticesTotalByteSize + indicesTotalByteSize;
+
 		CreateMesh(filepath, vertices, indices);
 		std::cout << filepath << " loaded successfully from kmsh with: " << '\n';
-		std::cout << "Vertices: " << vertices->size() << '\n';
-		std::cout << "Indices: " << indices->size() << '\n';
+		std::cout << "Vertices: " << vertices->size() << ". Total memory usage: " << verticesTotalByteSize << "bytes." << '\n';
+		std::cout << "Indices: " << indices->size() << ". Total memory usage: " << indicesTotalByteSize << "bytes." << '\n';
 		std::cout << "Time to load file: " << objLoadTime << " seconds." << '\n';
+		std::cout << "Mesh total memory usage: " << totalBytesOfMesh << "bytes." << '\n';
 	}
 	else
 	{
@@ -297,6 +305,20 @@ void MeshLoadingSystem::LoadModelFromKMSH(const std::string& filepath, std::vect
 
 	size_t numberIndices = indices.size();
 	infile.read((char*)&numberIndices, sizeof(size_t));
+
+	int verticesTotalByteSize = numberVertices * sizeof(VertexBuffer::Vertex);
+	int indicesTotalByteSize = numberIndices * sizeof(uint32_t);
+	int totalBytesOfMesh = verticesTotalByteSize + indicesTotalByteSize;
+
+	MEMORYSTATUSEX statex;
+	statex.dwLength = sizeof(statex);
+	GlobalMemoryStatusEx(&statex);
+
+	if ((statex.ullAvailPhys - ALLOWABLE_LEFTOVER_MEMORY_SIZE - totalBytesOfMesh) <= 0)
+	{
+		throw std::runtime_error("Error reading kmsh file: not enough memory to load model");
+	}
+
 
 	if (numberVertices < 100000000)
 	{

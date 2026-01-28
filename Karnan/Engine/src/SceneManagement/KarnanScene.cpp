@@ -77,7 +77,7 @@ void KarnanScene::UpdateScene(double deltaTime)
 
 KarnanCamera* KarnanScene::PrepareRenderInfo(float aspectRatio, std::vector<GameObject*>& lights, std::vector<GameObject*>& gameObjects)
 {
-	Camera->SetPerspectiveProjection(glm::radians(90.f), aspectRatio, 0.1f, 200.0f);
+	Camera->SetProjection(aspectRatio);
 
 	lights.clear();
 	gameObjects.clear();

@@ -7,6 +7,7 @@
 #include "EditorContentBrowser.h"
 
 #include "../Lights/PointLight.h"
+#include "../KarnanCamera.h"
 
 
 
@@ -87,6 +88,19 @@ void KarnanEditor::SetMaterialAsSelected(std::string filepath)
 {
 	_currentSelectedType = DetailsPanelTypes::MATERIAL;
 	_lastSelectedItem = AssetManager::Instance->GetMaterialData(filepath).get();
+}
+
+void KarnanEditor::SetCameraAsSelected(KarnanCamera* camera)
+{
+	if (camera == nullptr)
+	{
+		_currentSelectedType = DetailsPanelTypes::NONE;
+	}
+	else
+	{
+		_currentSelectedType = DetailsPanelTypes::CAMERA;
+	}
+	_lastSelectedItem = camera;
 }
 
 KarnanEditor* KarnanEditor::StartupEditor()

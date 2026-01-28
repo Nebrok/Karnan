@@ -22,6 +22,11 @@ private:
 
 	float _aspect = 60.0f;
 
+	float _fovy = 90.0f;
+	float _near = 0.1f;
+	float _far = 200.0f;
+
+
 public:
 	KarnanCamera(const char* objectName);
 
@@ -29,8 +34,8 @@ public:
 	void Init() override;
 	void Update(double deltaTime) override;
 
+	void SetProjection(float aspect);
 	void SetOrthographicProjection(float left, float right, float top, float bottom, float near, float far);
-
 	void SetPerspectiveProjection(float fovy, float aspect, float near, float far);
 
 	void SetViewDirection(glm::vec3 position, glm::vec3 direction, glm::vec3 up = glm::vec3{ 0.f, -1.f, 0.f });
@@ -46,6 +51,18 @@ public:
 		return _viewMatrix;
 	}
 
+
+	float GetFOV() { return _fovy; };
+	void SetFOV(float fov) { _fovy = fov; };
+	
+	float GetNearPlaneDistance() { return _near; };
+	void SetNearPlaneDistance(float near) { _near = near; };
+
+	float GetFarPlaneDistance() { return _far; };
+	void SetFarPlaneDistance(float far) { _far = far; };
+
+	void RemoveMainCameraTag();
+	void AddMainCameraTag() { Tags.push_back("Main Camera"); };
 
 	//Cereal serialisation
 	template <class Archive>

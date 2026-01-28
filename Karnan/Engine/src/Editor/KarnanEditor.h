@@ -7,6 +7,7 @@
 #include <vector>
 
 class PointLight;
+class KarnanCamera;
 
 class KarnanEditor
 {
@@ -14,6 +15,7 @@ public:
 	enum class DetailsPanelTypes
 	{
 		NONE,
+		CAMERA,
 		GAMEOBJECT,
 		POINT_LIGHT,
 		MATERIAL
@@ -44,6 +46,7 @@ public:
 	void SetLastHighlightedGO(GameObject* go);
 	void SetPointLightAsSelected(PointLight* pointLight);
 	void SetMaterialAsSelected(std::string filepath);
+	void SetCameraAsSelected(KarnanCamera* camera);
 
 	DetailsPanelTypes GetCurrentSelectedType() const { return _currentSelectedType; };
 	void* GetCurrentSelectedItem() const { return _lastSelectedItem; };
