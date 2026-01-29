@@ -1,4 +1,4 @@
-8
+13
 <?xml version="1.0" encoding="utf-8"?>
 <cereal>
 	<value0>
@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>0.88710463047027588</value0>
-							<value1>1.8587548732757568</value1>
-							<value2>2.1283102035522461</value2>
+							<value0>5.1667361259460449</value0>
+							<value1>4.034062385559082</value1>
+							<value2>13.65443229675293</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.18199515342712402</value0>
-							<value1>3.5107712745666504</value1>
+							<value0>0.44242110848426819</value0>
+							<value1>3.0482072830200195</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -70,9 +70,9 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>0.44999998807907104</value0>
-							<value1>4.5999999046325684</value1>
-							<value2>0.31000000238418579</value2>
+							<value0>0</value0>
+							<value1>3</value1>
+							<value2>0</value2>
 						</Translation>
 						<Rotation>
 							<value0>0</value0>
@@ -85,7 +85,7 @@
 							<value2>0.20000000298023224</value2>
 						</Scale>
 					</Transform>
-					<Object_Name>Point Light</Object_Name>
+					<Object_Name>Green Light</Object_Name>
 					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
 					<Material_Name>assets/materials/NULL_MATERIAL.kmat</Material_Name>
 				</value0>
@@ -111,9 +111,9 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>3.2400000095367432</value0>
-							<value1>43.159999847412109</value1>
-							<value2>-8.0600004196166992</value2>
+							<value0>0</value0>
+							<value1>3</value1>
+							<value2>-3</value2>
 						</Translation>
 						<Rotation>
 							<value0>0</value0>
@@ -126,14 +126,14 @@
 							<value2>0.20000000298023224</value2>
 						</Scale>
 					</Transform>
-					<Object_Name>Point Light</Object_Name>
+					<Object_Name>Red Light</Object_Name>
 					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
 					<Material_Name>assets/materials/NULL_MATERIAL.kmat</Material_Name>
 				</value0>
 				<_lightColour>
 					<value0>1</value0>
-					<value1>1</value1>
-					<value2>1</value2>
+					<value1>0</value1>
+					<value2>0</value2>
 				</_lightColour>
 				<_attenuation>
 					<value0>1</value0>
@@ -151,19 +151,19 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
+						<value0>-4.929999828338623</value0>
+						<value1>-0.9100000262260437</value1>
+						<value2>-4.5100002288818359</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
-						<value1>0</value1>
+						<value1>-2.3399999141693115</value1>
 						<value2>0</value2>
 					</Rotation>
 					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
+						<value0>10.060000419616699</value0>
+						<value1>10</value1>
+						<value2>10</value2>
 					</Scale>
 				</Transform>
 				<Object_Name>Lion Head</Object_Name>
@@ -180,9 +180,9 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>1.9099999666213989</value0>
-							<value1>2.1500000953674316</value1>
-							<value2>-1.2799999713897705</value2>
+							<value0>-3</value0>
+							<value1>3</value1>
+							<value2>0</value2>
 						</Translation>
 						<Rotation>
 							<value0>0</value0>
@@ -195,7 +195,7 @@
 							<value2>0.20000000298023224</value2>
 						</Scale>
 					</Transform>
-					<Object_Name>Point Light</Object_Name>
+					<Object_Name>Blue Light</Object_Name>
 					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
 					<Material_Name>assets/materials/NULL_MATERIAL.kmat</Material_Name>
 				</value0>
@@ -207,7 +207,7 @@
 				<_attenuation>
 					<value0>1</value0>
 					<value1>0.10000000149011612</value1>
-					<value2>0.0010000000474974513</value2>
+					<value2>0.0099999997764825821</value2>
 				</_attenuation>
 				<_intensity>1</_intensity>
 			</data>
@@ -236,8 +236,8 @@
 					</Scale>
 				</Transform>
 				<Object_Name>Cube</Object_Name>
-				<Mesh_Name>assets/models/cube.obj</Mesh_Name>
-				<Material_Name>assets/materials/LionHeadTexture.kmat</Material_Name>
+				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
+				<Material_Name>assets/materials/TestSpecTexture.kmat</Material_Name>
 			</data>
 		</ptr_wrapper>
 	</value6>
@@ -254,7 +254,7 @@
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
-						<value1>0</value1>
+						<value1>-4.2300000190734863</value1>
 						<value2>0</value2>
 					</Rotation>
 					<Scale>
@@ -269,5 +269,171 @@
 			</data>
 		</ptr_wrapper>
 	</value7>
+	<value8>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483657</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>-3.25</value0>
+						<value1>-5.7800002098083496</value1>
+						<value2>0</value2>
+					</Translation>
+					<Rotation>
+						<value0>2.9600000381469727</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>3</value0>
+						<value1>0.20000000298023224</value1>
+						<value2>3</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>SmallCube</Object_Name>
+				<Mesh_Name>assets/models/cube.obj</Mesh_Name>
+				<Material_Name>assets/materials/TestSpecTexture.kmat</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value8>
+	<value9>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483658</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>5.880000114440918</value0>
+						<value1>0.019999999552965164</value1>
+						<value2>2.3299999237060547</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>3</value0>
+						<value1>0.20000000298023224</value1>
+						<value2>3</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>CubeUV</Object_Name>
+				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
+				<Material_Name>assets/materials/TestSpecTexture.kmat</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value9>
+	<value10>
+		<polymorphic_id>2</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483659</id>
+			<data>
+				<value0>
+					<Transform>
+						<Translation>
+							<value0>0</value0>
+							<value1>50</value1>
+							<value2>0</value2>
+						</Translation>
+						<Rotation>
+							<value0>0</value0>
+							<value1>0</value1>
+							<value2>0</value2>
+						</Rotation>
+						<Scale>
+							<value0>0.20000000298023224</value0>
+							<value1>0.20000000298023224</value1>
+							<value2>0.20000000298023224</value2>
+						</Scale>
+					</Transform>
+					<Object_Name>Point Light</Object_Name>
+					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
+					<Material_Name>assets/materials/NULL_MATERIAL.kmat</Material_Name>
+				</value0>
+				<_lightColour>
+					<value0>1</value0>
+					<value1>1</value1>
+					<value2>1</value2>
+				</_lightColour>
+				<_attenuation>
+					<value0>1</value0>
+					<value1>0.10000000149011612</value1>
+					<value2>0.0099999997764825821</value2>
+				</_attenuation>
+				<_intensity>10</_intensity>
+			</data>
+		</ptr_wrapper>
+	</value10>
+	<value11>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483660</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>100</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Sponza</Object_Name>
+				<Mesh_Name>assets/models/SponzaSceneMaybe.obj</Mesh_Name>
+				<Material_Name>assets/materials/BrickWall.kmat</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value11>
+	<value12>
+		<polymorphic_id>2</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483661</id>
+			<data>
+				<value0>
+					<Transform>
+						<Translation>
+							<value0>100</value0>
+							<value1>11.840000152587891</value1>
+							<value2>0</value2>
+						</Translation>
+						<Rotation>
+							<value0>0</value0>
+							<value1>0</value1>
+							<value2>0</value2>
+						</Rotation>
+						<Scale>
+							<value0>0.20000000298023224</value0>
+							<value1>0.20000000298023224</value1>
+							<value2>0.20000000298023224</value2>
+						</Scale>
+					</Transform>
+					<Object_Name>Point Light</Object_Name>
+					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
+					<Material_Name>assets/materials/NULL_MATERIAL.kmat</Material_Name>
+				</value0>
+				<_lightColour>
+					<value0>1</value0>
+					<value1>1</value1>
+					<value2>1</value2>
+				</_lightColour>
+				<_attenuation>
+					<value0>1</value0>
+					<value1>0.10000000149011612</value1>
+					<value2>0.0099999997764825821</value2>
+				</_attenuation>
+				<_intensity>2.5899999141693115</_intensity>
+			</data>
+		</ptr_wrapper>
+	</value12>
 </cereal>
 

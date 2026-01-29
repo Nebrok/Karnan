@@ -25,7 +25,7 @@ void EditorHierarchyPanel::OnImGUIRender()
 			{
 				KarnanEditor::Instance->SetPointLightAsSelected((PointLight*)go);
 			}
-			if (go->HasTag("Camera"))
+			else if (go->HasTag("Camera"))
 			{
 				KarnanEditor::Instance->SetCameraAsSelected((KarnanCamera*)go);
 			}
@@ -50,6 +50,7 @@ void EditorHierarchyPanel::ContextMenu()
 	if (ImGui::Button("Create New PointLight"))
 	{
 		PointLight* newLight = DBG_NEW PointLight();
+		newLight->Init();
 		newLight->Transform.Translation = { 0.0f, 0.0f, 0.0f };
 		newLight->Transform.Scale = { 1.0f, 1.0f, 1.0f };
 		newLight->SetColour({ 1.0f, 1.0f, 1.0f });

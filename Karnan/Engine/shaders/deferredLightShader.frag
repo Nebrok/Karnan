@@ -26,6 +26,7 @@ const float AMBIENT = 0.2;
 void main()
 {
 	vec3 matDiffuseColor = texture(gBufferAlbedo, texCoords).xyz;
+	float specularity = texture(gBufferAlbedo, texCoords).a;
 	vec3 normal = texture(gBufferNormal, texCoords).xyz;
 	vec3 worldPosition = texture(gBufferPosition, texCoords).xyz;
 
@@ -54,13 +55,9 @@ void main()
 			vec3 halfVector = normalize((directionToLight + normalisedCameraDirection) / 2);
 			float initialBrightness = max(dot(halfVector, normal), 0.0);
 
-			float totalBrightness = initialBrightness;
-			for (int j = 0; j < 80; j++)
-			{
-				totalBrightness *= initialBrightness;
-			}
+			float totalBrightness = pow(initialBrightness, 160 * specularity);
 
-			lightSpecular = totalBrightness * lightUbo.lightColours[i].xyz * attenuation * matDiffuseColor;
+			lightSpecular = totalBrightness * lightUbo.lightColours[i].xyz * attenuation * matDiffuseColor * specularity;
 
 		}
 

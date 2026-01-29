@@ -1,7 +1,7 @@
 0.1
 Name: Fish Staff
 Texture 0: assets/textures/Staff_low_lambert1_BaseColor.png
-Texture 1: 
+Texture 1: assets/textures/Staff_low_lambert1_Roughness.png
 Texture 2: 
 Texture 3: 
 Texture 4: 

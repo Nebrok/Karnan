@@ -327,5 +327,9 @@
     </None>
     <None Include="shaders\simpleShader.frag" />
     <None Include="shaders\simpleShader.vert" />
+    <None Include="shaders\deferredGeoShader.frag" />
+    <None Include="shaders\deferredGeoShader.vert" />
+    <None Include="shaders\deferredLightShader.frag" />
+    <None Include="shaders\deferredLightShader.vert" />
   </ItemGroup>
 </Project>
