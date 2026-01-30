@@ -1,5 +1,5 @@
-0.1
-Name: NULL_MATERIAL
+0.2
+Name: NULL_TEXTURE
 Texture 0: assets/textures/NULL_TEXTURE.png
 Texture 1: assets/textures/NULL_TEXTURE.png
 Texture 2: assets/textures/NULL_TEXTURE.png
@@ -8,3 +8,6 @@ Texture 4: assets/textures/NULL_TEXTURE.png
 Texture 5: assets/textures/NULL_TEXTURE.png
 Texture 6: assets/textures/NULL_TEXTURE.png
 Texture 7: assets/textures/NULL_TEXTURE.png
+MinFilter: VK_FILTER_LINEAR
+MagFilter: VK_FILTER_LINEAR
+AddressMode: VK_SAMPLER_ADDRESS_MODE_REPEAT

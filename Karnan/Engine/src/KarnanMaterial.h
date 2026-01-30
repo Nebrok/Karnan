@@ -34,7 +34,10 @@ private:
 	VkDescriptorSet _materialDescriptorSet;
 	bool _hasMaterialDescriptorSet = false;
 
-	VkSampler _tempSampler;
+	VkFilter _minFilter = VK_FILTER_LINEAR;
+	VkFilter _magFilter = VK_FILTER_LINEAR;
+	VkSamplerAddressMode _samplerAddressMode = VK_SAMPLER_ADDRESS_MODE_REPEAT;
+	VkSampler _sampler;
 
 
 public:
@@ -55,6 +58,10 @@ public:
 	VkDescriptorSet& GetDescriptorSet() { return _materialDescriptorSet; };
 	bool HasDescriptorSet() const { return _hasMaterialDescriptorSet; };
 	void SetValidDescriptorSet() { _hasMaterialDescriptorSet = true; };
+
+	void SetMinFilter(VkFilter filter) { _minFilter = filter; };
+	void SetMagFilter(VkFilter filter) { _magFilter = filter; };
+	void SetAddressMode(VkSamplerAddressMode addressMode) { _samplerAddressMode = addressMode; };
 
 
 private:

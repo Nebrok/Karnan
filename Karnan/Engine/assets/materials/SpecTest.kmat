@@ -1,5 +1,5 @@
-0.1
-Name: TestSpecTexture
+0.2
+Name: SpecTest
 Texture 0: assets/textures/GreySquare.png
 Texture 1: assets/textures/specularityTestSquares.png
 Texture 2: 
@@ -8,3 +8,6 @@ Texture 4:
 Texture 5: 
 Texture 6: 
 Texture 7: 
+MinFilter: VK_FILTER_LINEAR
+MagFilter: VK_FILTER_LINEAR
+AddressMode: VK_SAMPLER_ADDRESS_MODE_REPEAT

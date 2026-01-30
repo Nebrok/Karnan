@@ -258,6 +258,10 @@ void AssetManager::ProcessMessage(std::shared_ptr<Message> message)
 			std::shared_ptr<MaterialDataObject> matData = _materialDataMap[materialDataObjectFilepath];
 			std::shared_ptr<KarnanMaterial> material = std::shared_ptr<KarnanMaterial>(DBG_NEW KarnanMaterial());
 			_materialMap[materialDataObjectFilepath] = material;
+			material->SetMinFilter(matData->MinFilter);
+			material->SetMagFilter(matData->MagFilter);
+			material->SetAddressMode(matData->SamplerAddressMode);
+
 			material->Init();
 			int index = 0;
 			for (auto textureFilepath : matData->Textures)

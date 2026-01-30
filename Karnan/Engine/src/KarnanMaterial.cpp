@@ -13,7 +13,7 @@ KarnanMaterial::KarnanMaterial()
 
 KarnanMaterial::~KarnanMaterial()
 {
-	vkDestroySampler(_karnanDevice.Device(), _tempSampler, nullptr);
+	vkDestroySampler(_karnanDevice.Device(), _sampler, nullptr);
 }
 
 void KarnanMaterial::Init()
@@ -27,13 +27,13 @@ void KarnanMaterial::CreateSampler()
 	VkSamplerCreateInfo samplerInfo = {};
 	samplerInfo.sType = VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO;
 	samplerInfo.pNext = nullptr;
-	samplerInfo.magFilter = VK_FILTER_LINEAR;
-	samplerInfo.minFilter = VK_FILTER_LINEAR;
-	samplerInfo.addressModeU = VK_SAMPLER_ADDRESS_MODE_REPEAT;
-	samplerInfo.addressModeV = VK_SAMPLER_ADDRESS_MODE_REPEAT;
-	samplerInfo.addressModeW = VK_SAMPLER_ADDRESS_MODE_REPEAT;
+	samplerInfo.magFilter = _magFilter;
+	samplerInfo.minFilter = _minFilter;
+	samplerInfo.addressModeU = _samplerAddressMode;
+	samplerInfo.addressModeV = _samplerAddressMode;
+	samplerInfo.addressModeW = _samplerAddressMode;
 
-	vkCreateSampler(_karnanDevice.Device(), &samplerInfo, nullptr, &_tempSampler);
+	vkCreateSampler(_karnanDevice.Device(), &samplerInfo, nullptr, &_sampler);
 }
 
 void KarnanMaterial::CreateImageInfos()
@@ -45,7 +45,7 @@ void KarnanMaterial::CreateImageInfos()
 			continue;
 
 		VkDescriptorImageInfo imageBufferInfo{};
-		imageBufferInfo.sampler = _tempSampler;
+		imageBufferInfo.sampler = _sampler;
 		imageBufferInfo.imageView = (_materialTextures[i])->GetImageView();
 		imageBufferInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
 

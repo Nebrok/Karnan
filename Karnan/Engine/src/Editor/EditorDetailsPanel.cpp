@@ -4,7 +4,6 @@
 #include "KarnanEditor.h"
 #include "../Lights/PointLight.h"
 
-
 #include "glm/gtc/type_ptr.hpp"
 
 #include "imgui_stdlib.h"
@@ -190,6 +189,44 @@ void EditorDetailsPanel::DisplayMaterialData()
 
 		ImGui::PopID();
 	}
+
+	const char* filterModes[] = { "VK_FILTER_LINEAR", "VK_FILTER_NEAREST" };
+	int numFilters = 2;
+
+	if (ImGui::BeginCombo("Min Filter Mode", MaterialDataObject::FilterToString(_materialCopyObject.MinFilter).c_str()))
+	{
+		for (int i = 0; i < numFilters; i++)
+		{
+			if (ImGui::Selectable(filterModes[i]))
+				_materialCopyObject.MinFilter = MaterialDataObject::FilterNameToEnum(filterModes[i]);
+		}
+		ImGui::EndCombo();
+	}
+
+	if (ImGui::BeginCombo("Mag Filter Mode", MaterialDataObject::FilterToString(_materialCopyObject.MagFilter).c_str()))
+	{
+		for (int i = 0; i < numFilters; i++)
+		{
+			if (ImGui::Selectable(filterModes[i]))
+				_materialCopyObject.MagFilter = MaterialDataObject::FilterNameToEnum(filterModes[i]);
+		}
+		ImGui::EndCombo();
+	}
+
+	const char* addressModes[] = { "VK_SAMPLER_ADDRESS_MODE_REPEAT", "VK_SAMPLER_ADDRESS_MODE_MIRRORED_REPEAT", "VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_EDGE", "VK_SAMPLER_ADDRESS_MODE_CLAMP_TO_BORDER", "VK_SAMPLER_ADDRESS_MODE_MIRROR_CLAMP_TO_EDGE"};
+	int numModes = 5;
+
+	if (ImGui::BeginCombo("Sampler Address Mode", MaterialDataObject::AddressModeToString(_materialCopyObject.SamplerAddressMode).c_str()))
+	{
+		for (int i = 0; i < numModes; i++)
+		{
+			if (ImGui::Selectable(addressModes[i]))
+				_materialCopyObject.SamplerAddressMode = MaterialDataObject::AddressModeNametoEnum(addressModes[i]);
+		}
+		ImGui::EndCombo();
+	}
+
+
 	ImGui::Separator();
 	if (ImGui::Button("Discard Changes"))
 	{

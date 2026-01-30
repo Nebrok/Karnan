@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>5.1667361259460449</value0>
-							<value1>4.034062385559082</value1>
-							<value2>13.65443229675293</value2>
+							<value0>-4.0186653137207031</value0>
+							<value1>9.0493488311767578</value1>
+							<value2>3.6725602149963379</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.44242110848426819</value0>
-							<value1>3.0482072830200195</value1>
+							<value0>0.77904391288757324</value0>
+							<value1>2.2243177890777588</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -42,22 +42,22 @@
 					<Translation>
 						<value0>0</value0>
 						<value1>0</value1>
-						<value2>-27.190000534057617</value2>
+						<value2>0</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
-						<value1>-3.190000057220459</value1>
+						<value1>0</value1>
 						<value2>0</value2>
 					</Rotation>
 					<Scale>
 						<value0>100</value0>
-						<value1>100</value1>
+						<value1>0.20000000298023224</value1>
 						<value2>100</value2>
 					</Scale>
 				</Transform>
-				<Object_Name>VikingHouse</Object_Name>
-				<Mesh_Name>assets/models/Viking_House.obj</Mesh_Name>
-				<Material_Name>assets/materials/NULL_MATERIAL.kmat</Material_Name>
+				<Object_Name>Floor Cube</Object_Name>
+				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
+				<Material_Name>assets/materials/SpecTest.kmat</Material_Name>
 			</data>
 		</ptr_wrapper>
 	</value1>
@@ -66,269 +66,6 @@
 		<polymorphic_name>PointLight</polymorphic_name>
 		<ptr_wrapper>
 			<id>2147483651</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>0</value0>
-							<value1>3</value1>
-							<value2>0</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Green Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/materials/NULL_MATERIAL.kmat</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0</value0>
-					<value1>1</value1>
-					<value2>0</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value2>
-	<value3>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483652</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>0</value0>
-							<value1>3</value1>
-							<value2>-3</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Red Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/materials/NULL_MATERIAL.kmat</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>1</value0>
-					<value1>0</value1>
-					<value2>0</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value3>
-	<value4>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483653</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>-4.929999828338623</value0>
-						<value1>-0.9100000262260437</value1>
-						<value2>-4.5100002288818359</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>-2.3399999141693115</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>10.060000419616699</value0>
-						<value1>10</value1>
-						<value2>10</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Lion Head</Object_Name>
-				<Mesh_Name>assets/models/lion_head_4k.obj</Mesh_Name>
-				<Material_Name>assets/materials/LionHeadTexture.kmat</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value4>
-	<value5>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483654</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>-3</value0>
-							<value1>3</value1>
-							<value2>0</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>Blue Light</Object_Name>
-					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/materials/NULL_MATERIAL.kmat</Material_Name>
-				</value0>
-				<_lightColour>
-					<value0>0</value0>
-					<value1>0</value1>
-					<value2>1</value2>
-				</_lightColour>
-				<_attenuation>
-					<value0>1</value0>
-					<value1>0.10000000149011612</value1>
-					<value2>0.0099999997764825821</value2>
-				</_attenuation>
-				<_intensity>1</_intensity>
-			</data>
-		</ptr_wrapper>
-	</value5>
-	<value6>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483655</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>0</value0>
-						<value1>-2.3299999237060547</value1>
-						<value2>0</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>100</value0>
-						<value1>1</value1>
-						<value2>100</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Cube</Object_Name>
-				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
-				<Material_Name>assets/materials/TestSpecTexture.kmat</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value6>
-	<value7>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483656</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>-4.2300000190734863</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Fish Staff</Object_Name>
-				<Mesh_Name>assets/models/Fishstaff.obj</Mesh_Name>
-				<Material_Name>assets/materials/Fish Staff.kmat</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value7>
-	<value8>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483657</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>-3.25</value0>
-						<value1>-5.7800002098083496</value1>
-						<value2>0</value2>
-					</Translation>
-					<Rotation>
-						<value0>2.9600000381469727</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>3</value0>
-						<value1>0.20000000298023224</value1>
-						<value2>3</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>SmallCube</Object_Name>
-				<Mesh_Name>assets/models/cube.obj</Mesh_Name>
-				<Material_Name>assets/materials/TestSpecTexture.kmat</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value8>
-	<value9>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483658</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>5.880000114440918</value0>
-						<value1>0.019999999552965164</value1>
-						<value2>2.3299999237060547</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>3</value0>
-						<value1>0.20000000298023224</value1>
-						<value2>3</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>CubeUV</Object_Name>
-				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
-				<Material_Name>assets/materials/TestSpecTexture.kmat</Material_Name>
-			</data>
-		</ptr_wrapper>
-	</value9>
-	<value10>
-		<polymorphic_id>2</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483659</id>
 			<data>
 				<value0>
 					<Transform>
@@ -343,39 +80,39 @@
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
-							<value0>0.20000000298023224</value0>
-							<value1>0.20000000298023224</value1>
-							<value2>0.20000000298023224</value2>
+							<value0>2</value0>
+							<value1>2</value1>
+							<value2>2</value2>
 						</Scale>
 					</Transform>
-					<Object_Name>Point Light</Object_Name>
+					<Object_Name>Sun</Object_Name>
 					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/materials/NULL_MATERIAL.kmat</Material_Name>
+					<Material_Name>assets/materials/SpecTest.kmat</Material_Name>
 				</value0>
 				<_lightColour>
 					<value0>1</value0>
-					<value1>1</value1>
-					<value2>1</value2>
+					<value1>0.87999999523162842</value1>
+					<value2>1.1000000238418579</value2>
 				</_lightColour>
 				<_attenuation>
 					<value0>1</value0>
 					<value1>0.10000000149011612</value1>
 					<value2>0.0099999997764825821</value2>
 				</_attenuation>
-				<_intensity>10</_intensity>
+				<_intensity>8</_intensity>
 			</data>
 		</ptr_wrapper>
-	</value10>
-	<value11>
+	</value2>
+	<value3>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483660</id>
+			<id>2147483652</id>
 			<data>
 				<Transform>
 					<Translation>
-						<value0>100</value0>
-						<value1>0</value1>
-						<value2>0</value2>
+						<value0>50</value0>
+						<value1>10</value1>
+						<value2>50</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -383,28 +120,207 @@
 						<value2>0</value2>
 					</Rotation>
 					<Scale>
+						<value0>10</value0>
+						<value1>10</value1>
+						<value2>10</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>PinkCube</Object_Name>
+				<Mesh_Name>assets/models/cube.obj</Mesh_Name>
+				<Material_Name>assets/materials/NULL_TEXTURE.kmat</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value3>
+	<value4>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483653</id>
+			<data>
+				<Transform>
+					<Translation>
 						<value0>1</value0>
 						<value1>1</value1>
+						<value2>0</value2>
+					</Translation>
+					<Rotation>
+						<value0>0.23999999463558197</value0>
+						<value1>0</value1>
+						<value2>0.69999998807907104</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>0.20000000298023224</value1>
 						<value2>1</value2>
 					</Scale>
 				</Transform>
-				<Object_Name>Sponza</Object_Name>
-				<Mesh_Name>assets/models/SponzaSceneMaybe.obj</Mesh_Name>
-				<Material_Name>assets/materials/BrickWall.kmat</Material_Name>
+				<Object_Name>ShinyCube1</Object_Name>
+				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
+				<Material_Name>assets/materials/SpecTest.kmat</Material_Name>
 			</data>
 		</ptr_wrapper>
-	</value11>
-	<value12>
+	</value4>
+	<value5>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483654</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>-1</value0>
+						<value1>1</value1>
+						<value2>0</value2>
+					</Translation>
+					<Rotation>
+						<value0>0.23999999463558197</value0>
+						<value1>0</value1>
+						<value2>-3.8540000915527344</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>0.20000000298023224</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>ShinyCube2</Object_Name>
+				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
+				<Material_Name>assets/materials/SpecTest.kmat</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value5>
+	<value6>
 		<polymorphic_id>2</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483661</id>
+			<id>2147483655</id>
 			<data>
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>100</value0>
-							<value1>11.840000152587891</value1>
+							<value0>0</value0>
+							<value1>5</value1>
+							<value2>0.34999999403953552</value2>
+						</Translation>
+						<Rotation>
+							<value0>0</value0>
+							<value1>0</value1>
 							<value2>0</value2>
+						</Rotation>
+						<Scale>
+							<value0>0.20000000298023224</value0>
+							<value1>0.20000000298023224</value1>
+							<value2>0.20000000298023224</value2>
+						</Scale>
+					</Transform>
+					<Object_Name>Red Light</Object_Name>
+					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
+					<Material_Name>assets/materials/NULL_TEXTURE.kmat</Material_Name>
+				</value0>
+				<_lightColour>
+					<value0>1</value0>
+					<value1>0</value1>
+					<value2>0</value2>
+				</_lightColour>
+				<_attenuation>
+					<value0>1</value0>
+					<value1>0.10000000149011612</value1>
+					<value2>0.0099999997764825821</value2>
+				</_attenuation>
+				<_intensity>1</_intensity>
+			</data>
+		</ptr_wrapper>
+	</value6>
+	<value7>
+		<polymorphic_id>2</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483656</id>
+			<data>
+				<value0>
+					<Transform>
+						<Translation>
+							<value0>0.94999998807907104</value0>
+							<value1>2</value1>
+							<value2>-0.38999998569488525</value2>
+						</Translation>
+						<Rotation>
+							<value0>0</value0>
+							<value1>0</value1>
+							<value2>0</value2>
+						</Rotation>
+						<Scale>
+							<value0>0.20000000298023224</value0>
+							<value1>0.20000000298023224</value1>
+							<value2>0.20000000298023224</value2>
+						</Scale>
+					</Transform>
+					<Object_Name>Green Light</Object_Name>
+					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
+					<Material_Name>assets/materials/NULL_TEXTURE.kmat</Material_Name>
+				</value0>
+				<_lightColour>
+					<value0>0</value0>
+					<value1>1</value1>
+					<value2>0</value2>
+				</_lightColour>
+				<_attenuation>
+					<value0>1</value0>
+					<value1>0.10000000149011612</value1>
+					<value2>0.0099999997764825821</value2>
+				</_attenuation>
+				<_intensity>0.40000000596046448</_intensity>
+			</data>
+		</ptr_wrapper>
+	</value7>
+	<value8>
+		<polymorphic_id>2</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483657</id>
+			<data>
+				<value0>
+					<Transform>
+						<Translation>
+							<value0>0</value0>
+							<value1>8.2600002288818359</value1>
+							<value2>7.9099998474121094</value2>
+						</Translation>
+						<Rotation>
+							<value0>0</value0>
+							<value1>0</value1>
+							<value2>0</value2>
+						</Rotation>
+						<Scale>
+							<value0>0.20000000298023224</value0>
+							<value1>0.20000000298023224</value1>
+							<value2>0.20000000298023224</value2>
+						</Scale>
+					</Transform>
+					<Object_Name>Blue Light</Object_Name>
+					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
+					<Material_Name>assets/materials/NULL_TEXTURE.kmat</Material_Name>
+				</value0>
+				<_lightColour>
+					<value0>0</value0>
+					<value1>0</value1>
+					<value2>1</value2>
+				</_lightColour>
+				<_attenuation>
+					<value0>1</value0>
+					<value1>0.10000000149011612</value1>
+					<value2>0.0099999997764825821</value2>
+				</_attenuation>
+				<_intensity>2.2200000286102295</_intensity>
+			</data>
+		</ptr_wrapper>
+	</value8>
+	<value9>
+		<polymorphic_id>2</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483658</id>
+			<data>
+				<value0>
+					<Transform>
+						<Translation>
+							<value0>0</value0>
+							<value1>6.3600001335144043</value1>
+							<value2>-22.850000381469727</value2>
 						</Translation>
 						<Rotation>
 							<value0>0</value0>
@@ -419,7 +335,104 @@
 					</Transform>
 					<Object_Name>Point Light</Object_Name>
 					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
-					<Material_Name>assets/materials/NULL_MATERIAL.kmat</Material_Name>
+					<Material_Name>assets/materials/NULL_TEXTURE.kmat</Material_Name>
+				</value0>
+				<_lightColour>
+					<value0>0.20000000298023224</value0>
+					<value1>0</value1>
+					<value2>1</value2>
+				</_lightColour>
+				<_attenuation>
+					<value0>1</value0>
+					<value1>0.10000000149011612</value1>
+					<value2>0.0099999997764825821</value2>
+				</_attenuation>
+				<_intensity>1</_intensity>
+			</data>
+		</ptr_wrapper>
+	</value9>
+	<value10>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483659</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>-15</value0>
+						<value1>1.8799999952316284</value1>
+						<value2>5</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>5</value0>
+						<value1>5</value1>
+						<value2>5</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>CubeFilter1</Object_Name>
+				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
+				<Material_Name>assets/materials/FilterTesting1.kmat</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value10>
+	<value11>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483660</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>-15</value0>
+						<value1>1.8799999952316284</value1>
+						<value2>-5</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>5</value0>
+						<value1>5</value1>
+						<value2>5</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>CubeFilter2</Object_Name>
+				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
+				<Material_Name>assets/materials/FilterTesting2.kmat</Material_Name>
+			</data>
+		</ptr_wrapper>
+	</value11>
+	<value12>
+		<polymorphic_id>2</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483661</id>
+			<data>
+				<value0>
+					<Transform>
+						<Translation>
+							<value0>14.149999618530273</value0>
+							<value1>6.3000001907348633</value1>
+							<value2>0</value2>
+						</Translation>
+						<Rotation>
+							<value0>0</value0>
+							<value1>0</value1>
+							<value2>0</value2>
+						</Rotation>
+						<Scale>
+							<value0>1</value0>
+							<value1>1</value1>
+							<value2>1</value2>
+						</Scale>
+					</Transform>
+					<Object_Name>Point Light</Object_Name>
+					<Mesh_Name></Mesh_Name>
+					<Material_Name></Material_Name>
 				</value0>
 				<_lightColour>
 					<value0>1</value0>
@@ -431,7 +444,7 @@
 					<value1>0.10000000149011612</value1>
 					<value2>0.0099999997764825821</value2>
 				</_attenuation>
-				<_intensity>2.5899999141693115</_intensity>
+				<_intensity>1</_intensity>
 			</data>
 		</ptr_wrapper>
 	</value12>
