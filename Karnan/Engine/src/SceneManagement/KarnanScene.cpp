@@ -23,7 +23,7 @@ KarnanScene::~KarnanScene()
 void KarnanScene::LoadScene()
 {
 	SceneDataObject sceneData;
-	sceneData.SceneName = "TestScene1";
+	sceneData.SceneName = _sceneName;
 
 	_gameObjects.clear();
 	sceneData.LoadScene(_gameObjects);
@@ -37,29 +37,35 @@ void KarnanScene::LoadScene()
 	}
 
 	/*
+	
 	for (int i = 0; i < 50; i++)
 	{
 		PointLight* firstLight = DBG_NEW PointLight();
-		firstLight->Transform.Translation = { float(rand() % 25), float(rand() % 25), float(rand() % 25) };
+		firstLight->Transform.Translation = { float(rand() % 100 / 8.f), float(rand() % 100 / 8.f), float(rand() % 100 / 8.f) };
 		firstLight->SetColour({ rand() % 100 / 100.f, rand() % 100 / 100.f, rand() % 100 / 100.f });
+		firstLight->SetIntensity(.4f);
+		firstLight->CreateMesh("./assets/models/icosphere.obj");
+		firstLight->CreateMaterial("assets/materials/NULL_TEXTURE.kmat");
+		firstLight->Transform.Scale = { 0.05f, 0.05f, 0.05f };
 		_gameObjects.push_back(std::shared_ptr<PointLight>(firstLight));
 
 	}
 	
-	for (int i = 0; i < 250; i++)
+	for (int i = 0; i < 750; i++)
 	{
 		GameObject* dummy = DBG_NEW GameObject("Lion Head Asteroid");
-		dummy->Transform.Translation = { float(rand() % 25), float(rand() % 25), float(rand() % 25) };
+		dummy->Transform.Translation = { float(rand() % 100 / 10.f), float(rand() % 100 / 10.f), float(rand() % 100 / 10.f) };
+		dummy->Transform.Rotation = { float(rand() % 100 / 20.f), float(rand() % 100 / 20.f), float(rand() % 100 / 20.f) };
 		dummy->CreateMesh("./assets/models/lion_head_4k.obj");
-		dummy->CreateMaterial("./assets/textures/lion_head_diff_4k.png");
+		dummy->CreateMaterial("assets/materials/LionHead.kmat");
 		_gameObjects.push_back(std::shared_ptr<GameObject>(dummy));
 	}
 	
 	GameObject* cube = DBG_NEW GameObject("Cube");
-	cube->Transform.Translation = { 12.5f, -12.5f, 12.5f };
+	cube->Transform.Translation = { 12.5f, -25.f, 12.5f };
 	cube->Transform.Scale = { 25, 25, 25 };
 	cube->CreateMesh("./assets/models/cube.obj");
-	cube->CreateMaterial("./assets/textures/lion_head_diff_4k.png");
+	cube->CreateMaterial("assets/materials/Checker.kmat");
 	_gameObjects.push_back(std::shared_ptr<GameObject>(cube));
 	*/
 	
@@ -131,6 +137,6 @@ void KarnanScene::DeleteGO(uint32_t goID)
 void KarnanScene::SerialiseScene()
 {
 	SceneDataObject sceneData;
-	sceneData.SceneName = "TestScene1";
+	sceneData.SceneName = _sceneName;
 	sceneData.SaveScene(_gameObjects);
 }

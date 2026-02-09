@@ -21,6 +21,8 @@ private:
 	GameObject* Plane;
 	GameObject* Viewer;
 
+	std::string _sceneName = "DefferedRenderingShowcase";
+
 public:
 	KarnanScene();
 	~KarnanScene();

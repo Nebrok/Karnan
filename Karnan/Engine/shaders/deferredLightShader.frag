@@ -21,12 +21,12 @@ layout (set = 1, binding = 2) uniform sampler2D gBufferAlbedo;
 
 layout (location = 0) out vec4 outColor; 
 
-const float AMBIENT = 0.2;
+const float AMBIENT = 0.4;
 
 void main()
 {
 	vec3 matDiffuseColor = texture(gBufferAlbedo, texCoords).xyz;
-	float specularity = texture(gBufferAlbedo, texCoords).a;
+	float specularity = 1-texture(gBufferAlbedo, texCoords).a;
 	vec3 normal = texture(gBufferNormal, texCoords).xyz;
 	vec3 worldPosition = texture(gBufferPosition, texCoords).xyz;
 
@@ -57,7 +57,7 @@ void main()
 
 			float totalBrightness = pow(initialBrightness, 160 * specularity);
 
-			lightSpecular = totalBrightness * lightUbo.lightColours[i].xyz * attenuation * matDiffuseColor * specularity;
+			lightSpecular = totalBrightness * lightUbo.lightColours[i].xyz * attenuation * specularity; //* matDiffuseColor;
 
 		}
 
@@ -68,4 +68,7 @@ void main()
 	}
 	
 	outColor = vec4((matDiffuseColor * AMBIENT) + diffuseLumin + specularLumin, 1);
+	//outColor = vec4(texture(gBufferPosition, texCoords).rgb, 1);
+	//outColor = vec4(texture(gBufferNormal, texCoords).rgb, 1);
+	//outColor = vec4(texture(gBufferAlbedo, texCoords).rgb, 1);
 }
