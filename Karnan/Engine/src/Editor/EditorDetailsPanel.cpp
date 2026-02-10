@@ -4,6 +4,8 @@
 #include "KarnanEditor.h"
 #include "../Lights/PointLight.h"
 
+#include "../Physics/Colliders.h"
+
 #include "glm/gtc/type_ptr.hpp"
 
 #include "imgui_stdlib.h"
@@ -126,10 +128,46 @@ void EditorDetailsPanel::DisplayGameObject()
 	}
 	ChangeMaterialButton();
 
-	//Use some sort of query to search through the assets folder and find all .kmat types
-	//Then use a Gameobject set material function to pass along the filepath to the found material
-	//which in turn handles the changing of the material
+	ImGui::SeparatorText("Collider");
+	std::shared_ptr<Collider> gameObjectCollider = lastHighlightedGO->GetCollider();
 
+	const char* colliderTypes[] = { "Box", "Sphere" };
+	int numColliders = 2;
+
+	if (ImGui::BeginCombo("Collider Type", gameObjectCollider->ToString().c_str()))
+	{
+		for (int i = 0; i < numColliders; i++)
+		{
+			if (ImGui::Selectable(colliderTypes[i]))
+			{
+				std::shared_ptr<Collider> newCollider;
+				switch (i)
+				{
+				case 0:
+					newCollider = std::shared_ptr<BoxCollider>(DBG_NEW BoxCollider());
+					lastHighlightedGO->SetCollider(newCollider);
+					break;
+				case 1:
+					newCollider = std::shared_ptr<SphereCollider>(DBG_NEW SphereCollider());
+					lastHighlightedGO->SetCollider(newCollider);
+					break;
+				}
+				newCollider->GameObject = lastHighlightedGO;
+			}
+		}
+		ImGui::EndCombo();
+	}
+
+	if (gameObjectCollider->Type == Collider::ColliderType::BOX)
+	{
+		BoxCollider* box = static_cast<BoxCollider*>(gameObjectCollider.get());
+		ImGui::DragFloat3("Extent", glm::value_ptr(box->Extent), 0.01f);
+	}
+	else if (gameObjectCollider->Type == Collider::ColliderType::SPHERE)
+	{
+		SphereCollider* sphere = static_cast<SphereCollider*>(gameObjectCollider.get());
+		ImGui::DragFloat("Radius", &(sphere->Radius), 0.01f);
+	}
 
 	ImGui::SeparatorText("WARNING");
 	if (ImGui::Button("Delete GameObject"))

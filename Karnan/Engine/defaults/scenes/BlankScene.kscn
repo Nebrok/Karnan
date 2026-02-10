@@ -1,0 +1,37 @@
+1
+<?xml version="1.0" encoding="utf-8"?>
+<cereal>
+	<value0>
+		<polymorphic_id>2147483649</polymorphic_id>
+		<polymorphic_name>KarnanCamera</polymorphic_name>
+		<ptr_wrapper>
+			<id>2147483649</id>
+			<data>
+				<value0>
+					<Transform>
+						<Translation>
+							<value0>0</value0>
+							<value1>0</value1>
+							<value2>0</value2>
+						</Translation>
+						<Rotation>
+							<value0>0</value0>
+							<value1>0</value1>
+							<value2>0</value2>
+						</Rotation>
+						<Scale>
+							<value0>1</value0>
+							<value1>1</value1>
+							<value2>1</value2>
+						</Scale>
+					</Transform>
+					<Object_Name>MainCamera</Object_Name>
+					<Mesh_Name></Mesh_Name>
+					<Material_Name></Material_Name>
+				</value0>
+				<_aspect>60</_aspect>
+			</data>
+		</ptr_wrapper>
+	</value0>
+</cereal>
+

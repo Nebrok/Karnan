@@ -17,5 +17,7 @@ public:
 	bool SaveScene(const std::vector<std::shared_ptr<GameObject>>& gameObjects);
 	bool LoadScene(std::vector<std::shared_ptr<GameObject>>& gameObjects);
 
+	void CreateNewSceneFromDefault(std::vector<std::shared_ptr<GameObject>>& gameObjects);
+
 
 };

@@ -54,6 +54,7 @@ void EngineCore::Init()
 	_meshLoadingSystem = MeshLoadingSystem::StartMeshLoadingSystem();
 	_assetManager = AssetManager::StartupAssetManager();
 	_inputManagementSystem = std::unique_ptr<InputManagementSystem>(InputManagementSystem::StartupInputManagementSystem());
+	_physicsEngine = std::unique_ptr<KarnanPhysics>(DBG_NEW KarnanPhysics());
 	glfwSetScrollCallback(_windowRef, InputManagementSystem::InputSystemScrollCallback);
 }
 
@@ -101,6 +102,8 @@ void EngineCore::Run()
 
 		_assetManager->Process();
 		_scene->UpdateScene(frameTime);
+		_physicsEngine->UpdatePhysics(_scene.get());
+		std::cout << "Number of collisions: " << _physicsEngine->GetCollisionEvents().size() << '\n';
 
 		if (_editorMode)
 			_editor->Update();

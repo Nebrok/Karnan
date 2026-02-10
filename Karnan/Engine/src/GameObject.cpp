@@ -1,10 +1,11 @@
 #include "GameObject.h"
 
+#include <iostream>
+
 #include "EngineCore.h"
 #include "MessagingSystem/Messages.h"
 #include "AssetManagement/AssetManager.h"
-
-#include <iostream>
+#include "Physics/Colliders.h"
 
 GameObject::GameObject(const char* objectName)
 	: _karnanDevice(EngineCore::Device()), ObjectName(objectName)
@@ -31,7 +32,9 @@ bool GameObject::HasTag(std::string compareTag)
 
 void GameObject::Init()
 {
-
+	_collider = std::shared_ptr<SphereCollider>(DBG_NEW SphereCollider());
+	_collider->GameObject = this;
+	_colliderActive = true;
 }
 
 void GameObject::Update(double deltaTime)

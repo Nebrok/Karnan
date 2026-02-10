@@ -1,15 +1,22 @@
 #pragma once
 
-#include <vector>
+#define GLM_FORCE_RADIANS
+#define GLM_FORCE_DEPTH_ZERO_TO_ONE
+#include <glm/glm.hpp>
 
-#include "../SceneManagement/KarnanScene.h"
+#include <vector>
+#include <memory>
 
 class GameObject;
+class Collider;
+class SphereCollider;
+class BoxCollider;
+class KarnanScene;
 
 struct CollisionEvent
 {
-	GameObject* GameobjectA;
-	GameObject* GameobjectB;
+	std::shared_ptr<GameObject> GameobjectA;
+	std::shared_ptr<GameObject> GameobjectB;
 };
 
 class KarnanPhysics
@@ -18,6 +25,7 @@ public:
 
 
 private:
+	std::vector<CollisionEvent> _collisionEvents;
 
 
 public:
@@ -25,12 +33,18 @@ public:
 	~KarnanPhysics();
 
 	void UpdatePhysics(KarnanScene* scene);
-	
-	std::vector<CollisionEvent>& GetCollisionEvents() { return _collisionEvents; };
+	static bool CheckIntersect(Collider* colA, Collider* colB);
 
+	std::vector<CollisionEvent>& GetCollisionEvents() { return _collisionEvents; };
+	void ClearEvents() { _collisionEvents.clear(); };
 
 
 private:
-	std::vector<CollisionEvent> _collisionEvents;
 	
+	static bool BoxSphereIntersection(BoxCollider* boxA, SphereCollider* sphereB);
+	
+	static bool BoxBoxIntersection(BoxCollider* boxA, BoxCollider* sphereB);
+	void ProjectCubeAxis(BoxCollider* box, glm::vec3 axis, float& min, float& max);
+
+
 };

@@ -43,6 +43,7 @@ void EditorHierarchyPanel::ContextMenu()
 	if (ImGui::Button("Create New GameObject"))
 	{
 		GameObject* newGo = DBG_NEW GameObject("NewGameObject");
+		newGo->Init();
 		newGo->Transform.Translation = { 0.0f, 0.0f, 0.0f };
 		newGo->Transform.Scale = { 1.0f, 1.0f, 1.0f };
 		EngineCore::Instance->AddGameObjectToActiveScene(std::shared_ptr<GameObject>(newGo));

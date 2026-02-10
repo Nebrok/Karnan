@@ -16,6 +16,8 @@
 #include <cereal/archives/xml.hpp>
 #include "Serialisation/DefinitionsKarnanCereal.h"
 
+class Collider;
+
 namespace Karnan
 {
 	struct Transform
@@ -103,9 +105,7 @@ class GameObject
 
 public:
     Karnan::Transform Transform;
-
     std::string ObjectName;
-    
     std::vector<std::string> Tags;
 
 protected:
@@ -121,6 +121,9 @@ protected:
     std::string _materialName = "";
     std::shared_ptr<KarnanMaterial> _material = nullptr;
     bool _materialChanged = false;
+
+    bool _colliderActive = false;
+    std::shared_ptr<Collider> _collider;
 
 public:
     static uint32_t GenerateNewId()
@@ -141,6 +144,9 @@ public:
     std::string GetMeshName() { return _meshName; };
     std::string GetMaterialName() { return _materialName; };
 
+    bool IsColliderActive() const { return _colliderActive; };
+    std::shared_ptr<Collider> GetCollider() { return _collider; };
+    void SetCollider(std::shared_ptr<Collider> newCollider) { _collider = newCollider; };
 
     virtual void Init();
     virtual void Update(double deltaTime);

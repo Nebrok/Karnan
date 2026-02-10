@@ -21,7 +21,7 @@ private:
 	GameObject* Plane;
 	GameObject* Viewer;
 
-	std::string _sceneName = "DefferedRenderingShowcase";
+	std::string _sceneName = "PhysicsTestingScene";
 
 public:
 	KarnanScene();
@@ -29,6 +29,7 @@ public:
 
 	void LoadScene();
 	void UpdateScene(double deltaTime);
+
 
 	KarnanCamera* PrepareRenderInfo(float aspectRatio, std::vector<GameObject*>& lights, std::vector<GameObject*>& gameObjects);
 

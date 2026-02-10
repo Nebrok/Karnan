@@ -44,6 +44,9 @@ bool SceneDataObject::LoadScene(std::vector<std::shared_ptr<GameObject>>& gameOb
 	else
 	{
 		std::cout << "Could not open file: " << "assets/scenes/" + SceneName + ".kscn" << '\n';
+		std::cout << "Creating new scene with name " << SceneName << "." << '\n';
+		CreateNewSceneFromDefault(gameObjects);
+		return false;
 	}
 
 	int numberGOs;
@@ -65,4 +68,42 @@ bool SceneDataObject::LoadScene(std::vector<std::shared_ptr<GameObject>>& gameOb
 	std::cout << "Number gameObjects in loaded scene: " << numberGOs << '\n';
 
     return false;
+}
+
+void SceneDataObject::CreateNewSceneFromDefault(std::vector<std::shared_ptr<GameObject>>& gameObjects)
+{
+	std::stringstream ss;
+
+
+	std::ifstream inFile("defaults/scenes/BlankScene.kscn");
+	if (inFile)
+	{
+		ss << inFile.rdbuf();
+	}
+	else
+	{
+		std::cout << "Could not open file: " << "assets/scenes/" + SceneName + ".kscn" << '\n';
+		return;
+	}
+
+
+	int numberGOs;
+	ss >> numberGOs;
+	{
+		cereal::XMLInputArchive ar(ss);
+
+		for (int i = 0; i < numberGOs; i++)
+		{
+			std::shared_ptr<GameObject> readGameObject;
+			ar(readGameObject);
+			readGameObject->Init();
+			readGameObject->CreateMesh(readGameObject->GetMeshName());
+			readGameObject->CreateMaterial(readGameObject->GetMaterialName());
+			gameObjects.push_back(readGameObject);
+		}
+	}
+
+	std::cout << "Number gameObjects in loaded scene: " << numberGOs << '\n';
+
+	return;
 }

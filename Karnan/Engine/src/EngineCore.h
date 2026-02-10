@@ -16,6 +16,7 @@
 #include "DeferredRenderSystem.h"
 #include "MeshLoadingSystem.h"
 #include "AssetManagement/AssetManager.h"
+#include "Physics/KarnanPhysics.h"
 
 
 const int WIDTH = 800;
@@ -40,6 +41,7 @@ private:
 	std::unique_ptr<InputManagementSystem> _inputManagementSystem;
 	std::unique_ptr<DeferredRenderSystem> _renderSystem;
 	std::unique_ptr<KarnanScene> _scene;
+	std::unique_ptr<KarnanPhysics> _physicsEngine;
 
 	bool _editorMode = false;
 	KarnanEditor* _editor;

@@ -177,6 +177,7 @@
     <ClCompile Include="src\KarnanPipeline.cpp" />
     <ClCompile Include="src\KarnanRenderer.cpp" />
     <ClCompile Include="src\Lights\PointLight.cpp" />
+    <ClCompile Include="src\Physics\KarnanPhysics.cpp" />
     <ClCompile Include="src\SceneManagement\KarnanScene.cpp" />
     <ClCompile Include="src\KarnanSwapChain.cpp" />
     <ClCompile Include="src\KarnanTextures.cpp" />
