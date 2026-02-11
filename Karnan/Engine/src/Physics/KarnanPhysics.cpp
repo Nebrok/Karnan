@@ -92,9 +92,24 @@ bool KarnanPhysics::BoxSphereIntersection(BoxCollider* boxA, SphereCollider* sph
     return dist2 < sphereB->Radius * sphereB->Radius;
 }
 
-bool KarnanPhysics::BoxBoxIntersection(BoxCollider* boxA, BoxCollider* sphereB)
+bool KarnanPhysics::BoxBoxIntersection(BoxCollider* boxA, BoxCollider* boxB)
 {
-    return false;
+    std::vector<glm::vec3> candidateAxises = GetCandidateAxises(boxA, boxB);
+
+    for (int i = 0; i < candidateAxises.size(); i++)
+    {
+        glm::vec3 normalisedAxis = glm::normalize(candidateAxises[i]);
+
+        float minA, maxA, minB, maxB;
+        ProjectCubeAxis(boxA, normalisedAxis, minA, maxA);
+        ProjectCubeAxis(boxB, normalisedAxis, minB, maxB);
+
+        float overlap = glm::min(maxA, maxB) - glm::max(minA, minB);
+        if (overlap < 0)
+            return false;
+     }
+
+    return true;
 }
 
 void KarnanPhysics::ProjectCubeAxis(BoxCollider* box, glm::vec3 axis, float& min, float& max)
@@ -111,4 +126,27 @@ void KarnanPhysics::ProjectCubeAxis(BoxCollider* box, glm::vec3 axis, float& min
 
     min = centerProjection - radius;
     max = centerProjection + radius;
+}
+
+std::vector<glm::vec3> KarnanPhysics::GetCandidateAxises(BoxCollider* boxA, BoxCollider* boxB)
+{
+    std::vector<glm::vec3> axises;
+
+    std::vector<glm::vec3> boxAAxises = boxA->GetAxises();
+    std::vector<glm::vec3> boxBAxises = boxB->GetAxises();
+    axises.insert(axises.end(), boxAAxises.begin(), boxAAxises.end());
+    axises.insert(axises.end(), boxBAxises.begin(), boxBAxises.end());
+
+    for (int i = 0; i < boxAAxises.size(); i++)
+    {
+        for (int j = 0; j < boxBAxises.size(); j++)
+        {
+            glm::vec3 axis = glm::cross(boxAAxises[i], boxBAxises[j]);
+            float eps = 0.000001f;
+            if (glm::dot(axis, axis) < eps)
+                continue;
+            axises.push_back(axis);
+        }
+    }
+    return axises;
 }

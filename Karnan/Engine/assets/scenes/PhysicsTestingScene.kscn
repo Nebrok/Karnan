@@ -1,4 +1,4 @@
-4
+10
 <?xml version="1.0" encoding="utf-8"?>
 <cereal>
 	<value0>
@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>4.6030087471008301</value0>
-							<value1>1.0286333560943604</value1>
-							<value2>-2.7506546974182129</value2>
+							<value0>-15.753964424133301</value0>
+							<value1>5.6885867118835449</value1>
+							<value2>-1.7938790321350098</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.28615224361419678</value0>
-							<value1>4.9785633087158203</value1>
+							<value0>0.2498689591884613</value0>
+							<value1>0.97132027149200439</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -45,13 +45,13 @@
 				<Transform>
 					<Translation>
 						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
+						<value1>4.5999999046325684</value1>
+						<value2>-0.85000002384185791</value2>
 					</Translation>
 					<Rotation>
-						<value0>-0.059999998658895493</value0>
-						<value1>-0.34000000357627869</value1>
-						<value2>0</value2>
+						<value0>-0.10999999940395355</value0>
+						<value1>1.8700000047683716</value1>
+						<value2>-0.28999999165534973</value2>
 					</Rotation>
 					<Scale>
 						<value0>1</value0>
@@ -90,9 +90,9 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>1.7000000476837158</value0>
-						<value1>1.0900000333786011</value1>
-						<value2>-0.81000000238418579</value2>
+						<value0>0.2199999988079071</value0>
+						<value1>3.2300000190734863</value1>
+						<value2>-1.2899999618530273</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
@@ -134,9 +134,9 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>10</value0>
-							<value1>0</value1>
-							<value2>0</value2>
+							<value0>2000</value0>
+							<value1>3000</value1>
+							<value2>100000000</value2>
 						</Translation>
 						<Rotation>
 							<value0>0</value0>
@@ -149,7 +149,7 @@
 							<value2>0.20000000298023224</value2>
 						</Scale>
 					</Transform>
-					<Object_Name>Point Light</Object_Name>
+					<Object_Name>Sun</Object_Name>
 					<Mesh_Name></Mesh_Name>
 					<Material_Name></Material_Name>
 					<Collider_active>false</Collider_active>
@@ -167,9 +167,271 @@
 					<value1>0.10000000149011612</value1>
 					<value2>0.0099999997764825821</value2>
 				</_attenuation>
-				<_intensity>2.0999999046325684</_intensity>
+				<_intensity>75000</_intensity>
 			</data>
 		</ptr_wrapper>
 	</value3>
+	<value4>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483655</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>0</value0>
+						<value1>2.1400001049041748</value1>
+						<value2>0</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Cube2</Object_Name>
+				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
+				<Material_Name>assets/materials/Checker.kmat</Material_Name>
+				<Collider_active>true</Collider_active>
+				<Collider>
+					<polymorphic_id>2</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483656</id>
+						<data>
+							<value0>
+								<Type>1</Type>
+							</value0>
+							<Extent>
+								<value0>1</value0>
+								<value1>1</value1>
+								<value2>1</value2>
+							</Extent>
+						</data>
+					</ptr_wrapper>
+				</Collider>
+			</data>
+		</ptr_wrapper>
+	</value4>
+	<value5>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483657</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>2</value0>
+						<value1>2</value1>
+						<value2>2</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Sponza</Object_Name>
+				<Mesh_Name>assets/models/SponzaSceneMaybe.obj</Mesh_Name>
+				<Material_Name>assets/materials/FilterTesting1.kmat</Material_Name>
+				<Collider_active>false</Collider_active>
+				<Collider>
+					<polymorphic_id>3</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483658</id>
+						<data>
+							<value0>
+								<Type>2</Type>
+							</value0>
+							<Radius>0.5</Radius>
+						</data>
+					</ptr_wrapper>
+				</Collider>
+			</data>
+		</ptr_wrapper>
+	</value5>
+	<value6>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483659</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>0.30000001192092896</value0>
+						<value1>0</value1>
+						<value2>10.840000152587891</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>3.1540000438690186</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>10</value0>
+						<value1>10</value1>
+						<value2>10</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Lionhead</Object_Name>
+				<Mesh_Name>assets/models/lion_head_4k.obj</Mesh_Name>
+				<Material_Name>assets/materials/LionHead.kmat</Material_Name>
+				<Collider_active>false</Collider_active>
+				<Collider>
+					<polymorphic_id>3</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483660</id>
+						<data>
+							<value0>
+								<Type>2</Type>
+							</value0>
+							<Radius>0.5</Radius>
+						</data>
+					</ptr_wrapper>
+				</Collider>
+			</data>
+		</ptr_wrapper>
+	</value6>
+	<value7>
+		<polymorphic_id>4</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483661</id>
+			<data>
+				<value0>
+					<Transform>
+						<Translation>
+							<value0>4.3499999046325684</value0>
+							<value1>8.3100004196166992</value1>
+							<value2>9.5100002288818359</value2>
+						</Translation>
+						<Rotation>
+							<value0>0</value0>
+							<value1>0</value1>
+							<value2>0</value2>
+						</Rotation>
+						<Scale>
+							<value0>0.10000000149011612</value0>
+							<value1>0.10000000149011612</value1>
+							<value2>0.10000000149011612</value2>
+						</Scale>
+					</Transform>
+					<Object_Name>Lantern</Object_Name>
+					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
+					<Material_Name>assets/materials/NULL_TEXTURE.kmat</Material_Name>
+					<Collider_active>false</Collider_active>
+					<Collider>
+						<polymorphic_id>0</polymorphic_id>
+					</Collider>
+				</value0>
+				<_lightColour>
+					<value0>1.5199999809265137</value0>
+					<value1>0.40000000596046448</value1>
+					<value2>0.10000000149011612</value2>
+				</_lightColour>
+				<_attenuation>
+					<value0>1</value0>
+					<value1>0.10000000149011612</value1>
+					<value2>0.0099999997764825821</value2>
+				</_attenuation>
+				<_intensity>1</_intensity>
+			</data>
+		</ptr_wrapper>
+	</value7>
+	<value8>
+		<polymorphic_id>4</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483662</id>
+			<data>
+				<value0>
+					<Transform>
+						<Translation>
+							<value0>-3.690000057220459</value0>
+							<value1>8.3500003814697266</value1>
+							<value2>9.3999996185302734</value2>
+						</Translation>
+						<Rotation>
+							<value0>0</value0>
+							<value1>0</value1>
+							<value2>0</value2>
+						</Rotation>
+						<Scale>
+							<value0>0.10000000149011612</value0>
+							<value1>0.10000000149011612</value1>
+							<value2>0.10000000149011612</value2>
+						</Scale>
+					</Transform>
+					<Object_Name>Lantern</Object_Name>
+					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
+					<Material_Name>assets/materials/NULL_TEXTURE.kmat</Material_Name>
+					<Collider_active>false</Collider_active>
+					<Collider>
+						<polymorphic_id>0</polymorphic_id>
+					</Collider>
+				</value0>
+				<_lightColour>
+					<value0>1</value0>
+					<value1>0.40000000596046448</value1>
+					<value2>0.10000000149011612</value2>
+				</_lightColour>
+				<_attenuation>
+					<value0>1</value0>
+					<value1>0.10000000149011612</value1>
+					<value2>0.0099999997764825821</value2>
+				</_attenuation>
+				<_intensity>1.2300000190734863</_intensity>
+			</data>
+		</ptr_wrapper>
+	</value8>
+	<value9>
+		<polymorphic_id>4</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483663</id>
+			<data>
+				<value0>
+					<Transform>
+						<Translation>
+							<value0>-11.779999732971191</value0>
+							<value1>8.5600004196166992</value1>
+							<value2>9.4499998092651367</value2>
+						</Translation>
+						<Rotation>
+							<value0>0</value0>
+							<value1>0</value1>
+							<value2>0</value2>
+						</Rotation>
+						<Scale>
+							<value0>0.10000000149011612</value0>
+							<value1>0.10000000149011612</value1>
+							<value2>0.10000000149011612</value2>
+						</Scale>
+					</Transform>
+					<Object_Name>Lantern</Object_Name>
+					<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
+					<Material_Name>assets/materials/NULL_TEXTURE.kmat</Material_Name>
+					<Collider_active>false</Collider_active>
+					<Collider>
+						<polymorphic_id>0</polymorphic_id>
+					</Collider>
+				</value0>
+				<_lightColour>
+					<value0>1</value0>
+					<value1>0.40000000596046448</value1>
+					<value2>0.14000000059604645</value2>
+				</_lightColour>
+				<_attenuation>
+					<value0>1</value0>
+					<value1>0.10000000149011612</value1>
+					<value2>0.0099999997764825821</value2>
+				</_attenuation>
+				<_intensity>1</_intensity>
+			</data>
+		</ptr_wrapper>
+	</value9>
 </cereal>
 

@@ -145,7 +145,15 @@ public:
 
 	std::vector<glm::vec3> GetAxises()
 	{
-		return {};
+		std::vector<glm::vec3> axises = { {1.0f, 0.0f, 0.0f}, {0.0f, 1.0f, 0.0f}, {0.0f, 0.0f, 1.0f} };
+
+		glm::mat4 rotation = ScalelessTransform();
+		rotation[3] -= Transform()[3];
+		for (auto& axis : axises)
+		{
+			axis = rotation * glm::vec4(axis, 1.0f);
+		}
+		return axises;
 	}
 
 	virtual std::string ToString() override

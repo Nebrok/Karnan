@@ -44,7 +44,8 @@ private:
 	static bool BoxSphereIntersection(BoxCollider* boxA, SphereCollider* sphereB);
 	
 	static bool BoxBoxIntersection(BoxCollider* boxA, BoxCollider* sphereB);
-	void ProjectCubeAxis(BoxCollider* box, glm::vec3 axis, float& min, float& max);
+	static void ProjectCubeAxis(BoxCollider* box, glm::vec3 axis, float& min, float& max);
+	static std::vector<glm::vec3> GetCandidateAxises(BoxCollider* boxA, BoxCollider* boxB);
 
 
 };
