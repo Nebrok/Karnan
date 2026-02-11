@@ -32,9 +32,12 @@ bool GameObject::HasTag(std::string compareTag)
 
 void GameObject::Init()
 {
-	_collider = std::shared_ptr<SphereCollider>(DBG_NEW SphereCollider());
+	if (_collider == nullptr)
+	{
+		_collider = std::shared_ptr<SphereCollider>(DBG_NEW SphereCollider());
+		_colliderActive = false;
+	}
 	_collider->GameObject = this;
-	_colliderActive = true;
 }
 
 void GameObject::Update(double deltaTime)

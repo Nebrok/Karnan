@@ -85,7 +85,7 @@ bool KarnanPhysics::CheckIntersect(Collider* colA, Collider* colB)
 bool KarnanPhysics::BoxSphereIntersection(BoxCollider* boxA, SphereCollider* sphereB)
 {
     glm::vec3 sphereCenter = glm::vec3(sphereB->Transform()[3]);
-    glm::vec3 localSphereCenter = glm::inverse(boxA->Transform()) * glm::vec4(sphereCenter, 1.0f);
+    glm::vec3 localSphereCenter = glm::inverse(boxA->ScalelessTransform()) * glm::vec4(sphereCenter, 1.0f);
     glm::vec3 closestPoint = glm::clamp(localSphereCenter, -boxA->Extent, boxA->Extent);
     glm::vec3 AtoB = localSphereCenter - closestPoint;
     float dist2 = glm::dot(AtoB, AtoB);

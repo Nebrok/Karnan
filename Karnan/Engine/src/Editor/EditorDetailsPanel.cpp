@@ -130,6 +130,10 @@ void EditorDetailsPanel::DisplayGameObject()
 
 	ImGui::SeparatorText("Collider");
 	std::shared_ptr<Collider> gameObjectCollider = lastHighlightedGO->GetCollider();
+	
+	bool isActive = lastHighlightedGO->IsColliderActive();
+	ImGui::Checkbox("Collider Active", &isActive);
+	lastHighlightedGO->ChangeColliderActive(isActive);
 
 	const char* colliderTypes[] = { "Box", "Sphere" };
 	int numColliders = 2;

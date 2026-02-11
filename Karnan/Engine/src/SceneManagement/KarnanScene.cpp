@@ -28,6 +28,14 @@ void KarnanScene::LoadScene()
 	_gameObjects.clear();
 	sceneData.LoadScene(_gameObjects);
 
+	/*
+	KarnanCamera* camera = DBG_NEW KarnanCamera("MainCamera");
+	camera->Init();
+	camera->AddMainCameraTag();
+	_gameObjects.push_back(std::shared_ptr<KarnanCamera>(camera));
+	*/
+
+
 	for (auto gameObject : _gameObjects)
 	{
 		if (gameObject->HasTag("Main Camera"))

@@ -29,6 +29,7 @@ public:
 	static EngineCore* Instance;
 
 
+
 private:
 	KarnanWindow _karnanWindow{WIDTH, HEIGHT};
 	KarnanDevice _karnanDevice{ _karnanWindow };

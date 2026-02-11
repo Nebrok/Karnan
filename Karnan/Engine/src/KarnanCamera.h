@@ -24,7 +24,7 @@ private:
 
 	float _fovy = 90.0f;
 	float _near = 0.1f;
-	float _far = 200.0f;
+	float _far = 10000.0f;
 
 
 public:

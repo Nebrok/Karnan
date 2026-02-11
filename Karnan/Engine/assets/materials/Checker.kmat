@@ -8,6 +8,6 @@ Texture 4:
 Texture 5: 
 Texture 6: 
 Texture 7: 
-MinFilter: VK_FILTER_LINEAR
-MagFilter: VK_FILTER_LINEAR
+MinFilter: VK_FILTER_NEAREST
+MagFilter: VK_FILTER_NEAREST
 AddressMode: VK_SAMPLER_ADDRESS_MODE_REPEAT

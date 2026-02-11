@@ -6,7 +6,14 @@
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
 #include <glm/glm.hpp>
 
-#include "../GameObject.h"
+
+//cereal
+#include <cereal/types/memory.hpp>
+#include <cereal/types/polymorphic.hpp>
+#include <cereal/archives/xml.hpp>
+#include "../Serialisation/DefinitionsKarnanCereal.h"
+
+class GameObject;
 
 class Collider
 {
@@ -21,19 +28,15 @@ public:
 	ColliderType Type;
 	GameObject* GameObject = nullptr;
 
-	Collider() 
-	{
-		Type = ColliderType::NONE;
-	};
+	Collider();
 
-	glm::mat4 Transform()
-	{
-		if (GameObject == nullptr)
-			throw std::runtime_error("Collider gameobject pointer is null!");
-		return GameObject->Transform.Mat4();
-	}
+	glm::mat4 Transform();
+	
 
-	std::string ToString()
+	glm::mat4 ScalelessTransform();
+
+
+	virtual std::string ToString()
 	{
 		switch (Type)
 		{
@@ -44,6 +47,28 @@ public:
 		case ColliderType::SPHERE:
 			return "SPHERE";
 		}
+	}
+
+	//Cereal serialisation
+	template <class Archive>
+	void save(Archive& ar) const
+	{
+		ar(cereal::make_nvp("Type", Type));
+	};
+
+	template <class Archive>
+	void load(Archive& ar)
+	{
+		;
+		ar(cereal::make_nvp("Type", Type));
+	};
+
+	template <class Archive>
+	static void load_and_construct(Archive& ar, cereal::construct<Collider>& construct)
+	{
+		ColliderType type;
+		ar(cereal::make_nvp("Type", type));
+		construct->Type = type;
 	}
 
 private:
@@ -57,17 +82,49 @@ public:
 	float Radius = .5f;
 
 	SphereCollider()
+		: Collider()
 	{
 		Type = ColliderType::SPHERE;
 	}
 
 	SphereCollider(float radius)
-		:Radius(radius)
+		: Collider(), Radius(radius)
 	{
 		Type = ColliderType::SPHERE;
 	}
 
+	virtual std::string ToString() override
+	{
+		switch (Type)
+		{
+		case ColliderType::NONE:
+			return "NONE";
+		case ColliderType::BOX:
+			return "BOX";
+		case ColliderType::SPHERE:
+			return "SPHERE";
+		}
+	}
+
+	//Cereal serialisation
+	template <class Archive>
+	void save(Archive& ar) const
+	{
+		ar(cereal::base_class<Collider>(this));
+		ar(CEREAL_NVP(Radius));
+	};
+
+	template <class Archive>
+	void load(Archive& ar)
+	{
+		ar(cereal::base_class<Collider>(this));
+		ar(CEREAL_NVP(Radius));
+	};
+
 };
+
+CEREAL_REGISTER_TYPE(SphereCollider);
+CEREAL_REGISTER_POLYMORPHIC_RELATION(Collider, SphereCollider);
 
 class BoxCollider : public Collider
 {
@@ -75,12 +132,13 @@ public:
 	glm::vec3 Extent = { 0.5f, 0.5f, 0.5f };
 
 	BoxCollider()
+		: Collider()
 	{
 		Type = ColliderType::BOX;
 	}
 
 	BoxCollider(const glm::vec3& extent)
-		: Extent(extent)
+		: Collider(), Extent(extent)
 	{
 		Type = ColliderType::BOX;
 	}
@@ -90,4 +148,36 @@ public:
 		return {};
 	}
 
+	virtual std::string ToString() override
+	{
+		switch (Type)
+		{
+		case ColliderType::NONE:
+			return "NONE";
+		case ColliderType::BOX:
+			return "BOX";
+		case ColliderType::SPHERE:
+			return "SPHERE";
+		}
+	}
+
+	//Cereal serialisation
+	template <class Archive>
+	void save(Archive& ar) const
+	{
+		ar(cereal::base_class<Collider>(this));
+		ar(CEREAL_NVP(Extent));
+	};
+
+	template <class Archive>
+	void load(Archive& ar)
+	{
+		ar(cereal::base_class<Collider>(this));
+		ar(CEREAL_NVP(Extent));
+	};
+
+
 };
+
+CEREAL_REGISTER_TYPE(BoxCollider);
+CEREAL_REGISTER_POLYMORPHIC_RELATION(Collider, BoxCollider);

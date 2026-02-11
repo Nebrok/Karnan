@@ -2,6 +2,7 @@
 
 #include "BasicMesh.h"
 #include "KarnanMaterial.h"
+#include "Physics/Colliders.h"
 
 #define GLM_FORCE_RADIANS
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
@@ -16,7 +17,6 @@
 #include <cereal/archives/xml.hpp>
 #include "Serialisation/DefinitionsKarnanCereal.h"
 
-class Collider;
 
 namespace Karnan
 {
@@ -145,6 +145,7 @@ public:
     std::string GetMaterialName() { return _materialName; };
 
     bool IsColliderActive() const { return _colliderActive; };
+    void ChangeColliderActive(bool isActive) { _colliderActive = isActive; };
     std::shared_ptr<Collider> GetCollider() { return _collider; };
     void SetCollider(std::shared_ptr<Collider> newCollider) { _collider = newCollider; };
 
@@ -169,6 +170,8 @@ public:
         ar(cereal::make_nvp("Object_Name", ObjectName));
         ar(cereal::make_nvp("Mesh_Name", _meshName));
         ar(cereal::make_nvp("Material_Name", _materialName));
+        ar(cereal::make_nvp("Collider_active", _colliderActive));
+        ar(cereal::make_nvp("Collider", _collider));
     };
     
     template <class Archive>
@@ -178,6 +181,8 @@ public:
         ar(cereal::make_nvp("Object_Name", ObjectName));
         ar(cereal::make_nvp("Mesh_Name", _meshName));
         ar(cereal::make_nvp("Material_Name", _materialName));
+        ar(cereal::make_nvp("Collider_active", _colliderActive));
+        ar(cereal::make_nvp("Collider", _collider));
     };
 
     template <class Archive>
@@ -199,6 +204,13 @@ public:
         ar(cereal::make_nvp("Material_Name", materialName));
         construct->_materialName = materialName;
 
+        bool colliderActive;
+        ar(cereal::make_nvp("Collider_active", colliderActive));
+        construct->_colliderActive = colliderActive;
+
+        std::shared_ptr<Collider> collider;
+        ar(cereal::make_nvp("Collider", collider));
+        construct->_collider = collider;
     }
 
 

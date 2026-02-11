@@ -28,6 +28,10 @@
 					<Object_Name>MainCamera</Object_Name>
 					<Mesh_Name></Mesh_Name>
 					<Material_Name></Material_Name>
+					<Collider_active>false</Collider_active>
+					<Collider>
+						<polymorphic_id>0</polymorphic_id>
+					</Collider>
 				</value0>
 				<_aspect>60</_aspect>
 			</data>
