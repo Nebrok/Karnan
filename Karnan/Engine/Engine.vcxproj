@@ -154,8 +154,6 @@
     <ClCompile Include="src\AssetManagement\AssetManager.cpp" />
     <ClCompile Include="src\AssetManagement\MaterialDataObject.cpp" />
     <ClCompile Include="src\BasicMesh.cpp" />
-    <ClCompile Include="src\Boids\Boid.cpp" />
-    <ClCompile Include="src\Boids\BoidManager.cpp" />
     <ClCompile Include="src\DeferredRenderSystem.cpp" />
     <ClCompile Include="src\Editor\EditorContentBrowser.cpp" />
     <ClCompile Include="src\Editor\EditorDetailsPanel.cpp" />
@@ -186,6 +184,8 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MeshLoadingSystem.cpp" />
     <ClCompile Include="src\SceneManagement\SceneDataObject.cpp" />
+    <ClCompile Include="src\Scripting\RotateGameObject.cpp" />
+    <ClCompile Include="src\Scripting\ScriptComponent.cpp" />
     <ClCompile Include="src\SimpleRenderSystem.cpp" />
     <ClCompile Include="src\Threading\KarnanMutex.cpp" />
     <ClCompile Include="src\VertexBuffer.cpp" />
@@ -204,8 +204,6 @@
     <ClInclude Include="src\AssetManagement\AssetManager.h" />
     <ClInclude Include="src\AssetManagement\MaterialDataObject.h" />
     <ClInclude Include="src\BasicMesh.h" />
-    <ClInclude Include="src\Boids\Boid.h" />
-    <ClInclude Include="src\Boids\BoidManager.h" />
     <ClInclude Include="src\DeferredRenderSystem.h" />
     <ClInclude Include="src\Editor\EditorContentBrowser.h" />
     <ClInclude Include="src\Editor\EditorDetailsPanel.h" />
@@ -221,6 +219,8 @@
     <ClInclude Include="src\Physics\Colliders.h" />
     <ClInclude Include="src\Physics\KarnanPhysics.h" />
     <ClInclude Include="src\SceneManagement\SceneDataObject.h" />
+    <ClInclude Include="src\Scripting\RotateGameObject.h" />
+    <ClInclude Include="src\Scripting\ScriptComponent.h" />
     <ClInclude Include="src\Serialisation\DefinitionsKarnanCereal.h" />
     <ClInclude Include="src\Threading\IThreadableProcess.h" />
     <ClInclude Include="src\KarnanBuffer.h" />

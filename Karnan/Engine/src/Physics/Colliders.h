@@ -47,6 +47,7 @@ public:
 		case ColliderType::SPHERE:
 			return "SPHERE";
 		}
+		return "NONE";
 	}
 
 	//Cereal serialisation
@@ -104,6 +105,7 @@ public:
 		case ColliderType::SPHERE:
 			return "SPHERE";
 		}
+		return "NONE";
 	}
 
 	//Cereal serialisation
@@ -167,6 +169,7 @@ public:
 		case ColliderType::SPHERE:
 			return "SPHERE";
 		}
+		return "NONE";
 	}
 
 	//Cereal serialisation

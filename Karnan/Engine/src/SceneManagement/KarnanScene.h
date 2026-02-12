@@ -5,8 +5,6 @@
 #include "../Lights/PointLight.h"
 #include "../KarnanFrameInfo.h"
 
-#include "../Boids/BoidManager.h"
-
 class KarnanScene
 {
 

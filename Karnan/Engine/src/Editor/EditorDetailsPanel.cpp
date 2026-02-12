@@ -11,6 +11,7 @@
 #include "imgui_stdlib.h"
 //#include "imgui_stdlib.cpp"
 
+#include "../Scripting/ScriptComponent.h"
 
 void EditorDetailsPanel::OnImGUIRender()
 {
@@ -49,6 +50,12 @@ void EditorDetailsPanel::DeleteGameObject(GameObject* go)
 {
 	KarnanEditor::Instance->SetLastHighlightedGO(nullptr);
 	EngineCore::DeleteGOFromActiveScene(go->GetId());
+}
+
+void EditorDetailsPanel::AddComponent(GameObject* lastHighlightedGo)
+{
+	ScriptableComponent* component = ScriptRegister::TypeMap["RotateGameObject"]();
+	lastHighlightedGo->AddComponent(component);
 }
 
 void EditorDetailsPanel::ChangeMeshButton()
@@ -172,6 +179,18 @@ void EditorDetailsPanel::DisplayGameObject()
 		SphereCollider* sphere = static_cast<SphereCollider*>(gameObjectCollider.get());
 		ImGui::DragFloat("Radius", &(sphere->Radius), 0.01f);
 	}
+
+	ImGui::SeparatorText("Scripts");
+	auto components = lastHighlightedGO->GetComponents();
+	for (auto component : components)
+	{
+		ImGui::Text(component->GetName().c_str());
+	}
+	if (ImGui::Button("Add Component"))
+	{
+		AddComponent(lastHighlightedGO);
+	}
+
 
 	ImGui::SeparatorText("WARNING");
 	if (ImGui::Button("Delete GameObject"))

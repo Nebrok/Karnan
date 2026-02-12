@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>-15.753964424133301</value0>
-							<value1>5.6885867118835449</value1>
-							<value2>-1.7938790321350098</value2>
+							<value0>-2.2751548290252686</value0>
+							<value1>1.4428445100784302</value1>
+							<value2>8.9454450607299805</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.2498689591884613</value0>
-							<value1>0.97132027149200439</value1>
+							<value0>0.30824673175811768</value0>
+							<value1>1.1034877300262451</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -136,7 +136,7 @@
 						<Translation>
 							<value0>2000</value0>
 							<value1>3000</value1>
-							<value2>100000000</value2>
+							<value2>1000000</value2>
 						</Translation>
 						<Rotation>
 							<value0>0</value0>
@@ -159,7 +159,7 @@
 				</value0>
 				<_lightColour>
 					<value0>1</value0>
-					<value1>0.75</value1>
+					<value1>0.5899999737739563</value1>
 					<value2>0.43999999761581421</value2>
 				</_lightColour>
 				<_attenuation>
@@ -240,7 +240,7 @@
 				</Transform>
 				<Object_Name>Sponza</Object_Name>
 				<Mesh_Name>assets/models/SponzaSceneMaybe.obj</Mesh_Name>
-				<Material_Name>assets/materials/FilterTesting1.kmat</Material_Name>
+				<Material_Name>assets/materials/Checker.kmat</Material_Name>
 				<Collider_active>false</Collider_active>
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
@@ -270,7 +270,7 @@
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
-						<value1>3.1540000438690186</value1>
+						<value1>7.1482863426208496</value1>
 						<value2>0</value2>
 					</Rotation>
 					<Scale>
@@ -307,7 +307,7 @@
 					<Transform>
 						<Translation>
 							<value0>4.3499999046325684</value0>
-							<value1>8.3100004196166992</value1>
+							<value1>8.130000114440918</value1>
 							<value2>9.5100002288818359</value2>
 						</Translation>
 						<Rotation>

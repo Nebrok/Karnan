@@ -3,6 +3,7 @@
 #include "BasicMesh.h"
 #include "KarnanMaterial.h"
 #include "Physics/Colliders.h"
+#include "Scripting/ScriptComponent.h"
 
 #define GLM_FORCE_RADIANS
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
@@ -125,6 +126,8 @@ protected:
     bool _colliderActive = false;
     std::shared_ptr<Collider> _collider;
 
+    std::vector<std::shared_ptr<ScriptableComponent>> _components;
+
 public:
     static uint32_t GenerateNewId()
     {
@@ -160,6 +163,15 @@ public:
 
     void SetMeshRefreshed() { _meshRefreshed = true; };
     void SetGOName(std::string name) { ObjectName = name; };
+
+    std::vector<std::shared_ptr<ScriptableComponent>>& GetComponents() { return _components; };
+    void AddComponent(ScriptableComponent* component) 
+    { 
+        _components.push_back(std::shared_ptr<ScriptableComponent>(component));
+        _components.back()->Init();
+        _components.back()->SetGameobject(this);
+
+    };
 
 
     //Cereal serialisation

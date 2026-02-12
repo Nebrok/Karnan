@@ -7,6 +7,8 @@
 #include <string>
 #include <iostream>
 
+#include "Scripting/ScriptComponent.h"
+
 
 EngineCore* EngineCore::Instance = nullptr;
 
@@ -51,6 +53,9 @@ void EngineCore::DestroyEngine()
 
 void EngineCore::Init()
 {
+	ScriptRegister::RegisterTypes();
+
+
 	_meshLoadingSystem = MeshLoadingSystem::StartMeshLoadingSystem();
 	_assetManager = AssetManager::StartupAssetManager();
 	_inputManagementSystem = std::unique_ptr<InputManagementSystem>(InputManagementSystem::StartupInputManagementSystem());

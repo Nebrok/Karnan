@@ -126,12 +126,6 @@
     <ClCompile Include="src\Editor\EditorContentBrowser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Boids\Boid.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Boids\BoidManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="dep\imgui\imgui_stdlib.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -154,6 +148,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Physics\Colliders.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scripting\RotateGameObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scripting\ScriptComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -293,12 +293,6 @@
     <ClInclude Include="src\Editor\EditorContentBrowser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Boids\Boid.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Boids\BoidManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="dep\imgui\imgui_stdlib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -324,6 +318,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Physics\Colliders.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scripting\ScriptComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scripting\RotateGameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

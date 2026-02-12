@@ -38,6 +38,12 @@ void GameObject::Init()
 		_colliderActive = false;
 	}
 	_collider->GameObject = this;
+
+
+	for (auto component : _components)
+	{
+		component->Init();
+	}
 }
 
 void GameObject::Update(double deltaTime)
@@ -58,6 +64,10 @@ void GameObject::Update(double deltaTime)
 		_renderable = true;
 	}
 	
+	for (auto component : _components)
+	{
+		component->Update(deltaTime);
+	}
 }
 
 void GameObject::Render(VkCommandBuffer commandBuffer)

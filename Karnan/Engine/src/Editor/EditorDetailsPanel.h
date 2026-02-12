@@ -24,6 +24,7 @@ public:
 	void DeleteGameObject(GameObject* go);
 
 private:
+	void AddComponent(GameObject* lastHighlightGo);
 	void ChangeMeshButton();
 	void ChangeMaterialButton();
 	
