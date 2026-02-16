@@ -117,6 +117,7 @@ void KarnanMainGUI::NewFrame()
 	window_flags |= ImGuiWindowFlags_NoBringToFrontOnFocus;
 	window_flags |= ImGuiWindowFlags_NoResize;
 	window_flags |= ImGuiWindowFlags_NoDocking;
+	window_flags |= ImGuiWindowFlags_MenuBar;
 
 	ImGuiDockNodeFlags dockspaceFlags = ImGuiDockNodeFlags_None;
 	dockspaceFlags |= ImGuiDockNodeFlags_PassthruCentralNode;
@@ -127,6 +128,48 @@ void KarnanMainGUI::NewFrame()
 	ImGui::SetNextWindowSize(viewport->WorkSize);
 	bool windowOpen = true;
 	ImGui::Begin("Main Viewport", NULL, window_flags);
+
+	if (ImGui::BeginMenuBar())
+	{
+		ImGui::Text("Scene");
+
+		ImGui::SameLine();
+		
+		float titleBarHeight = ImGui::GetFrameHeight();
+		float buttonSize = titleBarHeight - 2.0f;
+
+		if (ImGui::SmallButton("Play"))
+		{
+			if (EngineCore::Instance->PlayMode() == false && KarnanEditor::Instance->Paused() == true)
+			{
+				EngineCore::Instance->SetPlayMode(true);
+				KarnanEditor::Instance->SetPaused(false);
+
+			}
+			else if (EngineCore::Instance->PlayMode() == false)
+			{
+				KarnanEditor::Instance->CacheScene();
+				EngineCore::Instance->SetPlayMode(true);
+				KarnanEditor::Instance->SetPaused(false);
+			}
+		}
+
+		ImGui::SameLine();
+		if (ImGui::SmallButton("Pause"))
+		{
+			EngineCore::Instance->SetPlayMode(false);
+			KarnanEditor::Instance->SetPaused(true);
+		}
+
+		ImGui::SameLine();
+		if (ImGui::SmallButton("Stop"))
+		{
+			EngineCore::Instance->SetPlayMode(false);
+			KarnanEditor::Instance->LoadCachedScene();
+		}
+
+		ImGui::EndMenuBar();
+	}
 	
 	ImGuiIO& io = ImGui::GetIO();
 	if (io.ConfigFlags & ImGuiConfigFlags_DockingEnable)
@@ -134,6 +177,9 @@ void KarnanMainGUI::NewFrame()
 		ImGuiID dockspace_id = ImGui::GetID("MyDockSpace");
 		ImGui::DockSpace(dockspace_id, ImVec2(0.0f, 0.0f), dockspaceFlags);
 	}
+
+
+
 	ImGui::End();
 	
 

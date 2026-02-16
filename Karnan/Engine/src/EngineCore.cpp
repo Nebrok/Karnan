@@ -27,6 +27,14 @@ std::vector<std::shared_ptr<GameObject>> EngineCore::GetAllGameObjectsInActiveSc
 	return Instance->_scene->GetAllGameObjects();
 }
 
+std::string EngineCore::GetSceneName()
+{
+
+	if (Instance->_scene != nullptr)
+		return Instance->_scene->GetName();
+	return "NewScene";
+}
+
 EngineCore::EngineCore()
 {
 	_windowRef = _karnanWindow.GetWindowReference();
@@ -106,12 +114,20 @@ void EngineCore::Run()
 		}
 
 		_assetManager->Process();
-		_scene->UpdateScene(frameTime);
+
+		if (_playMode)
+		{
+			_scene->UpdateScene(frameTime);
+
+		}
+
 		_physicsEngine->UpdatePhysics(_scene.get());
-		std::cout << "Number of collisions: " << _physicsEngine->GetCollisionEvents().size() << '\n';
+		//std::cout << "Number of collisions: " << _physicsEngine->GetCollisionEvents().size() << '\n';
 
 		if (_editorMode)
+		{
 			_editor->Update();
+		}
 
 		if (auto commandBuffer = _karnanRenderer.BeginFrame())
 		{
@@ -138,26 +154,6 @@ void EngineCore::Run()
 			_karnanRenderer.EndFrame();
 		}
 
-
-		/*
-		if (auto commandBuffer = _karnanRenderer.BeginFrame())
-		{
-			int frameIndex = _karnanRenderer.GetFrameIndex();
-			Karnan::FrameInfo frameInfo{ frameIndex, frameTime, commandBuffer, _karnanRenderer.GetAspectRatio() };
-
-
-			_karnanRenderer.BeginSwapChainRenderPass(commandBuffer);
-
-			_scene->RenderScene(frameInfo);
-
-			if (_editorMode)
-				_editor->Render(commandBuffer);
-
-			_karnanRenderer.EndSwapChainRenderPass(commandBuffer);
-			_karnanRenderer.EndFrame();
-		}
-		*/
-
 		/* Poll for and process events */
 		_inputManagementSystem->UpdateKeyReads(_windowRef);
 		glfwPollEvents();
@@ -177,11 +173,23 @@ void EngineCore::LoadScene()
 	std::unique_ptr<KarnanScene> newScene(DBG_NEW KarnanScene());
 	_scene = move(newScene);
 
-	_scene->LoadScene();
+	_scene->LoadScene("PhysicsTestingScene");
+}
+
+void EngineCore::LoadScene(SceneDataObject& sceneData)
+{
+	if (_scene == nullptr)
+	{
+		std::unique_ptr<KarnanScene> newScene(DBG_NEW KarnanScene());
+		_scene = move(newScene);
+	}
+
+	_scene->LoadScene(sceneData);
 }
 
 void EngineCore::SetEditorMode(KarnanEditor* editor)
 {
 	_editorMode = true;
 	_editor = editor;
+	_playMode = false;
 }

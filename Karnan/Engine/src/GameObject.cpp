@@ -42,6 +42,7 @@ void GameObject::Init()
 
 	for (auto component : _components)
 	{
+		component->SetGameobject(this);
 		component->Init();
 	}
 }
@@ -109,4 +110,11 @@ void GameObject::AddMaterial(const std::string& filename)
 		_materialName = "NONE";
 	}
 	_material = material;
+}
+
+void GameObject::RemoveComponent(int index)
+{
+	std::shared_ptr<ScriptableComponent> componentRemoved;
+	componentRemoved = _components[index];
+	_components.erase(_components.begin() + index);
 }

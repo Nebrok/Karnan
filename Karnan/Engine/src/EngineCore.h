@@ -8,6 +8,8 @@
 #include "KarnanDevice.h"
 #include "KarnanRenderer.h"
 #include "SceneManagement/KarnanScene.h"
+#include "SceneManagement/SceneDataObject.h"
+
 
 #include "Editor/KarnanEditor.h"
 
@@ -47,6 +49,8 @@ private:
 	bool _editorMode = false;
 	KarnanEditor* _editor;
 
+	bool _playMode = true;
+
 public:
 	static EngineCore* StartupEngine();
 	static void DestroyEngine();
@@ -54,8 +58,13 @@ public:
 	void Init();
 	void Run();
 	void LoadScene();
+	void LoadScene(SceneDataObject& sceneData);
+
+	bool PlayMode() { return _playMode; };
+	void SetPlayMode(bool mode) { _playMode = mode; };
 
 	void SetEditorMode(KarnanEditor* editor);
+
 
 	static KarnanDevice& Device() { return Instance->_karnanDevice; };
 	static KarnanRenderer& Renderer() { return Instance->_karnanRenderer; };
@@ -63,6 +72,7 @@ public:
 	static bool AddGameObjectToActiveScene(std::shared_ptr<GameObject> gameObject);
 	static void DeleteGOFromActiveScene(uint32_t id);
 	static std::vector<std::shared_ptr<GameObject>> GetAllGameObjectsInActiveScene();
+	static std::string GetSceneName();
 
 private:
 	EngineCore();

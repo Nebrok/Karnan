@@ -10,7 +10,6 @@
 #include "../KarnanCamera.h"
 
 
-
 KarnanEditor* KarnanEditor::Instance = nullptr;
 
 KarnanEditor::KarnanEditor()
@@ -32,6 +31,9 @@ void KarnanEditor::Init()
 	//_panels.push_back(new EditorGOCreatorPanel());
 	_panels.push_back(new EditorContentBrowser());
 
+
+	_cachedScene.SceneName = "sceneCache";
+	_cachedScene.SetFilePath("defaults/scenes/");
 }
 
 void KarnanEditor::Update()
@@ -47,6 +49,25 @@ void KarnanEditor::Update()
 void KarnanEditor::Render(VkCommandBuffer commandBuffer)
 {
 	_mainGUI->Render(commandBuffer);
+}
+
+void KarnanEditor::CacheScene()
+{
+
+	_cachedScene.SaveScene(EngineCore::Instance->GetAllGameObjectsInActiveScene());
+	_sceneName = EngineCore::Instance->GetSceneName();
+}
+
+void KarnanEditor::LoadCachedScene()
+{
+	EngineCore::Instance->LoadScene(_cachedScene);
+	for (auto panel : _panels)
+	{
+		panel->ClearInternals();
+	}
+	_lastSelectedItem = nullptr;
+	_currentSelectedType = KarnanEditor::DetailsPanelTypes::NONE;
+	_lastHighlightedGo = nullptr;
 }
 
 GameObject* KarnanEditor::GetLastHighlightedGO()

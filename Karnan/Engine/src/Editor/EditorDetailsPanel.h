@@ -22,9 +22,10 @@ public:
 	virtual void OnImGUIRender() override;
 
 	void DeleteGameObject(GameObject* go);
+	virtual void ClearInternals() override;
 
 private:
-	void AddComponent(GameObject* lastHighlightGo);
+	void AddComponentButton();
 	void ChangeMeshButton();
 	void ChangeMaterialButton();
 	
@@ -35,5 +36,6 @@ private:
 
 	void SaveMaterialChanges();
 	void DiscardMaterialChanges();
+
 
 };

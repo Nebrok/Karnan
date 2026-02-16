@@ -32,6 +32,7 @@
 					<Collider>
 						<polymorphic_id>0</polymorphic_id>
 					</Collider>
+					<NumberComponents>0</NumberComponents>
 				</value0>
 				<_aspect>60</_aspect>
 			</data>

@@ -6,6 +6,9 @@
 #include <memory>
 #include <vector>
 
+#include "../SceneManagement/SceneDataObject.h"
+
+
 class PointLight;
 class KarnanCamera;
 
@@ -32,6 +35,10 @@ private:
 	std::shared_ptr<GameObject> _lastHighlightedGo = nullptr;
 	void* _lastSelectedItem = nullptr;
 
+	SceneDataObject _cachedScene;
+	std::string _sceneName;
+
+	bool _paused = false;
 
 
 public:
@@ -42,6 +49,9 @@ public:
 	void Update();
 	void Render(VkCommandBuffer commandBuffer);
 
+	void CacheScene();
+	void LoadCachedScene();
+
 	GameObject* GetLastHighlightedGO();
 	void SetLastHighlightedGO(GameObject* go);
 	void SetPointLightAsSelected(PointLight* pointLight);
@@ -50,6 +60,9 @@ public:
 
 	DetailsPanelTypes GetCurrentSelectedType() const { return _currentSelectedType; };
 	void* GetCurrentSelectedItem() const { return _lastSelectedItem; };
+
+	bool Paused() { return _paused; };
+	void SetPaused(bool paused) { _paused = paused; };
 
 private:
 	KarnanEditor();

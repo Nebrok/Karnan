@@ -10,4 +10,5 @@ class IPanel
 public:
 	IPanel() {};
 	virtual void OnImGUIRender() {};
+	virtual void ClearInternals() {};
 };

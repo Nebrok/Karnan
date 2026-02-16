@@ -7,7 +7,6 @@
 //cereal serialisation
 #include "cereal/archives/json.hpp"
 
-#include "SceneDataObject.h"
 
 KarnanScene::KarnanScene()
 {
@@ -20,10 +19,11 @@ KarnanScene::~KarnanScene()
 
 }
 
-void KarnanScene::LoadScene()
+void KarnanScene::LoadScene(std::string sceneName)
 {
 	SceneDataObject sceneData;
-	sceneData.SceneName = _sceneName;
+	sceneData.SceneName = sceneName;
+	_sceneName = sceneName;
 
 	_gameObjects.clear();
 	sceneData.LoadScene(_gameObjects);
@@ -78,6 +78,21 @@ void KarnanScene::LoadScene()
 	*/
 	
 	
+
+}
+
+void KarnanScene::LoadScene(SceneDataObject& sceneData)
+{
+	_gameObjects.clear();
+	sceneData.LoadScene(_gameObjects);
+
+	for (auto gameObject : _gameObjects)
+	{
+		if (gameObject->HasTag("Main Camera"))
+		{
+			Camera = dynamic_cast<KarnanCamera*>(gameObject.get());
+		}
+	}
 
 }
 

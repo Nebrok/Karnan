@@ -52,10 +52,18 @@ void EditorDetailsPanel::DeleteGameObject(GameObject* go)
 	EngineCore::DeleteGOFromActiveScene(go->GetId());
 }
 
-void EditorDetailsPanel::AddComponent(GameObject* lastHighlightedGo)
+void EditorDetailsPanel::ClearInternals()
 {
-	ScriptableComponent* component = ScriptRegister::TypeMap["RotateGameObject"]();
-	lastHighlightedGo->AddComponent(component);
+	_lastFrameSelected = nullptr;
+
+}
+
+void EditorDetailsPanel::AddComponentButton()
+{
+	if (ImGui::Button("Add Script"))
+	{
+		ImGui::OpenPopup("AddScriptPopup");
+	}
 }
 
 void EditorDetailsPanel::ChangeMeshButton()
@@ -181,15 +189,38 @@ void EditorDetailsPanel::DisplayGameObject()
 	}
 
 	ImGui::SeparatorText("Scripts");
+	if (ImGui::BeginPopupContextItem("AddScriptPopup"))
+	{
+		ImGui::SeparatorText("Choose script");
+		ImGui::BeginChild("Scripts", ImVec2(250.0f, 100.0f), true, ImGuiWindowFlags_AlwaysVerticalScrollbar);
+		std::vector<std::string> scriptNames = ScriptRegister::GetScriptNames();
+		for (auto scriptName : scriptNames)
+		{
+			if (ImGui::Selectable(scriptName.c_str()))
+			{
+				ScriptableComponent* component = ScriptRegister::TypeMap[scriptName]();
+				lastHighlightedGO->AddComponent(component);
+			}
+			
+		}
+		ImGui::EndChild();
+		ImGui::EndPopup();
+	}
 	auto components = lastHighlightedGO->GetComponents();
+	int index = 0;
 	for (auto component : components)
 	{
+		ImGui::PushID(index);
 		ImGui::Text(component->GetName().c_str());
+		ImGui::SameLine();
+		if (ImGui::SmallButton("X"))
+		{
+			lastHighlightedGO->RemoveComponent(index);
+		}
+		ImGui::PopID();
+		index++;
 	}
-	if (ImGui::Button("Add Component"))
-	{
-		AddComponent(lastHighlightedGO);
-	}
+	AddComponentButton();
 
 
 	ImGui::SeparatorText("WARNING");

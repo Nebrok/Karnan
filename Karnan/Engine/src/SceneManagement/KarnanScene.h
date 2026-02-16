@@ -4,6 +4,8 @@
 #include "../KarnanCamera.h"
 #include "../Lights/PointLight.h"
 #include "../KarnanFrameInfo.h"
+#include "SceneDataObject.h"
+
 
 class KarnanScene
 {
@@ -15,29 +17,25 @@ private:
 
 	KarnanCamera* Camera;
 
-	// Temp
-	GameObject* Plane;
-	GameObject* Viewer;
-
-	std::string _sceneName = "PhysicsTestingScene";
+	std::string _sceneName = "NewScene";
 
 public:
 	KarnanScene();
 	~KarnanScene();
 
-	void LoadScene();
+	void LoadScene(std::string sceneName);
+	void LoadScene(SceneDataObject& sceneData);
 	void UpdateScene(double deltaTime);
 
-
 	KarnanCamera* PrepareRenderInfo(float aspectRatio, std::vector<GameObject*>& lights, std::vector<GameObject*>& gameObjects);
-
 
 	bool RegisterGO(std::shared_ptr<GameObject> gameObject);
 	void DeleteGO(uint32_t goID);
 	std::vector<std::shared_ptr<GameObject>> GetAllGameObjects() { return _gameObjects; };
 
 	void SerialiseScene();
-
+	
+	std::string GetName() { return _sceneName; };
 
 private:
 

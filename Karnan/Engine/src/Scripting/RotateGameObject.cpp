@@ -12,3 +12,5 @@ void RotateGameObject::Update(float deltaTime)
 	_gameobject->Transform.Rotation.y += deltaTime * RotationSpeed;
 
 }
+
+CEREAL_REGISTER_DYNAMIC_INIT(RotateGameObject)

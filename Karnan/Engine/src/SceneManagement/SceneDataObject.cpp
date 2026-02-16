@@ -24,7 +24,7 @@ bool SceneDataObject::SaveScene(const std::vector<std::shared_ptr<GameObject>>& 
 	}
 
 	std::ofstream outFile;
-	outFile.open("assets/scenes/" + SceneName + ".kscn");
+	outFile.open(FilePath.string() + SceneName + ".kscn");
 	outFile << ss.rdbuf();
 	outFile.close();
     
@@ -35,15 +35,15 @@ bool SceneDataObject::LoadScene(std::vector<std::shared_ptr<GameObject>>& gameOb
 {
 	std::stringstream ss;
 
-
-	std::ifstream inFile("assets/scenes/" + SceneName + ".kscn");
+	std::string inFilepath = FilePath.string() + SceneName + ".kscn";
+	std::ifstream inFile(inFilepath);
 	if (inFile)
 	{
 		ss << inFile.rdbuf();
 	}
 	else
 	{
-		std::cout << "Could not open file: " << "assets/scenes/" + SceneName + ".kscn" << '\n';
+		std::cout << "Could not open file: " << FilePath.string() + SceneName + ".kscn" << '\n';
 		std::cout << "Creating new scene with name " << SceneName << "." << '\n';
 		CreateNewSceneFromDefault(gameObjects);
 		return false;
@@ -82,7 +82,7 @@ void SceneDataObject::CreateNewSceneFromDefault(std::vector<std::shared_ptr<Game
 	}
 	else
 	{
-		std::cout << "Could not open file: " << "assets/scenes/" + SceneName + ".kscn" << '\n';
+		std::cout << "Could not open file: " << FilePath.string() + SceneName + ".kscn" << '\n';
 		return;
 	}
 
@@ -106,4 +106,9 @@ void SceneDataObject::CreateNewSceneFromDefault(std::vector<std::shared_ptr<Game
 	std::cout << "Number gameObjects in loaded scene: " << numberGOs << '\n';
 
 	return;
+}
+
+void SceneDataObject::SetFilePath(std::string filepath)
+{
+	FilePath = filepath;
 }

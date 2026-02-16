@@ -1,9 +1,5 @@
 #pragma once
 
-#include "BasicMesh.h"
-#include "KarnanMaterial.h"
-#include "Physics/Colliders.h"
-#include "Scripting/ScriptComponent.h"
 
 #define GLM_FORCE_RADIANS
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE
@@ -18,6 +14,10 @@
 #include <cereal/archives/xml.hpp>
 #include "Serialisation/DefinitionsKarnanCereal.h"
 
+#include "BasicMesh.h"
+#include "KarnanMaterial.h"
+#include "Physics/Colliders.h"
+#include "Scripting/ScriptingIncludes.h"
 
 namespace Karnan
 {
@@ -172,6 +172,7 @@ public:
         _components.back()->SetGameobject(this);
 
     };
+    void RemoveComponent(int index);
 
 
     //Cereal serialisation
@@ -184,6 +185,12 @@ public:
         ar(cereal::make_nvp("Material_Name", _materialName));
         ar(cereal::make_nvp("Collider_active", _colliderActive));
         ar(cereal::make_nvp("Collider", _collider));
+        ar(cereal::make_nvp("NumberComponents", _components.size()));
+        for (int i = 0; i < _components.size(); i++)
+        {
+            ar(cereal::make_nvp("ScriptComponent", _components[i]));
+        }
+       
     };
     
     template <class Archive>
@@ -195,6 +202,15 @@ public:
         ar(cereal::make_nvp("Material_Name", _materialName));
         ar(cereal::make_nvp("Collider_active", _colliderActive));
         ar(cereal::make_nvp("Collider", _collider));
+        size_t numberComponents;
+        ar(cereal::make_nvp("NumberComponents", numberComponents));
+        _components.reserve(numberComponents);
+        for (int i = 0; i < numberComponents; i++)
+        {
+            std::shared_ptr<ScriptableComponent> newComponent;
+            ar(cereal::make_nvp("ScriptComponent", newComponent));
+            _components.push_back(newComponent);
+        }
     };
 
     template <class Archive>
@@ -223,6 +239,20 @@ public:
         std::shared_ptr<Collider> collider;
         ar(cereal::make_nvp("Collider", collider));
         construct->_collider = collider;
+
+
+        size_t numberComponents;
+        ar(cereal::make_nvp("NumberComponents", numberComponents));
+        construct->_components.reserve(numberComponents);
+
+        for (int i = 0; i < numberComponents; i++)
+        {
+            std::shared_ptr<ScriptableComponent> newComponent;
+            ar(cereal::make_nvp("ScriptComponent", newComponent));
+            construct->_components.push_back(newComponent);
+        }
+
+
     }
 
 
