@@ -158,6 +158,7 @@ public:
 
     void CreateMesh(const std::string& filename);
     void CreateMaterial(const std::string& filename);
+    void UpdateMaterial();
 
     void AddMaterial(const std::string& filename);
 

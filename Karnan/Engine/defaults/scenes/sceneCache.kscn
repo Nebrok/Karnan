@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>-0.075074747204780579</value0>
-							<value1>2.9023513793945312</value1>
-							<value2>5.0301051139831543</value2>
+							<value0>-1.0653325319290161</value0>
+							<value1>2.2605690956115723</value1>
+							<value2>0.95691812038421631</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.67600208520889282</value0>
-							<value1>3.1108088493347168</value1>
+							<value0>0.53995734453201294</value0>
+							<value1>3.9549875259399414</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -45,13 +45,13 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>0</value0>
+						<value0>-5.5399999618530273</value0>
 						<value1>0</value1>
 						<value2>0</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
-						<value1>9.1797990798950195</value1>
+						<value1>12.15754222869873</value1>
 						<value2>0</value2>
 					</Rotation>
 					<Scale>
@@ -81,12 +81,60 @@
 						</data>
 					</ptr_wrapper>
 				</Collider>
-				<NumberComponents>1</NumberComponents>
+				<NumberComponents>5</NumberComponents>
 				<ScriptComponent>
 					<polymorphic_id>2147483651</polymorphic_id>
 					<polymorphic_name>RotateGameObject</polymorphic_name>
 					<ptr_wrapper>
 						<id>2147483652</id>
+						<data>
+							<value0>
+								<ComponentName>RotateGameObject</ComponentName>
+							</value0>
+							<RotationSpeed>0.10000000149011612</RotationSpeed>
+						</data>
+					</ptr_wrapper>
+				</ScriptComponent>
+				<ScriptComponent>
+					<polymorphic_id>3</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483653</id>
+						<data>
+							<value0>
+								<ComponentName>RotateGameObject</ComponentName>
+							</value0>
+							<RotationSpeed>0.10000000149011612</RotationSpeed>
+						</data>
+					</ptr_wrapper>
+				</ScriptComponent>
+				<ScriptComponent>
+					<polymorphic_id>3</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483654</id>
+						<data>
+							<value0>
+								<ComponentName>RotateGameObject</ComponentName>
+							</value0>
+							<RotationSpeed>0.10000000149011612</RotationSpeed>
+						</data>
+					</ptr_wrapper>
+				</ScriptComponent>
+				<ScriptComponent>
+					<polymorphic_id>3</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483655</id>
+						<data>
+							<value0>
+								<ComponentName>RotateGameObject</ComponentName>
+							</value0>
+							<RotationSpeed>0.10000000149011612</RotationSpeed>
+						</data>
+					</ptr_wrapper>
+				</ScriptComponent>
+				<ScriptComponent>
+					<polymorphic_id>3</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483656</id>
 						<data>
 							<value0>
 								<ComponentName>RotateGameObject</ComponentName>

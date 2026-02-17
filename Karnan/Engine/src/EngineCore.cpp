@@ -115,11 +115,8 @@ void EngineCore::Run()
 
 		_assetManager->Process();
 
-		if (_playMode)
-		{
-			_scene->UpdateScene(frameTime);
 
-		}
+		_scene->UpdateScene(frameTime);
 
 		_physicsEngine->UpdatePhysics(_scene.get());
 		//std::cout << "Number of collisions: " << _physicsEngine->GetCollisionEvents().size() << '\n';

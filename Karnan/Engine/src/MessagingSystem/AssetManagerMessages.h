@@ -89,3 +89,15 @@ public:
 	{
 	}
 };
+
+class AMUpdateGameobjectMaterialMessage : public AMBaseReplyMessage 
+{
+public:
+	GameObject* CallingGO;
+
+public:
+	AMUpdateGameobjectMaterialMessage(System callingSystem, GameObject* callingGO)
+		: AMBaseReplyMessage(callingSystem, "Update Gameobject Material"), CallingGO(callingGO)
+	{
+	}
+};

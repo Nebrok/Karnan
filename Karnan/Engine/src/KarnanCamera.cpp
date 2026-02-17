@@ -77,6 +77,7 @@ void KarnanCamera::Update(double deltaTime)
 
 void KarnanCamera::SetProjection(float aspect)
 {
+    SetViewYXZ(Transform.Translation, Transform.Rotation);
     SetPerspectiveProjection(glm::radians(_fovy), aspect, _near, _far);
 }
 

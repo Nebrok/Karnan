@@ -7,6 +7,7 @@
 //cereal serialisation
 #include "cereal/archives/json.hpp"
 
+#include "../EngineCore.h"
 
 KarnanScene::KarnanScene()
 {
@@ -100,7 +101,15 @@ void KarnanScene::UpdateScene(double deltaTime)
 {
 	for (auto gameObject : _gameObjects)
 	{
-		gameObject->Update(deltaTime);
+		if (gameObject->HasTag("Main Camera"))
+		{
+			gameObject->Update(deltaTime);
+			continue;
+		}
+
+		if (EngineCore::Instance->PlayMode())
+			gameObject->Update(deltaTime);
+		
 	}
 }
 

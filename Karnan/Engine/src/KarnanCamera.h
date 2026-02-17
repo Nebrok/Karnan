@@ -20,7 +20,7 @@ private:
 	float _lookSpeed = 1.0f;
 	float _moveSpeed = 1.0f;
 
-	float _aspect = 60.0f;
+	float _aspect = 1.0f;
 
 	float _fovy = 90.0f;
 	float _near = 0.1f;

@@ -131,7 +131,8 @@ void KarnanMainGUI::NewFrame()
 
 	if (ImGui::BeginMenuBar())
 	{
-		ImGui::Text("Scene");
+		std::string sceneName = EngineCore::Instance->GetSceneName();
+		ImGui::Text(sceneName.c_str());
 
 		ImGui::SameLine();
 		
@@ -182,9 +183,10 @@ void KarnanMainGUI::NewFrame()
 
 	ImGui::End();
 	
-
+	/*
 	bool show_demo_window = true;
 	ImGui::ShowDemoWindow(&show_demo_window);
+	*/
 }
 
 void KarnanMainGUI::EndFrame()

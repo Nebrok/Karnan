@@ -59,11 +59,11 @@ void GameObject::Update(double deltaTime)
 		_material = AssetManager::Instance->GetMaterial(_materialName);
 		_materialChanged = false;
 	}
-
 	if (_material != nullptr)
 	{
 		_renderable = true;
 	}
+	
 	
 	for (auto component : _components)
 	{
@@ -73,7 +73,11 @@ void GameObject::Update(double deltaTime)
 
 void GameObject::Render(VkCommandBuffer commandBuffer)
 {
-	
+	if (_material == nullptr || _materialChanged)
+	{
+		_material = AssetManager::Instance->GetMaterial(_materialName);
+		_materialChanged = false;
+	}
 
 	std::shared_ptr<BasicMesh> mesh = AssetManager::Instance->GetMesh(_meshName);
 	if (mesh == nullptr)
@@ -100,6 +104,15 @@ void GameObject::CreateMaterial(const std::string& filename)
 	messageQueueLock.unlock();
 	_materialName = filename;
 	_materialChanged = true;
+}
+
+void GameObject::UpdateMaterial()
+{
+	_material = AssetManager::Instance->GetMaterial(_materialName);
+	if (_material != nullptr)
+	{
+		_renderable = true;
+	}
 }
 
 void GameObject::AddMaterial(const std::string& filename)

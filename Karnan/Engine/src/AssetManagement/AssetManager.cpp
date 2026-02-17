@@ -208,6 +208,13 @@ void AssetManager::ProcessMessage(std::shared_ptr<Message> message)
 				_loadRequested.erase(filepath);
 			}
 		}
+		if ((message->MessageInfo()).compare("Update Gameobject Material") == 0)
+		{
+			AMUpdateGameobjectMaterialMessage* relevantMessage = dynamic_cast<AMUpdateGameobjectMaterialMessage*>(message.get());
+			relevantMessage->CallingGO->UpdateMaterial();
+		}
+
+
 	}
 	
 	if (message->GetMessageType() == Message::Type::COMMAND)
@@ -245,12 +252,20 @@ void AssetManager::ProcessMessage(std::shared_ptr<Message> message)
 		}
 		if ((message->MessageInfo()).compare("Create Material") == 0)
 		{
+			AMCreateMaterialMessage* relevantMessage = dynamic_cast<AMCreateMaterialMessage*>(message.get());
 			std::string materialDataObjectFilepath = dynamic_cast<AMCreateMaterialMessage*>(message.get())->MaterialDataObjectFilepath;
 
 			if (auto search = _loadRequested.find(materialDataObjectFilepath); search != _loadRequested.end())
 			{
 				std::cout << "Material: " << materialDataObjectFilepath << " has already been requested to load." << '\n';
-				_loadRequested[materialDataObjectFilepath].push_back(dynamic_cast<AMCreateMaterialMessage*>(message.get())->CallingGO);
+				
+				std::shared_ptr<AMUpdateGameobjectMaterialMessage> updateMessage = std::shared_ptr<AMUpdateGameobjectMaterialMessage>(
+					DBG_NEW AMUpdateGameobjectMaterialMessage(Message::System::ASSET_MANAGER, relevantMessage->CallingGO));
+
+				std::unique_lock<std::mutex> messageQueueLock(AssetManager::Instance->MessageQueueMutex);
+				AssetManager::Instance->QueueMessage(updateMessage);
+				messageQueueLock.unlock();
+
 				return;
 			}
 
@@ -273,7 +288,12 @@ void AssetManager::ProcessMessage(std::shared_ptr<Message> message)
 			}
 			material->CreateImageInfos();
 
-			_loadRequested[materialDataObjectFilepath].push_back(dynamic_cast<AMCreateMaterialMessage*>(message.get())->CallingGO);
+			std::shared_ptr<AMUpdateGameobjectMaterialMessage> updateMessage = std::shared_ptr<AMUpdateGameobjectMaterialMessage>(
+				DBG_NEW AMUpdateGameobjectMaterialMessage(Message::System::ASSET_MANAGER, relevantMessage->CallingGO));
+
+			std::unique_lock<std::mutex> messageQueueLock(AssetManager::Instance->MessageQueueMutex);
+			AssetManager::Instance->QueueMessage(updateMessage);
+			messageQueueLock.unlock();
 
 		}
 	}
