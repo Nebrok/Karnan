@@ -223,6 +223,7 @@
     <ClInclude Include="src\Scripting\ScriptComponent.h" />
     <ClInclude Include="src\Scripting\ScriptingIncludes.h" />
     <ClInclude Include="src\Serialisation\DefinitionsKarnanCereal.h" />
+    <ClInclude Include="src\SpecialGameObjects\TerrainObject.h" />
     <ClInclude Include="src\Threading\IThreadableProcess.h" />
     <ClInclude Include="src\KarnanBuffer.h" />
     <ClInclude Include="src\KarnanCamera.h" />

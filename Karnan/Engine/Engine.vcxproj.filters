@@ -329,6 +329,9 @@
     <ClInclude Include="src\Scripting\ScriptingIncludes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\SpecialGameObjects\TerrainObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="shaders\compile.bat">
