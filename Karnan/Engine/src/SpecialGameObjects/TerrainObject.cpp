@@ -45,6 +45,7 @@ void TerrainObject::Init()
 
 	float xDifference = (1.0f / textureWidth) * _width;
 	float yDifference = (1.0f / textureHeight) * _length;
+	float horizontalDistance = glm::sqrt(xDifference * xDifference + yDifference * yDifference);
 
 	for (int j = 0; j < textureHeight; j++)
 	{
@@ -53,13 +54,37 @@ void TerrainObject::Init()
 			float u = i * (1.0f / textureWidth);
 			float v = j * (1.0f / textureHeight);
 
-
 			float height = (pixelData[(i + j * textureWidth) * 4]) / 255.0f;
 			VertexBuffer::Vertex newVertex;
 			newVertex.position = { i * xDifference - ( _width / 2.0f), height * _maxHeight, j * yDifference - (_length / 2.0f) };
 			newVertex.normal = { 0.0f, 1.0f, 0.0f };
 			newVertex.uv = { u, v };
 			vertices->push_back(newVertex);
+		}
+	}
+
+	for (int j = 0; j < textureHeight; j++)
+	{
+		if (j == 0 || j == textureHeight - 1)
+			continue;
+		for (int i = 0; i < textureWidth; i++)
+		{
+			if (i == 0 || i == textureWidth - 1)
+				continue;
+
+			VertexBuffer::Vertex& vertex = vertices->at(i + j * textureWidth);
+
+
+			VertexBuffer::Vertex vertexUp = vertices->at(i + (j - 1) * textureWidth);
+			VertexBuffer::Vertex vertexDown = vertices->at(i + (j + 1) * textureWidth);
+
+			VertexBuffer::Vertex vertexLeft = vertices->at((i - 1) + j * textureWidth);
+			VertexBuffer::Vertex vertexRight = vertices->at((i + 1) + j * textureWidth);
+
+
+
+			vertex.normal = { vertexLeft.position.y - vertexRight.position.y, horizontalDistance, vertexDown.position.x - vertexUp.position.x };
+			vertex.normal = glm::normalize(vertex.normal);
 		}
 	}
 

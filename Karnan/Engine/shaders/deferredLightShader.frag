@@ -21,7 +21,7 @@ layout (set = 1, binding = 2) uniform sampler2D gBufferAlbedo;
 
 layout (location = 0) out vec4 outColor; 
 
-const float AMBIENT = 0.4;
+const float AMBIENT = 0.2;
 
 void main()
 {
@@ -55,7 +55,10 @@ void main()
 			vec3 halfVector = normalize((directionToLight + normalisedCameraDirection) / 2);
 			float initialBrightness = max(dot(halfVector, normal), 0.0);
 
-			float totalBrightness = pow(initialBrightness, 160 * specularity);
+			float totalBrightness = 0;
+			if (specularity >= 0.00001)
+				totalBrightness = pow(initialBrightness, 160 * specularity);
+
 
 			lightSpecular = totalBrightness * lightUbo.lightColours[i].xyz * attenuation * specularity; //* matDiffuseColor;
 

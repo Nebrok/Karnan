@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>158.69911193847656</value0>
-							<value1>306.887939453125</value1>
-							<value2>-395.902099609375</value2>
+							<value0>-139.58161926269531</value0>
+							<value1>70.866905212402344</value1>
+							<value2>-167.548828125</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.77935802936553955</value0>
-							<value1>5.7880406379699707</value1>
+							<value0>0.13321802020072937</value0>
+							<value1>1.2455850839614868</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -172,7 +172,7 @@
 					</Transform>
 					<Object_Name>World Terrain</Object_Name>
 					<Mesh_Name>TerrainMesh</Mesh_Name>
-					<Material_Name>assets/materials/ShinyWhite.kmat</Material_Name>
+					<Material_Name>assets/materials/WhiteMatte.kmat</Material_Name>
 					<Collider_active>false</Collider_active>
 					<Collider>
 						<polymorphic_id>2147483653</polymorphic_id>
@@ -202,7 +202,7 @@
 					<Transform>
 						<Translation>
 							<value0>0</value0>
-							<value1>500</value1>
+							<value1>4000</value1>
 							<value2>0</value2>
 						</Translation>
 						<Rotation>
@@ -226,16 +226,16 @@
 					<NumberComponents>0</NumberComponents>
 				</value0>
 				<_lightColour>
-					<value0>1</value0>
-					<value1>0.75</value1>
-					<value2>0.56000000238418579</value2>
+					<value0>1.0299999713897705</value0>
+					<value1>0.92000001668930054</value1>
+					<value2>0.87000000476837158</value2>
 				</_lightColour>
 				<_attenuation>
 					<value0>1</value0>
 					<value1>0.10000000149011612</value1>
 					<value2>0.0099999997764825821</value2>
 				</_attenuation>
-				<_intensity>1000</_intensity>
+				<_intensity>75000</_intensity>
 			</data>
 		</ptr_wrapper>
 	</value3>
