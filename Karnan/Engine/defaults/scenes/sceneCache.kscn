@@ -1,4 +1,4 @@
-2
+4
 <?xml version="1.0" encoding="utf-8"?>
 <cereal>
 	<value0>
@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>-1.0653325319290161</value0>
-							<value1>2.2605690956115723</value1>
-							<value2>0.95691812038421631</value2>
+							<value0>-52.021404266357422</value0>
+							<value1>1.1979410648345947</value1>
+							<value2>-51.985671997070312</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.53995734453201294</value0>
-							<value1>3.9549875259399414</value1>
+							<value0>0.77716976404190063</value0>
+							<value1>3.7829627990722656</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -45,13 +45,13 @@
 			<data>
 				<Transform>
 					<Translation>
-						<value0>-5.5399999618530273</value0>
+						<value0>-52.799999237060547</value0>
 						<value1>0</value1>
-						<value2>0</value2>
+						<value2>-52.770000457763672</value2>
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
-						<value1>12.15754222869873</value1>
+						<value1>0</value1>
 						<value2>0</value2>
 					</Rotation>
 					<Scale>
@@ -62,7 +62,7 @@
 				</Transform>
 				<Object_Name>Cube</Object_Name>
 				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
-				<Material_Name>assets/materials/Checker.kmat</Material_Name>
+				<Material_Name>assets/materials/SpecTest.kmat</Material_Name>
 				<Collider_active>true</Collider_active>
 				<Collider>
 					<polymorphic_id>2147483650</polymorphic_id>
@@ -146,5 +146,98 @@
 			</data>
 		</ptr_wrapper>
 	</value1>
+	<value2>
+		<polymorphic_id>2147483652</polymorphic_id>
+		<polymorphic_name>TerrainObject</polymorphic_name>
+		<ptr_wrapper>
+			<id>2147483657</id>
+			<data>
+				<value0>
+					<Transform>
+						<Translation>
+							<value0>0</value0>
+							<value1>0</value1>
+							<value2>0</value2>
+						</Translation>
+						<Rotation>
+							<value0>0</value0>
+							<value1>0</value1>
+							<value2>0</value2>
+						</Rotation>
+						<Scale>
+							<value0>1</value0>
+							<value1>1</value1>
+							<value2>1</value2>
+						</Scale>
+					</Transform>
+					<Object_Name>World Terrain</Object_Name>
+					<Mesh_Name>TerrainMesh</Mesh_Name>
+					<Material_Name>assets/materials/Checker.kmat</Material_Name>
+					<Collider_active>false</Collider_active>
+					<Collider>
+						<polymorphic_id>2147483653</polymorphic_id>
+						<polymorphic_name>SphereCollider</polymorphic_name>
+						<ptr_wrapper>
+							<id>2147483658</id>
+							<data>
+								<value0>
+									<Type>2</Type>
+								</value0>
+								<Radius>0.5</Radius>
+							</data>
+						</ptr_wrapper>
+					</Collider>
+					<NumberComponents>0</NumberComponents>
+				</value0>
+			</data>
+		</ptr_wrapper>
+	</value2>
+	<value3>
+		<polymorphic_id>2147483654</polymorphic_id>
+		<polymorphic_name>PointLight</polymorphic_name>
+		<ptr_wrapper>
+			<id>2147483659</id>
+			<data>
+				<value0>
+					<Transform>
+						<Translation>
+							<value0>-500</value0>
+							<value1>1000</value1>
+							<value2>-500</value2>
+						</Translation>
+						<Rotation>
+							<value0>0</value0>
+							<value1>0</value1>
+							<value2>0</value2>
+						</Rotation>
+						<Scale>
+							<value0>1</value0>
+							<value1>1</value1>
+							<value2>1</value2>
+						</Scale>
+					</Transform>
+					<Object_Name>Sun</Object_Name>
+					<Mesh_Name></Mesh_Name>
+					<Material_Name></Material_Name>
+					<Collider_active>false</Collider_active>
+					<Collider>
+						<polymorphic_id>0</polymorphic_id>
+					</Collider>
+					<NumberComponents>0</NumberComponents>
+				</value0>
+				<_lightColour>
+					<value0>1</value0>
+					<value1>1</value1>
+					<value2>1</value2>
+				</_lightColour>
+				<_attenuation>
+					<value0>1</value0>
+					<value1>0.10000000149011612</value1>
+					<value2>0.0099999997764825821</value2>
+				</_attenuation>
+				<_intensity>10000</_intensity>
+			</data>
+		</ptr_wrapper>
+	</value3>
 </cereal>
 

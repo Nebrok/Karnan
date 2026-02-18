@@ -9,8 +9,9 @@ public:
 
 private:
 
-	float _maxHeight;
-
+	float _maxHeight = 10.0f;
+	float _length = 25.0f;
+	float _width = 25.0f;
 
 public:
     TerrainObject();
@@ -18,7 +19,6 @@ public:
 
     void Init() override;
     void Update(double deltaTime) override;
-    void Render(VkCommandBuffer commandBuffer) override;
 
 
 

@@ -3,6 +3,7 @@
 #include "../EngineCore.h"
 #include "../GameObject.h"
 #include "../Lights/PointLight.h"
+#include "../SpecialGameObjects/TerrainObject.h"
 
 
 void EditorHierarchyPanel::OnImGUIRender()
@@ -56,6 +57,14 @@ void EditorHierarchyPanel::ContextMenu()
 		newLight->Transform.Scale = { 1.0f, 1.0f, 1.0f };
 		newLight->SetColour({ 1.0f, 1.0f, 1.0f });
 		EngineCore::Instance->AddGameObjectToActiveScene(std::shared_ptr<PointLight>(newLight));
+	}
+	if (ImGui::Button("Create New TerrainObject"))
+	{
+		TerrainObject* newTerrain = DBG_NEW TerrainObject();
+		newTerrain->Init();
+		newTerrain->Transform.Translation = { 0.0f, 0.0f, 0.0f };
+		newTerrain->Transform.Scale = { 1.0f, 1.0f, 1.0f };
+		EngineCore::Instance->AddGameObjectToActiveScene(std::shared_ptr<TerrainObject>(newTerrain));
 	}
 	ImGui::EndPopup();
 }

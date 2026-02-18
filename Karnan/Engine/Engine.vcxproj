@@ -187,6 +187,7 @@
     <ClCompile Include="src\Scripting\RotateGameObject.cpp" />
     <ClCompile Include="src\Scripting\ScriptComponent.cpp" />
     <ClCompile Include="src\SimpleRenderSystem.cpp" />
+    <ClCompile Include="src\SpecialGameObjects\TerrainObject.cpp" />
     <ClCompile Include="src\Threading\KarnanMutex.cpp" />
     <ClCompile Include="src\VertexBuffer.cpp" />
     <ClCompile Include="src\VulkanDescriptors.cpp" />
