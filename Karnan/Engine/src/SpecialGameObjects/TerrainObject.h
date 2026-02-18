@@ -9,9 +9,12 @@ public:
 
 private:
 
-	float _maxHeight = 10.0f;
-	float _length = 25.0f;
-	float _width = 25.0f;
+	std::string _filepath = "assets/textures/botwTerrainHeightMaplow.png";
+
+
+	float _maxHeight = 100.0f;
+	float _length = 1000.0f;
+	float _width = 1000.0f;
 
 public:
     TerrainObject();
