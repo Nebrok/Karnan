@@ -256,7 +256,7 @@ void EditorDetailsPanel::DisplayMaterialData()
 		if (ImGui::BeginPopupContextItem("ChangeTexturePopup"))
 		{
 			ImGui::SeparatorText("Choose new texture");
-			ImGui::BeginChild("Mesh List", ImVec2(250.0f, 100.0f), true, ImGuiWindowFlags_AlwaysVerticalScrollbar);
+			ImGui::BeginChild("Mesh List", ImVec2(500.0f, 100.0f), true, ImGuiWindowFlags_AlwaysVerticalScrollbar);
 			std::vector<std::string> textureNames = AssetManager::Instance->FindTexturePathsInAssetFolder();
 			for (auto textureName : textureNames)
 			{

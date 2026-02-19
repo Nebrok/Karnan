@@ -39,7 +39,7 @@ private:
 	std::string _sceneName;
 
 	bool _paused = false;
-
+	bool _gamePlayed = false;
 
 public:
 	static KarnanEditor* StartupEditor();
@@ -63,6 +63,9 @@ public:
 
 	bool Paused() { return _paused; };
 	void SetPaused(bool paused) { _paused = paused; };
+
+	bool PlayCalled() { return _gamePlayed; };
+	void SetPlayed(bool played) { _gamePlayed = played; };
 
 private:
 	KarnanEditor();

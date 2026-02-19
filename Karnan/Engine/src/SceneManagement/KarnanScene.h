@@ -27,6 +27,8 @@ public:
 	void LoadScene(SceneDataObject& sceneData);
 	void UpdateScene(double deltaTime);
 
+	void CallStart();
+
 	KarnanCamera* PrepareRenderInfo(float aspectRatio, std::vector<GameObject*>& lights, std::vector<GameObject*>& gameObjects);
 
 	bool RegisterGO(std::shared_ptr<GameObject> gameObject);

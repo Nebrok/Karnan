@@ -113,6 +113,14 @@ void KarnanScene::UpdateScene(double deltaTime)
 	}
 }
 
+void KarnanScene::CallStart()
+{
+	for (auto gameObject : _gameObjects)
+	{
+		gameObject->Start();
+	}
+}
+
 KarnanCamera* KarnanScene::PrepareRenderInfo(float aspectRatio, std::vector<GameObject*>& lights, std::vector<GameObject*>& gameObjects)
 {
 	Camera->SetProjection(aspectRatio);

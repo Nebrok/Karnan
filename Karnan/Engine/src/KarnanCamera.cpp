@@ -9,7 +9,6 @@ KarnanCamera::KarnanCamera(const char* objectName)
     : GameObject(objectName)
 {
     _renderable = false;
-    std::cout << "Do you get called! from the camera constructor" << '\n';
 }
 
 void KarnanCamera::Init()
@@ -17,6 +16,10 @@ void KarnanCamera::Init()
     _renderable = false;
     Tags.push_back("Main Camera");
     Tags.push_back("Camera");
+}
+
+void KarnanCamera::Start()
+{
 }
 
 void KarnanCamera::Update(double deltaTime)

@@ -38,6 +38,7 @@ void KarnanEditor::Init()
 
 void KarnanEditor::Update()
 {
+	_gamePlayed = false;
 	_mainGUI->NewFrame();
 	for (auto panel : _panels)
 	{

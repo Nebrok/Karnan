@@ -152,6 +152,8 @@ void KarnanMainGUI::NewFrame()
 				KarnanEditor::Instance->CacheScene();
 				EngineCore::Instance->SetPlayMode(true);
 				KarnanEditor::Instance->SetPaused(false);
+				KarnanEditor::Instance->SetPlayed(true);
+
 			}
 		}
 

@@ -9,18 +9,19 @@ public:
 
 private:
 
-	std::string _filepath = "assets/textures/botwTerrainHeightMaplow.png";
+	std::string _filepath = "assets/textures/botwTerrainHeightMap.png";
 
 
-	float _maxHeight = 100.0f;
-	float _length = 1000.0f;
-	float _width = 1000.0f;
+	float _maxHeight = 10.0f;
+	float _length = 100.0f;
+	float _width = 100.0f;
 
 public:
     TerrainObject();
     ~TerrainObject();
 
     void Init() override;
+	void Start() override;
     void Update(double deltaTime) override;
 
 

@@ -1,4 +1,4 @@
-4
+6
 <?xml version="1.0" encoding="utf-8"?>
 <cereal>
 	<value0>
@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>-139.58161926269531</value0>
-							<value1>70.866905212402344</value1>
-							<value2>-167.548828125</value2>
+							<value0>-84.408126831054688</value0>
+							<value1>41.519985198974609</value1>
+							<value2>-150.76704406738281</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.13321802020072937</value0>
-							<value1>1.2455850839614868</value1>
+							<value0>0.23707136511802673</value0>
+							<value1>0.9417148232460022</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -51,7 +51,7 @@
 					</Translation>
 					<Rotation>
 						<value0>0</value0>
-						<value1>0</value1>
+						<value1>322.043212890625</value1>
 						<value2>0</value2>
 					</Rotation>
 					<Scale>
@@ -165,14 +165,14 @@
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
-							<value0>1</value0>
-							<value1>1</value1>
-							<value2>1</value2>
+							<value0>10</value0>
+							<value1>13</value1>
+							<value2>10</value2>
 						</Scale>
 					</Transform>
 					<Object_Name>World Terrain</Object_Name>
 					<Mesh_Name>TerrainMesh</Mesh_Name>
-					<Material_Name>assets/materials/WhiteMatte.kmat</Material_Name>
+					<Material_Name>assets/materials/Hyrule.kmat</Material_Name>
 					<Collider_active>false</Collider_active>
 					<Collider>
 						<polymorphic_id>2147483653</polymorphic_id>
@@ -226,18 +226,105 @@
 					<NumberComponents>0</NumberComponents>
 				</value0>
 				<_lightColour>
-					<value0>1.0299999713897705</value0>
-					<value1>0.92000001668930054</value1>
-					<value2>0.87000000476837158</value2>
+					<value0>1</value0>
+					<value1>1</value1>
+					<value2>1</value2>
 				</_lightColour>
 				<_attenuation>
 					<value0>1</value0>
 					<value1>0.10000000149011612</value1>
 					<value2>0.0099999997764825821</value2>
 				</_attenuation>
-				<_intensity>75000</_intensity>
+				<_intensity>150000</_intensity>
 			</data>
 		</ptr_wrapper>
 	</value3>
+	<value4>
+		<polymorphic_id>2147483655</polymorphic_id>
+		<polymorphic_name>PlayerObject</polymorphic_name>
+		<ptr_wrapper>
+			<id>2147483660</id>
+			<data>
+				<value0>
+					<Transform>
+						<Translation>
+							<value0>0</value0>
+							<value1>2.4300000667572021</value1>
+							<value2>0</value2>
+						</Translation>
+						<Rotation>
+							<value0>0</value0>
+							<value1>0</value1>
+							<value2>0</value2>
+						</Rotation>
+						<Scale>
+							<value0>1</value0>
+							<value1>1</value1>
+							<value2>1</value2>
+						</Scale>
+					</Transform>
+					<Object_Name>Player</Object_Name>
+					<Mesh_Name>assets/models/Dragon_80K.obj</Mesh_Name>
+					<Material_Name>assets/materials/ShinyGrey.kmat</Material_Name>
+					<Collider_active>false</Collider_active>
+					<Collider>
+						<polymorphic_id>5</polymorphic_id>
+						<ptr_wrapper>
+							<id>2147483661</id>
+							<data>
+								<value0>
+									<Type>2</Type>
+								</value0>
+								<Radius>0.5</Radius>
+							</data>
+						</ptr_wrapper>
+					</Collider>
+					<NumberComponents>0</NumberComponents>
+				</value0>
+			</data>
+		</ptr_wrapper>
+	</value4>
+	<value5>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483662</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>0</value0>
+						<value1>21.110000610351562</value1>
+						<value2>0</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>0.30000001192092896</value0>
+						<value1>0.73000001907348633</value1>
+						<value2>0.30000001192092896</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Towah</Object_Name>
+				<Mesh_Name>assets/models/sheikahTower.obj</Mesh_Name>
+				<Material_Name>assets/materials/WhiteMatte.kmat</Material_Name>
+				<Collider_active>false</Collider_active>
+				<Collider>
+					<polymorphic_id>5</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483663</id>
+						<data>
+							<value0>
+								<Type>2</Type>
+							</value0>
+							<Radius>0.5</Radius>
+						</data>
+					</ptr_wrapper>
+				</Collider>
+				<NumberComponents>0</NumberComponents>
+			</data>
+		</ptr_wrapper>
+	</value5>
 </cereal>
 

@@ -140,7 +140,7 @@ std::vector<std::string> AssetManager::FindTexturePathsInAssetFolder()
 	std::vector<std::string> textureFiles;
 
 	for (const auto& entry : std::filesystem::recursive_directory_iterator("assets")) {
-		if (entry.is_regular_file() && (entry.path().extension() == ".png")) {
+		if (entry.is_regular_file() && (entry.path().extension() == ".png" || entry.path().extension() == ".jpg")) {
 			// Store the path relative to the root folder
 			textureFiles.push_back(
 				std::filesystem::relative(entry.path(), std::filesystem::current_path()).generic_string()

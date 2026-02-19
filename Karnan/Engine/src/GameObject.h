@@ -128,6 +128,8 @@ protected:
 
     std::vector<std::shared_ptr<ScriptableComponent>> _components;
 
+    bool _startCalled = false;
+
 public:
     static uint32_t GenerateNewId()
     {
@@ -153,6 +155,7 @@ public:
     void SetCollider(std::shared_ptr<Collider> newCollider) { _collider = newCollider; };
 
     virtual void Init();
+    virtual void Start();
     virtual void Update(double deltaTime);
     virtual void Render(VkCommandBuffer commandBuffer);
 
@@ -174,6 +177,8 @@ public:
 
     };
     void RemoveComponent(int index);
+
+    void ResetStartCalled() { _startCalled = false; };
 
 
     //Cereal serialisation

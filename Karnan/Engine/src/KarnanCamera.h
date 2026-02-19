@@ -32,6 +32,7 @@ public:
 
 
 	void Init() override;
+	void Start() override;
 	void Update(double deltaTime) override;
 
 	void SetProjection(float aspect);

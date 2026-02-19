@@ -4,6 +4,7 @@
 #include "../GameObject.h"
 #include "../Lights/PointLight.h"
 #include "../SpecialGameObjects/TerrainObject.h"
+#include "../SpecialGameObjects/PlayerObject.h"
 
 
 void EditorHierarchyPanel::OnImGUIRender()
@@ -65,6 +66,14 @@ void EditorHierarchyPanel::ContextMenu()
 		newTerrain->Transform.Translation = { 0.0f, 0.0f, 0.0f };
 		newTerrain->Transform.Scale = { 1.0f, 1.0f, 1.0f };
 		EngineCore::Instance->AddGameObjectToActiveScene(std::shared_ptr<TerrainObject>(newTerrain));
+	}
+	if (ImGui::Button("Create New PlayerObject"))
+	{
+		PlayerObject* newTerrain = DBG_NEW PlayerObject();
+		newTerrain->Init();
+		newTerrain->Transform.Translation = { 0.0f, 0.0f, 0.0f };
+		newTerrain->Transform.Scale = { 1.0f, 1.0f, 1.0f };
+		EngineCore::Instance->AddGameObjectToActiveScene(std::shared_ptr<PlayerObject>(newTerrain));
 	}
 	ImGui::EndPopup();
 }

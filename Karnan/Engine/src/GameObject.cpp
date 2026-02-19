@@ -47,8 +47,18 @@ void GameObject::Init()
 	}
 }
 
+void GameObject::Start()
+{
+}
+
 void GameObject::Update(double deltaTime)
 {
+	if (!_startCalled && EngineCore::Instance->PlayMode())
+	{
+		Start();
+		_startCalled = true;
+	}
+
 	if (_meshRefreshed)
 	{
 		_meshRefreshed = false;

@@ -91,6 +91,11 @@ void EngineCore::Run()
 
 	LoadScene();
 
+	if (!_editorMode)
+	{
+		_scene->CallStart();
+	}
+
 	int fpsFrameCount = 0;
 	double frameUpdateRunningTime = 0;
 	
@@ -115,6 +120,12 @@ void EngineCore::Run()
 
 		_assetManager->Process();
 
+		/*
+		if (_editor->PlayCalled())
+		{
+			_scene->CallStart();
+		}
+		*/
 
 		_scene->UpdateScene(frameTime);
 

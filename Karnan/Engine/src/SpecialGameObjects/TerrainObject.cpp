@@ -18,6 +18,7 @@ TerrainObject::~TerrainObject()
 
 void TerrainObject::Init()
 {
+	GameObject::Init();
 	if (_collider == nullptr)
 	{
 		_collider = std::shared_ptr<SphereCollider>(DBG_NEW SphereCollider());
@@ -125,6 +126,13 @@ void TerrainObject::Init()
 
 }
 
+void TerrainObject::Start()
+{
+	GameObject::Start();
+
+}
+
 void TerrainObject::Update(double deltaTime)
 {
+	GameObject::Update(deltaTime);
 }
