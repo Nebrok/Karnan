@@ -1,11 +1,13 @@
 #pragma once
 #include "ScriptComponent.h"
 
-
 class PlayerController : public ScriptableComponent
 {
 public:
 
+private:
+	float _lookSpeed = 1.0f;
+	float _moveSpeed = 1.0f;
 
 public:
 	PlayerController() {};

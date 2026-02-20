@@ -73,6 +73,7 @@ public:
 	static void DeleteGOFromActiveScene(uint32_t id);
 	static std::vector<std::shared_ptr<GameObject>> GetAllGameObjectsInActiveScene();
 	static std::string GetSceneName();
+	static std::vector<CollisionEvent> GetCollisions() { return Instance->_physicsEngine->GetCollisionEvents(); };
 
 private:
 	EngineCore();

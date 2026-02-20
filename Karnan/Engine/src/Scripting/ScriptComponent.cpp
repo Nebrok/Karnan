@@ -1,12 +1,17 @@
 #include "ScriptComponent.h"
 
 #include "RotateGameObject.h"
+#include "PlayerController.h"
+#include "Physics.h"
+
 
 std::map<std::string, ScriptableComponent* (*)()> ScriptRegister::TypeMap = {};
 
 void ScriptRegister::RegisterTypes()
 {
 	TypeMap["RotateGameObject"] = &CreateInstance<RotateGameObject>;
+	TypeMap["PlayerController"] = &CreateInstance<PlayerController>;
+	TypeMap["Physics"] = &CreateInstance<Physics>;
 }
 
 std::vector<std::string> ScriptRegister::GetScriptNames()

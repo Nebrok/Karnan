@@ -29,7 +29,7 @@ std::vector<std::shared_ptr<GameObject>> EngineCore::GetAllGameObjectsInActiveSc
 
 std::string EngineCore::GetSceneName()
 {
-
+	
 	if (Instance->_scene != nullptr)
 		return Instance->_scene->GetName();
 	return "NewScene";
@@ -120,17 +120,10 @@ void EngineCore::Run()
 
 		_assetManager->Process();
 
-		/*
-		if (_editor->PlayCalled())
-		{
-			_scene->CallStart();
-		}
-		*/
-
 		_scene->UpdateScene(frameTime);
 
 		_physicsEngine->UpdatePhysics(_scene.get());
-		//std::cout << "Number of collisions: " << _physicsEngine->GetCollisionEvents().size() << '\n';
+
 
 		if (_editorMode)
 		{
@@ -181,7 +174,7 @@ void EngineCore::LoadScene()
 	std::unique_ptr<KarnanScene> newScene(DBG_NEW KarnanScene());
 	_scene = move(newScene);
 
-	_scene->LoadScene("PhysicsTestingScene");
+	_scene->LoadScene("ZeldaWorld");
 }
 
 void EngineCore::LoadScene(SceneDataObject& sceneData)

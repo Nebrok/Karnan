@@ -17,7 +17,7 @@
 #include "BasicMesh.h"
 #include "KarnanMaterial.h"
 #include "Physics/Colliders.h"
-#include "Scripting/ScriptingIncludes.h"
+#include "Scripting/ScriptComponent.h"
 
 namespace Karnan
 {

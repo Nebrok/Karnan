@@ -5,6 +5,8 @@
 #include <limits>
 #include <glm/gtc/constants.hpp>
 
+#include "EngineCore.h"
+
 KarnanCamera::KarnanCamera(const char* objectName)
     : GameObject(objectName)
 {
@@ -24,6 +26,12 @@ void KarnanCamera::Start()
 
 void KarnanCamera::Update(double deltaTime)
 {
+    if (EngineCore::Instance->PlayMode())
+    {
+        SetViewYXZ(Transform.Translation, Transform.Rotation);
+        return;
+    }
+
     glm::vec3 rotationDelta = { 0.0f, 0.0f, 0.0f };
     if (InputManagementSystem::Instance->GetKeyPressed(InputManagementSystem::SupportedKeys::arrow_left))
         rotationDelta.y--;
