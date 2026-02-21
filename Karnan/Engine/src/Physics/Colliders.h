@@ -35,6 +35,7 @@ public:
 	glm::mat4 ScalelessTransform();
 	glm::vec3 Position();
 
+	virtual glm::vec3 ExtentInDirection(glm::vec3 direction) { return { 0.0f, 0.0f, 0.0f }; };
 	virtual std::string ToString()
 	{
 		switch (Type)
@@ -99,6 +100,12 @@ public:
 		Type = ColliderType::SPHERE;
 	}
 
+	virtual glm::vec3 ExtentInDirection(glm::vec3 direction)
+	{
+		glm::vec3 directionNormalised = glm::normalize(direction);
+		return directionNormalised * Radius;
+	}
+
 	virtual std::string ToString() override
 	{
 		switch (Type)
@@ -161,6 +168,13 @@ public:
 			axis = rotation * glm::vec4(axis, 1.0f);
 		}
 		return axises;
+	}
+
+	virtual glm::vec3 ExtentInDirection(glm::vec3 direction)
+	{
+		glm::vec3 directionNormalised = glm::normalize(direction);
+		glm::vec3 pointAlongDirection = directionNormalised * 1.5f * glm::length(Extent);
+		return glm::clamp(pointAlongDirection, -Extent, Extent);
 	}
 
 	virtual std::string ToString() override

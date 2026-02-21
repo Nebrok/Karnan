@@ -141,3 +141,13 @@ void GameObject::RemoveComponent(int index)
 	componentRemoved = _components[index];
 	_components.erase(_components.begin() + index);
 }
+
+ScriptableComponent* GameObject::FindFirstComponentOfName(std::string componentName)
+{
+	for (auto component : _components)
+	{
+		if (component->GetName().compare(componentName) == 0)
+			return component.get();
+	}
+	return nullptr;
+}

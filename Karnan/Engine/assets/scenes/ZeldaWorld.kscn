@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>-66.192947387695312</value0>
-							<value1>97.173698425292969</value1>
-							<value2>-27.215909957885742</value2>
+							<value0>-1.4221681356430054</value0>
+							<value1>2.1859502792358398</value1>
+							<value2>-1.0165106058120728</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.56417810916900635</value0>
-							<value1>1.2574950456619263</value1>
+							<value0>0.59971863031387329</value0>
+							<value1>1.056370735168457</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -71,7 +71,8 @@
 						<id>2147483651</id>
 						<data>
 							<value0>
-								<Type>1</Type>															<Offset>
+								<Type>1</Type>
+								<Offset>
 									<value0>0</value0>
 									<value1>0</value1>
 									<value2>0</value2>
@@ -169,31 +170,33 @@
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
-							<value0>10</value0>
-							<value1>13</value1>
-							<value2>10</value2>
+							<value0>1</value0>
+							<value1>1</value1>
+							<value2>1</value2>
 						</Scale>
 					</Transform>
 					<Object_Name>World Terrain</Object_Name>
 					<Mesh_Name>TerrainMesh</Mesh_Name>
 					<Material_Name>assets/materials/Hyrule.kmat</Material_Name>
-					<Collider_active>false</Collider_active>
+					<Collider_active>true</Collider_active>
 					<Collider>
-						<polymorphic_id>2147483653</polymorphic_id>
-						<polymorphic_name>SphereCollider</polymorphic_name>
+						<polymorphic_id>2</polymorphic_id>
 						<ptr_wrapper>
 							<id>2147483658</id>
 							<data>
 								<value0>
-									<Type>2</Type>
+									<Type>1</Type>
 									<Offset>
 										<value0>0</value0>
-										<value1>0</value1>
+										<value1>1.5</value1>
 										<value2>0</value2>
 									</Offset>
-
 								</value0>
-								<Radius>0.5</Radius>
+								<Extent>
+									<value0>5</value0>
+									<value1>1.5</value1>
+									<value2>5</value2>
+								</Extent>
 							</data>
 						</ptr_wrapper>
 					</Collider>
@@ -203,7 +206,7 @@
 		</ptr_wrapper>
 	</value2>
 	<value3>
-		<polymorphic_id>2147483654</polymorphic_id>
+		<polymorphic_id>2147483653</polymorphic_id>
 		<polymorphic_name>PointLight</polymorphic_name>
 		<ptr_wrapper>
 			<id>2147483659</id>
@@ -250,7 +253,7 @@
 		</ptr_wrapper>
 	</value3>
 	<value4>
-		<polymorphic_id>2147483655</polymorphic_id>
+		<polymorphic_id>2147483654</polymorphic_id>
 		<polymorphic_name>PlayerObject</polymorphic_name>
 		<ptr_wrapper>
 			<id>2147483660</id>
@@ -258,9 +261,9 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>-1.059999942779541</value0>
+							<value0>0</value0>
 							<value1>31.520000457763672</value1>
-							<value2>-5.2600002288818359</value2>
+							<value2>0</value2>
 						</Translation>
 						<Rotation>
 							<value0>0</value0>
@@ -276,9 +279,10 @@
 					<Object_Name>Player</Object_Name>
 					<Mesh_Name>assets/models/Dragon_80K.obj</Mesh_Name>
 					<Material_Name>assets/materials/ShinyGrey.kmat</Material_Name>
-					<Collider_active>false</Collider_active>
+					<Collider_active>true</Collider_active>
 					<Collider>
-						<polymorphic_id>5</polymorphic_id>
+						<polymorphic_id>2147483655</polymorphic_id>
+						<polymorphic_name>SphereCollider</polymorphic_name>
 						<ptr_wrapper>
 							<id>2147483661</id>
 							<data>
@@ -289,7 +293,6 @@
 										<value1>0</value1>
 										<value2>0</value2>
 									</Offset>
-
 								</value0>
 								<Radius>0.5</Radius>
 							</data>
@@ -349,7 +352,7 @@
 				<Material_Name>assets/materials/WhiteMatte.kmat</Material_Name>
 				<Collider_active>false</Collider_active>
 				<Collider>
-					<polymorphic_id>5</polymorphic_id>
+					<polymorphic_id>7</polymorphic_id>
 					<ptr_wrapper>
 						<id>2147483665</id>
 						<data>
@@ -396,7 +399,7 @@
 				<Material_Name>assets/materials/Bokoblin.kmat</Material_Name>
 				<Collider_active>false</Collider_active>
 				<Collider>
-					<polymorphic_id>5</polymorphic_id>
+					<polymorphic_id>7</polymorphic_id>
 					<ptr_wrapper>
 						<id>2147483667</id>
 						<data>

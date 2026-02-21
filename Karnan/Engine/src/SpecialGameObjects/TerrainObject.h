@@ -10,6 +10,7 @@ public:
 private:
 
 	std::string _filepath = "assets/textures/Gradient.png";
+	//std::string _filepath = "assets/textures/botwTerrainHeightMap.png";
 
 
 	float _maxHeight = 3.0f;
@@ -49,6 +50,8 @@ public:
 
 private:
 	void GenerateTerrain();
+
+	float InverseLerp(float x, float a, float b);
 
 };
 

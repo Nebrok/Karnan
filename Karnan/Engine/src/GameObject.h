@@ -177,6 +177,7 @@ public:
 
     };
     void RemoveComponent(int index);
+    ScriptableComponent* FindFirstComponentOfName(std::string componentName);
 
     void ResetStartCalled() { _startCalled = false; };
 

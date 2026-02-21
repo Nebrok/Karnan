@@ -32,6 +32,9 @@ void TerrainObject::Init()
 	collider->Extent.y = _maxHeight / 2;
 	collider->Extent.z = _length / 2;
 
+	Tags.push_back("Terrain");
+
+
 	GenerateTerrain();
 	
 
@@ -60,14 +63,26 @@ bool TerrainObject::InTerrainBounds(glm::vec2& coordinates)
 
 float TerrainObject::HeightAt(glm::vec2& coordinates)
 {	
-	if (coordinates.x < Transform.Translation.x - _width / 2 || coordinates.x > Transform.Translation.x + _width / 2)
+	float xLowerBound = Transform.Translation.x - _width / 2;
+	float xUpperBound = Transform.Translation.x + _width / 2;
+
+	float yLowerBound = Transform.Translation.z - _length / 2;
+	float yUpperBound = Transform.Translation.z + _length / 2;
+
+	if (coordinates.x < xLowerBound || coordinates.x > xUpperBound)
 		throw std::runtime_error("Terrain height query coordinates out of bounds: X");
-	if (coordinates.y < Transform.Translation.z - _length / 2 || coordinates.y > Transform.Translation.z + _length / 2)
+	if (coordinates.y < yLowerBound || coordinates.y > yUpperBound)
 		throw std::runtime_error("Terrain height query coordinates out of bounds: Y");
 
-	// Here ===============================================
+	float xNormalised = InverseLerp(coordinates.x, xLowerBound, xUpperBound);
+	float yNormalised = InverseLerp(coordinates.y, yLowerBound, yUpperBound);
 
-	return _heights[coordinates.x + coordinates.y * _textureWidth];
+	int x = _textureWidth * xNormalised;
+	int y = _textureHeight * yNormalised;
+
+	int index = x + y * _textureWidth;
+
+	return _heights[index] * _maxHeight;
 }
 
 void TerrainObject::GenerateTerrain()
@@ -100,6 +115,7 @@ void TerrainObject::GenerateTerrain()
 			float v = j * (1.0f / _textureHeight);
 
 			float height = (pixelData[(i + j * _textureWidth) * 4]) / 255.0f;
+			_heights.push_back(height);
 			VertexBuffer::Vertex newVertex;
 			newVertex.position = { i * xDifference - (_width / 2.0f), height * _maxHeight, j * yDifference - (_length / 2.0f) };
 			newVertex.normal = { 0.0f, 1.0f, 0.0f };
@@ -167,4 +183,9 @@ void TerrainObject::GenerateTerrain()
 
 	_meshName = "TerrainMesh";
 	stbi_image_free(pixelData);
+}
+
+float TerrainObject::InverseLerp(float x, float a, float b)
+{
+	return (x - a) / (b - a);
 }
