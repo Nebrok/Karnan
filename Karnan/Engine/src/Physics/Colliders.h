@@ -27,14 +27,13 @@ public:
 
 	ColliderType Type;
 	GameObject* GameObject = nullptr;
+	glm::vec3 ColliderOffset = { 0.0f, 0.0f, 0.0f };
 
 	Collider();
 
 	glm::mat4 Transform();
-	
-
 	glm::mat4 ScalelessTransform();
-
+	glm::vec3 Position();
 
 	virtual std::string ToString()
 	{
@@ -55,13 +54,14 @@ public:
 	void save(Archive& ar) const
 	{
 		ar(cereal::make_nvp("Type", Type));
+		ar(cereal::make_nvp("Offset", ColliderOffset));
 	};
 
 	template <class Archive>
 	void load(Archive& ar)
 	{
-		;
 		ar(cereal::make_nvp("Type", Type));
+		ar(cereal::make_nvp("Offset", ColliderOffset));
 	};
 
 	template <class Archive>
@@ -70,6 +70,11 @@ public:
 		ColliderType type;
 		ar(cereal::make_nvp("Type", type));
 		construct->Type = type;
+
+		glm::vec3 offset;
+		ar(cereal::make_nvp("Offset", offset));
+		construct->ColliderOffset = offset;
+
 	}
 
 private:

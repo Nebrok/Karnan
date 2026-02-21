@@ -174,7 +174,8 @@ void EngineCore::LoadScene()
 	std::unique_ptr<KarnanScene> newScene(DBG_NEW KarnanScene());
 	_scene = move(newScene);
 
-	_scene->LoadScene("ZeldaWorld");
+	//_scene->LoadScene("ZeldaWorld");
+	_scene->LoadScene("PhysicsTestingScene");
 }
 
 void EngineCore::LoadScene(SceneDataObject& sceneData)

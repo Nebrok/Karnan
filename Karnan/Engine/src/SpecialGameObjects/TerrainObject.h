@@ -9,12 +9,18 @@ public:
 
 private:
 
-	std::string _filepath = "assets/textures/botwTerrainHeightMap.png";
+	std::string _filepath = "assets/textures/Gradient.png";
 
 
-	float _maxHeight = 10.0f;
-	float _length = 100.0f;
-	float _width = 100.0f;
+	float _maxHeight = 3.0f;
+	float _length = 10.0f;
+	float _width = 10.0f;
+
+	int _textureWidth;
+	int _textureHeight;
+
+
+	std::vector<float> _heights;
 
 public:
     TerrainObject();
@@ -24,6 +30,8 @@ public:
 	void Start() override;
     void Update(double deltaTime) override;
 
+	bool InTerrainBounds(glm::vec2& coordinates);
+	float HeightAt(glm::vec2& coordinates);
 
 
 	//Cereal serialisation
@@ -40,7 +48,7 @@ public:
 	};
 
 private:
-
+	void GenerateTerrain();
 
 };
 

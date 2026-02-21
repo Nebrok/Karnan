@@ -149,6 +149,8 @@ void EditorDetailsPanel::DisplayGameObject()
 	bool isActive = lastHighlightedGO->IsColliderActive();
 	ImGui::Checkbox("Collider Active", &isActive);
 	lastHighlightedGO->ChangeColliderActive(isActive);
+	
+	ImGui::DragFloat3("Offset", glm::value_ptr(gameObjectCollider->ColliderOffset), 0.01f);
 
 	const char* colliderTypes[] = { "Box", "Sphere" };
 	int numColliders = 2;

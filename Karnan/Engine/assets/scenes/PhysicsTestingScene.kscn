@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>6.9789299964904785</value0>
-							<value1>2.2501609325408936</value1>
-							<value2>22.272628784179688</value2>
+							<value0>11.026611328125</value0>
+							<value1>3.0066030025482178</value1>
+							<value2>1.828974723815918</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.38006186485290527</value0>
-							<value1>3.4834492206573486</value1>
+							<value0>0.052123084664344788</value0>
+							<value1>4.728823184967041</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -74,11 +74,16 @@
 							<data>
 								<value0>
 									<Type>1</Type>
+									<Offset>
+										<value0>0</value0>
+										<value1>1.5</value1>
+										<value2>0</value2>
+									</Offset>
 								</value0>
 								<Extent>
-									<value0>100</value0>
-									<value1>10</value1>
-									<value2>100</value2>
+									<value0>5</value0>
+									<value1>1.5</value1>
+									<value2>5</value2>
 								</Extent>
 							</data>
 						</ptr_wrapper>
@@ -144,9 +149,9 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>0.15000000596046448</value0>
-							<value1>0.6600000262260437</value1>
-							<value2>17.920000076293945</value2>
+							<value0>0</value0>
+							<value1>3.5</value1>
+							<value2>1.8500000238418579</value2>
 						</Translation>
 						<Rotation>
 							<value0>0</value0>
@@ -171,6 +176,11 @@
 							<data>
 								<value0>
 									<Type>2</Type>
+									<Offset>
+										<value0>0</value0>
+										<value1>0</value1>
+										<value2>0</value2>
+									</Offset>
 								</value0>
 								<Radius>0.5</Radius>
 							</data>

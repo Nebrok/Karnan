@@ -71,7 +71,11 @@
 						<id>2147483651</id>
 						<data>
 							<value0>
-								<Type>1</Type>
+								<Type>1</Type>															<Offset>
+									<value0>0</value0>
+									<value1>0</value1>
+									<value2>0</value2>
+								</Offset>
 							</value0>
 							<Extent>
 								<value0>1</value0>
@@ -182,6 +186,12 @@
 							<data>
 								<value0>
 									<Type>2</Type>
+									<Offset>
+										<value0>0</value0>
+										<value1>0</value1>
+										<value2>0</value2>
+									</Offset>
+
 								</value0>
 								<Radius>0.5</Radius>
 							</data>
@@ -274,6 +284,12 @@
 							<data>
 								<value0>
 									<Type>2</Type>
+									<Offset>
+										<value0>0</value0>
+										<value1>0</value1>
+										<value2>0</value2>
+									</Offset>
+
 								</value0>
 								<Radius>0.5</Radius>
 							</data>
@@ -339,6 +355,11 @@
 						<data>
 							<value0>
 								<Type>2</Type>
+								<Offset>
+									<value0>0</value0>
+									<value1>0</value1>
+									<value2>0</value2>
+								</Offset>
 							</value0>
 							<Radius>0.5</Radius>
 						</data>
@@ -381,6 +402,11 @@
 						<data>
 							<value0>
 								<Type>2</Type>
+								<Offset>
+									<value0>0</value0>
+									<value1>0</value1>
+									<value2>0</value2>
+								</Offset>
 							</value0>
 							<Radius>0.5</Radius>
 						</data>
