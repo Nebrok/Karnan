@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>11.026611328125</value0>
-							<value1>3.0066030025482178</value1>
-							<value2>1.828974723815918</value2>
+							<value0>-3.0249409675598145</value0>
+							<value1>2.6292848587036133</value1>
+							<value2>1.5059095621109009</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.052123084664344788</value0>
-							<value1>4.728823184967041</value1>
+							<value0>0.59999990463256836</value0>
+							<value1>1.0773109197616577</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -150,7 +150,7 @@
 					<Transform>
 						<Translation>
 							<value0>0</value0>
-							<value1>6.4250001907348633</value1>
+							<value1>0.75</value1>
 							<value2>1.809999942779541</value2>
 						</Translation>
 						<Rotation>
@@ -165,7 +165,7 @@
 						</Scale>
 					</Transform>
 					<Object_Name>Player</Object_Name>
-					<Mesh_Name>assets/models/Dragon_80K.obj</Mesh_Name>
+					<Mesh_Name>assets/models/SquishedIcosphere.obj</Mesh_Name>
 					<Material_Name>assets/materials/White50%Shiny.kmat</Material_Name>
 					<Collider_active>true</Collider_active>
 					<Collider>
@@ -182,11 +182,11 @@
 										<value2>0</value2>
 									</Offset>
 								</value0>
-								<Radius>0.5</Radius>
+								<Radius>0.75</Radius>
 							</data>
 						</ptr_wrapper>
 					</Collider>
-					<NumberComponents>2</NumberComponents>
+					<NumberComponents>3</NumberComponents>
 					<ScriptComponent>
 						<polymorphic_id>2147483655</polymorphic_id>
 						<polymorphic_name>PlayerController</polymorphic_name>
@@ -206,6 +206,16 @@
 							<id>2147483656</id>
 							<data>
 								<ComponentName>Physics</ComponentName>
+							</data>
+						</ptr_wrapper>
+					</ScriptComponent>
+					<ScriptComponent>
+						<polymorphic_id>2147483657</polymorphic_id>
+						<polymorphic_name>CameraFollow</polymorphic_name>
+						<ptr_wrapper>
+							<id>2147483657</id>
+							<data>
+								<ComponentName>Camera Follow Player</ComponentName>
 							</data>
 						</ptr_wrapper>
 					</ScriptComponent>

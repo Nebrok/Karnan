@@ -7,7 +7,10 @@
 //cereal serialisation
 #include "cereal/archives/json.hpp"
 
+#include "../KarnanCamera.h"
 #include "../EngineCore.h"
+#include "../Lights/PointLight.h"
+
 
 KarnanScene::KarnanScene()
 {

@@ -4,6 +4,7 @@
 
 #include "Lights/PointLight.h"
 #include "VertexBuffer.h"
+#include "KarnanCamera.h"
 
 
 #define GLM_FORCE_RADIANS
@@ -221,7 +222,7 @@ void DeferredRenderSystem::LightingPass(VkCommandBuffer commandBuffer, int frame
 	}
 
 	lightingUbo.cameraPos = glm::vec4(camera->Transform.Translation, 1);
-	lightingUbo.numberLights.x = activeLights;
+	lightingUbo.numberLights.x = (float)activeLights;
 	_lightsUBOBuffers[frameIndex]->UpdateUBO(&lightingUbo);
 
 	vkCmdBindDescriptorSets(

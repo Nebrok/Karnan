@@ -163,6 +163,44 @@ void KarnanCamera::SetViewYXZ(glm::vec3 position, glm::vec3 rotation) {
     _viewMatrix[3][2] = -glm::dot(w, position);
 }
 
+void KarnanCamera::LookAt(glm::vec3 target, glm::vec3 up)
+{
+    SetViewTarget(Transform.Translation, target, up);
+    Transform.Rotation = ExtractEulerAnglesYXZ(_viewMatrix);
+}
+
+glm::vec3 KarnanCamera::ExtractEulerAnglesYXZ(const glm::mat4& viewMatrix)
+{
+    glm::mat4 invMatrix = glm::inverse(viewMatrix);
+
+    // Extract rotation part (upper-left 3x3)
+    glm::mat3 R(invMatrix);
+
+    float pitch;
+    float yaw;
+    float roll;
+
+    // Clamp to avoid numerical issues
+    float sy = -R[2][1];
+    sy = glm::clamp(sy, -1.0f, 1.0f);
+
+    pitch = std::asin(sy);
+
+    if (std::abs(std::cos(pitch)) > 1e-6f)
+    {
+        yaw = std::atan2(R[2][0], R[2][2]);
+        roll = std::atan2(R[0][1], R[1][1]);
+    }
+    else
+    {
+        // Gimbal lock case
+        yaw = std::atan2(-R[0][2], R[0][0]);
+        roll = 0.0f;
+    }
+
+    return glm::vec3(pitch, yaw, roll); // (X, Y, Z)
+}
+
 void KarnanCamera::RemoveMainCameraTag()
 {
     int index = 0;

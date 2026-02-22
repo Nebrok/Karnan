@@ -14,20 +14,12 @@ PlayerObject::~PlayerObject()
 void PlayerObject::Init()
 {
 	GameObject::Init();
+	Tags.push_back("Player");
 }
 
 void PlayerObject::Start()
 {
-	std::vector<std::shared_ptr<GameObject>> gameobjects = EngineCore::Instance->GetAllGameObjectsInActiveScene();
-	for (auto go : gameobjects)
-	{
-		if (go->HasTag("Main Camera"))
-		{
-			_camera = static_cast<KarnanCamera*>(go.get());
-		}
-	}
-
-	std::cout << "Player Start Called!" << '\n';
+	GameObject::Start();
 }
 
 void PlayerObject::Update(double deltaTime)

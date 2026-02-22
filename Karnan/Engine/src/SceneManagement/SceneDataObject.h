@@ -1,11 +1,11 @@
 #pragma once
 
-#include "../GameObject.h"
-
 #include <string>
 #include <filesystem>
 #include <vector>
 #include <memory>
+
+class GameObject;
 
 class SceneDataObject
 {

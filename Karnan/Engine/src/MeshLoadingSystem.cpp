@@ -62,8 +62,8 @@ void MeshLoadingSystem::LoadMesh(const std::string& filepath)
 		auto newTime = std::chrono::high_resolution_clock::now();
 		double objLoadTime = std::chrono::duration<double, std::chrono::seconds::period>(newTime - currentTime).count();
 
-		int verticesTotalByteSize = vertices->size() * sizeof(VertexBuffer::Vertex);
-		int indicesTotalByteSize = indices->size() * sizeof(uint32_t);
+		int verticesTotalByteSize = (int)vertices->size() * sizeof(VertexBuffer::Vertex);
+		int indicesTotalByteSize = (int)indices->size() * sizeof(uint32_t);
 		int totalBytesOfMesh = verticesTotalByteSize + indicesTotalByteSize;
 
 		CreateMesh(filepath, vertices, indices);
@@ -306,8 +306,8 @@ void MeshLoadingSystem::LoadModelFromKMSH(const std::string& filepath, std::vect
 	size_t numberIndices = indices.size();
 	infile.read((char*)&numberIndices, sizeof(size_t));
 
-	int verticesTotalByteSize = numberVertices * sizeof(VertexBuffer::Vertex);
-	int indicesTotalByteSize = numberIndices * sizeof(uint32_t);
+	int verticesTotalByteSize = (int)numberVertices * sizeof(VertexBuffer::Vertex);
+	int indicesTotalByteSize = (int)numberIndices * sizeof(uint32_t);
 	int totalBytesOfMesh = verticesTotalByteSize + indicesTotalByteSize;
 
 	MEMORYSTATUSEX statex;

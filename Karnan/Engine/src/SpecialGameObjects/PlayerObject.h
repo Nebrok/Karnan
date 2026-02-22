@@ -8,8 +8,6 @@ public:
 
 
 private:
-	KarnanCamera* _camera = nullptr;
-	glm::vec3 _cameraOffset = { 0.0f, 2.0f, -2.0f };
 
 
 public:

@@ -106,7 +106,6 @@ void EngineCore::Run()
 		auto newTime = std::chrono::high_resolution_clock::now();
 		double frameTime = std::chrono::duration<double, std::chrono::seconds::period>(newTime - currentTime).count();
 		currentTime = newTime;
-		int fps = 1 / frameTime;
 
 		frameUpdateRunningTime += frameTime;
 		fpsFrameCount++; 

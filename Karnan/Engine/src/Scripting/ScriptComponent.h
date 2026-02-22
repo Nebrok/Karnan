@@ -26,6 +26,7 @@ public:
 	virtual ~ScriptableComponent() {};
 
 	virtual void Init() {};
+	virtual void Start() {};
 	virtual void Update(float deltaTime) {};
 	virtual void PhysicsUpdate(float deltaTime) {};
 

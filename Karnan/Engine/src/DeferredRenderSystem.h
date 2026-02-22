@@ -8,13 +8,14 @@
 #include "KarnanDevice.h"
 #include "KarnanSwapChain.h"
 #include "KarnanPipeline.h"
-#include "KarnanCamera.h"
-
 #include "VulkanDescriptors.h"
 #include "KarnanGlobalUBO.h"
 #include "KarnanLightsUBO.h"
+#include "KarnanMaterial.h"
 
-
+class KarnanCamera;
+class GameObject;
+class VertexBuffer;
 
 
 struct DeferredPushConstantData

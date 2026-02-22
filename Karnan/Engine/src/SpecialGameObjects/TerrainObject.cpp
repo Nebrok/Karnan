@@ -77,8 +77,8 @@ float TerrainObject::HeightAt(glm::vec2& coordinates)
 	float xNormalised = InverseLerp(coordinates.x, xLowerBound, xUpperBound);
 	float yNormalised = InverseLerp(coordinates.y, yLowerBound, yUpperBound);
 
-	int x = _textureWidth * xNormalised;
-	int y = _textureHeight * yNormalised;
+	int x = (int)(_textureWidth * xNormalised);
+	int y = (int)(_textureHeight * yNormalised);
 
 	int index = x + y * _textureWidth;
 

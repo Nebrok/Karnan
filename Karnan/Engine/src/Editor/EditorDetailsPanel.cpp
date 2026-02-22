@@ -1,17 +1,21 @@
 #include "EditorDetailsPanel.h"
 
+#include "imgui_stdlib.h"
+#include "glm/gtc/type_ptr.hpp"
+
 #include "../EngineCore.h"
 #include "KarnanEditor.h"
 #include "../Lights/PointLight.h"
+#include "../KarnanCamera.h"
+#include "../GameObject.h"
+
 
 #include "../Physics/Colliders.h"
 
-#include "glm/gtc/type_ptr.hpp"
 
-#include "imgui_stdlib.h"
-//#include "imgui_stdlib.cpp"
 
 #include "../Scripting/ScriptComponent.h"
+
 
 void EditorDetailsPanel::OnImGUIRender()
 {

@@ -8,6 +8,7 @@
 
 #include <sstream>
 #include <fstream>
+#include "../GameObject.h"
 
 bool SceneDataObject::SaveScene(const std::vector<std::shared_ptr<GameObject>>& gameObjects)
 {

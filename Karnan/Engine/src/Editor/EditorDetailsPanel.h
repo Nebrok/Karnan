@@ -1,9 +1,9 @@
 #pragma once
 
 #include "IPanel.h"
-#include "../GameObject.h"
 #include "../AssetManagement/MaterialDataObject.h"
 
+class GameObject;
 
 class EditorDetailsPanel : public IPanel
 {

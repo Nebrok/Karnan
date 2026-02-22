@@ -43,6 +43,10 @@ public:
 	void SetViewTarget(glm::vec3 position, glm::vec3 target, glm::vec3 up = glm::vec3{ 0.f, -1.f, 0.f });
 	void SetViewYXZ(glm::vec3 position, glm::vec3 rotation);
 
+	void LookAt(glm::vec3 target, glm::vec3 up = glm::vec3{ 0.f, -1.f, 0.f });
+
+	glm::vec3 ExtractEulerAnglesYXZ(const glm::mat4& viewMatrix);
+
 	const glm::mat4 GetProjection() const
 	{
 		return _projectionMatrix;

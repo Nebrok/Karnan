@@ -19,6 +19,7 @@
 #include "Physics/Colliders.h"
 #include "Scripting/ScriptComponent.h"
 
+
 namespace Karnan
 {
 	struct Transform
@@ -88,6 +89,24 @@ namespace Karnan
                 }
             };
         }
+
+        glm::vec3 ForwardVector()
+        {
+            glm::vec3 forward;
+            forward.x = cos(Rotation.x) * sin(Rotation.y);
+            forward.y = sin(Rotation.x);
+            forward.z = cos(Rotation.x) * cos(Rotation.y);
+
+            return glm::normalize(forward);
+        }
+
+        glm::vec3 UpVector()
+        {
+            glm::vec4 yUp = { 0.0f, 1.0f, 0.0f, 0.0f };
+            glm::vec3 rotated = glm::normalize(glm::vec3(yUp * Mat4()));
+            return { rotated.x, rotated.y, rotated.z };
+        }
+
 
         template<class Archive>
         void serialize(Archive& archive)

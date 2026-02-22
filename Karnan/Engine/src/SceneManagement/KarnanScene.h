@@ -1,11 +1,7 @@
 #pragma once
-#include "../SimpleRenderSystem.h"
-
-#include "../KarnanCamera.h"
-#include "../Lights/PointLight.h"
-#include "../KarnanFrameInfo.h"
 #include "SceneDataObject.h"
 
+class KarnanCamera;
 
 class KarnanScene
 {
