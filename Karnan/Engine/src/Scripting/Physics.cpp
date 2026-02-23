@@ -53,6 +53,37 @@ void Physics::Update(float deltaTime)
 				_gameobject->Transform.Translation.y += glm::abs(lowestPoint.y - terrainHeight);
 			}
 		}
+		else
+		{
+			if (collision.GameobjectB->Transform.Translation.x < _gameobject->Transform.Translation.x)
+			{
+				//removes negative component of velocity/acceleration
+				_velocity.x = glm::clamp(_velocity.x, 0.0f, glm::abs(_velocity.x));
+				_acceleration.x = glm::clamp(_acceleration.x, 0.0f, glm::abs(_acceleration.x));
+			}
+			else if (collision.GameobjectB->Transform.Translation.x > _gameobject->Transform.Translation.x)
+			{
+				//removes positive component of velocity/accelearation
+				_velocity.x = glm::clamp(_velocity.x, -glm::abs(_velocity.x), 0.0f);
+				_acceleration.x = glm::clamp(_acceleration.x, -glm::abs(_acceleration.x), 0.0f);
+			}
+			// ============= Z ============================
+			if (collision.GameobjectB->Transform.Translation.z < _gameobject->Transform.Translation.z)
+			{
+				//removes negative component of velocity/acceleration
+				_velocity.z = glm::clamp(_velocity.z, 0.0f, glm::abs(_velocity.z));
+				_acceleration.z = glm::clamp(_acceleration.z, 0.0f, glm::abs(_acceleration.z));
+			}
+			else if (collision.GameobjectB->Transform.Translation.z > _gameobject->Transform.Translation.z)
+			{
+				//removes positive component of velocity/acceleration
+				_velocity.z = glm::clamp(_velocity.z, -glm::abs(_velocity.z), 0.0f);
+				_acceleration.z = glm::clamp(_acceleration.z, -glm::abs(_acceleration.z), 0.0f);
+			}
+		}
+		
+		
+	
 	}
 
 
