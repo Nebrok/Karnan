@@ -35,7 +35,7 @@ void Physics::Update(float deltaTime)
 		}
 	}
 
-	bool grounded = false;
+	_grounded = false;
 	for (auto collision : collisionEvents)
 	{
 		if (collision.GameobjectB->HasTag("Terrain"))
@@ -49,7 +49,7 @@ void Physics::Update(float deltaTime)
 			glm::vec3 lowestPoint = _gameobject->Transform.Translation + ExtentInDirection;
 			if (lowestPoint.y < terrainHeight)
 			{
-				grounded = true;
+				_grounded = true;
 				_gameobject->Transform.Translation.y += glm::abs(lowestPoint.y - terrainHeight);
 			}
 		}
@@ -58,10 +58,14 @@ void Physics::Update(float deltaTime)
 
 	_acceleration += _gravity;
 	_velocity += _acceleration * deltaTime;
-	if (glm::length(_velocity) >= _maxSpeed)
-		_velocity = glm::normalize(_velocity) * _maxSpeed;
-	if (grounded)
+	_velocity *= 0.99f;
+
+	if (_velocity.y >= _maxSpeed)
+		_velocity.y = _maxSpeed;
+
+	if (_grounded)
 		_velocity.y = 0;
+
 	_gameobject->Transform.Translation += _velocity * deltaTime;
 
 	_acceleration = { 0.0f, 0.0f, 0.0f };

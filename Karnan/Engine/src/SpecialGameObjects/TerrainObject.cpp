@@ -29,7 +29,7 @@ void TerrainObject::Init()
 
 	BoxCollider* collider = static_cast<BoxCollider*>(_collider.get());
 	collider->Extent.x = _width / 2;
-	collider->Extent.y = _maxHeight / 2;
+	collider->Extent.y = 25.0f;
 	collider->Extent.z = _length / 2;
 
 	Tags.push_back("Terrain");

@@ -50,12 +50,12 @@ void CameraFollow::Update(float deltaTime)
 						 glm::cos(_gameobject->Transform.Rotation.z) * glm::sin(-_gameobject->Transform.Rotation.y) * radius };
 
 
-	glm::vec3 targetOffset = { 0.0f, 0.75f, 0.0f };
+	glm::vec3 targetOffset = { 0.0f, 2.5f, 0.0f };
 	glm::vec3 pivot = _gameobject->Transform.Translation + targetOffset;
 	glm::vec3 forward = _gameobject->Transform.ForwardVector();
 
 	//glm::vec3 cameraPoint = _gameobject->Transform.Translation + offset;
-	glm::vec3 cameraPoint = pivot - forward * 2.0f;
+	glm::vec3 cameraPoint = pivot - forward * 5.0f;
 
 
 

@@ -18,6 +18,8 @@ private:
 	glm::vec3 _gravity = { 0.0f, -9.81f, 0.0f };
 	float _maxSpeed = 12.0f;
 
+	bool _grounded = false;
+
 public:
 	Physics();
 	~Physics();
@@ -28,6 +30,7 @@ public:
 	void AddVelocity(glm::vec3 additionalVelocity);
 	void AddAcceleration(glm::vec3 additionalAcceleration);
 
+	bool IsGrounded() { return _grounded; };
 
 	void ImGuiRender();
 

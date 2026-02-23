@@ -9,13 +9,14 @@ public:
 
 private:
 
-	std::string _filepath = "assets/textures/Gradient.png";
+	//std::string _filepath = "assets/textures/Gradient.png";
+	std::string _filepath = "assets/textures/Level1.png";
 	//std::string _filepath = "assets/textures/botwTerrainHeightMap.png";
 
 
-	float _maxHeight = 3.0f;
-	float _length = 10.0f;
-	float _width = 10.0f;
+	float _maxHeight = 6.0f;
+	float _length = 20.0f;
+	float _width = 20.0f;
 
 	int _textureWidth;
 	int _textureHeight;

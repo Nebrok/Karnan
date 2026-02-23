@@ -1,4 +1,4 @@
-4
+8
 <?xml version="1.0" encoding="utf-8"?>
 <cereal>
 	<value0>
@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>-3.0249409675598145</value0>
-							<value1>2.6292848587036133</value1>
-							<value2>1.5059095621109009</value2>
+							<value0>-7.7896909713745117</value0>
+							<value1>18.016685485839844</value1>
+							<value2>17.361831665039062</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.59999990463256836</value0>
-							<value1>1.0773109197616577</value1>
+							<value0>0.3532622754573822</value0>
+							<value1>2.901301383972168</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -81,9 +81,9 @@
 									</Offset>
 								</value0>
 								<Extent>
-									<value0>5</value0>
-									<value1>1.5</value1>
-									<value2>5</value2>
+									<value0>10</value0>
+									<value1>25</value1>
+									<value2>10</value2>
 								</Extent>
 							</data>
 						</ptr_wrapper>
@@ -149,13 +149,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>0</value0>
-							<value1>0.75</value1>
-							<value2>1.809999942779541</value2>
+							<value0>7.1700000762939453</value0>
+							<value1>6</value1>
+							<value2>2.3499999046325684</value2>
 						</Translation>
 						<Rotation>
 							<value0>0</value0>
-							<value1>0</value1>
+							<value1>3.4600000381469727</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -165,7 +165,7 @@
 						</Scale>
 					</Transform>
 					<Object_Name>Player</Object_Name>
-					<Mesh_Name>assets/models/SquishedIcosphere.obj</Mesh_Name>
+					<Mesh_Name>assets/models/nippleSphere.obj</Mesh_Name>
 					<Material_Name>assets/materials/White50%Shiny.kmat</Material_Name>
 					<Collider_active>true</Collider_active>
 					<Collider>
@@ -223,5 +223,193 @@
 			</data>
 		</ptr_wrapper>
 	</value3>
+	<value4>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483658</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>10</value0>
+						<value1>6</value1>
+						<value2>0</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>0.20000000298023224</value0>
+						<value1>6</value1>
+						<value2>10</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Wall1</Object_Name>
+				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
+				<Material_Name>assets/materials/Checker.kmat</Material_Name>
+				<Collider_active>false</Collider_active>
+				<Collider>
+					<polymorphic_id>6</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483659</id>
+						<data>
+							<value0>
+								<Type>2</Type>
+								<Offset>
+									<value0>0</value0>
+									<value1>0</value1>
+									<value2>0</value2>
+								</Offset>
+							</value0>
+							<Radius>0.5</Radius>
+						</data>
+					</ptr_wrapper>
+				</Collider>
+				<NumberComponents>0</NumberComponents>
+			</data>
+		</ptr_wrapper>
+	</value4>
+	<value5>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483660</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>0</value0>
+						<value1>6</value1>
+						<value2>-10</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>1.5499999523162842</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>0.20000000298023224</value0>
+						<value1>6</value1>
+						<value2>10</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Wall2</Object_Name>
+				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
+				<Material_Name>assets/materials/Checker.kmat</Material_Name>
+				<Collider_active>false</Collider_active>
+				<Collider>
+					<polymorphic_id>6</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483661</id>
+						<data>
+							<value0>
+								<Type>2</Type>
+								<Offset>
+									<value0>0</value0>
+									<value1>0</value1>
+									<value2>0</value2>
+								</Offset>
+							</value0>
+							<Radius>0.5</Radius>
+						</data>
+					</ptr_wrapper>
+				</Collider>
+				<NumberComponents>0</NumberComponents>
+			</data>
+		</ptr_wrapper>
+	</value5>
+	<value6>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483662</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>-10</value0>
+						<value1>6</value1>
+						<value2>0</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>0.20000000298023224</value0>
+						<value1>6</value1>
+						<value2>10</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Wall3</Object_Name>
+				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
+				<Material_Name>assets/materials/Checker.kmat</Material_Name>
+				<Collider_active>false</Collider_active>
+				<Collider>
+					<polymorphic_id>6</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483663</id>
+						<data>
+							<value0>
+								<Type>2</Type>
+								<Offset>
+									<value0>0</value0>
+									<value1>0</value1>
+									<value2>0</value2>
+								</Offset>
+							</value0>
+							<Radius>0.5</Radius>
+						</data>
+					</ptr_wrapper>
+				</Collider>
+				<NumberComponents>0</NumberComponents>
+			</data>
+		</ptr_wrapper>
+	</value6>
+	<value7>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483664</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>0</value0>
+						<value1>6</value1>
+						<value2>10</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>1.5499999523162842</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>0.20000000298023224</value0>
+						<value1>6</value1>
+						<value2>10</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Wall4</Object_Name>
+				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
+				<Material_Name>assets/materials/Checker.kmat</Material_Name>
+				<Collider_active>false</Collider_active>
+				<Collider>
+					<polymorphic_id>6</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483665</id>
+						<data>
+							<value0>
+								<Type>2</Type>
+								<Offset>
+									<value0>0</value0>
+									<value1>0</value1>
+									<value2>0</value2>
+								</Offset>
+							</value0>
+							<Radius>0.5</Radius>
+						</data>
+					</ptr_wrapper>
+				</Collider>
+				<NumberComponents>0</NumberComponents>
+			</data>
+		</ptr_wrapper>
+	</value7>
 </cereal>
 
