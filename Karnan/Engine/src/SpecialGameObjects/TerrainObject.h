@@ -10,7 +10,7 @@ public:
 private:
 
 	//std::string _filepath = "assets/textures/Gradient.png";
-	std::string _filepath = "assets/textures/Level1.png";
+	std::string _heightMapFilepath = "assets/textures/Level1.png";
 	//std::string _filepath = "assets/textures/botwTerrainHeightMap.png";
 
 
@@ -36,6 +36,9 @@ public:
 	float HeightAt(glm::vec2& coordinates);
 
 
+	std::string GetHeightMapFilepath() { return _heightMapFilepath; };
+	void SetHeightMapFilepath(std::string filepath); 
+
 	//Cereal serialisation
 	template <class Archive>
 	void save(Archive& ar) const
@@ -53,6 +56,8 @@ private:
 	void GenerateTerrain();
 
 	float InverseLerp(float x, float a, float b);
+
+	std::string GetFilenameFromFilepath();
 
 };
 

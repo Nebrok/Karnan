@@ -30,8 +30,9 @@ BasicMesh::BasicMesh(KarnanDevice& device, std::string modelName, std::vector<Ve
 
 BasicMesh::~BasicMesh()
 {
-
+	std::cout << "Basic Mesh: is being deleted" << '\n';
 }
+
 void BasicMesh::Bind(VkCommandBuffer commandBuffer)
 {
 	_vertexBuffer->Bind(commandBuffer);

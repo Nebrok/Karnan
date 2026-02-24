@@ -31,6 +31,10 @@ void EditorHierarchyPanel::OnImGUIRender()
 			{
 				KarnanEditor::Instance->SetCameraAsSelected((KarnanCamera*)go);
 			}
+			else if (go->HasTag("Terrain"))
+			{
+				KarnanEditor::Instance->SetTerrainObjectAsSelected((TerrainObject*)go);
+			}
 			else
 				KarnanEditor::Instance->SetLastHighlightedGO(go);
 		}

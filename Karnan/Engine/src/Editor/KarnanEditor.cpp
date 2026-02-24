@@ -132,6 +132,19 @@ void KarnanEditor::SetCameraAsSelected(KarnanCamera* camera)
 	_lastSelectedItem = camera;
 }
 
+void KarnanEditor::SetTerrainObjectAsSelected(TerrainObject* terrain)
+{
+	if (terrain == nullptr)
+	{
+		_currentSelectedType = DetailsPanelTypes::NONE;
+	}
+	else
+	{
+		_currentSelectedType = DetailsPanelTypes::TERRAIN_OBJECT;
+	}
+	_lastSelectedItem = terrain;
+}
+
 KarnanEditor* KarnanEditor::StartupEditor()
 {
 	if (KarnanEditor::Instance == nullptr)

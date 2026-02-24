@@ -3,6 +3,7 @@
 #include <vector>
 #include <../stb/stb_image.h>
 #include <stdexcept>
+#include <filesystem>
 
 #include "../VertexBuffer.h"
 #include "../MessagingSystem/Messages.h"
@@ -85,16 +86,20 @@ float TerrainObject::HeightAt(glm::vec2& coordinates)
 	return _heights[index] * _maxHeight;
 }
 
+void TerrainObject::SetHeightMapFilepath(std::string filepath)
+{
+}
+
 void TerrainObject::GenerateTerrain()
 {
 	int textureChannels;
 
 	stbi_set_flip_vertically_on_load(true);
-	stbi_uc* pixelData = stbi_load(_filepath.c_str(), &_textureWidth, &_textureHeight, &textureChannels, STBI_rgb_alpha);
+	stbi_uc* pixelData = stbi_load(_heightMapFilepath.c_str(), &_textureWidth, &_textureHeight, &textureChannels, STBI_rgb_alpha);
 
 	if (!pixelData)
 	{
-		std::cout << "Unable to load texture with filepath: " << _filepath << '\n';
+		std::cout << "Unable to load texture with filepath: " << _heightMapFilepath << '\n';
 		pixelData = stbi_load("assets/textures/NULL_TEXTURE.png", &_textureWidth, &_textureHeight, &textureChannels, STBI_rgb_alpha);
 	}
 	int imageSize = _textureWidth * _textureHeight * textureChannels;
@@ -188,4 +193,10 @@ void TerrainObject::GenerateTerrain()
 float TerrainObject::InverseLerp(float x, float a, float b)
 {
 	return (x - a) / (b - a);
+}
+
+std::string TerrainObject::GetFilenameFromFilepath()
+{
+	std::filesystem::path filePath = { _heightMapFilepath };
+	return std::string();
 }

@@ -8,7 +8,8 @@
 #include "../Lights/PointLight.h"
 #include "../KarnanCamera.h"
 #include "../GameObject.h"
-
+#include "../SpecialGameObjects/TerrainObject.h"
+#include "../SpecialGameObjects/PlayerObject.h"
 
 #include "../Physics/Colliders.h"
 
@@ -42,6 +43,12 @@ void EditorDetailsPanel::OnImGUIRender()
 		break;
 	case KarnanEditor::DetailsPanelTypes::CAMERA:
 		DisplayCamera();
+		break;
+	case KarnanEditor::DetailsPanelTypes::TERRAIN_OBJECT:
+		DisplayTerrainObject();
+		break;
+	case KarnanEditor::DetailsPanelTypes::PLAYER_OBJECT:
+		DisplayPlayerObject();
 		break;
 	}
 	ImGui::End();
@@ -440,6 +447,78 @@ void EditorDetailsPanel::DisplayCamera()
 	ImGui::DragFloat("Vertical FOV", &fov, 1.0f);
 	highlightedCamera->SetFOV(fov);
 
+}
+
+void EditorDetailsPanel::DisplayTerrainObject()
+{
+	TerrainObject* terrainObject = (TerrainObject*)KarnanEditor::Instance->GetCurrentSelectedItem();
+
+	ImGui::Text("Gameobject");
+	ImGui::Separator();
+
+	ImGui::SeparatorText("Game Object Name");
+	std::string GOName = terrainObject->ObjectName;
+	ImGui::InputText("Object Name", &GOName);
+	terrainObject->SetGOName(GOName);
+	ImGui::SeparatorText("Transform");
+
+	ImGui::DragFloat3("Translation:", glm::value_ptr(terrainObject->Transform.Translation), 0.01f);
+	ImGui::DragFloat3("Rotation:", glm::value_ptr(terrainObject->Transform.Rotation), 0.01f);
+	ImGui::DragFloat3("Scale:", glm::value_ptr(terrainObject->Transform.Scale), 0.01f);
+
+	ImGui::Text("Material Name: ");
+	ImGui::Text(terrainObject->GetMaterialName().c_str());
+	if (ImGui::BeginPopupContextItem("ChangeMaterialPopup"))
+	{
+		ImGui::SeparatorText("Choose new material");
+		ImGui::BeginChild("Material List", ImVec2(250.0f, 100.0f), true, ImGuiWindowFlags_AlwaysVerticalScrollbar);
+		std::vector<std::string> materialNames = AssetManager::Instance->FindMaterialPathsInAssetFolder();
+		for (auto materialName : materialNames)
+		{
+			if (ImGui::Selectable(materialName.c_str()))
+			{
+				terrainObject->CreateMaterial(materialName);
+			}
+		}
+		ImGui::EndChild();
+		ImGui::EndPopup();
+	}
+	ChangeMaterialButton();
+
+
+	ImGui::SeparatorText("Collider");
+	std::shared_ptr<Collider> gameObjectCollider = terrainObject->GetCollider();
+
+	bool isActive = terrainObject->IsColliderActive();
+	ImGui::Checkbox("Collider Active", &isActive);
+	terrainObject->ChangeColliderActive(isActive);
+
+	ImGui::DragFloat3("Offset", glm::value_ptr(gameObjectCollider->ColliderOffset), 0.01f);
+
+	if (gameObjectCollider->Type == Collider::ColliderType::BOX)
+	{
+		ImGui::Text("Box Collider:");
+		BoxCollider* box = static_cast<BoxCollider*>(gameObjectCollider.get());
+		ImGui::DragFloat3("Extent", glm::value_ptr(box->Extent), 0.01f);
+	}
+	else if (gameObjectCollider->Type == Collider::ColliderType::SPHERE)
+	{
+		ImGui::Text("WARNING: Terrain collider set to sphere somehow");
+	}
+
+	ImGui::SeparatorText("Terrain");
+
+
+
+	ImGui::SeparatorText("WARNING");
+	if (ImGui::Button("Delete GameObject"))
+	{
+		DeleteGameObject((GameObject*)terrainObject);
+	}
+}
+
+void EditorDetailsPanel::DisplayPlayerObject()
+{
 }
 
 void EditorDetailsPanel::SaveMaterialChanges()

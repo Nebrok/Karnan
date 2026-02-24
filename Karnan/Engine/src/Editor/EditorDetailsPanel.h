@@ -33,6 +33,8 @@ private:
 	void DisplayMaterialData();
 	void DisplayLights();
 	void DisplayCamera();
+	void DisplayTerrainObject();
+	void DisplayPlayerObject();
 
 	void SaveMaterialChanges();
 	void DiscardMaterialChanges();
