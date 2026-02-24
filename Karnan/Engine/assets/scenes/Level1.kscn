@@ -10,9 +10,9 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>7.602872371673584</value0>
+							<value0>7.41253662109375</value0>
 							<value1>21.79692268371582</value1>
-							<value2>-0.95082396268844604</value2>
+							<value2>-0.53440433740615845</value2>
 						</Translation>
 						<Rotation>
 							<value0>0.86364501714706421</value0>
@@ -63,7 +63,7 @@
 						</Scale>
 					</Transform>
 					<Object_Name>World Terrain</Object_Name>
-					<Mesh_Name>TerrainMesh</Mesh_Name>
+					<Mesh_Name>Terrain Mesh - Level1</Mesh_Name>
 					<Material_Name>assets/materials/Checker.kmat</Material_Name>
 					<Collider_active>true</Collider_active>
 					<Collider>
@@ -90,6 +90,10 @@
 					</Collider>
 					<NumberComponents>0</NumberComponents>
 				</value0>
+				<HeightMapFilepath>assets/textures/Level1.png</HeightMapFilepath>
+				<MaxHeight>6</MaxHeight>
+				<Length>20</Length>
+				<Height>20</Height>
 			</data>
 		</ptr_wrapper>
 	</value1>

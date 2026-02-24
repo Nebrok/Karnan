@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>6.8553609848022461</value0>
-							<value1>6.3421196937561035</value1>
-							<value2>4.3584799766540527</value2>
+							<value0>7.3330774307250977</value0>
+							<value1>11.565024375915527</value1>
+							<value2>8.2503452301025391</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.38087448477745056</value0>
-							<value1>4.165001392364502</value1>
+							<value0>0.64623802900314331</value0>
+							<value1>3.9012453556060791</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -40,64 +40,9 @@
 	</value0>
 	<value1>
 		<polymorphic_id>2147483650</polymorphic_id>
-		<polymorphic_name>TerrainObject</polymorphic_name>
-		<ptr_wrapper>
-			<id>2147483650</id>
-			<data>
-				<value0>
-					<Transform>
-						<Translation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Translation>
-						<Rotation>
-							<value0>0</value0>
-							<value1>0</value1>
-							<value2>0</value2>
-						</Rotation>
-						<Scale>
-							<value0>1</value0>
-							<value1>1</value1>
-							<value2>1</value2>
-						</Scale>
-					</Transform>
-					<Object_Name>World Terrain</Object_Name>
-					<Mesh_Name>TerrainMesh</Mesh_Name>
-					<Material_Name>assets/materials/Checker.kmat</Material_Name>
-					<Collider_active>true</Collider_active>
-					<Collider>
-						<polymorphic_id>2147483651</polymorphic_id>
-						<polymorphic_name>BoxCollider</polymorphic_name>
-						<ptr_wrapper>
-							<id>2147483651</id>
-							<data>
-								<value0>
-									<Type>1</Type>
-									<Offset>
-										<value0>0</value0>
-										<value1>1.5</value1>
-										<value2>0</value2>
-									</Offset>
-								</value0>
-								<Extent>
-									<value0>10</value0>
-									<value1>25</value1>
-									<value2>10</value2>
-								</Extent>
-							</data>
-						</ptr_wrapper>
-					</Collider>
-					<NumberComponents>0</NumberComponents>
-				</value0>
-			</data>
-		</ptr_wrapper>
-	</value1>
-	<value2>
-		<polymorphic_id>2147483652</polymorphic_id>
 		<polymorphic_name>PointLight</polymorphic_name>
 		<ptr_wrapper>
-			<id>2147483652</id>
+			<id>2147483650</id>
 			<data>
 				<value0>
 					<Transform>
@@ -139,12 +84,12 @@
 				<_intensity>6</_intensity>
 			</data>
 		</ptr_wrapper>
-	</value2>
-	<value3>
-		<polymorphic_id>2147483653</polymorphic_id>
+	</value1>
+	<value2>
+		<polymorphic_id>2147483651</polymorphic_id>
 		<polymorphic_name>PlayerObject</polymorphic_name>
 		<ptr_wrapper>
-			<id>2147483653</id>
+			<id>2147483651</id>
 			<data>
 				<value0>
 					<Transform>
@@ -165,14 +110,14 @@
 						</Scale>
 					</Transform>
 					<Object_Name>Player</Object_Name>
-					<Mesh_Name>assets/models/nippleSphere.obj</Mesh_Name>
+					<Mesh_Name>assets/models/Dragon_80K.obj</Mesh_Name>
 					<Material_Name>assets/materials/White50%Shiny.kmat</Material_Name>
 					<Collider_active>true</Collider_active>
 					<Collider>
-						<polymorphic_id>2147483654</polymorphic_id>
+						<polymorphic_id>2147483652</polymorphic_id>
 						<polymorphic_name>SphereCollider</polymorphic_name>
 						<ptr_wrapper>
-							<id>2147483654</id>
+							<id>2147483652</id>
 							<data>
 								<value0>
 									<Type>2</Type>
@@ -188,10 +133,10 @@
 					</Collider>
 					<NumberComponents>3</NumberComponents>
 					<ScriptComponent>
-						<polymorphic_id>2147483655</polymorphic_id>
+						<polymorphic_id>2147483653</polymorphic_id>
 						<polymorphic_name>PlayerController</polymorphic_name>
 						<ptr_wrapper>
-							<id>2147483655</id>
+							<id>2147483653</id>
 							<data>
 								<value0>
 									<ComponentName>PlayerController</ComponentName>
@@ -200,20 +145,20 @@
 						</ptr_wrapper>
 					</ScriptComponent>
 					<ScriptComponent>
-						<polymorphic_id>2147483656</polymorphic_id>
+						<polymorphic_id>2147483654</polymorphic_id>
 						<polymorphic_name>Physics</polymorphic_name>
 						<ptr_wrapper>
-							<id>2147483656</id>
+							<id>2147483654</id>
 							<data>
 								<ComponentName>Physics</ComponentName>
 							</data>
 						</ptr_wrapper>
 					</ScriptComponent>
 					<ScriptComponent>
-						<polymorphic_id>2147483657</polymorphic_id>
+						<polymorphic_id>2147483655</polymorphic_id>
 						<polymorphic_name>CameraFollow</polymorphic_name>
 						<ptr_wrapper>
-							<id>2147483657</id>
+							<id>2147483655</id>
 							<data>
 								<ComponentName>Camera Follow Player</ComponentName>
 							</data>
@@ -222,11 +167,11 @@
 				</value0>
 			</data>
 		</ptr_wrapper>
-	</value3>
-	<value4>
+	</value2>
+	<value3>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483658</id>
+			<id>2147483656</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -250,9 +195,10 @@
 				<Material_Name>assets/materials/Checker.kmat</Material_Name>
 				<Collider_active>true</Collider_active>
 				<Collider>
-					<polymorphic_id>3</polymorphic_id>
+					<polymorphic_id>2147483656</polymorphic_id>
+					<polymorphic_name>BoxCollider</polymorphic_name>
 					<ptr_wrapper>
-						<id>2147483659</id>
+						<id>2147483657</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -273,11 +219,11 @@
 				<NumberComponents>0</NumberComponents>
 			</data>
 		</ptr_wrapper>
-	</value4>
-	<value5>
+	</value3>
+	<value4>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483660</id>
+			<id>2147483658</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -301,9 +247,9 @@
 				<Material_Name>assets/materials/Checker.kmat</Material_Name>
 				<Collider_active>true</Collider_active>
 				<Collider>
-					<polymorphic_id>3</polymorphic_id>
+					<polymorphic_id>8</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483661</id>
+						<id>2147483659</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -324,11 +270,11 @@
 				<NumberComponents>0</NumberComponents>
 			</data>
 		</ptr_wrapper>
-	</value5>
-	<value6>
+	</value4>
+	<value5>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483662</id>
+			<id>2147483660</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -352,9 +298,9 @@
 				<Material_Name>assets/materials/Checker.kmat</Material_Name>
 				<Collider_active>true</Collider_active>
 				<Collider>
-					<polymorphic_id>3</polymorphic_id>
+					<polymorphic_id>8</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483663</id>
+						<id>2147483661</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -375,11 +321,11 @@
 				<NumberComponents>0</NumberComponents>
 			</data>
 		</ptr_wrapper>
-	</value6>
-	<value7>
+	</value5>
+	<value6>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483664</id>
+			<id>2147483662</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -403,9 +349,9 @@
 				<Material_Name>assets/materials/Checker.kmat</Material_Name>
 				<Collider_active>true</Collider_active>
 				<Collider>
-					<polymorphic_id>3</polymorphic_id>
+					<polymorphic_id>8</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483665</id>
+						<id>2147483663</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -426,11 +372,11 @@
 				<NumberComponents>0</NumberComponents>
 			</data>
 		</ptr_wrapper>
-	</value7>
-	<value8>
+	</value6>
+	<value7>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483666</id>
+			<id>2147483664</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -454,9 +400,9 @@
 				<Material_Name>assets/materials/Checker.kmat</Material_Name>
 				<Collider_active>true</Collider_active>
 				<Collider>
-					<polymorphic_id>3</polymorphic_id>
+					<polymorphic_id>8</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483667</id>
+						<id>2147483665</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -477,11 +423,11 @@
 				<NumberComponents>0</NumberComponents>
 			</data>
 		</ptr_wrapper>
-	</value8>
-	<value9>
+	</value7>
+	<value8>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483668</id>
+			<id>2147483666</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -505,9 +451,9 @@
 				<Material_Name>assets/materials/NULL_TEXTURE.kmat</Material_Name>
 				<Collider_active>true</Collider_active>
 				<Collider>
-					<polymorphic_id>3</polymorphic_id>
+					<polymorphic_id>8</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483669</id>
+						<id>2147483667</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -527,10 +473,10 @@
 				</Collider>
 				<NumberComponents>2</NumberComponents>
 				<ScriptComponent>
-					<polymorphic_id>2147483658</polymorphic_id>
+					<polymorphic_id>2147483657</polymorphic_id>
 					<polymorphic_name>RotateGameObject</polymorphic_name>
 					<ptr_wrapper>
-						<id>2147483670</id>
+						<id>2147483668</id>
 						<data>
 							<value0>
 								<ComponentName>RotateGameObject</ComponentName>
@@ -540,15 +486,73 @@
 					</ptr_wrapper>
 				</ScriptComponent>
 				<ScriptComponent>
-					<polymorphic_id>2147483659</polymorphic_id>
+					<polymorphic_id>2147483658</polymorphic_id>
 					<polymorphic_name>EndGoal</polymorphic_name>
 					<ptr_wrapper>
-						<id>2147483671</id>
+						<id>2147483669</id>
 						<data>
 							<ComponentName>End Goal</ComponentName>
 						</data>
 					</ptr_wrapper>
 				</ScriptComponent>
+			</data>
+		</ptr_wrapper>
+	</value8>
+	<value9>
+		<polymorphic_id>2147483659</polymorphic_id>
+		<polymorphic_name>TerrainObject</polymorphic_name>
+		<ptr_wrapper>
+			<id>2147483670</id>
+			<data>
+				<value0>
+					<Transform>
+						<Translation>
+							<value0>0</value0>
+							<value1>0</value1>
+							<value2>0</value2>
+						</Translation>
+						<Rotation>
+							<value0>0</value0>
+							<value1>0</value1>
+							<value2>0</value2>
+						</Rotation>
+						<Scale>
+							<value0>1</value0>
+							<value1>1</value1>
+							<value2>1</value2>
+						</Scale>
+					</Transform>
+					<Object_Name>World Terrain</Object_Name>
+					<Mesh_Name>Terrain Mesh - Level1</Mesh_Name>
+					<Material_Name>assets/materials/Checker.kmat</Material_Name>
+					<Collider_active>true</Collider_active>
+					<Collider>
+						<polymorphic_id>8</polymorphic_id>
+						<ptr_wrapper>
+							<id>2147483671</id>
+							<data>
+								<value0>
+									<Type>1</Type>
+									<Offset>
+										<value0>0</value0>
+										<value1>0</value1>
+										<value2>0</value2>
+									</Offset>
+								</value0>
+								<Extent>
+									<value0>10</value0>
+									<value1>25</value1>
+									<value2>10</value2>
+								</Extent>
+							</data>
+						</ptr_wrapper>
+					</Collider>
+					<NumberComponents>0</NumberComponents>
+				</value0>
+				<HeightMapFilepath>assets/textures/Level1.png</HeightMapFilepath>
+				<MaxHeight>6</MaxHeight>
+				<Length>20</Length>
+				<Height>20</Height>
 			</data>
 		</ptr_wrapper>
 	</value9>

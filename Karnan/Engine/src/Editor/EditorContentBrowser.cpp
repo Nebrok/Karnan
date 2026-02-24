@@ -1,6 +1,7 @@
 #include "EditorContentBrowser.h"
 
 #include "KarnanEditor.h"
+#include "../EngineCore.h"
 
 #include <iostream>
 #include "../AssetManagement/MaterialDataObject.h"
@@ -42,6 +43,11 @@ void EditorContentBrowser::OnImGUIRender()
 				if (AssetManager::Instance->IsMaterialDataLoaded(file.path().generic_string()))
 				{
 					KarnanEditor::Instance->SetMaterialAsSelected(file.path().generic_string());
+				}
+				else if (file.path().extension().string().compare(".kscn") == 0)
+				{
+					std::string fileToLoad = file.path().stem().string();
+					EngineCore::Instance->LoadScene(fileToLoad);
 				}
 			}
 		}

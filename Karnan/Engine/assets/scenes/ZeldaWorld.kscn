@@ -10,12 +10,12 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>0.68693304061889648</value0>
+							<value0>4.1476688385009766</value0>
 							<value1>3.9482669830322266</value1>
-							<value2>-2.5033016204833984</value2>
+							<value2>-3.9966187477111816</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.79511058330535889</value0>
+							<value0>0.55769354104995728</value0>
 							<value1>5.547572135925293</value1>
 							<value2>0</value2>
 						</Rotation>
@@ -176,7 +176,7 @@
 						</Scale>
 					</Transform>
 					<Object_Name>World Terrain</Object_Name>
-					<Mesh_Name>TerrainMesh</Mesh_Name>
+					<Mesh_Name>Terrain Mesh - botwTerrainHeightMap</Mesh_Name>
 					<Material_Name>assets/materials/Hyrule.kmat</Material_Name>
 					<Collider_active>true</Collider_active>
 					<Collider>
@@ -202,6 +202,10 @@
 					</Collider>
 					<NumberComponents>0</NumberComponents>
 				</value0>
+				<HeightMapFilepath>assets/textures/botwTerrainHeightMap.png</HeightMapFilepath>
+				<MaxHeight>10</MaxHeight>
+				<Length>100</Length>
+				<Height>100</Height>
 			</data>
 		</ptr_wrapper>
 	</value2>

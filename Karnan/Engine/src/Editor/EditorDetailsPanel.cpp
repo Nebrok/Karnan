@@ -507,6 +507,35 @@ void EditorDetailsPanel::DisplayTerrainObject()
 	}
 
 	ImGui::SeparatorText("Terrain");
+	ImGui::Text("Height Map: ");
+	ImGui::Text(terrainObject->GetHeightMapFilepath().c_str());
+	if (ImGui::BeginPopupContextItem("ChangeTexturePopup"))
+	{
+		ImGui::SeparatorText("Choose new texture");
+		ImGui::BeginChild("Mesh List", ImVec2(500.0f, 100.0f), true, ImGuiWindowFlags_AlwaysVerticalScrollbar);
+		std::vector<std::string> textureNames = AssetManager::Instance->FindTexturePathsInAssetFolder();
+		for (auto textureName : textureNames)
+		{
+			if (ImGui::Selectable(textureName.c_str()))
+			{
+				terrainObject->SetHeightMapFilepath(textureName);
+			}
+		}
+		ImGui::EndChild();
+		ImGui::EndPopup();
+	}
+
+	float maxHeight = terrainObject->GetMaxHeight();
+	ImGui::DragFloat("Max height", &maxHeight, 0.01f);
+	terrainObject->SetMaxHeight(maxHeight);
+
+	float width = terrainObject->GetWidth();
+	ImGui::DragFloat("Width", &width, 0.01f);
+	terrainObject->SetWidth(width);
+
+	float length = terrainObject->GetLength();
+	ImGui::DragFloat("Length", &length, 0.01f);
+	terrainObject->SetLength(length);
 
 
 

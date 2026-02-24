@@ -88,10 +88,25 @@ float TerrainObject::HeightAt(glm::vec2& coordinates)
 
 void TerrainObject::SetHeightMapFilepath(std::string filepath)
 {
+	_heightMapFilepath = filepath;
+	_heights.clear();
+	GenerateTerrain();
 }
 
 void TerrainObject::GenerateTerrain()
 {
+	std::string generatedMeshName = "Terrain Mesh - " + GetFilenameFromFilepath();
+	std::shared_ptr<BasicMesh> mesh = AssetManager::Instance->GetMesh(generatedMeshName);
+	if (mesh.get() != nullptr)
+	{
+		_meshName = generatedMeshName;
+		_meshPointer = mesh;
+		//Even if not generating a new mesh we still need to create the height
+		//vector on new terrain creation
+		GenerateHeightVector();
+		return;
+	}
+
 	int textureChannels;
 
 	stbi_set_flip_vertically_on_load(true);
@@ -180,13 +195,38 @@ void TerrainObject::GenerateTerrain()
 	}
 
 	std::shared_ptr<AMCreateMeshMessage> createMessage = std::shared_ptr<AMCreateMeshMessage>(
-		DBG_NEW AMCreateMeshMessage(Message::System::ASSET_MANAGER, "TerrainMesh", vertices, indices));
+		DBG_NEW AMCreateMeshMessage(Message::System::ASSET_MANAGER, generatedMeshName, vertices, indices));
 
 	std::unique_lock<std::mutex> messageQueueLock(AssetManager::Instance->MessageQueueMutex);
 	AssetManager::Instance->QueueMessage(createMessage);
 	messageQueueLock.unlock();
 
-	_meshName = "TerrainMesh";
+	_meshName = generatedMeshName;
+	stbi_image_free(pixelData);
+}
+
+void TerrainObject::GenerateHeightVector()
+{
+	int textureChannels;
+
+	stbi_set_flip_vertically_on_load(true);
+	stbi_uc* pixelData = stbi_load(_heightMapFilepath.c_str(), &_textureWidth, &_textureHeight, &textureChannels, STBI_rgb_alpha);
+
+	if (!pixelData)
+	{
+		std::cout << "Unable to load texture with filepath: " << _heightMapFilepath << '\n';
+		pixelData = stbi_load("assets/textures/NULL_TEXTURE.png", &_textureWidth, &_textureHeight, &textureChannels, STBI_rgb_alpha);
+	}
+	int imageSize = _textureWidth * _textureHeight * textureChannels;
+
+	for (int j = 0; j < _textureHeight; j++)
+	{
+		for (int i = 0; i < _textureWidth; i++)
+		{
+			float height = (pixelData[(i + j * _textureWidth) * 4]) / 255.0f;
+			_heights.push_back(height);
+		}
+	}
 	stbi_image_free(pixelData);
 }
 
@@ -198,5 +238,5 @@ float TerrainObject::InverseLerp(float x, float a, float b)
 std::string TerrainObject::GetFilenameFromFilepath()
 {
 	std::filesystem::path filePath = { _heightMapFilepath };
-	return std::string();
+	return filePath.stem().string();
 }
