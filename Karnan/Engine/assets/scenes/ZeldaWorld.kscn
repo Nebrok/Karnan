@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>-1.4221681356430054</value0>
-							<value1>2.1859502792358398</value1>
-							<value2>-1.0165106058120728</value2>
+							<value0>0.68693304061889648</value0>
+							<value1>3.9482669830322266</value1>
+							<value2>-2.5033016204833984</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.59971863031387329</value0>
-							<value1>1.056370735168457</value1>
+							<value0>0.79511058330535889</value0>
+							<value1>5.547572135925293</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -193,9 +193,9 @@
 									</Offset>
 								</value0>
 								<Extent>
-									<value0>5</value0>
-									<value1>1.5</value1>
-									<value2>5</value2>
+									<value0>10</value0>
+									<value1>25</value1>
+									<value2>10</value2>
 								</Extent>
 							</data>
 						</ptr_wrapper>
@@ -298,7 +298,7 @@
 							</data>
 						</ptr_wrapper>
 					</Collider>
-					<NumberComponents>2</NumberComponents>
+					<NumberComponents>3</NumberComponents>
 					<ScriptComponent>
 						<polymorphic_id>2147483656</polymorphic_id>
 						<polymorphic_name>PlayerController</polymorphic_name>
@@ -321,6 +321,16 @@
 							</data>
 						</ptr_wrapper>
 					</ScriptComponent>
+					<ScriptComponent>
+						<polymorphic_id>2147483658</polymorphic_id>
+						<polymorphic_name>CameraFollow</polymorphic_name>
+						<ptr_wrapper>
+							<id>2147483664</id>
+							<data>
+								<ComponentName>Camera Follow Player</ComponentName>
+							</data>
+						</ptr_wrapper>
+					</ScriptComponent>
 				</value0>
 			</data>
 		</ptr_wrapper>
@@ -328,7 +338,7 @@
 	<value5>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483664</id>
+			<id>2147483665</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -354,7 +364,7 @@
 				<Collider>
 					<polymorphic_id>7</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483665</id>
+						<id>2147483666</id>
 						<data>
 							<value0>
 								<Type>2</Type>
@@ -375,7 +385,7 @@
 	<value6>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483666</id>
+			<id>2147483667</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -401,7 +411,7 @@
 				<Collider>
 					<polymorphic_id>7</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483667</id>
+						<id>2147483668</id>
 						<data>
 							<value0>
 								<Type>2</Type>
@@ -419,7 +429,7 @@
 				<ScriptComponent>
 					<polymorphic_id>9</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483668</id>
+						<id>2147483669</id>
 						<data>
 							<ComponentName>Physics</ComponentName>
 						</data>

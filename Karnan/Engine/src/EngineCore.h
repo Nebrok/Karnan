@@ -51,13 +51,15 @@ private:
 
 	bool _playMode = true;
 
+	std::string _startupScene = "PhysicsTestingScene";
+
 public:
 	static EngineCore* StartupEngine();
 	static void DestroyEngine();
 
 	void Init();
 	void Run();
-	void LoadScene();
+	void LoadScene(std::string sceneName);
 	void LoadScene(SceneDataObject& sceneData);
 
 	bool PlayMode() { return _playMode; };
@@ -73,6 +75,7 @@ public:
 	static void DeleteGOFromActiveScene(uint32_t id);
 	static std::vector<std::shared_ptr<GameObject>> GetAllGameObjectsInActiveScene();
 	static std::string GetSceneName();
+	static void SetSceneName(std::string sceneName);
 	static std::vector<CollisionEvent> GetCollisions() { return Instance->_physicsEngine->GetCollisionEvents(); };
 
 private:

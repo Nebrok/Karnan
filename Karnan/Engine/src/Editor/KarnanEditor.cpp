@@ -62,13 +62,13 @@ void KarnanEditor::CacheScene()
 void KarnanEditor::LoadCachedScene()
 {
 	EngineCore::Instance->LoadScene(_cachedScene);
+	EngineCore::Instance->SetSceneName(_sceneName);
+
 	for (auto panel : _panels)
 	{
 		panel->ClearInternals();
 	}
-	_lastSelectedItem = nullptr;
-	_currentSelectedType = KarnanEditor::DetailsPanelTypes::NONE;
-	_lastHighlightedGo = nullptr;
+	ClearSelection();
 }
 
 GameObject* KarnanEditor::GetLastHighlightedGO()
@@ -78,6 +78,13 @@ GameObject* KarnanEditor::GetLastHighlightedGO()
 		return nullptr;
 	}
 	return (GameObject*)_lastSelectedItem;
+}
+
+void KarnanEditor::ClearSelection()
+{
+	_currentSelectedType = KarnanEditor::DetailsPanelTypes::NONE;
+	_lastSelectedItem = nullptr;
+	_lastHighlightedGo = nullptr;
 }
 
 void KarnanEditor::SetLastHighlightedGO(GameObject* go)

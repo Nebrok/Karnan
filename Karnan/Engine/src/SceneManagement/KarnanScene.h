@@ -34,6 +34,7 @@ public:
 	void SerialiseScene();
 	
 	std::string GetName() { return _sceneName; };
+	void SetName(std::string sceneName) { _sceneName = sceneName; };
 
 private:
 

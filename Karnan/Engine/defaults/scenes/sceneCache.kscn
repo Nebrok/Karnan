@@ -1,4 +1,4 @@
-8
+10
 <?xml version="1.0" encoding="utf-8"?>
 <cereal>
 	<value0>
@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>-7.7896909713745117</value0>
-							<value1>18.016685485839844</value1>
-							<value2>17.361831665039062</value2>
+							<value0>-3.5645356178283691</value0>
+							<value1>12.432977676391602</value1>
+							<value2>7.9474210739135742</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.3532622754573822</value0>
-							<value1>2.901301383972168</value1>
+							<value0>0.38087448477745056</value0>
+							<value1>4.700568675994873</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -427,5 +427,130 @@
 			</data>
 		</ptr_wrapper>
 	</value7>
+	<value8>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483666</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>-9.1099996566772461</value0>
+						<value1>9.0200004577636719</value1>
+						<value2>7.619999885559082</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>2.2000000476837158</value0>
+						<value1>0.20000000298023224</value1>
+						<value2>2.9000000953674316</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Platform</Object_Name>
+				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
+				<Material_Name>assets/materials/Checker.kmat</Material_Name>
+				<Collider_active>true</Collider_active>
+				<Collider>
+					<polymorphic_id>3</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483667</id>
+						<data>
+							<value0>
+								<Type>1</Type>
+								<Offset>
+									<value0>0</value0>
+									<value1>0</value1>
+									<value2>0</value2>
+								</Offset>
+							</value0>
+							<Extent>
+								<value0>2.2000000476837158</value0>
+								<value1>0.20000000298023224</value1>
+								<value2>2.9000000953674316</value2>
+							</Extent>
+						</data>
+					</ptr_wrapper>
+				</Collider>
+				<NumberComponents>0</NumberComponents>
+			</data>
+		</ptr_wrapper>
+	</value8>
+	<value9>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483668</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>-7.2699999809265137</value0>
+						<value1>10.489999771118164</value1>
+						<value2>8.6499996185302734</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>0.20000000298023224</value0>
+						<value1>0.20000000298023224</value1>
+						<value2>0.20000000298023224</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Goal</Object_Name>
+				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
+				<Material_Name>assets/materials/NULL_TEXTURE.kmat</Material_Name>
+				<Collider_active>true</Collider_active>
+				<Collider>
+					<polymorphic_id>3</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483669</id>
+						<data>
+							<value0>
+								<Type>1</Type>
+								<Offset>
+									<value0>0</value0>
+									<value1>0</value1>
+									<value2>0</value2>
+								</Offset>
+							</value0>
+							<Extent>
+								<value0>0.20000000298023224</value0>
+								<value1>0.20000000298023224</value1>
+								<value2>0.20000000298023224</value2>
+							</Extent>
+						</data>
+					</ptr_wrapper>
+				</Collider>
+				<NumberComponents>2</NumberComponents>
+				<ScriptComponent>
+					<polymorphic_id>2147483658</polymorphic_id>
+					<polymorphic_name>RotateGameObject</polymorphic_name>
+					<ptr_wrapper>
+						<id>2147483670</id>
+						<data>
+							<value0>
+								<ComponentName>RotateGameObject</ComponentName>
+							</value0>
+							<RotationSpeed>0.10000000149011612</RotationSpeed>
+						</data>
+					</ptr_wrapper>
+				</ScriptComponent>
+				<ScriptComponent>
+					<polymorphic_id>2147483659</polymorphic_id>
+					<polymorphic_name>EndGoal</polymorphic_name>
+					<ptr_wrapper>
+						<id>2147483671</id>
+						<data>
+							<ComponentName>End Goal</ComponentName>
+						</data>
+					</ptr_wrapper>
+				</ScriptComponent>
+			</data>
+		</ptr_wrapper>
+	</value9>
 </cereal>
 

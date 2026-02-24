@@ -34,16 +34,20 @@ void KarnanPhysics::UpdatePhysics(KarnanScene* scene)
                 continue;
             if (gameObject->GetId() == otherGameObject->GetId())
                 continue;
-            if (CheckIntersect(gameObject->GetCollider().get(), otherGameObject->GetCollider().get()))
+            CollisionEvent collisionEvent = { gameObject, otherGameObject };
+            if (CheckIntersect(collisionEvent))
             {
-                _collisionEvents.push_back({ gameObject, otherGameObject });
+                _collisionEvents.push_back(collisionEvent);
             }
         }
     }
 }
 
-bool KarnanPhysics::CheckIntersect(Collider* colA, Collider* colB)
+bool KarnanPhysics::CheckIntersect(CollisionEvent& collisionEvent)
 {
+    Collider* colA = collisionEvent.GameobjectA->GetCollider().get();
+    Collider* colB = collisionEvent.GameobjectB->GetCollider().get();
+
     if (colA->Type == Collider::ColliderType::SPHERE && colB->Type == Collider::ColliderType::SPHERE)
     {
         SphereCollider* sphereA = static_cast<SphereCollider*>(colA);
@@ -61,14 +65,31 @@ bool KarnanPhysics::CheckIntersect(Collider* colA, Collider* colB)
     {
         SphereCollider* sphereA = static_cast<SphereCollider*>(colA);
         BoxCollider* boxB = static_cast<BoxCollider*>(colB);
-        return BoxSphereIntersection(boxB, sphereA);
+        glm::vec3 collisionPoint;
+        if (BoxSphereIntersection(boxB, sphereA, collisionPoint))
+        {
+            collisionEvent.Collision = collisionPoint;
+            collisionEvent.HasCollisionPoint = true;
+            return true;
+        }
+        else
+            return false;
+    
     }
 
     if (colA->Type == Collider::ColliderType::BOX && colB->Type == Collider::ColliderType::SPHERE)
     {
         BoxCollider* boxA = static_cast<BoxCollider*>(colA);
         SphereCollider* sphereB = static_cast<SphereCollider*>(colB);
-        return BoxSphereIntersection(boxA, sphereB);
+        glm::vec3 collisionPoint;
+        if (BoxSphereIntersection(boxA, sphereB, collisionPoint))
+        {
+            collisionEvent.Collision = collisionPoint;
+            collisionEvent.HasCollisionPoint = true;
+            return true;
+        }
+        else
+            return false;
     }
 
     if (colA->Type == Collider::ColliderType::BOX && colB->Type == Collider::ColliderType::BOX)
@@ -82,11 +103,12 @@ bool KarnanPhysics::CheckIntersect(Collider* colA, Collider* colB)
     return false;
 }
 
-bool KarnanPhysics::BoxSphereIntersection(BoxCollider* boxA, SphereCollider* sphereB)
+bool KarnanPhysics::BoxSphereIntersection(BoxCollider* boxA, SphereCollider* sphereB, glm::vec3& collisionPoint)
 {
     glm::vec3 sphereCenter = glm::vec3(sphereB->Transform()[3]);
     glm::vec3 localSphereCenter = glm::inverse(boxA->ScalelessTransform()) * glm::vec4(sphereCenter, 1.0f);
     glm::vec3 closestPoint = glm::clamp(localSphereCenter, -boxA->Extent, boxA->Extent);
+    collisionPoint = boxA->ScalelessTransform() * glm::vec4(closestPoint, 1.0f);
     glm::vec3 AtoB = localSphereCenter - closestPoint;
     float dist2 = glm::dot(AtoB, AtoB);
     return dist2 < sphereB->Radius * sphereB->Radius;

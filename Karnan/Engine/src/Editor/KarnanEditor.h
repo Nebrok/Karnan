@@ -53,6 +53,7 @@ public:
 	void LoadCachedScene();
 
 	GameObject* GetLastHighlightedGO();
+	void ClearSelection();
 	void SetLastHighlightedGO(GameObject* go);
 	void SetPointLightAsSelected(PointLight* pointLight);
 	void SetMaterialAsSelected(std::string filepath);

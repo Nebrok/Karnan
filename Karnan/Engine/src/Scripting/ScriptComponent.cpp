@@ -4,6 +4,7 @@
 #include "PlayerController.h"
 #include "Physics.h"
 #include "CameraFollowPlayer.h"
+#include "EndGoal.h"
 
 
 std::map<std::string, ScriptableComponent* (*)()> ScriptRegister::TypeMap = {};
@@ -14,6 +15,7 @@ void ScriptRegister::RegisterTypes()
 	TypeMap["PlayerController"] = &CreateInstance<PlayerController>;
 	TypeMap["Physics"] = &CreateInstance<Physics>;
 	TypeMap["CameraFollow"] = &CreateInstance<CameraFollow>;
+	TypeMap["EndGoal"] = &CreateInstance<EndGoal>;
 }
 
 std::vector<std::string> ScriptRegister::GetScriptNames()

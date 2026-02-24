@@ -17,6 +17,8 @@ struct CollisionEvent
 {
 	std::shared_ptr<GameObject> GameobjectA;
 	std::shared_ptr<GameObject> GameobjectB;
+	bool HasCollisionPoint = false;
+	glm::vec3 Collision = { 0.0f, 0.0f, 0.0f };
 };
 
 class KarnanPhysics
@@ -33,7 +35,7 @@ public:
 	~KarnanPhysics();
 
 	void UpdatePhysics(KarnanScene* scene);
-	static bool CheckIntersect(Collider* colA, Collider* colB);
+	static bool CheckIntersect(CollisionEvent& collisionEvent);
 
 	std::vector<CollisionEvent>& GetCollisionEvents() { return _collisionEvents; };
 	void ClearEvents() { _collisionEvents.clear(); };
@@ -41,7 +43,7 @@ public:
 
 private:
 	
-	static bool BoxSphereIntersection(BoxCollider* boxA, SphereCollider* sphereB);
+	static bool BoxSphereIntersection(BoxCollider* boxA, SphereCollider* sphereB, glm::vec3& collisionPoint);
 	
 	static bool BoxBoxIntersection(BoxCollider* boxA, BoxCollider* sphereB);
 	static void ProjectCubeAxis(BoxCollider* box, glm::vec3 axis, float& min, float& max);

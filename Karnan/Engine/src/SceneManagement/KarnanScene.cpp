@@ -89,6 +89,7 @@ void KarnanScene::LoadScene(SceneDataObject& sceneData)
 {
 	_gameObjects.clear();
 	sceneData.LoadScene(_gameObjects);
+	_sceneName = sceneData.SceneName;
 
 	for (auto gameObject : _gameObjects)
 	{

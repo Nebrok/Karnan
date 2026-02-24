@@ -167,8 +167,11 @@ void KarnanMainGUI::NewFrame()
 		ImGui::SameLine();
 		if (ImGui::SmallButton("Stop"))
 		{
-			EngineCore::Instance->SetPlayMode(false);
-			KarnanEditor::Instance->LoadCachedScene();
+			if (EngineCore::Instance->PlayMode())
+			{
+				EngineCore::Instance->SetPlayMode(false);
+				KarnanEditor::Instance->LoadCachedScene();
+			}
 		}
 
 		ImGui::EndMenuBar();

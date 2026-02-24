@@ -35,6 +35,11 @@ std::string EngineCore::GetSceneName()
 	return "NewScene";
 }
 
+void EngineCore::SetSceneName(std::string sceneName)
+{
+	Instance->_scene->SetName(sceneName);
+}
+
 EngineCore::EngineCore()
 {
 	_windowRef = _karnanWindow.GetWindowReference();
@@ -89,7 +94,7 @@ void EngineCore::Run()
 	_assetManager->LoadMaterialDataFromDisk();
 
 
-	LoadScene();
+	LoadScene(_startupScene);
 
 	if (!_editorMode)
 	{
@@ -158,7 +163,8 @@ void EngineCore::Run()
 		_inputManagementSystem->UpdateKeyReads(_windowRef);
 		glfwPollEvents();
 	}
-	_scene->SerialiseScene();
+	if (!_playMode)
+		_scene->SerialiseScene();
 
 	vkDeviceWaitIdle(_karnanDevice.Device());
 
@@ -168,13 +174,19 @@ void EngineCore::Run()
 	AssetManager::DestroyAssetManager();
 }
 
-void EngineCore::LoadScene()
+void EngineCore::LoadScene(std::string sceneName)
 {
-	std::unique_ptr<KarnanScene> newScene(DBG_NEW KarnanScene());
-	_scene = move(newScene);
+	if (_scene == nullptr)
+	{
+		std::unique_ptr<KarnanScene> newScene(DBG_NEW KarnanScene());
+		_scene = move(newScene);
+	}
 
-	//_scene->LoadScene("ZeldaWorld");
-	_scene->LoadScene("PhysicsTestingScene");
+	_scene->LoadScene(sceneName);
+	if (_editorMode)
+	{
+		_editor->ClearSelection();
+	}
 }
 
 void EngineCore::LoadScene(SceneDataObject& sceneData)
@@ -184,7 +196,7 @@ void EngineCore::LoadScene(SceneDataObject& sceneData)
 		std::unique_ptr<KarnanScene> newScene(DBG_NEW KarnanScene());
 		_scene = move(newScene);
 	}
-
+	
 	_scene->LoadScene(sceneData);
 }
 

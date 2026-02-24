@@ -1,4 +1,4 @@
-10
+9
 <?xml version="1.0" encoding="utf-8"?>
 <cereal>
 	<value0>
@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>6.8553609848022461</value0>
-							<value1>6.3421196937561035</value1>
-							<value2>4.3584799766540527</value2>
+							<value0>7.602872371673584</value0>
+							<value1>21.79692268371582</value1>
+							<value2>-0.95082396268844604</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.38087448477745056</value0>
-							<value1>4.165001392364502</value1>
+							<value0>0.86364501714706421</value0>
+							<value1>4.700568675994873</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -478,79 +478,5 @@
 			</data>
 		</ptr_wrapper>
 	</value8>
-	<value9>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483668</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>-7.2699999809265137</value0>
-						<value1>10.489999771118164</value1>
-						<value2>8.6499996185302734</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>0.20000000298023224</value0>
-						<value1>0.20000000298023224</value1>
-						<value2>0.20000000298023224</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>Goal</Object_Name>
-				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
-				<Material_Name>assets/materials/NULL_TEXTURE.kmat</Material_Name>
-				<Collider_active>true</Collider_active>
-				<Collider>
-					<polymorphic_id>3</polymorphic_id>
-					<ptr_wrapper>
-						<id>2147483669</id>
-						<data>
-							<value0>
-								<Type>1</Type>
-								<Offset>
-									<value0>0</value0>
-									<value1>0</value1>
-									<value2>0</value2>
-								</Offset>
-							</value0>
-							<Extent>
-								<value0>0.20000000298023224</value0>
-								<value1>0.20000000298023224</value1>
-								<value2>0.20000000298023224</value2>
-							</Extent>
-						</data>
-					</ptr_wrapper>
-				</Collider>
-				<NumberComponents>2</NumberComponents>
-				<ScriptComponent>
-					<polymorphic_id>2147483658</polymorphic_id>
-					<polymorphic_name>RotateGameObject</polymorphic_name>
-					<ptr_wrapper>
-						<id>2147483670</id>
-						<data>
-							<value0>
-								<ComponentName>RotateGameObject</ComponentName>
-							</value0>
-							<RotationSpeed>0.10000000149011612</RotationSpeed>
-						</data>
-					</ptr_wrapper>
-				</ScriptComponent>
-				<ScriptComponent>
-					<polymorphic_id>2147483659</polymorphic_id>
-					<polymorphic_name>EndGoal</polymorphic_name>
-					<ptr_wrapper>
-						<id>2147483671</id>
-						<data>
-							<ComponentName>End Goal</ComponentName>
-						</data>
-					</ptr_wrapper>
-				</ScriptComponent>
-			</data>
-		</ptr_wrapper>
-	</value9>
 </cereal>
 
