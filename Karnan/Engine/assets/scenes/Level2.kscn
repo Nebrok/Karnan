@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>18.420578002929688</value0>
-							<value1>45.930690765380859</value1>
-							<value2>-66.219711303710938</value2>
+							<value0>-43.631984710693359</value0>
+							<value1>25.343526840209961</value1>
+							<value2>-34.800128936767578</value2>
 						</Translation>
 						<Rotation>
 							<value0>0.37491011619567871</value0>
-							<value1>0.12633524835109711</value1>
+							<value1>1.0587000846862793</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -63,7 +63,7 @@
 						</Scale>
 					</Transform>
 					<Object_Name>World Terrain</Object_Name>
-					<Mesh_Name>Terrain Mesh - Level3</Mesh_Name>
+					<Mesh_Name>Terrain Mesh - Level2</Mesh_Name>
 					<Material_Name>assets/materials/Checker.kmat</Material_Name>
 					<Collider_active>true</Collider_active>
 					<Collider>
@@ -81,8 +81,8 @@
 									</Offset>
 								</value0>
 								<Extent>
-									<value0>50</value0>
-									<value1>1000</value1>
+									<value0>37.5</value0>
+									<value1>25</value1>
 									<value2>50</value2>
 								</Extent>
 							</data>
@@ -90,10 +90,10 @@
 					</Collider>
 					<NumberComponents>0</NumberComponents>
 				</value0>
-				<HeightMapFilepath>assets/textures/Level3.png</HeightMapFilepath>
+				<HeightMapFilepath>assets/textures/Level2.png</HeightMapFilepath>
 				<MaxHeight>30</MaxHeight>
 				<Length>100</Length>
-				<Height>100</Height>
+				<Height>75</Height>
 			</data>
 		</ptr_wrapper>
 	</value1>
@@ -153,9 +153,9 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>28.590000152587891</value0>
-							<value1>31.729999542236328</value1>
-							<value2>-52.259998321533203</value2>
+							<value0>-20.920000076293945</value0>
+							<value1>11.159999847412109</value1>
+							<value2>-35.020000457763672</value2>
 						</Translation>
 						<Rotation>
 							<value0>0</value0>

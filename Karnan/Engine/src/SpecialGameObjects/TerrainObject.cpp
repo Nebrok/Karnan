@@ -30,7 +30,7 @@ void TerrainObject::Init()
 
 	BoxCollider* collider = static_cast<BoxCollider*>(_collider.get());
 	collider->Extent.x = _width / 2;
-	collider->Extent.y = 25.0f;
+	collider->Extent.y = 1000.0f;
 	collider->Extent.z = _length / 2;
 
 	Tags.push_back("Terrain");
@@ -123,7 +123,7 @@ void TerrainObject::GenerateTerrain()
 	std::vector<VertexBuffer::Vertex>* vertices = DBG_NEW std::vector<VertexBuffer::Vertex>();
 	std::vector<uint32_t>* indices = DBG_NEW std::vector<uint32_t>();
 
-	float xDifference = (1.0f / _textureHeight) * _width;
+	float xDifference = (1.0f / _textureWidth) * _width;
 	float yDifference = (1.0f / _textureHeight) * _length;
 	float horizontalDistance = glm::sqrt(xDifference * xDifference + yDifference * yDifference);
 
