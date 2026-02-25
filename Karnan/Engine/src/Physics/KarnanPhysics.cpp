@@ -15,23 +15,17 @@ KarnanPhysics::~KarnanPhysics()
 void KarnanPhysics::UpdatePhysics(KarnanScene* scene)
 {
     ClearEvents();
-    std::vector<std::shared_ptr<GameObject>> gameObjects = scene->GetAllGameObjects();
-    for (auto gameObject : gameObjects)
-    {
-        if (!gameObject->IsColliderActive())
-            continue;
-        
-        //todo add gameObject to Spatial Partition
-    }
+    std::vector<std::shared_ptr<GameObject>> gameObjects;
+    GetAllActiveColliders(scene, gameObjects);
 
     for (auto gameObject : gameObjects)
     {
-        if (!gameObject->IsColliderActive())
-            continue;
+        //if (!gameObject->IsColliderActive())
+        //    continue;
         for (auto otherGameObject : gameObjects)
         {
-            if (!otherGameObject->IsColliderActive())
-                continue;
+            //if (!otherGameObject->IsColliderActive())
+            //    continue;
             if (gameObject->GetId() == otherGameObject->GetId())
                 continue;
             CollisionEvent collisionEvent = { gameObject, otherGameObject };
@@ -103,6 +97,78 @@ bool KarnanPhysics::CheckIntersect(CollisionEvent& collisionEvent)
     return false;
 }
 
+RayCastHit KarnanPhysics::Raycast(KarnanScene* scene, glm::vec3 origin, glm::vec3 direction, float maxDistance, bool ignoreInternalStart)
+{
+    std::vector<std::shared_ptr<GameObject>> gameObjects;
+    GetAllActiveColliders(scene, gameObjects);
+
+    std::vector<RayCastHit> hits;
+
+    for (auto gameobject : gameObjects)
+    {
+        std::shared_ptr<Collider> collider = gameobject->GetCollider();
+        if (collider->Type == Collider::ColliderType::SPHERE)
+        {
+
+        }
+        else if (collider->Type == Collider::ColliderType::BOX)
+        {
+            BoxCollider* box = static_cast<BoxCollider*>(collider.get());
+
+            glm::vec3 boxCenter = box->Position();
+            
+            glm::vec3 boxLocalRayOrigin = glm::inverse(box->ScalelessTransform()) * glm::vec4(origin, 1.0f);
+            glm::vec3 boxLocalRayDirection = glm::vec3(glm::inverse(box->ScalelessTransform()) * glm::vec4(direction, 1.0f)) - boxCenter;
+            boxLocalRayDirection = glm::normalize(boxLocalRayDirection);
+
+            glm::vec3 min = -box->Extent;
+            glm::vec3 max = box->Extent;
+
+            float tmin = FLT_MIN;
+            float tmax = FLT_MAX;
+
+            if (RaySlabIntersect(boxLocalRayOrigin.x, boxLocalRayDirection.x, min.x, max.x, tmin, tmax) &&
+                RaySlabIntersect(boxLocalRayOrigin.y, boxLocalRayDirection.y, min.y, max.y, tmin, tmax) &&
+                RaySlabIntersect(boxLocalRayOrigin.z, boxLocalRayDirection.z, min.z, max.z, tmin, tmax) &&
+                tmax >= 0.0f)
+            {
+                RayCastHit hit;
+                hit.GameobjectA = gameobject;
+                hits.push_back(hit);
+            }
+        }
+    }
+
+
+    return RayCastHit();
+}
+
+bool KarnanPhysics::RaySlabIntersect(float origin, float direction, float minb, float maxb, float& tmin, float& tmax)
+{
+    if (glm::abs(direction) < 0.000001f)
+    {
+        if (origin < minb || origin > maxb)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    float t1 = (minb - origin) / direction;
+    float t2 = (maxb - origin) / direction;
+
+    if (t1 > t2)
+    {
+        std::swap(t1, t2);
+    }
+
+    tmin = glm::max(tmin, t1);
+    tmax = glm::min(tmax, t2);
+
+    return tmin <= tmax;
+}
+
 bool KarnanPhysics::BoxSphereIntersection(BoxCollider* boxA, SphereCollider* sphereB, glm::vec3& collisionPoint)
 {
     glm::vec3 sphereCenter = glm::vec3(sphereB->Transform()[3]);
@@ -172,3 +238,16 @@ std::vector<glm::vec3> KarnanPhysics::GetCandidateAxises(BoxCollider* boxA, BoxC
     }
     return axises;
 }
+
+void KarnanPhysics::GetAllActiveColliders(KarnanScene* scene, std::vector<std::shared_ptr<GameObject>>& gameObjects)
+{
+    for (auto gameObject : scene->GetAllGameObjects())
+    {
+        if (!gameObject->IsColliderActive())
+            continue;
+        gameObjects.push_back(gameObject);
+        //todo add gameObject to Spatial Partition
+    }
+    return;
+}
+

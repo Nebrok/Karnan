@@ -21,6 +21,14 @@ struct CollisionEvent
 	glm::vec3 Collision = { 0.0f, 0.0f, 0.0f };
 };
 
+struct RayCastHit
+{
+	std::shared_ptr<GameObject> GameobjectA;
+	float rayLength;
+	glm::vec3 CollisionPoint = { 0.0f, 0.0f, 0.0f };
+
+};
+
 class KarnanPhysics
 {
 public:
@@ -36,6 +44,7 @@ public:
 
 	void UpdatePhysics(KarnanScene* scene);
 	static bool CheckIntersect(CollisionEvent& collisionEvent);
+	static RayCastHit Raycast(KarnanScene* scene, glm::vec3 origin, glm::vec3 direction, float maxDistance, bool ignoreInternalStart);
 
 	std::vector<CollisionEvent>& GetCollisionEvents() { return _collisionEvents; };
 	void ClearEvents() { _collisionEvents.clear(); };
@@ -49,5 +58,7 @@ private:
 	static void ProjectCubeAxis(BoxCollider* box, glm::vec3 axis, float& min, float& max);
 	static std::vector<glm::vec3> GetCandidateAxises(BoxCollider* boxA, BoxCollider* boxB);
 
+	static void GetAllActiveColliders(KarnanScene* scene, std::vector<std::shared_ptr<GameObject>>& gameObjects);
+	static bool RaySlabIntersect(float origin, float direction, float minb, float maxb, float& tmin, float& tmax);
 
 };
