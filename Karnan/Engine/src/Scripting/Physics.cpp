@@ -20,6 +20,10 @@ void Physics::Init()
 	ScriptableComponent::Init();
 	_componentName = "Physics";
 
+	glm::vec3 extentInDirection = _gameobject->GetCollider()->ExtentInDirection({ 0.0f, -1.0f, 0.0f });
+	glm::vec3 lowestPoint = _gameobject->Transform.Translation + extentInDirection;
+	_colliderRadius = glm::length(lowestPoint - _gameobject->Transform.Translation);
+
 }
 
 void Physics::Update(float deltaTime)
@@ -45,8 +49,8 @@ void Physics::Update(float deltaTime)
 			if (!terrain->InTerrainBounds(gameobjectCoordinates))
 				continue;
 			float terrainHeight = terrain->HeightAt(gameobjectCoordinates);
-			glm::vec3 ExtentInDirection = _gameobject->GetCollider()->ExtentInDirection({ 0.0f, -1.0f, 0.0f });
-			glm::vec3 lowestPoint = _gameobject->Transform.Translation + ExtentInDirection;
+			glm::vec3 extentInDirection = _gameobject->GetCollider()->ExtentInDirection({ 0.0f, -1.0f, 0.0f });
+			glm::vec3 lowestPoint = _gameobject->Transform.Translation + extentInDirection;
 			if (lowestPoint.y < terrainHeight)
 			{
 				_grounded = true;
@@ -64,9 +68,16 @@ void Physics::Update(float deltaTime)
 				_gameobject->Transform.Translation += -glm::normalize(centerToCollisionPoint) * collisionOverlap;
 			}
 		}
-		
-		
-	
+	}
+
+	RayCastHit hit = KarnanPhysics::Raycast(EngineCore::Instance->GetActiveScenePointer(), _gameobject->Transform.Translation, glm::vec3(0.0f, -1.0f, 0.0f), 10.0f, true);
+	if (hit.GameobjectA.get() != nullptr)
+	{
+		if (hit.rayLength <= _colliderRadius + 0.1f)
+		{
+			//_gameobject->Transform.Translation.y = hit.CollisionPoint.y;
+			_grounded = true;
+		}
 	}
 
 
@@ -78,7 +89,7 @@ void Physics::Update(float deltaTime)
 		_velocity.y = _maxSpeed;
 
 	if (_grounded)
-		_velocity.y = 0;
+		_velocity.y = glm::clamp(_velocity.y, 0.0f, glm::abs(_velocity.y));
 
 	_gameobject->Transform.Translation += _velocity * deltaTime;
 

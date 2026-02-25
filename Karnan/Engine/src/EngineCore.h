@@ -76,6 +76,7 @@ public:
 	static std::vector<std::shared_ptr<GameObject>> GetAllGameObjectsInActiveScene();
 	static std::string GetSceneName();
 	static void SetSceneName(std::string sceneName);
+	static KarnanScene* GetActiveScenePointer() { return Instance->_scene.get(); };
 	static std::vector<CollisionEvent> GetCollisions() { return Instance->_physicsEngine->GetCollisionEvents(); };
 
 private:

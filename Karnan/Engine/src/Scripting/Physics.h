@@ -20,6 +20,8 @@ private:
 
 	bool _grounded = false;
 
+	float _colliderRadius;
+
 public:
 	Physics();
 	~Physics();

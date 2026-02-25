@@ -59,6 +59,6 @@ private:
 	static std::vector<glm::vec3> GetCandidateAxises(BoxCollider* boxA, BoxCollider* boxB);
 
 	static void GetAllActiveColliders(KarnanScene* scene, std::vector<std::shared_ptr<GameObject>>& gameObjects);
-	static bool RaySlabIntersect(float origin, float direction, float minb, float maxb, float& tmin, float& tmax);
+	static bool RaySlabIntersect(bool& originCheck, float origin, float direction, float minb, float maxb, float& tmin, float& tmax);
 
 };

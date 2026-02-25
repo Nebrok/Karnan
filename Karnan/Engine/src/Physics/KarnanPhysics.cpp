@@ -97,7 +97,7 @@ bool KarnanPhysics::CheckIntersect(CollisionEvent& collisionEvent)
     return false;
 }
 
-RayCastHit KarnanPhysics::Raycast(KarnanScene* scene, glm::vec3 origin, glm::vec3 direction, float maxDistance, bool ignoreInternalStart)
+RayCastHit KarnanPhysics::Raycast(KarnanScene* scene, glm::vec3 origin, glm::vec3 direction, float maxDistance, bool ignoreInternal)
 {
     std::vector<std::shared_ptr<GameObject>> gameObjects;
     GetAllActiveColliders(scene, gameObjects);
@@ -118,7 +118,7 @@ RayCastHit KarnanPhysics::Raycast(KarnanScene* scene, glm::vec3 origin, glm::vec
             glm::vec3 boxCenter = box->Position();
             
             glm::vec3 boxLocalRayOrigin = glm::inverse(box->ScalelessTransform()) * glm::vec4(origin, 1.0f);
-            glm::vec3 boxLocalRayDirection = glm::vec3(glm::inverse(box->ScalelessTransform()) * glm::vec4(direction, 1.0f)) - boxCenter;
+            glm::vec3 boxLocalRayDirection = glm::vec3(glm::inverse(box->ScalelessTransform()) * glm::vec4(direction, 0.0f));// - boxCenter;
             boxLocalRayDirection = glm::normalize(boxLocalRayDirection);
 
             glm::vec3 min = -box->Extent;
@@ -127,23 +127,45 @@ RayCastHit KarnanPhysics::Raycast(KarnanScene* scene, glm::vec3 origin, glm::vec
             float tmin = FLT_MIN;
             float tmax = FLT_MAX;
 
-            if (RaySlabIntersect(boxLocalRayOrigin.x, boxLocalRayDirection.x, min.x, max.x, tmin, tmax) &&
-                RaySlabIntersect(boxLocalRayOrigin.y, boxLocalRayDirection.y, min.y, max.y, tmin, tmax) &&
-                RaySlabIntersect(boxLocalRayOrigin.z, boxLocalRayDirection.z, min.z, max.z, tmin, tmax) &&
+            bool originCheck = true;
+
+            if (RaySlabIntersect(originCheck, boxLocalRayOrigin.x, boxLocalRayDirection.x, min.x, max.x, tmin, tmax) &&
+                RaySlabIntersect(originCheck, boxLocalRayOrigin.y, boxLocalRayDirection.y, min.y, max.y, tmin, tmax) &&
+                RaySlabIntersect(originCheck, boxLocalRayOrigin.z, boxLocalRayDirection.z, min.z, max.z, tmin, tmax) &&
                 tmax >= 0.0f)
             {
+                if (ignoreInternal)
+                {
+                    if (originCheck)
+                        continue; //origin check would still be true if origin within all slabs, ie within the box
+                }
                 RayCastHit hit;
                 hit.GameobjectA = gameobject;
+
+                glm::vec3 hitPoint = boxLocalRayOrigin + boxLocalRayDirection * tmin;
+                hitPoint = box->ScalelessTransform() * glm::vec4(hitPoint, 1.0f);
+                hit.CollisionPoint = hitPoint;
+                hit.rayLength = glm::length(hitPoint - origin);
                 hits.push_back(hit);
             }
         }
     }
 
+    float shortest = FLT_MAX;
+    RayCastHit closestHit;
+    for (auto hit : hits)
+    {
+        if (hit.rayLength < shortest)
+        {
+            shortest = hit.rayLength;
+            closestHit = hit;
+        }
+    }
 
-    return RayCastHit();
+    return closestHit;
 }
 
-bool KarnanPhysics::RaySlabIntersect(float origin, float direction, float minb, float maxb, float& tmin, float& tmax)
+bool KarnanPhysics::RaySlabIntersect(bool& originCheck, float origin, float direction, float minb, float maxb, float& tmin, float& tmax)
 {
     if (glm::abs(direction) < 0.000001f)
     {
@@ -152,11 +174,18 @@ bool KarnanPhysics::RaySlabIntersect(float origin, float direction, float minb, 
             return false;
         }
 
+
         return true;
+    }
+
+    if (origin < minb || origin > maxb)
+    {
+        originCheck = false; //check used to determine if origin inside the box
     }
 
     float t1 = (minb - origin) / direction;
     float t2 = (maxb - origin) / direction;
+
 
     if (t1 > t2)
     {
