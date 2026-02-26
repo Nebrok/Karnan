@@ -51,7 +51,7 @@ private:
 
 	bool _playMode = true;
 
-	std::string _startupScene = "PhysicsTestingScene";
+	std::string _startupScene = "MenuScene";
 
 public:
 	static EngineCore* StartupEngine();

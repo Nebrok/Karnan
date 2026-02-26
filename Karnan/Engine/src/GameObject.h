@@ -192,8 +192,8 @@ public:
     void AddComponent(ScriptableComponent* component) 
     { 
         _components.push_back(std::shared_ptr<ScriptableComponent>(component));
-        _components.back()->Init();
         _components.back()->SetGameobject(this);
+        _components.back()->Init();
 
     };
     void RemoveComponent(int index);

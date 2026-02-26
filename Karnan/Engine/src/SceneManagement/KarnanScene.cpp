@@ -45,8 +45,10 @@ void KarnanScene::LoadScene(std::string sceneName)
 		if (gameObject->HasTag("Main Camera"))
 		{
 			Camera = dynamic_cast<KarnanCamera*>(gameObject.get());
+			break;
 		}
 	}
+	BreakUpdateLoop();
 
 	/*
 	
@@ -96,9 +98,10 @@ void KarnanScene::LoadScene(SceneDataObject& sceneData)
 		if (gameObject->HasTag("Main Camera"))
 		{
 			Camera = dynamic_cast<KarnanCamera*>(gameObject.get());
+			break;
 		}
 	}
-
+	BreakUpdateLoop();
 }
 
 void KarnanScene::UpdateScene(double deltaTime)
@@ -115,8 +118,11 @@ void KarnanScene::UpdateScene(double deltaTime)
 
 		if (EngineCore::Instance->PlayMode())
 			gameObject->Update(deltaTime);
+		if (_breakUpdateLoop)
+			break;
 	}
 	CleanScene();
+	_breakUpdateLoop = false;
 }
 
 void KarnanScene::CallStart()

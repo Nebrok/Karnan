@@ -73,11 +73,11 @@ void EditorHierarchyPanel::ContextMenu()
 	}
 	if (ImGui::Button("Create New PlayerObject"))
 	{
-		PlayerObject* newTerrain = DBG_NEW PlayerObject();
-		newTerrain->Init();
-		newTerrain->Transform.Translation = { 0.0f, 0.0f, 0.0f };
-		newTerrain->Transform.Scale = { 1.0f, 1.0f, 1.0f };
-		EngineCore::Instance->AddGameObjectToActiveScene(std::shared_ptr<PlayerObject>(newTerrain));
+		PlayerObject* newPlayer = DBG_NEW PlayerObject();
+		newPlayer->Init();
+		newPlayer->Transform.Translation = { 0.0f, 0.0f, 0.0f };
+		newPlayer->Transform.Scale = { 1.0f, 1.0f, 1.0f };
+		EngineCore::Instance->AddGameObjectToActiveScene(std::shared_ptr<PlayerObject>(newPlayer));
 	}
 	ImGui::EndPopup();
 }

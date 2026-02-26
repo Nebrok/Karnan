@@ -14,7 +14,10 @@ private:
 
 	KarnanCamera* Camera;
 
+
 	std::string _sceneName = "NewScene";
+
+	bool _breakUpdateLoop = false;
 
 public:
 	KarnanScene();
@@ -37,6 +40,8 @@ public:
 	
 	std::string GetName() { return _sceneName; };
 	void SetName(std::string sceneName) { _sceneName = sceneName; };
+
+	void BreakUpdateLoop() { _breakUpdateLoop = true; };
 
 private:
 
