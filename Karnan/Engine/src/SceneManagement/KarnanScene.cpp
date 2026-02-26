@@ -105,6 +105,8 @@ void KarnanScene::UpdateScene(double deltaTime)
 {
 	for (auto gameObject : _gameObjects)
 	{
+		if (gameObject->IsDead())
+			continue;
 		if (gameObject->HasTag("Main Camera"))
 		{
 			gameObject->Update(deltaTime);
@@ -113,8 +115,8 @@ void KarnanScene::UpdateScene(double deltaTime)
 
 		if (EngineCore::Instance->PlayMode())
 			gameObject->Update(deltaTime);
-		
 	}
+	CleanScene();
 }
 
 void KarnanScene::CallStart()
@@ -152,30 +154,46 @@ bool KarnanScene::RegisterGO(std::shared_ptr<GameObject> gameObject)
 
 void KarnanScene::DeleteGO(uint32_t goID)
 {
-	size_t indexToBeDeleted = -1;
+	_gameObjectsToBeDeleted.push_back(goID);
 	for (int i = 0; i < _gameObjects.size(); i++)
 	{
 		if (_gameObjects[i]->GetId() == goID)
 		{
-			indexToBeDeleted = i;
+			_gameObjects[i]->KillGameObject();
 			break;
 		}
 	}
-	std::shared_ptr<GameObject> deletedGO;
-	std::string objectName;
-	uint32_t objectId;
-	long numberRefs;
-	if (indexToBeDeleted >= 0)
-	{
-		deletedGO = _gameObjects[indexToBeDeleted];
-		objectName = deletedGO->ObjectName;
-		objectId = deletedGO->GetId();
-		numberRefs = deletedGO.use_count();
-		_gameObjects.erase(_gameObjects.begin() + indexToBeDeleted);
-	}
-	std::cout << "GameObject deleted: " << objectName << " with ID: " << objectId << '\n';
-	std::cout << "GameObject references at deletion: " << numberRefs << '\n';
+}
 
+void KarnanScene::CleanScene()
+{
+	for (auto goID : _gameObjectsToBeDeleted)
+	{
+		size_t indexToBeDeleted = -1;
+		for (int i = 0; i < _gameObjects.size(); i++)
+		{
+			if (_gameObjects[i]->GetId() == goID)
+			{
+				indexToBeDeleted = i;
+				break;
+			}
+		}
+		std::shared_ptr<GameObject> deletedGO;
+		std::string objectName;
+		uint32_t objectId;
+		long numberRefs;
+		if (indexToBeDeleted >= 0)
+		{
+			deletedGO = _gameObjects[indexToBeDeleted];
+			objectName = deletedGO->ObjectName;
+			objectId = deletedGO->GetId();
+			numberRefs = deletedGO.use_count();
+			_gameObjects.erase(_gameObjects.begin() + indexToBeDeleted);
+		}
+		std::cout << "GameObject deleted: " << objectName << " with ID: " << objectId << '\n';
+		std::cout << "GameObject references at deletion: " << numberRefs << '\n';
+	}
+	_gameObjectsToBeDeleted.clear();
 }
 
 void KarnanScene::SerialiseScene()

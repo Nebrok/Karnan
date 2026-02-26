@@ -1,4 +1,4 @@
-22
+24
 <?xml version="1.0" encoding="utf-8"?>
 <cereal>
 	<value0>
@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>28.913114547729492</value0>
-							<value1>46.055362701416016</value1>
-							<value2>-21.064903259277344</value2>
+							<value0>19.433977127075195</value0>
+							<value1>12.802911758422852</value1>
+							<value2>-40.054283142089844</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.62636572122573853</value0>
-							<value1>5.1554641723632812</value1>
+							<value0>-0.078124046325683594</value0>
+							<value1>6.2724180221557617</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -190,7 +190,7 @@
 							</data>
 						</ptr_wrapper>
 					</Collider>
-					<NumberComponents>3</NumberComponents>
+					<NumberComponents>4</NumberComponents>
 					<ScriptComponent>
 						<polymorphic_id>2147483655</polymorphic_id>
 						<polymorphic_name>CameraFollow</polymorphic_name>
@@ -223,6 +223,18 @@
 							</data>
 						</ptr_wrapper>
 					</ScriptComponent>
+					<ScriptComponent>
+						<polymorphic_id>2147483658</polymorphic_id>
+						<polymorphic_name>KeySystem</polymorphic_name>
+						<ptr_wrapper>
+							<id>2147483658</id>
+							<data>
+								<value0>
+									<ComponentName>Key System</ComponentName>
+								</value0>
+							</data>
+						</ptr_wrapper>
+					</ScriptComponent>
 				</value0>
 			</data>
 		</ptr_wrapper>
@@ -230,7 +242,7 @@
 	<value4>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483658</id>
+			<id>2147483659</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -256,7 +268,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483659</id>
+						<id>2147483660</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -281,7 +293,7 @@
 	<value5>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483660</id>
+			<id>2147483661</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -307,7 +319,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483661</id>
+						<id>2147483662</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -332,7 +344,7 @@
 	<value6>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483662</id>
+			<id>2147483663</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -358,7 +370,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483663</id>
+						<id>2147483664</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -383,7 +395,7 @@
 	<value7>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483664</id>
+			<id>2147483665</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -409,7 +421,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483665</id>
+						<id>2147483666</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -434,7 +446,7 @@
 	<value8>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483666</id>
+			<id>2147483667</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -460,7 +472,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483667</id>
+						<id>2147483668</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -485,7 +497,7 @@
 	<value9>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483668</id>
+			<id>2147483669</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -511,7 +523,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483669</id>
+						<id>2147483670</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -536,7 +548,7 @@
 	<value10>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483670</id>
+			<id>2147483671</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -562,7 +574,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483671</id>
+						<id>2147483672</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -582,23 +594,23 @@
 				</Collider>
 				<NumberComponents>2</NumberComponents>
 				<ScriptComponent>
-					<polymorphic_id>2147483658</polymorphic_id>
+					<polymorphic_id>2147483659</polymorphic_id>
 					<polymorphic_name>RotateGameObject</polymorphic_name>
 					<ptr_wrapper>
-						<id>2147483672</id>
+						<id>2147483673</id>
 						<data>
 							<value0>
 								<ComponentName>RotateGameObject</ComponentName>
 							</value0>
-							<RotationSpeed>1.0</RotationSpeed>
+							<RotationSpeed>1</RotationSpeed>
 						</data>
 					</ptr_wrapper>
 				</ScriptComponent>
 				<ScriptComponent>
-					<polymorphic_id>2147483659</polymorphic_id>
+					<polymorphic_id>2147483660</polymorphic_id>
 					<polymorphic_name>EndGoal</polymorphic_name>
 					<ptr_wrapper>
-						<id>2147483673</id>
+						<id>2147483674</id>
 						<data>
 							<value0>
 								<ComponentName>End Goal</ComponentName>
@@ -613,7 +625,7 @@
 	<value11>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483674</id>
+			<id>2147483675</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -639,7 +651,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483675</id>
+						<id>2147483676</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -664,7 +676,7 @@
 	<value12>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483676</id>
+			<id>2147483677</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -690,7 +702,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483677</id>
+						<id>2147483678</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -715,7 +727,7 @@
 	<value13>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483678</id>
+			<id>2147483679</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -741,7 +753,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483679</id>
+						<id>2147483680</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -766,7 +778,7 @@
 	<value14>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483680</id>
+			<id>2147483681</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -792,7 +804,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483681</id>
+						<id>2147483682</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -817,7 +829,7 @@
 	<value15>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483682</id>
+			<id>2147483683</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -843,7 +855,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483683</id>
+						<id>2147483684</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -868,7 +880,7 @@
 	<value16>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483684</id>
+			<id>2147483685</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -894,7 +906,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483685</id>
+						<id>2147483686</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -919,7 +931,7 @@
 	<value17>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483686</id>
+			<id>2147483687</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -945,7 +957,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483687</id>
+						<id>2147483688</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -970,7 +982,7 @@
 	<value18>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483688</id>
+			<id>2147483689</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -996,7 +1008,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483689</id>
+						<id>2147483690</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -1021,7 +1033,7 @@
 	<value19>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483690</id>
+			<id>2147483691</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -1047,7 +1059,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483691</id>
+						<id>2147483692</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -1072,7 +1084,7 @@
 	<value20>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483692</id>
+			<id>2147483693</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -1098,7 +1110,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483693</id>
+						<id>2147483694</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -1123,7 +1135,7 @@
 	<value21>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483694</id>
+			<id>2147483695</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -1149,7 +1161,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483695</id>
+						<id>2147483696</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -1171,5 +1183,127 @@
 			</data>
 		</ptr_wrapper>
 	</value21>
+	<value22>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483697</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>-3.6099998950958252</value0>
+						<value1>10.109999656677246</value1>
+						<value2>-18.809999465942383</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1</value0>
+						<value1>1</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Key</Object_Name>
+				<Mesh_Name>assets/models/icosphere.obj</Mesh_Name>
+				<Material_Name>assets/materials/NULL_TEXTURE.kmat</Material_Name>
+				<Collider_active>true</Collider_active>
+				<Collider>
+					<polymorphic_id>6</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483698</id>
+						<data>
+							<value0>
+								<Type>2</Type>
+								<Offset>
+									<value0>0</value0>
+									<value1>0</value1>
+									<value2>0</value2>
+								</Offset>
+							</value0>
+							<Radius>1</Radius>
+						</data>
+					</ptr_wrapper>
+				</Collider>
+				<NumberComponents>1</NumberComponents>
+				<ScriptComponent>
+					<polymorphic_id>2147483661</polymorphic_id>
+					<polymorphic_name>Key</polymorphic_name>
+					<ptr_wrapper>
+						<id>2147483699</id>
+						<data>
+							<value0>
+								<ComponentName>Key</ComponentName>
+							</value0>
+						</data>
+					</ptr_wrapper>
+				</ScriptComponent>
+			</data>
+		</ptr_wrapper>
+	</value22>
+	<value23>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483700</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>27</value0>
+						<value1>15.180000305175781</value1>
+						<value2>-13.060000419616699</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>11.199999809265137</value0>
+						<value1>7.5</value1>
+						<value2>1</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Door</Object_Name>
+				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
+				<Material_Name>assets/materials/ShinyGrey.kmat</Material_Name>
+				<Collider_active>true</Collider_active>
+				<Collider>
+					<polymorphic_id>3</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483701</id>
+						<data>
+							<value0>
+								<Type>1</Type>
+								<Offset>
+									<value0>0</value0>
+									<value1>0</value1>
+									<value2>0</value2>
+								</Offset>
+							</value0>
+							<Extent>
+								<value0>11.199999809265137</value0>
+								<value1>7.5</value1>
+								<value2>1</value2>
+							</Extent>
+						</data>
+					</ptr_wrapper>
+				</Collider>
+				<NumberComponents>1</NumberComponents>
+				<ScriptComponent>
+					<polymorphic_id>2147483662</polymorphic_id>
+					<polymorphic_name>Door</polymorphic_name>
+					<ptr_wrapper>
+						<id>2147483702</id>
+						<data>
+							<value0>
+								<ComponentName>Door</ComponentName>
+							</value0>
+						</data>
+					</ptr_wrapper>
+				</ScriptComponent>
+			</data>
+		</ptr_wrapper>
+	</value23>
 </cereal>
 

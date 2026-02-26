@@ -10,6 +10,7 @@ public:
 
 private:
 	std::vector<std::shared_ptr<GameObject>> _gameObjects;
+	std::vector<uint32_t> _gameObjectsToBeDeleted;
 
 	KarnanCamera* Camera;
 
@@ -29,6 +30,7 @@ public:
 
 	bool RegisterGO(std::shared_ptr<GameObject> gameObject);
 	void DeleteGO(uint32_t goID);
+	void CleanScene();
 	std::vector<std::shared_ptr<GameObject>> GetAllGameObjects() { return _gameObjects; };
 
 	void SerialiseScene();

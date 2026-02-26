@@ -148,6 +148,7 @@ protected:
     std::vector<std::shared_ptr<ScriptableComponent>> _components;
 
     bool _startCalled = false;
+    bool _isDead = false;
 
 public:
     static uint32_t GenerateNewId()
@@ -199,6 +200,9 @@ public:
     ScriptableComponent* FindFirstComponentOfName(std::string componentName);
 
     void ResetStartCalled() { _startCalled = false; };
+
+    bool IsDead() { return _isDead; };
+    void KillGameObject() { _isDead = true; };
 
 
     //Cereal serialisation
