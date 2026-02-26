@@ -1,4 +1,4 @@
-21
+23
 <?xml version="1.0" encoding="utf-8"?>
 <cereal>
 	<value0>
@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>-0.59712165594100952</value0>
-							<value1>27.11909294128418</value1>
-							<value2>5.6857719421386719</value2>
+							<value0>40.609176635742188</value0>
+							<value1>19.708395004272461</value1>
+							<value2>-41.878162384033203</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.37946072220802307</value0>
-							<value1>4.5997586250305176</value1>
+							<value0>0.46624788641929626</value0>
+							<value1>5.037144660949707</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -153,13 +153,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>37.580001831054688</value0>
+							<value0>37.959999084472656</value0>
 							<value1>18.799999237060547</value1>
-							<value2>-44.020000457763672</value2>
+							<value2>-41.619998931884766</value2>
 						</Translation>
 						<Rotation>
 							<value0>0</value0>
-							<value1>0</value1>
+							<value1>-1.6299999952316284</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -490,14 +490,27 @@
 						</data>
 					</ptr_wrapper>
 				</Collider>
-				<NumberComponents>0</NumberComponents>
+				<NumberComponents>1</NumberComponents>
+				<ScriptComponent>
+					<polymorphic_id>2147483659</polymorphic_id>
+					<polymorphic_name>EndGoal</polymorphic_name>
+					<ptr_wrapper>
+						<id>2147483669</id>
+						<data>
+							<value0>
+								<ComponentName>End Goal</ComponentName>
+							</value0>
+							<_sceneToLoad>Level3</_sceneToLoad>
+						</data>
+					</ptr_wrapper>
+				</ScriptComponent>
 			</data>
 		</ptr_wrapper>
 	</value8>
 	<value9>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483669</id>
+			<id>2147483670</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -523,7 +536,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483670</id>
+						<id>2147483671</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -548,7 +561,7 @@
 	<value10>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483671</id>
+			<id>2147483672</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -574,7 +587,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483672</id>
+						<id>2147483673</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -599,7 +612,7 @@
 	<value11>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483673</id>
+			<id>2147483674</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -625,7 +638,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483674</id>
+						<id>2147483675</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -650,7 +663,7 @@
 	<value12>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483675</id>
+			<id>2147483676</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -676,7 +689,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483676</id>
+						<id>2147483677</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -701,7 +714,7 @@
 	<value13>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483677</id>
+			<id>2147483678</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -727,7 +740,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483678</id>
+						<id>2147483679</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -752,7 +765,7 @@
 	<value14>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483679</id>
+			<id>2147483680</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -778,7 +791,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483680</id>
+						<id>2147483681</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -803,7 +816,7 @@
 	<value15>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483681</id>
+			<id>2147483682</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -829,7 +842,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483682</id>
+						<id>2147483683</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -854,7 +867,7 @@
 	<value16>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483683</id>
+			<id>2147483684</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -880,7 +893,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483684</id>
+						<id>2147483685</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -905,7 +918,7 @@
 	<value17>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483685</id>
+			<id>2147483686</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -931,7 +944,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483686</id>
+						<id>2147483687</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -956,7 +969,7 @@
 	<value18>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483687</id>
+			<id>2147483688</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -982,7 +995,7 @@
 				<Collider>
 					<polymorphic_id>6</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483688</id>
+						<id>2147483689</id>
 						<data>
 							<value0>
 								<Type>2</Type>
@@ -998,10 +1011,10 @@
 				</Collider>
 				<NumberComponents>1</NumberComponents>
 				<ScriptComponent>
-					<polymorphic_id>2147483659</polymorphic_id>
+					<polymorphic_id>2147483660</polymorphic_id>
 					<polymorphic_name>Key</polymorphic_name>
 					<ptr_wrapper>
-						<id>2147483689</id>
+						<id>2147483690</id>
 						<data>
 							<value0>
 								<ComponentName>Key</ComponentName>
@@ -1015,7 +1028,7 @@
 	<value19>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483690</id>
+			<id>2147483691</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -1041,7 +1054,7 @@
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483691</id>
+						<id>2147483692</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -1061,10 +1074,10 @@
 				</Collider>
 				<NumberComponents>1</NumberComponents>
 				<ScriptComponent>
-					<polymorphic_id>2147483660</polymorphic_id>
+					<polymorphic_id>2147483661</polymorphic_id>
 					<polymorphic_name>Door</polymorphic_name>
 					<ptr_wrapper>
-						<id>2147483692</id>
+						<id>2147483693</id>
 						<data>
 							<value0>
 								<ComponentName>Door</ComponentName>
@@ -1078,7 +1091,7 @@
 	<value20>
 		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
-			<id>2147483693</id>
+			<id>2147483694</id>
 			<data>
 				<Transform>
 					<Translation>
@@ -1097,14 +1110,14 @@
 						<value2>0.20000000298023224</value2>
 					</Scale>
 				</Transform>
-				<Object_Name>NewGameObject</Object_Name>
+				<Object_Name>EndGoal</Object_Name>
 				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
 				<Material_Name>assets/materials/NULL_TEXTURE.kmat</Material_Name>
 				<Collider_active>true</Collider_active>
 				<Collider>
 					<polymorphic_id>3</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483694</id>
+						<id>2147483695</id>
 						<data>
 							<value0>
 								<Type>1</Type>
@@ -1124,10 +1137,9 @@
 				</Collider>
 				<NumberComponents>2</NumberComponents>
 				<ScriptComponent>
-					<polymorphic_id>2147483661</polymorphic_id>
-					<polymorphic_name>EndGoal</polymorphic_name>
+					<polymorphic_id>11</polymorphic_id>
 					<ptr_wrapper>
-						<id>2147483695</id>
+						<id>2147483696</id>
 						<data>
 							<value0>
 								<ComponentName>End Goal</ComponentName>
@@ -1140,7 +1152,7 @@
 					<polymorphic_id>2147483662</polymorphic_id>
 					<polymorphic_name>RotateGameObject</polymorphic_name>
 					<ptr_wrapper>
-						<id>2147483696</id>
+						<id>2147483697</id>
 						<data>
 							<value0>
 								<ComponentName>RotateGameObject</ComponentName>
@@ -1152,5 +1164,158 @@
 			</data>
 		</ptr_wrapper>
 	</value20>
+	<value21>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483698</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>-3.5</value0>
+						<value1>6.3000001907348633</value1>
+						<value2>17</value2>
+					</Translation>
+					<Rotation>
+						<value0>1.6599999666213989</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1.5</value0>
+						<value1>1.5</value1>
+						<value2>1.5</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Enemy NO1</Object_Name>
+				<Mesh_Name>assets/models/bokoblin.obj</Mesh_Name>
+				<Material_Name>assets/materials/Bokoblin.kmat</Material_Name>
+				<Collider_active>true</Collider_active>
+				<Collider>
+					<polymorphic_id>6</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483699</id>
+						<data>
+							<value0>
+								<Type>2</Type>
+								<Offset>
+									<value0>0</value0>
+									<value1>0</value1>
+									<value2>0</value2>
+								</Offset>
+							</value0>
+							<Radius>1</Radius>
+						</data>
+					</ptr_wrapper>
+				</Collider>
+				<NumberComponents>2</NumberComponents>
+				<ScriptComponent>
+					<polymorphic_id>2147483663</polymorphic_id>
+					<polymorphic_name>Enemy</polymorphic_name>
+					<ptr_wrapper>
+						<id>2147483700</id>
+						<data>
+							<value0>
+								<ComponentName>Enemy</ComponentName>
+							</value0>
+							<PatrolExtent>
+								<value0>5</value0>
+								<value1>0</value1>
+								<value2>0</value2>
+							</PatrolExtent>
+							<PatrolSpeed>1</PatrolSpeed>
+						</data>
+					</ptr_wrapper>
+				</ScriptComponent>
+				<ScriptComponent>
+					<polymorphic_id>11</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483701</id>
+						<data>
+							<value0>
+								<ComponentName>End Goal</ComponentName>
+							</value0>
+							<_sceneToLoad>Level3</_sceneToLoad>
+						</data>
+					</ptr_wrapper>
+				</ScriptComponent>
+			</data>
+		</ptr_wrapper>
+	</value21>
+	<value22>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483702</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>-3.5</value0>
+						<value1>6.3000001907348633</value1>
+						<value2>0</value2>
+					</Translation>
+					<Rotation>
+						<value0>1.6599999666213989</value0>
+						<value1>0</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>1.5</value0>
+						<value1>1.5</value1>
+						<value2>1.5</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Enemy NO2</Object_Name>
+				<Mesh_Name>assets/models/bokoblin.obj</Mesh_Name>
+				<Material_Name>assets/materials/Bokoblin.kmat</Material_Name>
+				<Collider_active>true</Collider_active>
+				<Collider>
+					<polymorphic_id>6</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483703</id>
+						<data>
+							<value0>
+								<Type>2</Type>
+								<Offset>
+									<value0>0</value0>
+									<value1>0</value1>
+									<value2>0</value2>
+								</Offset>
+							</value0>
+							<Radius>1</Radius>
+						</data>
+					</ptr_wrapper>
+				</Collider>
+				<NumberComponents>2</NumberComponents>
+				<ScriptComponent>
+					<polymorphic_id>15</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483704</id>
+						<data>
+							<value0>
+								<ComponentName>Enemy</ComponentName>
+							</value0>
+							<PatrolExtent>
+								<value0>7</value0>
+								<value1>0</value1>
+								<value2>0</value2>
+							</PatrolExtent>
+							<PatrolSpeed>0.5</PatrolSpeed>
+						</data>
+					</ptr_wrapper>
+				</ScriptComponent>
+				<ScriptComponent>
+					<polymorphic_id>11</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483705</id>
+						<data>
+							<value0>
+								<ComponentName>End Goal</ComponentName>
+							</value0>
+							<_sceneToLoad>Level3</_sceneToLoad>
+						</data>
+					</ptr_wrapper>
+				</ScriptComponent>
+			</data>
+		</ptr_wrapper>
+	</value22>
 </cereal>
 

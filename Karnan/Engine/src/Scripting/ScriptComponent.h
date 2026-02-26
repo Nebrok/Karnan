@@ -13,6 +13,7 @@
 //cereal
 #include <cereal/types/memory.hpp>
 #include <cereal/types/polymorphic.hpp>
+#include "../Serialisation/DefinitionsKarnanCereal.h"
 #include <cereal/archives/xml.hpp>
 //#include "../Serialisation/DefinitionsKarnanCereal.h"
 

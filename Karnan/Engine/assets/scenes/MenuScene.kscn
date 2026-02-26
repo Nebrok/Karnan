@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>-0.0639667809009552</value0>
-							<value1>4.3990225791931152</value1>
-							<value2>-17.329862594604492</value2>
+							<value0>-1.3192756175994873</value0>
+							<value1>4.110353946685791</value1>
+							<value2>-7.1844024658203125</value2>
 						</Translation>
 						<Rotation>
-							<value0>0</value0>
-							<value1>6.2731852531433105</value1>
+							<value0>0.30998116731643677</value0>
+							<value1>0.18092401325702667</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -246,7 +246,7 @@
 					<Scale>
 						<value0>2</value0>
 						<value1>2</value1>
-						<value2>2</value2>
+						<value2>-2</value2>
 					</Scale>
 				</Transform>
 				<Object_Name>StartBlock</Object_Name>
@@ -305,12 +305,12 @@
 					<Rotation>
 						<value0>0</value0>
 						<value1>2.2799999713897705</value1>
-						<value2>0</value2>
+						<value2>-1.5499999523162842</value2>
 					</Rotation>
 					<Scale>
-						<value0>2</value0>
-						<value1>2</value1>
-						<value2>2</value2>
+						<value0>-2</value0>
+						<value1>-2</value1>
+						<value2>-2</value2>
 					</Scale>
 				</Transform>
 				<Object_Name>LevelSelect</Object_Name>

@@ -8,6 +8,7 @@
 #include "Key.h"
 #include "KeySystem.h"
 #include "Door.h"
+#include "Enemy.h"
 
 
 std::map<std::string, ScriptableComponent* (*)()> ScriptRegister::TypeMap = {};
@@ -22,6 +23,7 @@ void ScriptRegister::RegisterTypes()
 	TypeMap["Key"] = &CreateInstance<Key>;
 	TypeMap["KeySystem"] = &CreateInstance<KeySystem>;
 	TypeMap["Door"] = &CreateInstance<Door>;
+	TypeMap["Enemy"] = &CreateInstance<Enemy>;
 }
 
 std::vector<std::string> ScriptRegister::GetScriptNames()

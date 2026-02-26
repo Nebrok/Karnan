@@ -57,6 +57,10 @@ void Physics::Update(float deltaTime)
 				_gameobject->Transform.Translation.y += glm::abs(lowestPoint.y - terrainHeight);
 			}
 		}
+		else if (collision.GameobjectB->FindFirstComponentOfName("End Goal") != nullptr)
+		{
+			continue;
+		}
 		else
 		{
 			if (collision.HasCollisionPoint)
@@ -71,11 +75,10 @@ void Physics::Update(float deltaTime)
 	}
 
 	RayCastHit hit = KarnanPhysics::Raycast(EngineCore::Instance->GetActiveScenePointer(), _gameobject->Transform.Translation, glm::vec3(0.0f, -1.0f, 0.0f), 10.0f, true);
-	if (hit.GameobjectA.get() != nullptr)
+	if (hit.GameobjectA.get() != nullptr && hit.GameobjectA->FindFirstComponentOfName("End Goal") == nullptr)
 	{
 		if (hit.rayLength <= _colliderRadius + 0.05f)
 		{
-			//_gameobject->Transform.Translation.y = hit.CollisionPoint.y;
 			_grounded = true;
 		}
 	}

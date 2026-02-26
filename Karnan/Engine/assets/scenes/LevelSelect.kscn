@@ -16,7 +16,7 @@
 						</Translation>
 						<Rotation>
 							<value0>0.55515146255493164</value0>
-							<value1>0.014671266078948975</value1>
+							<value1>6.1904630661010742</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -163,7 +163,7 @@
 					<Scale>
 						<value0>2</value0>
 						<value1>2</value1>
-						<value2>2</value2>
+						<value2>-2</value2>
 					</Scale>
 				</Transform>
 				<Object_Name>Level1-Select</Object_Name>
@@ -225,7 +225,7 @@
 						<value2>0</value2>
 					</Rotation>
 					<Scale>
-						<value0>2</value0>
+						<value0>-2</value0>
 						<value1>2</value1>
 						<value2>2</value2>
 					</Scale>
@@ -290,7 +290,7 @@
 					<Scale>
 						<value0>2</value0>
 						<value1>2</value1>
-						<value2>2</value2>
+						<value2>-2</value2>
 					</Scale>
 				</Transform>
 				<Object_Name>Level3-Select</Object_Name>

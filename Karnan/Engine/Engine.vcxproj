@@ -187,6 +187,7 @@
     <ClCompile Include="src\Scripting\CameraFollowPlayer.cpp" />
     <ClCompile Include="src\Scripting\Door.cpp" />
     <ClCompile Include="src\Scripting\EndGoal.cpp" />
+    <ClCompile Include="src\Scripting\Enemy.cpp" />
     <ClCompile Include="src\Scripting\Key.cpp" />
     <ClCompile Include="src\Scripting\KeySystem.cpp" />
     <ClCompile Include="src\Scripting\Physics.cpp" />
@@ -231,6 +232,7 @@
     <ClInclude Include="src\Scripting\CameraFollowPlayer.h" />
     <ClInclude Include="src\Scripting\Door.h" />
     <ClInclude Include="src\Scripting\EndGoal.h" />
+    <ClInclude Include="src\Scripting\Enemy.h" />
     <ClInclude Include="src\Scripting\Key.h" />
     <ClInclude Include="src\Scripting\KeySystem.h" />
     <ClInclude Include="src\Scripting\Physics.h" />
