@@ -12,6 +12,8 @@ public:
 	~RotateGameObject() {};
 	void Init() override;
 	void Update(float deltaTime) override;
+	void ImGuiRender() override;
+
 
 	//Cereal serialisation
 	template <class Archive>

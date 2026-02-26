@@ -4,6 +4,12 @@
 #include <map>
 #include <vector>
 
+#include "imgui.h"
+#include "imgui_impl_glfw.h"
+#include "imgui_impl_vulkan.h"
+#include "imgui_stdlib.h"
+#include "glm/gtc/type_ptr.hpp"
+
 //cereal
 #include <cereal/types/memory.hpp>
 #include <cereal/types/polymorphic.hpp>
@@ -29,6 +35,8 @@ public:
 	virtual void Start() {};
 	virtual void Update(float deltaTime) {};
 	virtual void PhysicsUpdate(float deltaTime) {};
+	virtual void ImGuiRender() {};
+
 
 	std::string GetName() { return _componentName; };
 

@@ -73,7 +73,7 @@ void Physics::Update(float deltaTime)
 	RayCastHit hit = KarnanPhysics::Raycast(EngineCore::Instance->GetActiveScenePointer(), _gameobject->Transform.Translation, glm::vec3(0.0f, -1.0f, 0.0f), 10.0f, true);
 	if (hit.GameobjectA.get() != nullptr)
 	{
-		if (hit.rayLength <= _colliderRadius + 0.1f)
+		if (hit.rayLength <= _colliderRadius + 0.05f)
 		{
 			//_gameobject->Transform.Translation.y = hit.CollisionPoint.y;
 			_grounded = true;
@@ -83,17 +83,23 @@ void Physics::Update(float deltaTime)
 
 	_acceleration += _gravity;
 	_velocity += _acceleration * deltaTime;
-	_velocity *= 0.99f;
+	_velocity -= _velocity * 2.0f * deltaTime;
 
-	if (_velocity.y >= _maxSpeed)
-		_velocity.y = _maxSpeed;
+	if (_velocity.y >= _maxYSpeed)
+		_velocity.y = _maxYSpeed;
+
+	glm::vec2 horizontalVelocity = { _velocity.x, _velocity.z };
+	if (glm::length(horizontalVelocity) >= _maxSpeed)
+		horizontalVelocity = glm::normalize(horizontalVelocity) * _maxSpeed;
+	_velocity.x = horizontalVelocity.x;
+	_velocity.z = horizontalVelocity.y;
 
 	if (_grounded)
 		_velocity.y = glm::clamp(_velocity.y, 0.0f, glm::abs(_velocity.y));
 
 	_gameobject->Transform.Translation += _velocity * deltaTime;
 
-	_acceleration = { 0.0f, 0.0f, 0.0f };
+	_acceleration = {0.0f, 0.0f, 0.0f};
 }
 
 void Physics::AddVelocity(glm::vec3 additionalVelocity)
@@ -104,11 +110,6 @@ void Physics::AddVelocity(glm::vec3 additionalVelocity)
 void Physics::AddAcceleration(glm::vec3 additionalAcceleration)
 {
 	_acceleration += additionalAcceleration;
-}
-
-void Physics::ImGuiRender()
-{
-
 }
 
 CEREAL_REGISTER_DYNAMIC_INIT(Physics)

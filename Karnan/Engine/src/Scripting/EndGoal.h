@@ -8,6 +8,8 @@ class EndGoal : public ScriptableComponent
 public:
 
 private:
+	std::string _sceneToLoad = "Level2";
+
 
 public:
 	EndGoal();
@@ -16,6 +18,22 @@ public:
 	void Init() override;
 	void Start() override;
 	void Update(float deltaTime) override;
+	void ImGuiRender() override;
+
+	//Cereal serialisation
+	template <class Archive>
+	void save(Archive& ar) const
+	{
+		ar(cereal::base_class<ScriptableComponent>(this));
+		ar(CEREAL_NVP(_sceneToLoad));
+	};
+
+	template <class Archive>
+	void load(Archive& ar)
+	{
+		ar(cereal::base_class<ScriptableComponent>(this));
+		ar(CEREAL_NVP(_sceneToLoad));
+	};
 
 private:
 

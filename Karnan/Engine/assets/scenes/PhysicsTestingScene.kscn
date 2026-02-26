@@ -481,7 +481,7 @@
 							<value0>
 								<ComponentName>RotateGameObject</ComponentName>
 							</value0>
-							<RotationSpeed>0.10000000149011612</RotationSpeed>
+							<RotationSpeed>1</RotationSpeed>
 						</data>
 					</ptr_wrapper>
 				</ScriptComponent>
@@ -491,7 +491,10 @@
 					<ptr_wrapper>
 						<id>2147483669</id>
 						<data>
-							<ComponentName>End Goal</ComponentName>
+							<value0>
+								<ComponentName>End Goal</ComponentName>
+							</value0>
+							<_sceneToLoad>Level2</_sceneToLoad>
 						</data>
 					</ptr_wrapper>
 				</ScriptComponent>

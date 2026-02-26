@@ -17,6 +17,7 @@ private:
 	glm::vec3 _acceleration = { 0.0f, 0.0f, 0.0f };
 	glm::vec3 _gravity = { 0.0f, -9.81f, 0.0f };
 	float _maxSpeed = 12.0f;
+	float _maxYSpeed = 12.0f;
 
 	bool _grounded = false;
 
@@ -34,7 +35,6 @@ public:
 
 	bool IsGrounded() { return _grounded; };
 
-	void ImGuiRender();
 
 private:
 

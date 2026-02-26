@@ -43,18 +43,18 @@ void PlayerController::Update(float deltaTime)
     if (InputManagementSystem::Instance->GetKeyPressed(InputManagementSystem::SupportedKeys::d))
         moveDir -= leftVector;
 
-    if (moveDir.length() <= 0.0001f)
+    if (glm::length(moveDir) >= 0.0001f)
         moveDir = glm::normalize(moveDir);
 
     Physics* physicsComponent = static_cast<Physics*>(_gameobject->FindFirstComponentOfName("Physics"));
     if (physicsComponent == nullptr)
         return;
 
-    physicsComponent->AddAcceleration(moveDir * 10.0f);
+    physicsComponent->AddVelocity(moveDir);
 
     if (InputManagementSystem::Instance->GetKeyPressed(InputManagementSystem::SupportedKeys::space) && physicsComponent->IsGrounded() != false)
     {
-        physicsComponent->AddAcceleration({ 0.0f, 1000.0f, 0.0f });
+        physicsComponent->AddVelocity({ 0.0f, 100.0f , 0.0f });
     }
 
 }

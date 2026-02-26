@@ -230,6 +230,9 @@ void EditorDetailsPanel::DisplayGameObject()
 		{
 			lastHighlightedGO->RemoveComponent(index);
 		}
+		ImGui::Separator();
+		component->ImGuiRender();
+		ImGui::Separator();
 		ImGui::PopID();
 		index++;
 	}

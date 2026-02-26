@@ -13,4 +13,9 @@ void RotateGameObject::Update(float deltaTime)
 
 }
 
+void RotateGameObject::ImGuiRender()
+{
+	ImGui::DragFloat("Rotation Speed", &RotationSpeed, 0.0f);
+}
+
 CEREAL_REGISTER_DYNAMIC_INIT(RotateGameObject)

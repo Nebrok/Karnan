@@ -40,10 +40,17 @@ void EndGoal::Update(float deltaTime)
 	{
 		if (collision.GameobjectB->HasTag("Player"))
 		{
-			EngineCore::Instance->LoadScene("Level2");
+			EngineCore::Instance->LoadScene(_sceneToLoad);
 		}
 	}
 
+}
+
+void EndGoal::ImGuiRender()
+{
+	std::string sceneName = _sceneToLoad.c_str();
+	ImGui::InputText("Scene To Load", &sceneName);
+	_sceneToLoad = sceneName;
 }
 
 
