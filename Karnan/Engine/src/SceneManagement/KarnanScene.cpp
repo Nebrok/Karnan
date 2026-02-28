@@ -202,6 +202,20 @@ void KarnanScene::CleanScene()
 	_gameObjectsToBeDeleted.clear();
 }
 
+std::vector<std::shared_ptr<GameObject>> KarnanScene::GetAllGameObjectsWithTag(std::string tag)
+{
+	std::vector<std::shared_ptr<GameObject>> taggedGameobjects;
+	for (auto gameObject : _gameObjects)
+	{
+		if (gameObject->IsDead())
+			continue;
+		if (gameObject->HasTag(tag))
+			taggedGameobjects.push_back(gameObject);
+	}
+
+	return taggedGameobjects;
+}
+
 void KarnanScene::SerialiseScene()
 {
 	SceneDataObject sceneData;

@@ -35,6 +35,7 @@ public:
 	void DeleteGO(uint32_t goID);
 	void CleanScene();
 	std::vector<std::shared_ptr<GameObject>> GetAllGameObjects() { return _gameObjects; };
+	std::vector<std::shared_ptr<GameObject>> GetAllGameObjectsWithTag(std::string tag);
 
 	void SerialiseScene();
 	

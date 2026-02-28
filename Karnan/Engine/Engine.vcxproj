@@ -175,6 +175,7 @@
     <ClCompile Include="src\KarnanPipeline.cpp" />
     <ClCompile Include="src\KarnanRenderer.cpp" />
     <ClCompile Include="src\Lights\PointLight.cpp" />
+    <ClCompile Include="src\PersistentStore.cpp" />
     <ClCompile Include="src\Physics\Colliders.cpp" />
     <ClCompile Include="src\Physics\KarnanPhysics.cpp" />
     <ClCompile Include="src\SceneManagement\KarnanScene.cpp" />
@@ -196,6 +197,7 @@
     <ClCompile Include="src\Scripting\ScriptComponent.cpp" />
     <ClCompile Include="src\SimpleRenderSystem.cpp" />
     <ClCompile Include="src\SpecialGameObjects\PlayerObject.cpp" />
+    <ClCompile Include="src\SpecialGameObjects\Stopwatch.cpp" />
     <ClCompile Include="src\SpecialGameObjects\TerrainObject.cpp" />
     <ClCompile Include="src\Threading\KarnanMutex.cpp" />
     <ClCompile Include="src\VertexBuffer.cpp" />
@@ -226,6 +228,7 @@
     <ClInclude Include="src\KarnanLightsUBO.h" />
     <ClInclude Include="src\Lights\PointLight.h" />
     <ClInclude Include="src\MessagingSystem\AssetManagerMessages.h" />
+    <ClInclude Include="src\PersistentStore.h" />
     <ClInclude Include="src\Physics\Colliders.h" />
     <ClInclude Include="src\Physics\KarnanPhysics.h" />
     <ClInclude Include="src\SceneManagement\SceneDataObject.h" />
@@ -242,6 +245,7 @@
     <ClInclude Include="src\Scripting\ScriptingIncludes.h" />
     <ClInclude Include="src\Serialisation\DefinitionsKarnanCereal.h" />
     <ClInclude Include="src\SpecialGameObjects\PlayerObject.h" />
+    <ClInclude Include="src\SpecialGameObjects\Stopwatch.h" />
     <ClInclude Include="src\SpecialGameObjects\TerrainObject.h" />
     <ClInclude Include="src\Threading\IThreadableProcess.h" />
     <ClInclude Include="src\KarnanBuffer.h" />

@@ -27,6 +27,18 @@ std::vector<std::shared_ptr<GameObject>> EngineCore::GetAllGameObjectsInActiveSc
 	return Instance->_scene->GetAllGameObjects();
 }
 
+std::vector<std::shared_ptr<GameObject>> EngineCore::GetAllGameObjectsInActiveSceneWithName(std::string objectName)
+{
+	std::vector<std::shared_ptr<GameObject>> gameObjects;
+	for (auto gameobject : GetAllGameObjectsInActiveScene())
+	{
+		if (gameobject->ObjectName.compare(objectName) == 0)
+			gameObjects.push_back(gameobject);
+	}
+
+	return gameObjects;
+}
+
 std::string EngineCore::GetSceneName()
 {
 	

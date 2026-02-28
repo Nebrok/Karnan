@@ -186,6 +186,12 @@
     <ClCompile Include="src\Scripting\Enemy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\SpecialGameObjects\Stopwatch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PersistentStore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\KarnanWindow.h">
@@ -387,6 +393,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Scripting\Enemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SpecialGameObjects\Stopwatch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PersistentStore.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

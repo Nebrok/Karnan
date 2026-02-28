@@ -73,7 +73,11 @@ public:
 	static GLFWwindow* Window() { return Instance->_windowRef; };
 	static bool AddGameObjectToActiveScene(std::shared_ptr<GameObject> gameObject);
 	static void DeleteGOFromActiveScene(uint32_t id);
+
 	static std::vector<std::shared_ptr<GameObject>> GetAllGameObjectsInActiveScene();
+	static std::vector<std::shared_ptr<GameObject>> GetAllGameObjectsInActiveSceneWithName(std::string);
+
+
 	static std::string GetSceneName();
 	static void SetSceneName(std::string sceneName);
 	static KarnanScene* GetActiveScenePointer() { return Instance->_scene.get(); };

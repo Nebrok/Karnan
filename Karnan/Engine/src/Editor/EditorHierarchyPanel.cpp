@@ -5,6 +5,7 @@
 #include "../Lights/PointLight.h"
 #include "../SpecialGameObjects/TerrainObject.h"
 #include "../SpecialGameObjects/PlayerObject.h"
+#include "../SpecialGameObjects/Stopwatch.h"
 
 
 void EditorHierarchyPanel::OnImGUIRender()
@@ -78,6 +79,14 @@ void EditorHierarchyPanel::ContextMenu()
 		newPlayer->Transform.Translation = { 0.0f, 0.0f, 0.0f };
 		newPlayer->Transform.Scale = { 1.0f, 1.0f, 1.0f };
 		EngineCore::Instance->AddGameObjectToActiveScene(std::shared_ptr<PlayerObject>(newPlayer));
+	}
+	if (ImGui::Button("Create New Stopwatch"))
+	{
+		Stopwatch* newStopwatch = DBG_NEW Stopwatch();
+		newStopwatch->Init();
+		newStopwatch->Transform.Translation = { 0.0f, 0.0f, 0.0f };
+		newStopwatch->Transform.Scale = { 1.0f, 1.0f, 1.0f };
+		EngineCore::Instance->AddGameObjectToActiveScene(std::shared_ptr<Stopwatch>(newStopwatch));
 	}
 	ImGui::EndPopup();
 }
