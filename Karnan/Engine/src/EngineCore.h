@@ -19,6 +19,7 @@
 #include "MeshLoadingSystem.h"
 #include "AssetManagement/AssetManager.h"
 #include "Physics/KarnanPhysics.h"
+#include "PersistentStore.h"
 
 
 const int WIDTH = 800;
@@ -45,6 +46,7 @@ private:
 	std::unique_ptr<DeferredRenderSystem> _renderSystem;
 	std::unique_ptr<KarnanScene> _scene;
 	std::unique_ptr<KarnanPhysics> _physicsEngine;
+	std::shared_ptr<PersistentStore> _persistentStore;
 
 	bool _editorMode = false;
 	KarnanEditor* _editor;
@@ -67,6 +69,7 @@ public:
 
 	void SetEditorMode(KarnanEditor* editor);
 
+	std::shared_ptr<PersistentStore> GetPersistentStore() { return _persistentStore; };
 
 	static KarnanDevice& Device() { return Instance->_karnanDevice; };
 	static KarnanRenderer& Renderer() { return Instance->_karnanRenderer; };

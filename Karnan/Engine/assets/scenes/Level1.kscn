@@ -1,4 +1,4 @@
-10
+11
 <?xml version="1.0" encoding="utf-8"?>
 <cereal>
 	<value0>
@@ -10,9 +10,9 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>7.8344016075134277</value0>
+							<value0>7.1637134552001953</value0>
 							<value1>10.164240837097168</value1>
-							<value2>-1.7320326566696167</value2>
+							<value2>2.5236442089080811</value2>
 						</Translation>
 						<Rotation>
 							<value0>0.47508367896080017</value0>
@@ -559,5 +559,57 @@
 			</data>
 		</ptr_wrapper>
 	</value9>
+	<value10>
+		<polymorphic_id>2147483660</polymorphic_id>
+		<polymorphic_name>Stopwatch</polymorphic_name>
+		<ptr_wrapper>
+			<id>2147483672</id>
+			<data>
+				<value0>
+					<Transform>
+						<Translation>
+							<value0>-9.6599998474121094</value0>
+							<value1>10.739999771118164</value1>
+							<value2>6.0100002288818359</value2>
+						</Translation>
+						<Rotation>
+							<value0>0</value0>
+							<value1>0</value1>
+							<value2>0</value2>
+						</Rotation>
+						<Scale>
+							<value0>5</value0>
+							<value1>5</value1>
+							<value2>5</value2>
+						</Scale>
+					</Transform>
+					<Object_Name>Stopwatch</Object_Name>
+					<Mesh_Name>assets/models/ClockBody.obj</Mesh_Name>
+					<Material_Name>assets/materials/White50%Shiny.kmat</Material_Name>
+					<Collider_active>false</Collider_active>
+					<Collider>
+						<polymorphic_id>6</polymorphic_id>
+						<ptr_wrapper>
+							<id>2147483673</id>
+							<data>
+								<value0>
+									<Type>2</Type>
+									<Offset>
+										<value0>0</value0>
+										<value1>0</value1>
+										<value2>0</value2>
+									</Offset>
+								</value0>
+								<Radius>0.5</Radius>
+							</data>
+						</ptr_wrapper>
+					</Collider>
+					<NumberComponents>0</NumberComponents>
+				</value0>
+				<Level>1</Level>
+				<IsDisplay>false</IsDisplay>
+			</data>
+		</ptr_wrapper>
+	</value10>
 </cereal>
 

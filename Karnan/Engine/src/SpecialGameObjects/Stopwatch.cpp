@@ -1,10 +1,13 @@
 #include "Stopwatch.h"
 
-#include "../EngineCore.h"
-
 #include "glm/gtc/quaternion.hpp"
 #define GLM_ENABLE_EXPERIMENTAL
 #include "glm/gtx/euler_angles.hpp"
+
+#include "../EngineCore.h"
+#include "../PersistentStore.h"
+
+
 
 Stopwatch::Stopwatch()
 	: GameObject("Stopwatch")
@@ -13,6 +16,47 @@ Stopwatch::Stopwatch()
 
 Stopwatch::~Stopwatch()
 {
+	if (IsDisplay)
+		return;
+
+	auto currentTime = std::chrono::high_resolution_clock::now();
+	float numSeconds = std::chrono::duration<float, std::chrono::seconds::period>(currentTime - _clockStartTime).count();
+	_totalSeconds = numSeconds;
+
+	float currentSaved = FLT_MIN;
+	switch (Level)
+	{
+	case 1:
+		currentSaved = EngineCore::Instance->GetPersistentStore()->LevelOneTime;
+		break;
+	case 2:
+		currentSaved = EngineCore::Instance->GetPersistentStore()->LevelTwoTime;
+		break;
+	case 3:
+		currentSaved = EngineCore::Instance->GetPersistentStore()->LevelThreeTime;
+		break;
+	default:
+		break;
+	}
+
+	if (!(_totalSeconds < currentSaved))
+		return;
+
+	switch (Level)
+	{
+	case 1:
+		EngineCore::Instance->GetPersistentStore()->LevelOneTime = _totalSeconds;
+		break;
+	case 2:
+		EngineCore::Instance->GetPersistentStore()->LevelTwoTime = _totalSeconds;
+		break;
+	case 3:
+		EngineCore::Instance->GetPersistentStore()->LevelThreeTime = _totalSeconds;
+		break;
+	default:
+		break;
+	}
+
 }
 
 void Stopwatch::Init()
@@ -40,6 +84,7 @@ void Stopwatch::Start()
 	{
 		GameObject* minuteHand = DBG_NEW GameObject(minuteHandName.c_str());
 		minuteHand->Init();
+		minuteHand->Transform.Scale = Transform.Scale;
 		minuteHand->CreateMesh("./assets/models/HourHand.obj");
 		minuteHand->CreateMaterial("assets/materials/ShinyBlack.kmat");
 		EngineCore::AddGameObjectToActiveScene(std::shared_ptr<GameObject>(minuteHand));
@@ -55,6 +100,7 @@ void Stopwatch::Start()
 	{
 		GameObject* secondHand = DBG_NEW GameObject(secondHandName.c_str());
 		secondHand->Init();
+		secondHand->Transform.Scale = Transform.Scale;
 		secondHand->CreateMesh("./assets/models/SecondHand.obj");
 		secondHand->CreateMaterial("assets/materials/ShinyBlack.kmat");
 		EngineCore::AddGameObjectToActiveScene(std::shared_ptr<GameObject>(secondHand));
@@ -73,8 +119,33 @@ void Stopwatch::Update(double deltaTime)
 	float numSeconds = std::chrono::duration<float, std::chrono::seconds::period>(currentTime - _clockStartTime).count();
 	_totalSeconds = numSeconds;
 
-	float secondHandRotationX = (int)_totalSeconds * 1.0f/60.0f * 2 * glm::pi<float>();
-	float minuteHandRotationX = (int)(_totalSeconds/60.0f) * 1.0f/60.0f * 2 * glm::pi<float>();
+
+	if (IsDisplay)
+	{
+		switch (Level)
+		{
+		case 1:
+			_totalSeconds = EngineCore::Instance->GetPersistentStore()->LevelOneTime;
+			break;
+		case 2:
+			_totalSeconds = EngineCore::Instance->GetPersistentStore()->LevelTwoTime;
+			break;
+		case 3:
+			_totalSeconds = EngineCore::Instance->GetPersistentStore()->LevelThreeTime;
+			break;
+		default:
+			break;
+		}
+	}
+
+
+	UpdateHands();
+}
+
+void Stopwatch::UpdateHands()
+{
+	float secondHandRotationX = (int)_totalSeconds * 1.0f / 60.0f * 2 * glm::pi<float>();
+	float minuteHandRotationX = (int)(_totalSeconds / 60.0f) * 1.0f / 60.0f * 2 * glm::pi<float>();
 
 	glm::quat quatAroundX = glm::angleAxis(Transform.Rotation.x, glm::vec3(1.0f, 0.0f, 0.0f));
 	glm::quat quatAroundY = glm::angleAxis(Transform.Rotation.y, glm::vec3(0.0f, 1.0f, 0.0f));
@@ -88,7 +159,7 @@ void Stopwatch::Update(double deltaTime)
 	glm::quat secondHandfinalRotation = baseRotation * secondHandLocalQuat;
 	glm::quat minuteHandfinalRotation = baseRotation * minuteHandLocalQuat;
 
-	
+
 	glm::vec3 finalRotationSecondHandEuler;
 	glm::extractEulerAngleYXZ(glm::mat4_cast(secondHandfinalRotation), finalRotationSecondHandEuler.y, finalRotationSecondHandEuler.x, finalRotationSecondHandEuler.z);
 	_secondHand->Transform.Rotation = finalRotationSecondHandEuler;

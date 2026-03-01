@@ -10,6 +10,7 @@
 #include "../GameObject.h"
 #include "../SpecialGameObjects/TerrainObject.h"
 #include "../SpecialGameObjects/PlayerObject.h"
+#include "../SpecialGameObjects/Stopwatch.h"
 
 #include "../Physics/Colliders.h"
 
@@ -49,6 +50,9 @@ void EditorDetailsPanel::OnImGUIRender()
 		break;
 	case KarnanEditor::DetailsPanelTypes::PLAYER_OBJECT:
 		DisplayPlayerObject();
+		break;
+	case KarnanEditor::DetailsPanelTypes::STOPWATCH:
+		DisplayStopwatch();
 		break;
 	}
 	ImGui::End();
@@ -422,6 +426,11 @@ void EditorDetailsPanel::DisplayLights()
 	}
 	ChangeMaterialButton();
 
+	ImGui::SeparatorText("WARNING");
+	if (ImGui::Button("Delete GameObject"))
+	{
+		DeleteGameObject(lastHighlightedGO);
+	}
 }
 
 void EditorDetailsPanel::DisplayCamera()
@@ -551,6 +560,82 @@ void EditorDetailsPanel::DisplayTerrainObject()
 
 void EditorDetailsPanel::DisplayPlayerObject()
 {
+}
+
+void EditorDetailsPanel::DisplayStopwatch()
+{
+	Stopwatch* lastHighlightedGO = (Stopwatch*)KarnanEditor::Instance->GetCurrentSelectedItem();
+	if (lastHighlightedGO == nullptr)
+	{
+		return;
+	}
+
+	ImGui::Text("Gameobject");
+	ImGui::Separator();
+
+	ImGui::SeparatorText("Game Object Name");
+	std::string GOName = lastHighlightedGO->ObjectName;
+	ImGui::InputText("Object Name", &GOName);
+	lastHighlightedGO->SetGOName(GOName);
+	ImGui::SeparatorText("Transform");
+
+	ImGui::DragFloat3("Translation:", glm::value_ptr(lastHighlightedGO->Transform.Translation), 0.01f);
+	ImGui::DragFloat3("Rotation:", glm::value_ptr(lastHighlightedGO->Transform.Rotation), 0.01f);
+	ImGui::DragFloat3("Scale:", glm::value_ptr(lastHighlightedGO->Transform.Scale), 0.01f);
+
+	ImGui::SeparatorText("Mesh");
+	ImGui::Text("Mesh Name: ");
+	ImGui::Text(lastHighlightedGO->GetMeshName().c_str());
+	if (ImGui::BeginPopupContextItem("ChangeMeshPopup"))
+	{
+		ImGui::SeparatorText("Choose new mesh");
+		ImGui::BeginChild("Mesh List", ImVec2(250.0f, 100.0f), true, ImGuiWindowFlags_AlwaysVerticalScrollbar);
+		std::vector<std::string> meshNames = AssetManager::Instance->FindMeshBinariesInAssetFolder();
+		for (auto meshName : meshNames)
+		{
+			if (ImGui::Selectable(meshName.c_str()))
+			{
+				lastHighlightedGO->CreateMesh(meshName);
+			}
+		}
+		ImGui::EndChild();
+		ImGui::EndPopup();
+	}
+	ChangeMeshButton();
+
+	ImGui::SeparatorText("Material");
+	ImGui::Text("Material Name: ");
+	ImGui::Text(lastHighlightedGO->GetMaterialName().c_str());
+	if (ImGui::BeginPopupContextItem("ChangeMaterialPopup"))
+	{
+		ImGui::SeparatorText("Choose new material");
+		ImGui::BeginChild("Material List", ImVec2(250.0f, 100.0f), true, ImGuiWindowFlags_AlwaysVerticalScrollbar);
+		std::vector<std::string> materialNames = AssetManager::Instance->FindMaterialPathsInAssetFolder();
+		for (auto materialName : materialNames)
+		{
+			if (ImGui::Selectable(materialName.c_str()))
+			{
+				lastHighlightedGO->CreateMaterial(materialName);
+			}
+		}
+		ImGui::EndChild();
+		ImGui::EndPopup();
+	}
+	ChangeMaterialButton();
+
+
+	ImGui::SeparatorText("Stopwatch");
+	ImGui::Checkbox("Is Display Clock", &lastHighlightedGO->IsDisplay);
+	ImGui::InputInt("Stopwatch Level Reference", &lastHighlightedGO->Level);
+
+
+
+
+	ImGui::SeparatorText("WARNING");
+	if (ImGui::Button("Delete GameObject"))
+	{
+		DeleteGameObject(lastHighlightedGO);
+	}
 }
 
 void EditorDetailsPanel::SaveMaterialChanges()

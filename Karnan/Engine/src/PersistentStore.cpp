@@ -3,38 +3,35 @@
 #include <sstream>
 #include <fstream>
 
-PersistentStore* PersistentStore::Instance = nullptr;
-
-PersistentStore::PersistentStore()
-{
-
-}
-
-PersistentStore::~PersistentStore()
-{
-}
+#include "EngineCore.h"
 
 void PersistentStore::SaveStore()
-{
+{	
 	std::stringstream ss;
 
+	{
 	cereal::XMLOutputArchive oarchive(ss);
 
-	oarchive(std::shared_ptr<PersistentStore>(Instance));
+	oarchive(LevelOneTime);
+	oarchive(LevelTwoTime);
+	oarchive(LevelThreeTime);
+	}
+
 
 	std::ofstream outFile;
-	outFile.open("./defaults/PersistentStore.pst");
+	outFile.open("./defaults/PersistentStore.kpst");
 	outFile << ss.rdbuf();
 	outFile.close();
 
-	return;
+	return;	
 }
 
 void PersistentStore::LoadStore()
 {
+	
 	std::stringstream ss;
 
-	std::ifstream inFile("./defaults/PersistentStore.pst");
+	std::ifstream inFile("./defaults/PersistentStore.kpst");
 	if (inFile)
 	{
 		ss << inFile.rdbuf();
@@ -42,12 +39,14 @@ void PersistentStore::LoadStore()
 	else
 	{
 		std::cout << "Could not open store: " << '\n';
+		return;
 	}
-
+	inFile.close();
 	cereal::XMLInputArchive ar(ss);
 
-	ar(std::shared_ptr<PersistentStore>(Instance));
-
+	ar(LevelOneTime);
+	ar(LevelTwoTime);
+	ar(LevelThreeTime);
 
 	return;
 }

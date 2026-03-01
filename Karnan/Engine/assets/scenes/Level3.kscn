@@ -1,4 +1,4 @@
-23
+24
 <?xml version="1.0" encoding="utf-8"?>
 <cereal>
 	<value0>
@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>40.609176635742188</value0>
-							<value1>19.708395004272461</value1>
-							<value2>-41.878162384033203</value2>
+							<value0>1.8133454322814941</value0>
+							<value1>47.528049468994141</value1>
+							<value2>-6.4376111030578613</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.46624788641929626</value0>
-							<value1>5.037144660949707</value1>
+							<value0>0.55586057901382446</value0>
+							<value1>5.6609582901000977</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -1317,5 +1317,57 @@
 			</data>
 		</ptr_wrapper>
 	</value22>
+	<value23>
+		<polymorphic_id>2147483664</polymorphic_id>
+		<polymorphic_name>Stopwatch</polymorphic_name>
+		<ptr_wrapper>
+			<id>2147483706</id>
+			<data>
+				<value0>
+					<Transform>
+						<Translation>
+							<value0>-16.309999465942383</value0>
+							<value1>40.959999084472656</value1>
+							<value2>48.470001220703125</value2>
+						</Translation>
+						<Rotation>
+							<value0>0</value0>
+							<value1>1.5700000524520874</value1>
+							<value2>0</value2>
+						</Rotation>
+						<Scale>
+							<value0>25</value0>
+							<value1>25</value1>
+							<value2>25</value2>
+						</Scale>
+					</Transform>
+					<Object_Name>Stopwatch</Object_Name>
+					<Mesh_Name>assets/models/ClockBody.obj</Mesh_Name>
+					<Material_Name>assets/materials/White50%Shiny.kmat</Material_Name>
+					<Collider_active>false</Collider_active>
+					<Collider>
+						<polymorphic_id>6</polymorphic_id>
+						<ptr_wrapper>
+							<id>2147483707</id>
+							<data>
+								<value0>
+									<Type>2</Type>
+									<Offset>
+										<value0>0</value0>
+										<value1>0</value1>
+										<value2>0</value2>
+									</Offset>
+								</value0>
+								<Radius>0.5</Radius>
+							</data>
+						</ptr_wrapper>
+					</Collider>
+					<NumberComponents>0</NumberComponents>
+				</value0>
+				<Level>3</Level>
+				<IsDisplay>false</IsDisplay>
+			</data>
+		</ptr_wrapper>
+	</value23>
 </cereal>
 

@@ -80,7 +80,7 @@ void EngineCore::Init()
 {
 	ScriptRegister::RegisterTypes();
 
-
+	_persistentStore = std::unique_ptr<PersistentStore>(DBG_NEW PersistentStore());
 	_meshLoadingSystem = MeshLoadingSystem::StartMeshLoadingSystem();
 	_assetManager = AssetManager::StartupAssetManager();
 	_inputManagementSystem = std::unique_ptr<InputManagementSystem>(InputManagementSystem::StartupInputManagementSystem());
@@ -95,7 +95,7 @@ void EngineCore::Run()
 		_karnanRenderer.GetSwapChain(),
 		KarnanSwapChain::MAX_FRAMES_IN_FLIGHT));
 
-
+	_persistentStore->LoadStore();
 	_meshLoadingSystem->BeginProcessAsSeperateThread();
 
 	std::shared_ptr<MLSGenerateBinaries> message = std::shared_ptr<MLSGenerateBinaries>(DBG_NEW MLSGenerateBinaries(Message::System::NONE));
@@ -177,6 +177,8 @@ void EngineCore::Run()
 	}
 	if (!_playMode)
 		_scene->SerialiseScene();
+	_persistentStore->SaveStore();
+
 
 	vkDeviceWaitIdle(_karnanDevice.Device());
 

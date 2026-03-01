@@ -35,6 +35,7 @@ private:
 	void DisplayCamera();
 	void DisplayTerrainObject();
 	void DisplayPlayerObject();
+	void DisplayStopwatch();
 
 	void SaveMaterialChanges();
 	void DiscardMaterialChanges();

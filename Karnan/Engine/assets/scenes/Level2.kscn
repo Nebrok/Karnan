@@ -1,4 +1,4 @@
-24
+25
 <?xml version="1.0" encoding="utf-8"?>
 <cereal>
 	<value0>
@@ -10,12 +10,12 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>19.433977127075195</value0>
-							<value1>12.802911758422852</value1>
-							<value2>-40.054283142089844</value2>
+							<value0>0.84640979766845703</value0>
+							<value1>39.938621520996094</value1>
+							<value2>-2.5020465850830078</value2>
 						</Translation>
 						<Rotation>
-							<value0>-0.078124046325683594</value0>
+							<value0>0.73412734270095825</value0>
 							<value1>6.2724180221557617</value1>
 							<value2>0</value2>
 						</Rotation>
@@ -1305,5 +1305,57 @@
 			</data>
 		</ptr_wrapper>
 	</value23>
+	<value24>
+		<polymorphic_id>2147483663</polymorphic_id>
+		<polymorphic_name>Stopwatch</polymorphic_name>
+		<ptr_wrapper>
+			<id>2147483703</id>
+			<data>
+				<value0>
+					<Transform>
+						<Translation>
+							<value0>0</value0>
+							<value1>37.139999389648438</value1>
+							<value2>49.470001220703125</value2>
+						</Translation>
+						<Rotation>
+							<value0>0</value0>
+							<value1>1.5399999618530273</value1>
+							<value2>0</value2>
+						</Rotation>
+						<Scale>
+							<value0>10</value0>
+							<value1>10</value1>
+							<value2>10</value2>
+						</Scale>
+					</Transform>
+					<Object_Name>Stopwatch</Object_Name>
+					<Mesh_Name>assets/models/ClockBody.obj</Mesh_Name>
+					<Material_Name>assets/materials/White50%Shiny.kmat</Material_Name>
+					<Collider_active>false</Collider_active>
+					<Collider>
+						<polymorphic_id>6</polymorphic_id>
+						<ptr_wrapper>
+							<id>2147483704</id>
+							<data>
+								<value0>
+									<Type>2</Type>
+									<Offset>
+										<value0>0</value0>
+										<value1>0</value1>
+										<value2>0</value2>
+									</Offset>
+								</value0>
+								<Radius>0.5</Radius>
+							</data>
+						</ptr_wrapper>
+					</Collider>
+					<NumberComponents>0</NumberComponents>
+				</value0>
+				<Level>2</Level>
+				<IsDisplay>false</IsDisplay>
+			</data>
+		</ptr_wrapper>
+	</value24>
 </cereal>
 

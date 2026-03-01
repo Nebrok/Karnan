@@ -12,6 +12,7 @@
 class PointLight;
 class KarnanCamera;
 class TerrainObject;
+class Stopwatch;
 
 class KarnanEditor
 {
@@ -24,7 +25,8 @@ public:
 		POINT_LIGHT,
 		MATERIAL,
 		TERRAIN_OBJECT,
-		PLAYER_OBJECT
+		PLAYER_OBJECT,
+		STOPWATCH
 	};	
 
 	static KarnanEditor* Instance;
@@ -62,6 +64,7 @@ public:
 	void SetMaterialAsSelected(std::string filepath);
 	void SetCameraAsSelected(KarnanCamera* camera);
 	void SetTerrainObjectAsSelected(TerrainObject* terrain);
+	void SetStopwatchAsSelected(Stopwatch* stopwatch);
 
 	DetailsPanelTypes GetCurrentSelectedType() const { return _currentSelectedType; };
 	void* GetCurrentSelectedItem() const { return _lastSelectedItem; };

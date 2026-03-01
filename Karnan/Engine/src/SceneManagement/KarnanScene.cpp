@@ -106,8 +106,10 @@ void KarnanScene::LoadScene(SceneDataObject& sceneData)
 
 void KarnanScene::UpdateScene(double deltaTime)
 {
-	for (auto gameObject : _gameObjects)
+
+	for (int i = 0; i < _gameObjects.size(); i++)
 	{
+		GameObject* gameObject = _gameObjects[i].get();
 		if (gameObject->IsDead())
 			continue;
 		if (gameObject->HasTag("Main Camera"))

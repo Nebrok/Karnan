@@ -10,13 +10,13 @@
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>0.86311638355255127</value0>
-							<value1>3.4496080875396729</value1>
-							<value2>-2.4205608367919922</value2>
+							<value0>0.32579335570335388</value0>
+							<value1>6.3388891220092773</value1>
+							<value2>-9.0574283599853516</value2>
 						</Translation>
 						<Rotation>
-							<value0>0.30998116731643677</value0>
-							<value1>6.0190720558166504</value1>
+							<value0>0.55515146255493164</value0>
+							<value1>6.119163990020752</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
@@ -91,7 +91,7 @@
 					<NumberComponents>0</NumberComponents>
 				</value0>
 				<HeightMapFilepath>assets/textures/Black.png</HeightMapFilepath>
-				<MaxHeight>3</MaxHeight>
+				<MaxHeight>6</MaxHeight>
 				<Length>50</Length>
 				<Height>50</Height>
 			</data>
@@ -108,7 +108,7 @@
 						<Translation>
 							<value0>0</value0>
 							<value1>50</value1>
-							<value2>-23.309999465942383</value2>
+							<value2>-27.389999389648438</value2>
 						</Translation>
 						<Rotation>
 							<value0>0</value0>
@@ -140,22 +140,212 @@
 					<value1>0.10000000149011612</value1>
 					<value2>0.0099999997764825821</value2>
 				</_attenuation>
-				<_intensity>20.020000457763672</_intensity>
+				<_intensity>35</_intensity>
 			</data>
 		</ptr_wrapper>
 	</value2>
 	<value3>
-		<polymorphic_id>2147483653</polymorphic_id>
-		<polymorphic_name>PlayerObject</polymorphic_name>
+		<polymorphic_id>1073741824</polymorphic_id>
 		<ptr_wrapper>
 			<id>2147483653</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>-7</value0>
+						<value1>2</value1>
+						<value2>3</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>0.98000001907348633</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>2</value0>
+						<value1>2</value1>
+						<value2>-2</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Level1-Select</Object_Name>
+				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
+				<Material_Name>assets/materials/Level1.kmat</Material_Name>
+				<Collider_active>true</Collider_active>
+				<Collider>
+					<polymorphic_id>3</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483654</id>
+						<data>
+							<value0>
+								<Type>1</Type>
+								<Offset>
+									<value0>0</value0>
+									<value1>0</value1>
+									<value2>0</value2>
+								</Offset>
+							</value0>
+							<Extent>
+								<value0>2</value0>
+								<value1>2</value1>
+								<value2>2</value2>
+							</Extent>
+						</data>
+					</ptr_wrapper>
+				</Collider>
+				<NumberComponents>1</NumberComponents>
+				<ScriptComponent>
+					<polymorphic_id>2147483653</polymorphic_id>
+					<polymorphic_name>EndGoal</polymorphic_name>
+					<ptr_wrapper>
+						<id>2147483655</id>
+						<data>
+							<value0>
+								<ComponentName>End Goal</ComponentName>
+							</value0>
+							<_sceneToLoad>Level1</_sceneToLoad>
+						</data>
+					</ptr_wrapper>
+				</ScriptComponent>
+			</data>
+		</ptr_wrapper>
+	</value3>
+	<value4>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483656</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>0</value0>
+						<value1>2</value1>
+						<value2>5</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>-3.1500000953674316</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>-2</value0>
+						<value1>2</value1>
+						<value2>2</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Level2-Select</Object_Name>
+				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
+				<Material_Name>assets/materials/Level2.kmat</Material_Name>
+				<Collider_active>true</Collider_active>
+				<Collider>
+					<polymorphic_id>3</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483657</id>
+						<data>
+							<value0>
+								<Type>1</Type>
+								<Offset>
+									<value0>0</value0>
+									<value1>0</value1>
+									<value2>0</value2>
+								</Offset>
+							</value0>
+							<Extent>
+								<value0>2</value0>
+								<value1>2</value1>
+								<value2>2</value2>
+							</Extent>
+						</data>
+					</ptr_wrapper>
+				</Collider>
+				<NumberComponents>1</NumberComponents>
+				<ScriptComponent>
+					<polymorphic_id>5</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483658</id>
+						<data>
+							<value0>
+								<ComponentName>End Goal</ComponentName>
+							</value0>
+							<_sceneToLoad>Level2</_sceneToLoad>
+						</data>
+					</ptr_wrapper>
+				</ScriptComponent>
+			</data>
+		</ptr_wrapper>
+	</value4>
+	<value5>
+		<polymorphic_id>1073741824</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483659</id>
+			<data>
+				<Transform>
+					<Translation>
+						<value0>7</value0>
+						<value1>2</value1>
+						<value2>3</value2>
+					</Translation>
+					<Rotation>
+						<value0>0</value0>
+						<value1>2.2300000190734863</value1>
+						<value2>0</value2>
+					</Rotation>
+					<Scale>
+						<value0>2</value0>
+						<value1>2</value1>
+						<value2>-2</value2>
+					</Scale>
+				</Transform>
+				<Object_Name>Level3-Select</Object_Name>
+				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
+				<Material_Name>assets/materials/Level3.kmat</Material_Name>
+				<Collider_active>true</Collider_active>
+				<Collider>
+					<polymorphic_id>3</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483660</id>
+						<data>
+							<value0>
+								<Type>1</Type>
+								<Offset>
+									<value0>0</value0>
+									<value1>0</value1>
+									<value2>0</value2>
+								</Offset>
+							</value0>
+							<Extent>
+								<value0>2</value0>
+								<value1>2</value1>
+								<value2>2</value2>
+							</Extent>
+						</data>
+					</ptr_wrapper>
+				</Collider>
+				<NumberComponents>1</NumberComponents>
+				<ScriptComponent>
+					<polymorphic_id>5</polymorphic_id>
+					<ptr_wrapper>
+						<id>2147483661</id>
+						<data>
+							<value0>
+								<ComponentName>End Goal</ComponentName>
+							</value0>
+							<_sceneToLoad>Level3</_sceneToLoad>
+						</data>
+					</ptr_wrapper>
+				</ScriptComponent>
+			</data>
+		</ptr_wrapper>
+	</value5>
+	<value6>
+		<polymorphic_id>2147483654</polymorphic_id>
+		<polymorphic_name>PlayerObject</polymorphic_name>
+		<ptr_wrapper>
+			<id>2147483662</id>
 			<data>
 				<value0>
 					<Transform>
 						<Translation>
 							<value0>0</value0>
-							<value1>1.5900000333786011</value1>
-							<value2>0</value2>
+							<value1>1.1299999952316284</value1>
+							<value2>-3.2899999618530273</value2>
 						</Translation>
 						<Rotation>
 							<value0>0</value0>
@@ -173,10 +363,10 @@
 					<Material_Name>assets/materials/ShinyWhite.kmat</Material_Name>
 					<Collider_active>true</Collider_active>
 					<Collider>
-						<polymorphic_id>2147483654</polymorphic_id>
+						<polymorphic_id>2147483655</polymorphic_id>
 						<polymorphic_name>SphereCollider</polymorphic_name>
 						<ptr_wrapper>
-							<id>2147483654</id>
+							<id>2147483663</id>
 							<data>
 								<value0>
 									<Type>2</Type>
@@ -192,20 +382,20 @@
 					</Collider>
 					<NumberComponents>3</NumberComponents>
 					<ScriptComponent>
-						<polymorphic_id>2147483655</polymorphic_id>
+						<polymorphic_id>2147483656</polymorphic_id>
 						<polymorphic_name>CameraFollow</polymorphic_name>
 						<ptr_wrapper>
-							<id>2147483655</id>
+							<id>2147483664</id>
 							<data>
 								<ComponentName>Camera Follow Player</ComponentName>
 							</data>
 						</ptr_wrapper>
 					</ScriptComponent>
 					<ScriptComponent>
-						<polymorphic_id>2147483656</polymorphic_id>
+						<polymorphic_id>2147483657</polymorphic_id>
 						<polymorphic_name>PlayerController</polymorphic_name>
 						<ptr_wrapper>
-							<id>2147483656</id>
+							<id>2147483665</id>
 							<data>
 								<value0>
 									<ComponentName>PlayerController</ComponentName>
@@ -214,10 +404,10 @@
 						</ptr_wrapper>
 					</ScriptComponent>
 					<ScriptComponent>
-						<polymorphic_id>2147483657</polymorphic_id>
+						<polymorphic_id>2147483658</polymorphic_id>
 						<polymorphic_name>Physics</polymorphic_name>
 						<ptr_wrapper>
-							<id>2147483657</id>
+							<id>2147483666</id>
 							<data>
 								<ComponentName>Physics</ComponentName>
 							</data>
@@ -226,297 +416,29 @@
 				</value0>
 			</data>
 		</ptr_wrapper>
-	</value3>
-	<value4>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483658</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>-7</value0>
-						<value1>2</value1>
-						<value2>4</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0.89999997615814209</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>2</value0>
-						<value1>2</value1>
-						<value2>-2</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>StartBlock</Object_Name>
-				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
-				<Material_Name>assets/materials/Start.kmat</Material_Name>
-				<Collider_active>true</Collider_active>
-				<Collider>
-					<polymorphic_id>3</polymorphic_id>
-					<ptr_wrapper>
-						<id>2147483659</id>
-						<data>
-							<value0>
-								<Type>1</Type>
-								<Offset>
-									<value0>0</value0>
-									<value1>0</value1>
-									<value2>0</value2>
-								</Offset>
-							</value0>
-							<Extent>
-								<value0>2</value0>
-								<value1>2</value1>
-								<value2>2</value2>
-							</Extent>
-						</data>
-					</ptr_wrapper>
-				</Collider>
-				<NumberComponents>1</NumberComponents>
-				<ScriptComponent>
-					<polymorphic_id>2147483658</polymorphic_id>
-					<polymorphic_name>EndGoal</polymorphic_name>
-					<ptr_wrapper>
-						<id>2147483660</id>
-						<data>
-							<value0>
-								<ComponentName>End Goal</ComponentName>
-							</value0>
-							<_sceneToLoad>Level1</_sceneToLoad>
-						</data>
-					</ptr_wrapper>
-				</ScriptComponent>
-			</data>
-		</ptr_wrapper>
-	</value4>
-	<value5>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483661</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>7</value0>
-						<value1>2</value1>
-						<value2>4</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>2.2799999713897705</value1>
-						<value2>-1.5499999523162842</value2>
-					</Rotation>
-					<Scale>
-						<value0>-2</value0>
-						<value1>-2</value1>
-						<value2>-2</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>LevelSelect</Object_Name>
-				<Mesh_Name>assets/models/CubeFaceUvs.obj</Mesh_Name>
-				<Material_Name>assets/materials/LevelSelect.kmat</Material_Name>
-				<Collider_active>true</Collider_active>
-				<Collider>
-					<polymorphic_id>3</polymorphic_id>
-					<ptr_wrapper>
-						<id>2147483662</id>
-						<data>
-							<value0>
-								<Type>1</Type>
-								<Offset>
-									<value0>0</value0>
-									<value1>0</value1>
-									<value2>0</value2>
-								</Offset>
-							</value0>
-							<Extent>
-								<value0>2</value0>
-								<value1>2</value1>
-								<value2>2</value2>
-							</Extent>
-						</data>
-					</ptr_wrapper>
-				</Collider>
-				<NumberComponents>1</NumberComponents>
-				<ScriptComponent>
-					<polymorphic_id>10</polymorphic_id>
-					<ptr_wrapper>
-						<id>2147483663</id>
-						<data>
-							<value0>
-								<ComponentName>End Goal</ComponentName>
-							</value0>
-							<_sceneToLoad>LevelSelect</_sceneToLoad>
-						</data>
-					</ptr_wrapper>
-				</ScriptComponent>
-			</data>
-		</ptr_wrapper>
-	</value5>
-	<value6>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483664</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>0</value0>
-						<value1>3.1700000762939453</value1>
-						<value2>0</value2>
-					</Translation>
-					<Rotation>
-						<value0>0</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>NewGameObject</Object_Name>
-				<Mesh_Name>assets/models/ClockBody.obj</Mesh_Name>
-				<Material_Name>assets/materials/ClockFace.kmat</Material_Name>
-				<Collider_active>false</Collider_active>
-				<Collider>
-					<polymorphic_id>6</polymorphic_id>
-					<ptr_wrapper>
-						<id>2147483665</id>
-						<data>
-							<value0>
-								<Type>2</Type>
-								<Offset>
-									<value0>0</value0>
-									<value1>0</value1>
-									<value2>0</value2>
-								</Offset>
-							</value0>
-							<Radius>0.5</Radius>
-						</data>
-					</ptr_wrapper>
-				</Collider>
-				<NumberComponents>0</NumberComponents>
-			</data>
-		</ptr_wrapper>
 	</value6>
 	<value7>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483666</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>0</value0>
-						<value1>3.1700000762939453</value1>
-						<value2>0</value2>
-					</Translation>
-					<Rotation>
-						<value0>0.62000000476837158</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>NewGameObject</Object_Name>
-				<Mesh_Name>assets/models/SecondHand.obj</Mesh_Name>
-				<Material_Name>assets/materials/ShinyBlack.kmat</Material_Name>
-				<Collider_active>false</Collider_active>
-				<Collider>
-					<polymorphic_id>6</polymorphic_id>
-					<ptr_wrapper>
-						<id>2147483667</id>
-						<data>
-							<value0>
-								<Type>2</Type>
-								<Offset>
-									<value0>0</value0>
-									<value1>0</value1>
-									<value2>0</value2>
-								</Offset>
-							</value0>
-							<Radius>0.5</Radius>
-						</data>
-					</ptr_wrapper>
-				</Collider>
-				<NumberComponents>0</NumberComponents>
-			</data>
-		</ptr_wrapper>
-	</value7>
-	<value8>
-		<polymorphic_id>1073741824</polymorphic_id>
-		<ptr_wrapper>
-			<id>2147483668</id>
-			<data>
-				<Transform>
-					<Translation>
-						<value0>0</value0>
-						<value1>3.1700000762939453</value1>
-						<value2>0</value2>
-					</Translation>
-					<Rotation>
-						<value0>-0.079999998211860657</value0>
-						<value1>0</value1>
-						<value2>0</value2>
-					</Rotation>
-					<Scale>
-						<value0>1</value0>
-						<value1>1</value1>
-						<value2>1</value2>
-					</Scale>
-				</Transform>
-				<Object_Name>HourHand</Object_Name>
-				<Mesh_Name>assets/models/HourHand.obj</Mesh_Name>
-				<Material_Name>assets/materials/ShinyBlack.kmat</Material_Name>
-				<Collider_active>false</Collider_active>
-				<Collider>
-					<polymorphic_id>6</polymorphic_id>
-					<ptr_wrapper>
-						<id>2147483669</id>
-						<data>
-							<value0>
-								<Type>2</Type>
-								<Offset>
-									<value0>0</value0>
-									<value1>0</value1>
-									<value2>0</value2>
-								</Offset>
-							</value0>
-							<Radius>0.5</Radius>
-						</data>
-					</ptr_wrapper>
-				</Collider>
-				<NumberComponents>0</NumberComponents>
-			</data>
-		</ptr_wrapper>
-	</value8>
-	<value9>
 		<polymorphic_id>2147483659</polymorphic_id>
 		<polymorphic_name>Stopwatch</polymorphic_name>
 		<ptr_wrapper>
-			<id>2147483670</id>
+			<id>2147483667</id>
 			<data>
 				<value0>
 					<Transform>
 						<Translation>
-							<value0>0</value0>
-							<value1>2.4100000858306885</value1>
-							<value2>-2.2300000190734863</value2>
+							<value0>-6.9800000190734863</value0>
+							<value1>5.5</value1>
+							<value2>3.0699999332427979</value2>
 						</Translation>
 						<Rotation>
 							<value0>0</value0>
-							<value1>0</value1>
+							<value1>0.97000002861022949</value1>
 							<value2>0</value2>
 						</Rotation>
 						<Scale>
-							<value0>1</value0>
-							<value1>1</value1>
-							<value2>1</value2>
+							<value0>5</value0>
+							<value1>5</value1>
+							<value2>5</value2>
 						</Scale>
 					</Transform>
 					<Object_Name>Stopwatch</Object_Name>
@@ -524,9 +446,9 @@
 					<Material_Name>assets/materials/White50%Shiny.kmat</Material_Name>
 					<Collider_active>false</Collider_active>
 					<Collider>
-						<polymorphic_id>6</polymorphic_id>
+						<polymorphic_id>7</polymorphic_id>
 						<ptr_wrapper>
-							<id>2147483671</id>
+							<id>2147483668</id>
 							<data>
 								<value0>
 									<Type>2</Type>
@@ -542,6 +464,110 @@
 					</Collider>
 					<NumberComponents>0</NumberComponents>
 				</value0>
+				<Level>1</Level>
+				<IsDisplay>true</IsDisplay>
+			</data>
+		</ptr_wrapper>
+	</value7>
+	<value8>
+		<polymorphic_id>11</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483669</id>
+			<data>
+				<value0>
+					<Transform>
+						<Translation>
+							<value0>0</value0>
+							<value1>5.5</value1>
+							<value2>4.8400001525878906</value2>
+						</Translation>
+						<Rotation>
+							<value0>0</value0>
+							<value1>1.5700000524520874</value1>
+							<value2>0</value2>
+						</Rotation>
+						<Scale>
+							<value0>5</value0>
+							<value1>5</value1>
+							<value2>5</value2>
+						</Scale>
+					</Transform>
+					<Object_Name>Stopwatch</Object_Name>
+					<Mesh_Name>assets/models/ClockBody.obj</Mesh_Name>
+					<Material_Name>assets/materials/White50%Shiny.kmat</Material_Name>
+					<Collider_active>false</Collider_active>
+					<Collider>
+						<polymorphic_id>7</polymorphic_id>
+						<ptr_wrapper>
+							<id>2147483670</id>
+							<data>
+								<value0>
+									<Type>2</Type>
+									<Offset>
+										<value0>0</value0>
+										<value1>0</value1>
+										<value2>0</value2>
+									</Offset>
+								</value0>
+								<Radius>0.5</Radius>
+							</data>
+						</ptr_wrapper>
+					</Collider>
+					<NumberComponents>0</NumberComponents>
+				</value0>
+				<Level>2</Level>
+				<IsDisplay>true</IsDisplay>
+			</data>
+		</ptr_wrapper>
+	</value8>
+	<value9>
+		<polymorphic_id>11</polymorphic_id>
+		<ptr_wrapper>
+			<id>2147483671</id>
+			<data>
+				<value0>
+					<Transform>
+						<Translation>
+							<value0>7.0199999809265137</value0>
+							<value1>5.5</value1>
+							<value2>2.940000057220459</value2>
+						</Translation>
+						<Rotation>
+							<value0>0</value0>
+							<value1>2.2899999618530273</value1>
+							<value2>0</value2>
+						</Rotation>
+						<Scale>
+							<value0>5</value0>
+							<value1>5</value1>
+							<value2>5</value2>
+						</Scale>
+					</Transform>
+					<Object_Name>Stopwatch</Object_Name>
+					<Mesh_Name>assets/models/ClockBody.obj</Mesh_Name>
+					<Material_Name>assets/materials/White50%Shiny.kmat</Material_Name>
+					<Collider_active>false</Collider_active>
+					<Collider>
+						<polymorphic_id>7</polymorphic_id>
+						<ptr_wrapper>
+							<id>2147483672</id>
+							<data>
+								<value0>
+									<Type>2</Type>
+									<Offset>
+										<value0>0</value0>
+										<value1>0</value1>
+										<value2>0</value2>
+									</Offset>
+								</value0>
+								<Radius>0.5</Radius>
+							</data>
+						</ptr_wrapper>
+					</Collider>
+					<NumberComponents>0</NumberComponents>
+				</value0>
+				<Level>3</Level>
+				<IsDisplay>true</IsDisplay>
 			</data>
 		</ptr_wrapper>
 	</value9>

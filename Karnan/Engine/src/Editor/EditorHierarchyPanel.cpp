@@ -36,6 +36,10 @@ void EditorHierarchyPanel::OnImGUIRender()
 			{
 				KarnanEditor::Instance->SetTerrainObjectAsSelected((TerrainObject*)go);
 			}
+			else if (go->HasTag("Stopwatch"))
+			{
+				KarnanEditor::Instance->SetStopwatchAsSelected((Stopwatch*)go);
+			}
 			else
 				KarnanEditor::Instance->SetLastHighlightedGO(go);
 		}

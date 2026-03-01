@@ -145,6 +145,21 @@ void KarnanEditor::SetTerrainObjectAsSelected(TerrainObject* terrain)
 	_lastSelectedItem = terrain;
 }
 
+void KarnanEditor::SetStopwatchAsSelected(Stopwatch* stopwatch)
+{
+	if (stopwatch == nullptr)
+	{
+		_currentSelectedType = DetailsPanelTypes::NONE;
+	}
+	else
+	{
+		_currentSelectedType = DetailsPanelTypes::STOPWATCH;
+	}
+	_lastSelectedItem = stopwatch;
+
+
+}
+
 KarnanEditor* KarnanEditor::StartupEditor()
 {
 	if (KarnanEditor::Instance == nullptr)
