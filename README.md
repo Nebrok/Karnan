@@ -19,3 +19,7 @@ The engine can run independently of the editor. At program startup the editor is
 
 ## Adding Meshes to the engine
 OBJ files need to be added before engine startup, in the models folder in 'assets'. At engine startup, the models folder is parsed and any OBJs that don't have an associated kmesh binary file, will have one generated. It is the kmesh file which is loaded in runtime whenever models are read into memory. .kmesh file generation and loading into memory happens on a seperate thread to the main thread, so large models don't interupt engine usage.
+
+# Instructions for Building/Opening the project
+1. Install the Vulkan SDK (Version 1.4.309.0) to C drive.
+2. Open Visual Studio project.
