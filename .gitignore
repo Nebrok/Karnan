@@ -31,12 +31,13 @@ x86/
 [Aa][Rr][Mm]64/
 bld/
 [Bb]in/
+!**/assets/bin
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
 
-
-
+*.kmsh
+!cube.kmsh
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -68,8 +69,6 @@ project.lock.json
 project.fragment.lock.json
 artifacts/
 
-# ASP.NET Scaffolding
-ScaffoldingReadMe.txt
 
 # StyleCop
 StyleCopReport.xml
