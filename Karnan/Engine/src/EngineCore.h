@@ -22,8 +22,8 @@
 #include "PersistentStore.h"
 
 
-const int WIDTH = 800;
-const int HEIGHT = 800;
+const int WIDTH = 1480;
+const int HEIGHT = 830;
 
 class EngineCore
 {
@@ -53,7 +53,7 @@ private:
 
 	bool _playMode = true;
 
-	std::string _startupScene = "MenuScene";
+	std::string _startupScene = "DeferredSandbox";
 
 public:
 	static EngineCore* StartupEngine();
