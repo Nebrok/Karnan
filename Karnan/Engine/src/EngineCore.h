@@ -53,7 +53,7 @@ private:
 
 	bool _playMode = true;
 
-	std::string _startupScene = "DeferredSandbox";
+	std::string _startupScene = "EngineUsageRecording";
 
 public:
 	static EngineCore* StartupEngine();
